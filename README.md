@@ -1,49 +1,48 @@
-# moba-manager
+# Moba Manager
  
 ### Gameplay Loop
 
-1. **MOBA Kampe (Idle Loop):**
-   - **Kampens Varighed:** Hver kamp varer 15 minutter.
-   - **Automatisering:** Kampe køres automatisk mod AI-modstandere, hvor spillerens hold (som består af de helte, de har opgraderet) kæmper mod fjendtlige hold.
-   - **Resultatberegning:** Når kampen er afsluttet, genereres et resultat baseret på de kombinerede styrker og svagheder i holdet og AI'ens hold. Vælg tilfældige faktorer som kritiske hits, bonusser eller uventede begivenheder, der kan påvirke udfaldet.
+1. **MOBA Battles (Idle Loop):**
+   - **Battle Duration:** Each battle lasts 15 minutes.
+   - **Automation:** Battles run automatically against AI opponents, where the player’s team (composed of the heroes they've upgraded) fights against enemy teams.
+   - **Result Calculation:** At the end of each battle, a result is generated based on the combined strengths and weaknesses of the player’s team and the AI team. Include random factors like critical hits, bonuses, or unexpected events that can affect the outcome.
 
-2. **Belønninger (Loot og XP):**
-   - **XP og Leveling:** XP gives baseret på kampens udfald, hvor en sejr giver mere XP end et nederlag. XP bruges til at opgradere heltenes niveauer, som kan forbedre deres stats og evner.
-   - **Loot:** Spillere modtager loot baseret på kampens sværhedsgrad og resultat. Loot kan omfatte crafting materialer, genstande, eller mønter (eller gummiænder, i jeres tilfælde).
-   - **Tilfældige Belønninger:** Introducer en lille chance for sjældne eller unikke belønninger, som spillere kun kan få gennem bestemte handlinger eller ved at vinde flere kampe i træk.
+2. **Rewards (Loot and XP):**
+   - **XP and Leveling:** XP is awarded based on the battle’s outcome, with victories granting more XP than defeats. XP is used to level up heroes, improving their stats and abilities.
+   - **Loot:** Players receive loot based on the battle’s difficulty and result. Loot can include crafting materials, items, or currency (such as rubber ducks).
+   - **Random Rewards:** Introduce a small chance for rare or unique rewards, which players can only obtain through certain actions or by winning consecutive battles.
 
 3. **Progression:**
-   - **Helteopgradering:** Spillere bruger XP og loot til at opgradere deres helte, enten ved at forbedre stats direkte eller ved at udstyre dem med bedre genstande.
-   - **Crafting:** Loot kan bruges til at crafte nye genstande eller opgradere eksisterende genstande, som heltene kan udstyres med for at øge deres styrke i fremtidige kampe.
-   - **Hold Management:** Spillere kan administrere og tilpasse deres hold, vælge hvilke helte der skal bruges i kampe, og hvilke genstande der skal tildeles dem.
+   - **Hero Upgrades:** Players use XP and loot to upgrade their heroes, either by improving their stats directly or by equipping them with better items.
+   - **Crafting:** Loot can be used to craft new items or upgrade existing ones, which heroes can equip to increase their strength in future battles.
+   - **Team Management:** Players can manage and customize their team, choosing which heroes to use in battles and which items to assign to them.
 
 4. **Idle Gameplay Flow:**
-   - **15-Minute Loop:** Efter hver kamp får spilleren en rapport om kampens udfald, hvor de kan se resultaterne, indsamle belønninger, og forberede sig til den næste kamp.
-   - **Active Decision Making:** Mens kampene kører automatisk, skal spilleren stadig aktivt vælge og opgradere deres hold og items for at maksimere deres chancer for sejr.
+   - **15-Minute Loop:** After each battle, the player receives a report on the battle’s outcome, where they can see the results, collect rewards, and prepare for the next battle.
+   - **Active Decision Making:** While battles run automatically, the player must actively choose and upgrade their team and items to maximize their chances of victory.
 
-### Beregning af Belønninger
+### Reward Calculation
 
-1. **XP Beregning:**
-   - **Baseline XP:** Hver kamp giver en vis mængde XP, f.eks. 100 XP for deltagelse.
-   - **Bonus XP:** Sejre giver en bonus, f.eks. 50% ekstra XP. Tab kan stadig give en lille bonus XP for deltagelse.
-   - **Sværhedsgrad:** Højere sværhedsgrad på AI-modstandere kan øge XP-gain med en multiplikator, f.eks. 1.5x eller 2x.
+1. **XP Calculation:**
+   - **Baseline XP:** Each battle awards a certain amount of XP, e.g., 100 XP for participation.
+   - **Bonus XP:** Victories grant a bonus, e.g., 50% extra XP. Losses can still give a small participation bonus.
+   - **Difficulty Scaling:** Higher difficulty AI opponents can increase XP gain with a multiplier, e.g., 1.5x or 2x.
 
-2. **Loot Beregning:**
-   - **Grundlæggende Loot:** F.eks. 10 gummiænder og et random item/materiale per kamp.
-   - **Bonus Loot:** Sejre mod højere sværhedsgrad giver mulighed for sjældnere loot. 
-   - **Random Drops:** Chance for at få sjældne genstande eller crafting materialer, som er nødvendige for at crafte kraftfulde items.
+2. **Loot Calculation:**
+   - **Basic Loot:** For example, 10 rubber ducks and a random item/material per battle.
+   - **Bonus Loot:** Victories against higher difficulty opponents provide a chance for rarer loot.
+   - **Random Drops:** Chance to obtain rare items or crafting materials needed to craft powerful items.
 
 3. **Difficulty Scaling:**
-   - Som spilleren opgraderer deres helte, kan AI’ens styrke også justeres for at sikre, at udfordringen forbliver interessant. Det kan f.eks. gøres ved at introducere nye AI-typer med unikke evner eller strategier.
+   - As the player upgrades their heroes, the AI’s strength can also be adjusted to ensure the challenge remains engaging. This could include introducing new AI types with unique abilities or strategies.
 
-### Implementering i Godot
+### Implementation in Godot
 
-I Godot kan I oprette dette loop ved at bruge scener og scripts til at simulere MOBA-kampene og give belønninger. Nogle nøgletips:
+In Godot, you can implement this loop using scenes and scripts to simulate MOBA battles and distribute rewards. Some key tips:
 
-1. **Timers:** Brug Timers til at køre 15-minutters loops for hver kamp.
-2. **Scenes:** Hver kamp kan være en separat scene, der køres automatisk, mens spilleren kan interagere med UI i hovedscenen.
-3. **Random Number Generators:** Brug `RandomNumberGenerator` til at skabe tilfældige elementer som loot drops eller kampresultater.
-4. **Signals:** Brug signals til at kommunikere mellem kamp-scenen og hovedscenen, når en kamp er færdig, så belønninger og XP kan tildeles spilleren.
+1. **Timers:** Use Timers to run 15-minute loops for each battle.
+2. **Scenes:** Each battle can be a separate scene that runs automatically, while the player interacts with the UI in the main scene.
+3. **Random Number Generators:** Use `RandomNumberGenerator` to create random elements like loot drops or battle outcomes.
+4. **Signals:** Use signals to communicate between the battle scene and the main scene when a battle is finished, so rewards and XP can be granted to the player.
 
-Dette system giver et godt flow mellem den automatiserede idle del og de aktive beslutninger, spilleren skal tage for at forbedre deres hold og progression.
-
+This system provides a good flow between the automated idle component and the active decisions the player needs to make to improve their team and progress.
