@@ -1,48 +1,37 @@
-# Moba Manager
- 
-### Gameplay Loop
+# MOBA Manager
 
-1. **MOBA Battles (Idle Loop):**
-   - **Battle Duration:** Each battle lasts 15 minutes.
-   - **Automation:** Battles run automatically against AI opponents, where the player’s team (composed of the heroes they've upgraded) fights against enemy teams.
-   - **Result Calculation:** At the end of each battle, a result is generated based on the combined strengths and weaknesses of the player’s team and the AI team. Include random factors like critical hits, bonuses, or unexpected events that can affect the outcome.
+**Overview:**
+"MOBA Manager" is a strategic idle game inspired by classic MOBA titles like League of Legends and Dota 2, but with a quirky, cartoonish style reminiscent of "Ed, Edd n Eddy." The game blends automated MOBA battles with deep player interaction, where you act as the manager responsible for assembling and upgrading a team of unique heroes, strategically placing them on the battlefield, and developing them into the ultimate winning team.
 
-2. **Rewards (Loot and XP):**
-   - **XP and Leveling:** XP is awarded based on the battle’s outcome, with victories granting more XP than defeats. XP is used to level up heroes, improving their stats and abilities.
-   - **Loot:** Players receive loot based on the battle’s difficulty and result. Loot can include crafting materials, items, or currency (such as rubber ducks).
-   - **Random Rewards:** Introduce a small chance for rare or unique rewards, which players can only obtain through certain actions or by winning consecutive battles.
+## Gameplay and Features:
 
-3. **Progression:**
-   - **Hero Upgrades:** Players use XP and loot to upgrade their heroes, either by improving their stats directly or by equipping them with better items.
-   - **Crafting:** Loot can be used to craft new items or upgrade existing ones, which heroes can equip to increase their strength in future battles.
-   - **Team Management:** Players can manage and customize their team, choosing which heroes to use in battles and which items to assign to them.
+1. **Automated MOBA Battles:**
+   - The game continuously runs MOBA battles in the background. Each battle lasts about 15 minutes, after which the results are generated based on your heroes' strengths, their equipment, and the strategic positions you've chosen.
+   - Battles take place on a classic MOBA map with three lanes (top, mid, bottom) and a jungle. You must place your heroes in the appropriate positions—one on top lane, one on mid lane, two on bottom lane, and one in the jungle.
 
-4. **Idle Gameplay Flow:**
-   - **15-Minute Loop:** After each battle, the player receives a report on the battle’s outcome, where they can see the results, collect rewards, and prepare for the next battle.
-   - **Active Decision Making:** While battles run automatically, the player must actively choose and upgrade their team and items to maximize their chances of victory.
+2. **Heroes and Upgrades:**
+   - Your team consists of a variety of unique heroes, each with their own abilities, personalities, and equipment. To upgrade a hero, that hero must be active on the battlefield and earn its own unique XP. This XP can only be used to upgrade that specific hero.
+   - Each battle grants the participating heroes XP, which can be used to improve their stats and abilities. The more a hero participates in battles, the stronger they can become.
 
-### Reward Calculation
+3. **Crafting and Loot:**
+   - Winning battles rewards you with loot, which can be used to craft new items or upgrade existing ones. Crafting allows you to tailor your heroes' equipment to perfectly fit their abilities and your strategic goals.
+   - Items range from basic weapons and armor to rare artifacts that can change the outcome of a battle.
 
-1. **XP Calculation:**
-   - **Baseline XP:** Each battle awards a certain amount of XP, e.g., 100 XP for participation.
-   - **Bonus XP:** Victories grant a bonus, e.g., 50% extra XP. Losses can still give a small participation bonus.
-   - **Difficulty Scaling:** Higher difficulty AI opponents can increase XP gain with a multiplier, e.g., 1.5x or 2x.
+4. **Strategic Placement System:**
+   - The game allows you to choose where to place your heroes on the battlefield. The different lanes and jungle present unique challenges and opportunities, so you need to think strategically about which heroes are best suited for each position. Heroes earn XP only when they are active in battle, so placement is crucial.
 
-2. **Loot Calculation:**
-   - **Basic Loot:** For example, 10 rubber ducks and a random item/material per battle.
-   - **Bonus Loot:** Victories against higher difficulty opponents provide a chance for rarer loot.
-   - **Random Drops:** Chance to obtain rare items or crafting materials needed to craft powerful items.
+5. **Art Style and Atmosphere:**
+   - The game is designed with a colorful, cartoonish style featuring exaggerated character traits and humorous elements. The universe is filled with fun details, like rubber ducks as currency and oversized weapons, contributing to a light-hearted and entertaining atmosphere.
 
-3. **Difficulty Scaling:**
-   - As the player upgrades their heroes, the AI’s strength can also be adjusted to ensure the challenge remains engaging. This could include introducing new AI types with unique abilities or strategies.
+## How to Play:
+1. **Assemble Your Team:** Choose your heroes, upgrade them by sending them into battle, and equip them with the best items.
+2. **Place Your Heroes:** Strategically decide which heroes should be placed on the different lanes and in the jungle. Remember, heroes need to be active in battle to earn XP.
+3. **Watch the Battles Unfold:** Battles run automatically, and after each battle, the participating heroes earn XP, and you receive loot based on the battle’s outcome.
+4. **Improve Your Team:** Use each hero’s unique XP to upgrade their stats and abilities, and use loot to craft and upgrade items.
+5. **Refine and Perfect:** Continue to fine-tune your strategies, upgrade your team, and craft new items as you watch them fight their way to victory.
 
-### Implementation in Godot
+## Goal:
+Become the ultimate MOBA Manager by building the strongest team of heroes, dominating the battlefield, and climbing the ranks on the highscore leaderboard. Your goal is to balance between automated battles and strategic decisions to lead your team to victory.
 
-In Godot, you can implement this loop using scenes and scripts to simulate MOBA battles and distribute rewards. Some key tips:
-
-1. **Timers:** Use Timers to run 15-minute loops for each battle.
-2. **Scenes:** Each battle can be a separate scene that runs automatically, while the player interacts with the UI in the main scene.
-3. **Random Number Generators:** Use `RandomNumberGenerator` to create random elements like loot drops or battle outcomes.
-4. **Signals:** Use signals to communicate between the battle scene and the main scene when a battle is finished, so rewards and XP can be granted to the player.
-
-This system provides a good flow between the automated idle component and the active decisions the player needs to make to improve their team and progress.
+## Final Note:
+"MOBA Manager" combines the best elements of idle games and strategic MOBA gameplay, wrapped in an entertaining and visually appealing style. It’s a game that’s easy to pick up but difficult to master, offering plenty of opportunities for deep strategy and customization. The individual progression of heroes adds an extra layer of strategy, where every battle helps make your team stronger.
