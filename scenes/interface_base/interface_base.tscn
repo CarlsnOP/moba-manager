@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bd7y8koo1w71"]
+
+[node name="InterfaceBase" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PC" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MC" type="MarginContainer" parent="PC"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VB" type="VBoxContainer" parent="PC/MC"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PC/MC/VB"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Menu name"

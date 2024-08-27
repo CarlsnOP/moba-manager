@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="HeroResource" load_steps=3 format=3 uid="uid://crcqap55dro3u"]
+
+[ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/Eddy the Jungler.png" id="1_krg8b"]
+[ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="2_3tmqr"]
+
+[resource]
+script = ExtResource("2_3tmqr")
+hero_name = "Eddy"
+hero_icon = ExtResource("1_krg8b")
+health = 50.0
+mana = 50.0
+damage = 50.0

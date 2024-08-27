@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwbflcxxchnbl"]
+
+[ext_resource type="Script" path="res://generator.gd" id="1_qwye5"]
+
+[node name="Generator" type="Timer"]
+autostart = true
+script = ExtResource("1_qwye5")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="HeroResource" load_steps=3 format=3 uid="uid://dsf27psso4j7l"]
+
+[ext_resource type="Texture2D" uid="uid://baysqvxlvsnfk" path="res://assets/art/characters/Fred the Tank.png" id="1_tla1a"]
+[ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="2_06nol"]
+
+[resource]
+script = ExtResource("2_06nol")
+hero_name = "Fred"
+hero_icon = ExtResource("1_tla1a")
+health = 50.0
+mana = 50.0
+damage = 50.0

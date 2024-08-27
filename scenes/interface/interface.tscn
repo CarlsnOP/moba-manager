@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://brfdff1sxe1as"]
+
+[ext_resource type="Script" path="res://scenes/interface/interface.gd" id="1_7qvry"]
+[ext_resource type="PackedScene" uid="uid://673smdjoegvd" path="res://scenes/interface_base/heroes/heroes.tscn" id="2_31ohs"]
+[ext_resource type="PackedScene" uid="uid://dkdc3lgikvhio" path="res://scenes/interface_base/battlesetup/battle_setup.tscn" id="3_2watf"]
+[ext_resource type="PackedScene" uid="uid://b24kcv61gsemj" path="res://scenes/interface_base/home/home.tscn" id="4_v3ki7"]
+
+[node name="Interface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_7qvry")
+
+[node name="Heroes" parent="." instance=ExtResource("2_31ohs")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="BattleSetup" parent="." instance=ExtResource("3_2watf")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="Home" parent="." instance=ExtResource("4_v3ki7")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="Hero" type="Node" parent="."]

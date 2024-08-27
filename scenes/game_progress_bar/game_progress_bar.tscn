@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg053uvs35ycs"]
+
+[ext_resource type="PackedScene" uid="uid://dwbflcxxchnbl" path="res://scenes/generator/generator.tscn" id="1_8pbtn"]
+[ext_resource type="Script" path="res://scenes/game_progress_bar/game_progress_bar.gd" id="1_ipeb3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4ok2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obwei"]
+bg_color = Color(0.615061, 0.999396, 0.447325, 1)
+
+[node name="GameProgressBar" type="ProgressBar"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 320.0
+offset_bottom = -240.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_w4ok2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_obwei")
+step = 0.1
+value = 50.0
+rounded = true
+script = ExtResource("1_ipeb3")
+
+[node name="Generator" parent="." instance=ExtResource("1_8pbtn")]

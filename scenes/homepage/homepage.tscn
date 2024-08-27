@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpnlghx13iay"]
+
+[ext_resource type="Script" path="res://scenes/homepage/homepage.gd" id="1_i64r6"]
+[ext_resource type="Texture2D" uid="uid://sxx71voh604e" path="res://assets/art/background/background.png" id="1_innmw"]
+[ext_resource type="Script" path="res://scenes/game/background.gd" id="2_n3ov1"]
+[ext_resource type="PackedScene" uid="uid://d1srca4b5kfs6" path="res://scenes/nav_menu/nav_menu.tscn" id="3_tjgve"]
+[ext_resource type="PackedScene" uid="uid://brfdff1sxe1as" path="res://scenes/interface/interface.tscn" id="5_upecu"]
+[ext_resource type="Script" path="res://scenes/homepage/saver_loader.gd" id="6_moooh"]
+
+[node name="Homepage" type="Node2D"]
+script = ExtResource("1_i64r6")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(1.87521, 1.87521)
+texture = ExtResource("1_innmw")
+centered = false
+script = ExtResource("2_n3ov1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NavMenu" parent="CanvasLayer" instance=ExtResource("3_tjgve")]
+unique_name_in_owner = true
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="Interface" parent="CanvasLayer/MarginContainer" instance=ExtResource("5_upecu")]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Utilities" type="Node" parent="."]
+
+[node name="SaverLoader" type="Node" parent="Utilities"]
+script = ExtResource("6_moooh")
+
+[node name="SaveButton" type="Button" parent="."]
+offset_left = 504.0
+offset_top = 20.0
+offset_right = 548.0
+offset_bottom = 51.0
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="."]
+offset_left = 562.0
+offset_top = 19.0
+offset_right = 606.0
+offset_bottom = 50.0
+text = "Load"
+
+[connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="LoadButton" to="." method="_on_load_button_pressed"]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="HeroResource" load_steps=3 format=3 uid="uid://ccsqgbnokl05t"]
+
+[ext_resource type="Texture2D" uid="uid://d3yo0f5qh8g0t" path="res://assets/art/characters/Egon the Fighter.png" id="1_njhl5"]
+[ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="2_kp7kd"]
+
+[resource]
+script = ExtResource("2_kp7kd")
+hero_name = "Egon"
+hero_icon = ExtResource("1_njhl5")
+health = 50.0
+mana = 50.0
+damage = 50.0

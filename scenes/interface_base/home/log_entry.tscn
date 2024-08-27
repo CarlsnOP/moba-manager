@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjyqwudsqgmsu"]
+
+[ext_resource type="Script" path="res://scenes/interface_base/home/log_entry.gd" id="1_8gng6"]
+
+[node name="LogEntry" type="Control"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_8gng6")
+
+[node name="PC" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="LogLabel" type="Label" parent="PC"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Rubber Duckies earned: "

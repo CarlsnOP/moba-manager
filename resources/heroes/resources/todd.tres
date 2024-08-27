@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="HeroResource" load_steps=3 format=3 uid="uid://bgrauay4le0gw"]
+
+[ext_resource type="Texture2D" uid="uid://4oia8p3xvcdq" path="res://assets/art/characters/Todd the Wizard.png" id="1_36wvh"]
+[ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="2_4bqbc"]
+
+[resource]
+script = ExtResource("2_4bqbc")
+hero_name = "Todd"
+hero_icon = ExtResource("1_36wvh")
+health = 50.0
+mana = 50.0
+damage = 50.0
