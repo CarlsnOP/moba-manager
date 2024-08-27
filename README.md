@@ -1,37 +1,70 @@
 # MOBA Manager
 
-**Overview:**
-"MOBA Manager" is a strategic idle game inspired by classic MOBA titles like League of Legends and Dota 2, but with a quirky, cartoonish style reminiscent of "Ed, Edd n Eddy." The game blends automated MOBA battles with deep player interaction, where you act as the manager responsible for assembling and upgrading a team of unique heroes, strategically placing them on the battlefield, and developing them into the ultimate winning team.
+**MOBA Manager** is an open-source idle strategy game inspired by classic MOBA games, with a quirky, cartoonish twist. Manage your team of heroes, guide them through battles, and watch them grow stronger as you craft items, earn rewards, and strategize your way to victory.
 
-## Gameplay and Features:
+For a detailed overview of the game, features, and contribution guidelines, please visit our [Wiki](https://github.com/CarlsnOP/moba-manager/wiki).
 
-1. **Automated MOBA Battles:**
-   - The game continuously runs MOBA battles in the background. Each battle lasts about 15 minutes, after which the results are generated based on your heroes' strengths, their equipment, and the strategic positions you've chosen.
-   - Battles take place on a classic MOBA map with three lanes (top, mid, bottom) and a jungle. You must place your heroes in the appropriate positions—one on top lane, one on mid lane, two on bottom lane, and one in the jungle.
+## Getting Started
 
-2. **Heroes and Upgrades:**
-   - Your team consists of a variety of unique heroes, each with their own abilities, personalities, and equipment. To upgrade a hero, that hero must be active on the battlefield and earn its own unique XP. This XP can only be used to upgrade that specific hero.
-   - Each battle grants the participating heroes XP, which can be used to improve their stats and abilities. The more a hero participates in battles, the stronger they can become.
+This section will guide you through the process of downloading the code, setting up your development environment with Godot 4.3, and running the project.
 
-3. **Crafting and Loot:**
-   - Winning battles rewards you with loot, which can be used to craft new items or upgrade existing ones. Crafting allows you to tailor your heroes' equipment to perfectly fit their abilities and your strategic goals.
-   - Items range from basic weapons and armor to rare artifacts that can change the outcome of a battle.
+### Prerequisites
 
-4. **Strategic Placement System:**
-   - The game allows you to choose where to place your heroes on the battlefield. The different lanes and jungle present unique challenges and opportunities, so you need to think strategically about which heroes are best suited for each position. Heroes earn XP only when they are active in battle, so placement is crucial.
+Before you begin, ensure you have the following installed:
 
-5. **Art Style and Atmosphere:**
-   - The game is designed with a colorful, cartoonish style featuring exaggerated character traits and humorous elements. The universe is filled with fun details, like rubber ducks as currency and oversized weapons, contributing to a light-hearted and entertaining atmosphere.
+- **Godot Engine 4.3**: You can download it from the [official Godot website](https://godotengine.org/download).
+- **Git**: Used for cloning the repository. Install from [git-scm.com](https://git-scm.com/).
 
-## How to Play:
-1. **Assemble Your Team:** Choose your heroes, upgrade them by sending them into battle, and equip them with the best items.
-2. **Place Your Heroes:** Strategically decide which heroes should be placed on the different lanes and in the jungle. Remember, heroes need to be active in battle to earn XP.
-3. **Watch the Battles Unfold:** Battles run automatically, and after each battle, the participating heroes earn XP, and you receive loot based on the battle’s outcome.
-4. **Improve Your Team:** Use each hero’s unique XP to upgrade their stats and abilities, and use loot to craft and upgrade items.
-5. **Refine and Perfect:** Continue to fine-tune your strategies, upgrade your team, and craft new items as you watch them fight their way to victory.
+### Cloning the Repository
 
-## Goal:
-Become the ultimate MOBA Manager by building the strongest team of heroes, dominating the battlefield, and climbing the ranks on the highscore leaderboard. Your goal is to balance between automated battles and strategic decisions to lead your team to victory.
+1. **Fork the Repository** (Optional):
+   If you plan to contribute, fork the repository to your own GitHub account.
 
-## Final Note:
-"MOBA Manager" combines the best elements of idle games and strategic MOBA gameplay, wrapped in an entertaining and visually appealing style. It’s a game that’s easy to pick up but difficult to master, offering plenty of opportunities for deep strategy and customization. The individual progression of heroes adds an extra layer of strategy, where every battle helps make your team stronger.
+2. **Clone the Repository**:
+   Clone the repository to your local machine using the following command:
+
+   ```bash
+   git clone https://github.com/CarlsnOP/moba-manager.git
+   ```
+
+3. **Navigate to the Project Directory**:
+   ```bash
+   cd moba-manager
+   ```
+
+### Setting Up the Development Environment
+
+1. **Open Godot**:
+   Launch the Godot Engine.
+
+2. **Import the Project**:
+   - Click on the "Import" button on the Godot start screen.
+   - Navigate to the `moba-manager` directory you cloned.
+   - Select the `project.godot` file and click "Open".
+   - Godot will load the project into the engine.
+
+3. **Configure the Project** (if needed):
+   - Ensure that the project settings are correctly configured for your development environment.
+   - Verify that the project is set to use Godot 4.3.
+
+### Running the Project
+
+1. **Play the Game**:
+   - Press the "Play" button in Godot (F5) to run the project.
+   - The game will start, and you can interact with it in the Godot editor.
+
+2. **Debugging**:
+   - Use Godot’s built-in debugger to track any issues that arise during development.
+   - Set breakpoints, inspect variables, and step through the code as needed.
+
+### Contributing
+
+We welcome contributions from everyone! Please check out our [Contribution Guidelines](https://github.com/CarlsnOP/moba-manager/wiki/Contribution-Guidelines) for detailed instructions on how to contribute to the project.
+
+### License
+
+This project is licensed under the **MOBA Manager Proprietary License**. The code in this repository is intended for use solely in contributing to the MOBA Manager project. Any use, distribution, or modification of the code outside this project is strictly prohibited. For more details, please see the [LICENSE](LICENSE.md) file.
+
+### Contact
+
+If you have any questions or need further assistance, feel free to reach out to the project maintainers or open an issue on GitHub.
