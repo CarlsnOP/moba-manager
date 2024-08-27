@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/interface_base/home/log_entry.gd" id="1_8gng6"]
 
-[node name="LogEntry" type="Control"]
+[node name="LogEntry" type="Control" groups=["game_events"]]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 3
 anchors_preset = 10

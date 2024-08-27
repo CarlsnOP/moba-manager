@@ -6,7 +6,7 @@ var _rubberduckies := 0
 
 func get_rubberduckies() -> int:
 	return _rubberduckies
-	
+
 func create_rubberduckies(quantity: int) -> void:
 	if quantity <= 0:
 		return

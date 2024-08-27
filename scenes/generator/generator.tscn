@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://generator.gd" id="1_qwye5"]
 
-[node name="Generator" type="Timer"]
+[node name="Generator" type="Timer" groups=["game_events"]]
 autostart = true
 script = ExtResource("1_qwye5")
 

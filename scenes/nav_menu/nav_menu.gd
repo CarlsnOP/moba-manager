@@ -34,4 +34,5 @@ func _on_settings_button_pressed():
 	SignalManager.new_interface.emit(6)
 
 func _on_quit_button_pressed():
+	get_tree().call_group("saver_loader", "save_game")
 	get_tree().quit()

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/rubber_duckies_label/rubber_duckies_label.gd" id="1_4wcfx"]
 
-[node name="RubberDuckiesLabel" type="Label"]
+[node name="RubberDuckiesLabel" type="Label" groups=["game_events"]]
 size_flags_vertical = 1
 theme_type_variation = &"HeaderSmall"
 text = "0"
