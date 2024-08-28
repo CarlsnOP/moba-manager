@@ -1,12 +1,22 @@
-[gd_resource type="Resource" script_class="HeroResource" load_steps=3 format=3 uid="uid://dsf27psso4j7l"]
+[gd_resource type="Resource" script_class="HeroResource" load_steps=4 format=3 uid="uid://dsf27psso4j7l"]
 
 [ext_resource type="Texture2D" uid="uid://baysqvxlvsnfk" path="res://assets/art/characters/Fred the Tank.png" id="1_tla1a"]
+[ext_resource type="Texture2D" uid="uid://byios58xffsse" path="res://assets/art/characters/portraits/Fred portrait.png" id="2_5re23"]
 [ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="2_06nol"]
 
 [resource]
 script = ExtResource("2_06nol")
 hero_name = "Fred"
 hero_icon = ExtResource("1_tla1a")
-health = 50.0
-mana = 50.0
-damage = 50.0
+hero_portrait = ExtResource("2_5re23")
+lvl = 1
+xp = 0
+upgrade_points = 0
+health = 800.0
+attack_damage = 50.0
+ability_power = 20.0
+extra_hp = 110.0
+extra_ad = 5.0
+extra_ap = 3.0
+type = "Tank"
+lore = "Fred was always the kid who loved playing the hero, but he took it one step further by crafting his own suit of armor from whatever he could find lying around. After years of refining his DIY knightly gear, Fred now marches into battle clad in an armor set that's as colorful as it is sturdy. With a shield that can block almost anything and an unwavering grin, Fred stands as the immovable wall between his team and any danger. His boundless enthusiasm and unshakable confidence make him the heart of any defense, inspiring his allies and frustrating his foes."

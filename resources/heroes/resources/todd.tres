@@ -1,12 +1,23 @@
-[gd_resource type="Resource" script_class="HeroResource" load_steps=3 format=3 uid="uid://bgrauay4le0gw"]
+[gd_resource type="Resource" script_class="HeroResource" load_steps=4 format=3 uid="uid://bgrauay4le0gw"]
 
 [ext_resource type="Texture2D" uid="uid://4oia8p3xvcdq" path="res://assets/art/characters/Todd the Wizard.png" id="1_36wvh"]
 [ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="2_4bqbc"]
+[ext_resource type="Texture2D" uid="uid://dak0pgobpvg4v" path="res://assets/art/characters/portraits/Todd portrait.png" id="2_mbhv5"]
 
 [resource]
 script = ExtResource("2_4bqbc")
 hero_name = "Todd"
 hero_icon = ExtResource("1_36wvh")
-health = 50.0
-mana = 50.0
-damage = 50.0
+hero_portrait = ExtResource("2_mbhv5")
+in_team = true
+lvl = 1
+xp = 0
+upgrade_points = 0
+health = 450.0
+attack_damage = 40.0
+ability_power = 80.0
+extra_hp = 60.0
+extra_ad = 4.0
+extra_ap = 12.0
+type = "Mage"
+lore = "Todd has always been the oddball with his nose buried in books, particularly ones about magic. After stumbling upon an ancient tome of spells hidden away in the school library, Todd discovered he had a natural talent for the arcane arts. Now, with a hat that's too big for his head and a staff that seems a bit too powerful for his own good, Todd has set out to prove that brains (and a little bit of magic) can beat brawn any day. Though he may look a bit unsure at times, when it comes to casting spells, Todd’s power is nothing short of extraordinary."

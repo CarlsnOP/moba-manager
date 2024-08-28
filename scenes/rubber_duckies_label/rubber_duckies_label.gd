@@ -1,6 +1,7 @@
 extends Label
 
 func on_before_load_game():
+	await get_tree().physics_frame
 	update_text()
 
 func _ready():

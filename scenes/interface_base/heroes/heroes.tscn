@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://673smdjoegvd"]
+[gd_scene load_steps=6 format=3 uid="uid://673smdjoegvd"]
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interface_base/interface_base.tscn" id="1_qir55"]
 [ext_resource type="Script" path="res://scenes/interface_base/heroes/heroes.gd" id="2_aktco"]
 [ext_resource type="PackedScene" uid="uid://ckooocc8ghpgl" path="res://scenes/hero_slot/hero_slot.tscn" id="3_md810"]
+[ext_resource type="Script" path="res://scenes/interface_base/heroes/hero_page.gd" id="4_iqvvf"]
+[ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/Eddy the Jungler.png" id="5_omhe7"]
 
 [node name="Heroes" instance=ExtResource("1_qir55")]
 script = ExtResource("2_aktco")
@@ -15,3 +17,228 @@ text = "Heroes"
 unique_name_in_owner = true
 layout_mode = 2
 columns = 4
+
+[node name="HeroPage" type="PanelContainer" parent="." index="1"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeroPage"
+script = ExtResource("4_iqvvf")
+
+[node name="MC" type="MarginContainer" parent="HeroPage" index="0"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HeroPage/MC" index="0"]
+layout_mode = 2
+
+[node name="VB" type="VBoxContainer" parent="HeroPage/MC/HBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="NameLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Hej"
+
+[node name="LvlLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "lvl"
+
+[node name="XPLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "XP"
+
+[node name="UpgradePointsLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Upgrade Points"
+
+[node name="StatsPointsLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="4"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Stats"
+
+[node name="HB" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="5"]
+layout_mode = 2
+
+[node name="HealthLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB/HB" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Health: "
+
+[node name="Spacer" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="HeroPage/MC/HBoxContainer/VB/HB" index="2"]
+layout_mode = 2
+text = "+"
+
+[node name="Spacer2" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB" index="3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="HB2" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="6"]
+layout_mode = 2
+
+[node name="DamageLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB/HB2" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Attack Damage: "
+
+[node name="Spacer" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB2" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="HeroPage/MC/HBoxContainer/VB/HB2" index="2"]
+layout_mode = 2
+text = "+"
+
+[node name="Spacer3" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB2" index="3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="HB5" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="7"]
+layout_mode = 2
+
+[node name="AbilityPowerLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB/HB5" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Ability Power: "
+
+[node name="Spacer2" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB5" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="HeroPage/MC/HBoxContainer/VB/HB5" index="2"]
+layout_mode = 2
+text = "+"
+
+[node name="Spacer4" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB5" index="3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="SkillsLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="8"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Skills"
+
+[node name="HB4" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="9"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HeroPage/MC/HBoxContainer/VB/HB4" index="0"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+color = Color(0.337255, 0.337255, 0.337255, 0.392157)
+
+[node name="ColorRect2" type="ColorRect" parent="HeroPage/MC/HBoxContainer/VB/HB4" index="1"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+color = Color(0.337255, 0.337255, 0.337255, 0.392157)
+
+[node name="ColorRect3" type="ColorRect" parent="HeroPage/MC/HBoxContainer/VB/HB4" index="2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+color = Color(0.337255, 0.337255, 0.337255, 0.392157)
+
+[node name="ItemsLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="10"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Items"
+
+[node name="HB3" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="11"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HeroPage/MC/HBoxContainer/VB/HB3" index="0"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+color = Color(0.337255, 0.337255, 0.337255, 0.392157)
+
+[node name="ColorRect2" type="ColorRect" parent="HeroPage/MC/HBoxContainer/VB/HB3" index="1"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+color = Color(0.337255, 0.337255, 0.337255, 0.392157)
+
+[node name="ColorRect3" type="ColorRect" parent="HeroPage/MC/HBoxContainer/VB/HB3" index="2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+color = Color(0.337255, 0.337255, 0.337255, 0.392157)
+
+[node name="VB2" type="VBoxContainer" parent="HeroPage/MC/HBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Spacer2" type="Control" parent="HeroPage/MC/HBoxContainer/VB2" index="0"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="MarginContainer" type="MarginContainer" parent="HeroPage/MC/HBoxContainer/VB2" index="1"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 200
+
+[node name="TextureRect" type="TextureRect" parent="HeroPage/MC/HBoxContainer/VB2/MarginContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("5_omhe7")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Name2Label" type="Label" parent="HeroPage/MC/HBoxContainer/VB2" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Name"
+horizontal_alignment = 1
+
+[node name="TypeLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB2" index="3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Type"
+horizontal_alignment = 1
+
+[node name="LoreLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB2" index="4"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Eddy was once just an ordinary kid with a love for exploring the wildest parts of the neighborhood. But one day, he stumbled upon a mysterious, enchanted scythe deep within a forgotten forest. The moment he touched it, Eddy was transformed into something... well, a bit crazier. Now, with a wicked grin permanently plastered on his face and a scythe that seems to have a mind of its own, Eddy roams the jungle like it’s his playground. He delights in ambushing unsuspecting foes, darting in and out of the shadows with wild laughter echoing behind him. Though his sanity might be questionable, his skills in the jungle are unmatched, and he’s always ready to leap into the fray when his team needs him most."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer" type="Control" parent="HeroPage/MC/HBoxContainer/VB2" index="5"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="ExitButton" type="Button" parent="HeroPage/MC/HBoxContainer" index="2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "X"
+flat = true
+
+[connection signal="pressed" from="HeroPage/MC/HBoxContainer/ExitButton" to="." method="_on_button_pressed"]

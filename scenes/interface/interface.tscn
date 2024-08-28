@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dkdc3lgikvhio" path="res://scenes/interface_base/battlesetup/battle_setup.tscn" id="3_2watf"]
 [ext_resource type="PackedScene" uid="uid://b24kcv61gsemj" path="res://scenes/interface_base/home/home.tscn" id="4_v3ki7"]
 
-[node name="Interface" type="Control"]
+[node name="Interface" type="Control" groups=["game_events"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

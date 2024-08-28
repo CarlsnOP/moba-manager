@@ -20,6 +20,7 @@ config/icon="res://logo.png"
 SignalManager="*res://singletons/signal_manager.gd"
 CurrencyManager="*res://singletons/currency_manager.gd"
 GeneratorManager="*res://singletons/generator_manager.gd"
+TeamManager="*res://singletons/team_manager.gd"
 
 [debug]
 
@@ -46,6 +47,10 @@ folder_colors={
 "res://scenes/": "purple",
 "res://singletons/": "blue"
 }
+
+[global_group]
+
+game_events=""
 
 [gui]
 

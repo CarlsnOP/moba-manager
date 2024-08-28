@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://lt08ltq12ss6"]
+
+[ext_resource type="PackedScene" uid="uid://ckooocc8ghpgl" path="res://scenes/hero_slot/hero_slot.tscn" id="1_uxpgb"]
+
+[node name="HeroPortraitSlot" instance=ExtResource("1_uxpgb")]
+icon = false
+
+[node name="Button" parent="." index="0"]
+flat = true

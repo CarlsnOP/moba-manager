@@ -8,14 +8,15 @@ var log_entries: Array = []
 
 func _ready():
 	SignalManager.rubberduckies_created.connect(rubberduckies_created)
+	SignalManager.on_log_entry.connect(on_log_entry)
 
-func on_load_game(_saved_data:SavedData):
+func on_log_entry(node) -> void:
+	log_entries.append(node)
 	remove_entry()
 
 func rubberduckies_created(amount: int) -> void:
 	var new_log = log_scene.instantiate()
 	vb.add_child(new_log)
-	new_log.add_to_group("log")
 	new_log.new_log(amount)
 	log_entries.append(new_log)
 	remove_entry()

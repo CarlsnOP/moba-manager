@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/interface_base/home/home.gd" id="2_gedj6"]
 [ext_resource type="PackedScene" uid="uid://cjyqwudsqgmsu" path="res://scenes/interface_base/home/log_entry.tscn" id="3_ruq4k"]
 
-[node name="Home" instance=ExtResource("1_ob8vx")]
+[node name="Home" groups=["game_events"] instance=ExtResource("1_ob8vx")]
 script = ExtResource("2_gedj6")
 log_scene = ExtResource("3_ruq4k")
 
