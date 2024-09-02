@@ -1,13 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkdc3lgikvhio"]
+[gd_scene load_steps=8 format=3 uid="uid://dkdc3lgikvhio"]
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interface_base/interface_base.tscn" id="1_mn2md"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesetup/battle_setup.gd" id="2_ng1v2"]
 [ext_resource type="Texture2D" uid="uid://0jmm3api8fgm" path="res://assets/art/ui/arena.png" id="3_gu1wc"]
 [ext_resource type="PackedScene" uid="uid://lt08ltq12ss6" path="res://scenes/hero_slot/hero_portrait_slot.tscn" id="3_uuksq"]
 [ext_resource type="Texture2D" uid="uid://crbevsfr7osdv" path="res://assets/art/characters/portraits/Egon portrait.png" id="4_bftr8"]
-[ext_resource type="Texture2D" uid="uid://dak0pgobpvg4v" path="res://assets/art/characters/portraits/Todd portrait.png" id="5_k8adn"]
 [ext_resource type="Texture2D" uid="uid://ic56vif0hfe1" path="res://assets/art/characters/portraits/Em portrait.png" id="6_co4nc"]
-[ext_resource type="Texture2D" uid="uid://dlsna1nynujov" path="res://assets/art/characters/portraits/Lucy portrait.png" id="7_81phf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v7ifr"]
 load_path = "res://.godot/imported/Eddy portrait.png-3a207cb37888210dc7a06ba9be07753a.ctex"
@@ -33,128 +31,72 @@ layout_mode = 2
 
 [node name="TopLabel" type="Label" parent="PC/MC/VB/HB/VB/Top" index="0"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"HeaderMedium"
 text = "Top lane:"
 
-[node name="Spacer" type="Control" parent="PC/MC/VB/HB/VB/Top" index="1"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="TopButton" type="Button" parent="PC/MC/VB/HB/VB/Top" index="2"]
+[node name="TopButton" type="Button" parent="PC/MC/VB/HB/VB/Top" index="1"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+size_flags_horizontal = 10
 icon = ExtResource("4_bftr8")
 flat = true
 expand_icon = true
 
-[node name="Spacer2" type="Control" parent="PC/MC/VB/HB/VB/Top" index="3"]
+[node name="Spacer2" type="Control" parent="PC/MC/VB/HB/VB/Top" index="2"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Mid" type="HBoxContainer" parent="PC/MC/VB/HB/VB" index="1"]
-layout_mode = 2
-
-[node name="MidLabel" type="Label" parent="PC/MC/VB/HB/VB/Mid" index="0"]
-layout_mode = 2
-theme_type_variation = &"HeaderMedium"
-text = "Mid lane:"
-
-[node name="Spacer" type="Control" parent="PC/MC/VB/HB/VB/Mid" index="1"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="MidButton" type="Button" parent="PC/MC/VB/HB/VB/Mid" index="2"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-icon = ExtResource("5_k8adn")
-flat = true
-expand_icon = true
-
-[node name="Spacer2" type="Control" parent="PC/MC/VB/HB/VB/Mid" index="3"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Bot" type="HBoxContainer" parent="PC/MC/VB/HB/VB" index="2"]
+[node name="Bot" type="HBoxContainer" parent="PC/MC/VB/HB/VB" index="1"]
 layout_mode = 2
 
 [node name="BotLabel" type="Label" parent="PC/MC/VB/HB/VB/Bot" index="0"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"HeaderMedium"
 text = "Bot lane:"
 
-[node name="Spacer" type="Control" parent="PC/MC/VB/HB/VB/Bot" index="1"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="BotButton" type="Button" parent="PC/MC/VB/HB/VB/Bot" index="2"]
+[node name="BotButton" type="Button" parent="PC/MC/VB/HB/VB/Bot" index="1"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+size_flags_horizontal = 10
 icon = ExtResource("6_co4nc")
 flat = true
 expand_icon = true
 
-[node name="Spacer2" type="Control" parent="PC/MC/VB/HB/VB/Bot" index="3"]
+[node name="Spacer2" type="Control" parent="PC/MC/VB/HB/VB/Bot" index="2"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Bot2" type="HBoxContainer" parent="PC/MC/VB/HB/VB" index="3"]
-layout_mode = 2
-
-[node name="Bot2Label" type="Label" parent="PC/MC/VB/HB/VB/Bot2" index="0"]
-layout_mode = 2
-theme_type_variation = &"HeaderMedium"
-text = "Bot lane:"
-
-[node name="Spacer" type="Control" parent="PC/MC/VB/HB/VB/Bot2" index="1"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="Bot2Button" type="Button" parent="PC/MC/VB/HB/VB/Bot2" index="2"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-icon = ExtResource("7_81phf")
-flat = true
-expand_icon = true
-
-[node name="Spacer2" type="Control" parent="PC/MC/VB/HB/VB/Bot2" index="3"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Jungle" type="HBoxContainer" parent="PC/MC/VB/HB/VB" index="4"]
+[node name="Jungle" type="HBoxContainer" parent="PC/MC/VB/HB/VB" index="2"]
 layout_mode = 2
 
 [node name="JungleLabel" type="Label" parent="PC/MC/VB/HB/VB/Jungle" index="0"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"HeaderMedium"
-text = "Jungle lane:"
+text = "Jungle:"
 
-[node name="Spacer" type="Control" parent="PC/MC/VB/HB/VB/Jungle" index="1"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="JungleButton" type="Button" parent="PC/MC/VB/HB/VB/Jungle" index="2"]
+[node name="JungleButton" type="Button" parent="PC/MC/VB/HB/VB/Jungle" index="1"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+size_flags_horizontal = 10
 icon = SubResource("CompressedTexture2D_v7ifr")
 flat = true
 expand_icon = true
 
-[node name="Spacer2" type="Control" parent="PC/MC/VB/HB/VB/Jungle" index="3"]
+[node name="Spacer3" type="Control" parent="PC/MC/VB/HB/VB/Jungle" index="2"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="PC/MC/VB/HB" index="1"]
-custom_minimum_size = Vector2(800, 0)
+custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
@@ -185,7 +127,5 @@ layout_mode = 2
 columns = 4
 
 [connection signal="pressed" from="PC/MC/VB/HB/VB/Top/TopButton" to="." method="_on_top_button_pressed"]
-[connection signal="pressed" from="PC/MC/VB/HB/VB/Mid/MidButton" to="." method="_on_mid_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/HB/VB/Bot/BotButton" to="." method="_on_bot_button_pressed"]
-[connection signal="pressed" from="PC/MC/VB/HB/VB/Bot2/Bot2Button" to="." method="_on_bot_2_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/HB/VB/Jungle/JungleButton" to="." method="_on_jungle_button_pressed"]

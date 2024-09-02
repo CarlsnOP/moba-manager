@@ -12,3 +12,6 @@ signal new_interface(state: int)
 signal rubberduckies_updated
 signal rubberduckies_created(quantity: int)
 signal rubberduckies_spent(quantity: int)
+
+#Battle
+signal on_battle_end

@@ -71,6 +71,12 @@ theme_type_variation = &"HeaderMedium"
 text = "Battle Setup"
 alignment = 0
 
+[node name="BattleSimButton" type="Button" parent="PC/MC/VB"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Battle Sim"
+alignment = 0
+
 [node name="Inventorybutton" type="Button" parent="PC/MC/VB"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
@@ -125,6 +131,7 @@ alignment = 0
 [connection signal="pressed" from="PC/MC/VB/HomeButton" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/HeroesButton" to="." method="_on_heroes_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/BattleSetupButton" to="." method="_on_battle_setup_button_pressed"]
+[connection signal="pressed" from="PC/MC/VB/BattleSimButton" to="." method="_on_battle_sim_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/Inventorybutton" to="." method="_on_inventorybutton_pressed"]
 [connection signal="pressed" from="PC/MC/VB/CraftingButton" to="." method="_on_crafting_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/HighscoreButton" to="." method="_on_highscore_button_pressed"]

@@ -14,18 +14,7 @@ func _ready():
 	
 func on_hero_selected(hero: HeroResource):
 	hero_page.show()
-	hero_page.setup(
-		hero.hero_name,
-		hero.lvl,
-		hero.xp,
-		hero.upgrade_points,
-		hero.health,
-		hero.attack_damage,
-		hero.ability_power,
-		hero.hero_icon,
-		hero.type,
-		hero.lore
-		)
+	hero_page.setup(hero)
 
 func add_heroes():
 	for hero in hero_list.heroes:
@@ -34,6 +23,5 @@ func add_heroes():
 		slot.add_to_group("hero_buttons")
 		slot.display(hero)
 
-
-func _on_button_pressed():
+func _on_exit_button_pressed():
 	hero_page.hide()

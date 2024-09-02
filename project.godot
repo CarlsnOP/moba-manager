@@ -21,6 +21,7 @@ SignalManager="*res://singletons/signal_manager.gd"
 CurrencyManager="*res://singletons/currency_manager.gd"
 GeneratorManager="*res://singletons/generator_manager.gd"
 TeamManager="*res://singletons/team_manager.gd"
+SoundManager="*res://singletons/sound_manager.gd"
 
 [debug]
 
@@ -33,7 +34,6 @@ window/size/viewport_height=1080
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [editor_plugins]
 
@@ -55,6 +55,16 @@ game_events=""
 [gui]
 
 theme/custom="res://theme.tres"
+
+[layer_names]
+
+2d_physics/layer_1="buddies"
+2d_physics/layer_2="bullies"
+
+[navigation]
+
+2d/use_edge_connections=false
+3d/merge_rasterizer_cell_scale=0.001
 
 [rendering]
 

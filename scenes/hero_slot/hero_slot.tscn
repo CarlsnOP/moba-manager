@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ckooocc8ghpgl"]
 
-[ext_resource type="Script" path="res://hero_slot.gd" id="1_8m23x"]
+[ext_resource type="Script" path="res://scenes/hero_slot/hero_slot.gd" id="1_8m23x"]
 [ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/Eddy the Jungler.png" id="2_j414c"]
 
 [node name="HeroSlot" type="PanelContainer"]

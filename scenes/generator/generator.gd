@@ -11,4 +11,4 @@ func on_save_game(saved_data:Array[SavedGame]):
 	saved_data.append(my_data)
 
 func _on_timeout():
-	GeneratorManager.generate_rubberduckies()
+	SignalManager.on_battle_end.emit()

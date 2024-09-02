@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dubhlqa5a3rmg"]
+
+[ext_resource type="Script" path="res://scenes/interface_base/battlesim/buddy/buddy.gd" id="1_42604"]
+[ext_resource type="Texture2D" uid="uid://bnub0wwjilltd" path="res://assets/art/map/friendly_minion.png" id="1_j8mvj"]
+[ext_resource type="Script" path="res://scenes/interface_base/battlesim/buddy/character_body_2d.gd" id="2_blne7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ofyew"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0lukq"]
+radius = 72.0
+
+[node name="Buddy" type="PathFollow2D" groups=["buddy"]]
+script = ExtResource("1_42604")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_mask = 2
+script = ExtResource("2_blne7")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_j8mvj")
+
+[node name="HitBox" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_ofyew")
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_0lukq")
+
+[node name="AttTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="timeout" from="AttTimer" to="." method="_on_att_timer_timeout"]

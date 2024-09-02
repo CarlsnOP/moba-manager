@@ -9,6 +9,7 @@ script = ExtResource("2_06nol")
 hero_name = "Fred"
 hero_icon = ExtResource("1_tla1a")
 hero_portrait = ExtResource("2_5re23")
+in_team = false
 lvl = 1
 xp = 0
 upgrade_points = 0

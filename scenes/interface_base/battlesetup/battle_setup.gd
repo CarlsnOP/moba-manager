@@ -4,9 +4,7 @@ extends Control
 @onready var grid_container = %GridContainer
 @onready var hero_menu = %HeroMenu
 @onready var top_button = %TopButton
-@onready var mid_button = %MidButton
 @onready var bot_button = %BotButton
-@onready var bot_2_button = %Bot2Button
 @onready var jungle_button = %JungleButton
 
 @export var slot_scene: PackedScene
@@ -15,9 +13,7 @@ extends Control
 func on_before_load_game():
 	await get_tree().physics_frame
 	top_button.icon = TeamManager.top.hero_portrait
-	mid_button.icon = TeamManager.mid.hero_portrait
 	bot_button.icon = TeamManager.bot.hero_portrait
-	bot_2_button.icon = TeamManager.bot2.hero_portrait
 	jungle_button.icon = TeamManager.jungle.hero_portrait
 
 func _ready():
@@ -40,14 +36,8 @@ func on_portrait_selected(hero: HeroResource) -> void:
 		TeamManager.LANE_SELECTED.TOP:
 			top_button.icon = hero.hero_portrait
 			TeamManager.setup_team(hero)
-		TeamManager.LANE_SELECTED.MID:
-			mid_button.icon = hero.hero_portrait
-			TeamManager.setup_team(hero)
 		TeamManager.LANE_SELECTED.BOT:
 			bot_button.icon = hero.hero_portrait
-			TeamManager.setup_team(hero)
-		TeamManager.LANE_SELECTED.BOT2:
-			bot_2_button.icon = hero.hero_portrait
 			TeamManager.setup_team(hero)
 		TeamManager.LANE_SELECTED.JUNGLE:
 			jungle_button.icon = hero.hero_portrait
@@ -62,18 +52,8 @@ func _on_top_button_pressed():
 	add_heroes()
 	open_hero_menu()
 
-func _on_mid_button_pressed():
-	TeamManager._lane = TeamManager.LANE_SELECTED.MID
-	add_heroes()
-	open_hero_menu()
-
 func _on_bot_button_pressed():
 	TeamManager._lane = TeamManager.LANE_SELECTED.BOT
-	add_heroes()
-	open_hero_menu()
-
-func _on_bot_2_button_pressed():
-	TeamManager._lane = TeamManager.LANE_SELECTED.BOT2
 	add_heroes()
 	open_hero_menu()
 

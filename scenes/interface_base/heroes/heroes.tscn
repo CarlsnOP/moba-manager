@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://673smdjoegvd"]
+[gd_scene load_steps=9 format=3 uid="uid://673smdjoegvd"]
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interface_base/interface_base.tscn" id="1_qir55"]
 [ext_resource type="Script" path="res://scenes/interface_base/heroes/heroes.gd" id="2_aktco"]
 [ext_resource type="PackedScene" uid="uid://ckooocc8ghpgl" path="res://scenes/hero_slot/hero_slot.tscn" id="3_md810"]
 [ext_resource type="Script" path="res://scenes/interface_base/heroes/hero_page.gd" id="4_iqvvf"]
 [ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/Eddy the Jungler.png" id="5_omhe7"]
+[ext_resource type="Texture2D" uid="uid://bv2cxijy21p7h" path="res://assets/art/stats/health.png" id="5_wiflx"]
+[ext_resource type="Texture2D" uid="uid://d0gsjwva5fjcf" path="res://assets/art/stats/damage.png" id="6_tmxtq"]
+[ext_resource type="Texture2D" uid="uid://b5oq78l2e2x6t" path="res://assets/art/stats/mana.png" id="7_4mw7m"]
 
 [node name="Heroes" instance=ExtResource("1_qir55")]
 script = ExtResource("2_aktco")
@@ -77,63 +80,84 @@ text = "Stats"
 [node name="HB" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="5"]
 layout_mode = 2
 
-[node name="HealthLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB/HB" index="0"]
+[node name="TextureRect" type="TextureRect" parent="HeroPage/MC/HBoxContainer/VB/HB" index="0"]
+layout_mode = 2
+texture = ExtResource("5_wiflx")
+expand_mode = 2
+
+[node name="HealthLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB/HB" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Health: "
 
-[node name="Spacer" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB" index="1"]
+[node name="Spacer" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB" index="2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="HeroPage/MC/HBoxContainer/VB/HB" index="2"]
+[node name="HpButton" type="Button" parent="HeroPage/MC/HBoxContainer/VB/HB" index="3"]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 40
 text = "+"
 
-[node name="Spacer2" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB" index="3"]
+[node name="Spacer2" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB" index="4"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
 [node name="HB2" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="6"]
 layout_mode = 2
 
-[node name="DamageLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB/HB2" index="0"]
+[node name="TextureRect2" type="TextureRect" parent="HeroPage/MC/HBoxContainer/VB/HB2" index="0"]
+layout_mode = 2
+texture = ExtResource("6_tmxtq")
+expand_mode = 2
+
+[node name="DamageLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB/HB2" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Attack Damage: "
 
-[node name="Spacer" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB2" index="1"]
+[node name="Spacer" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB2" index="2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="HeroPage/MC/HBoxContainer/VB/HB2" index="2"]
+[node name="DmgButton" type="Button" parent="HeroPage/MC/HBoxContainer/VB/HB2" index="3"]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 40
 text = "+"
 
-[node name="Spacer3" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB2" index="3"]
+[node name="Spacer3" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB2" index="4"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
 [node name="HB5" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="7"]
 layout_mode = 2
 
-[node name="AbilityPowerLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB/HB5" index="0"]
+[node name="TextureRect3" type="TextureRect" parent="HeroPage/MC/HBoxContainer/VB/HB5" index="0"]
+layout_mode = 2
+texture = ExtResource("7_4mw7m")
+expand_mode = 2
+
+[node name="AbilityPowerLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB/HB5" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Ability Power: "
 
-[node name="Spacer2" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB5" index="1"]
+[node name="Spacer2" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB5" index="2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="HeroPage/MC/HBoxContainer/VB/HB5" index="2"]
+[node name="ApButton" type="Button" parent="HeroPage/MC/HBoxContainer/VB/HB5" index="3"]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 40
 text = "+"
 
-[node name="Spacer4" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB5" index="3"]
+[node name="Spacer4" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB5" index="4"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
@@ -241,4 +265,7 @@ theme_override_font_sizes/font_size = 50
 text = "X"
 flat = true
 
-[connection signal="pressed" from="HeroPage/MC/HBoxContainer/ExitButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HeroPage/MC/HBoxContainer/VB/HB/HpButton" to="HeroPage" method="_on_hp_button_pressed"]
+[connection signal="pressed" from="HeroPage/MC/HBoxContainer/VB/HB2/DmgButton" to="HeroPage" method="_on_dmg_button_pressed"]
+[connection signal="pressed" from="HeroPage/MC/HBoxContainer/VB/HB5/ApButton" to="HeroPage" method="_on_ap_button_pressed"]
+[connection signal="pressed" from="HeroPage/MC/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

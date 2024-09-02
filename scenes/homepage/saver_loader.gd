@@ -2,7 +2,7 @@ class_name SaverLoader
 extends Node
 
 @onready var nav_menu = %NavMenu
-@onready var interface = $"../../CanvasLayer/MarginContainer/Interface"
+@onready var interface = $"../../CanvasLayer/MC/Interface"
 
 var hero_list: HeroListResource = preload("res://resources/heroes/resources/hero_list.tres")
 
@@ -10,7 +10,7 @@ func save_game():
 	var saved_game: SavedGame = SavedGame.new()
 	
 	save_vars(saved_game)
-	
+
 	var saved_data: Array[SavedData] = []
 	get_tree().call_group("game_events", "on_save_game", saved_data)
 	saved_game.saved_data = saved_data
@@ -42,17 +42,13 @@ func load_game():
 func save_vars(saved_game: SavedGame) -> void:
 	saved_game.rubber_duckies = CurrencyManager.get_rubberduckies()
 	saved_game.top = TeamManager.top
-	saved_game.mid = TeamManager.mid
 	saved_game.bot = TeamManager.bot
-	saved_game.bot2 = TeamManager.bot2
 	saved_game.jungle = TeamManager.jungle
 
 func load_vars(saved_game: SavedGame) -> void:
 	CurrencyManager._rubberduckies = saved_game.rubber_duckies
 	TeamManager.top = saved_game.top
-	TeamManager.mid = saved_game.mid
 	TeamManager.bot = saved_game.bot
-	TeamManager.bot2 = saved_game.bot2
 	TeamManager.jungle = saved_game.jungle
 
 func _on_save_timer_timeout():

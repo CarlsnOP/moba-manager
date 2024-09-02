@@ -1,6 +1,6 @@
 extends Control
 
-enum INTERFACE_STATE { HOME, HEROES, BATTLESETUP, INVENTORY, CRAFTING, HIGHSCORE, SETTINGS }
+enum INTERFACE_STATE { HOME, HEROES, BATTLESETUP, BATTLESIM, INVENTORY, CRAFTING, HIGHSCORE, SETTINGS }
 
 @onready var heroes = %Heroes
 @onready var battle_setup = %BattleSetup
@@ -13,11 +13,13 @@ func _ready():
 	set_state(INTERFACE_STATE.HOME)
 	heroes.add_heroes()
 	battle_setup.add_heroes()
+	
 
 func hide_interface() -> void:
 	home.hide()
 	heroes.hide()
 	battle_setup.hide()
+	
 
 func new_interface(state: int) -> void:
 	set_state(state)
@@ -36,4 +38,5 @@ func set_state(new_state: INTERFACE_STATE) -> void:
 			heroes.show()
 		INTERFACE_STATE.BATTLESETUP:
 			battle_setup.show()
+
 			
