@@ -23,7 +23,7 @@ func rubberduckies_created(amount: int) -> void:
 	
 func remove_entry() -> void:
 	var valid_entries = []
-	print(log_entries)
+	#print(log_entries)
 	for entry in log_entries:
 		if entry != null:
 			valid_entries.append(entry)

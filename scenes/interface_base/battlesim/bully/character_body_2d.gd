@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-@onready var bully = $".."
-
+@onready var health_bar = %HealthBar
 
 func take_damage(dmg: float) -> void:
-	bully.take_damage(dmg)
+	health_bar.take_damage(dmg)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://chxeaorfudrf6"]
+[gd_scene load_steps=7 format=3 uid="uid://chxeaorfudrf6"]
 
 [ext_resource type="Texture2D" uid="uid://b40j4r1cb5sa0" path="res://assets/art/map/enemy_minion.png" id="1_o2dti"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/bully/bully.gd" id="1_y5mfn"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/bully/character_body_2d.gd" id="2_jtroc"]
+[ext_resource type="PackedScene" uid="uid://bsqfqqlswcbnk" path="res://scenes/interface_base/battlesim/utility/health_bar/health_bar.tscn" id="4_e4wbi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgddr"]
 radius = 40.0
@@ -10,10 +11,11 @@ radius = 40.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_bkenh"]
 radius = 72.0
 
-[node name="Bully" type="PathFollow2D" groups=["bully"]]
+[node name="Bully" type="PathFollow2D"]
 script = ExtResource("1_y5mfn")
+_damage = 15.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["bully"]]
 collision_layer = 2
 script = ExtResource("2_jtroc")
 
@@ -21,6 +23,7 @@ script = ExtResource("2_jtroc")
 unique_name_in_owner = true
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_o2dti")
+flip_v = true
 
 [node name="HitBox" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_jgddr")
@@ -34,6 +37,13 @@ shape = SubResource("CircleShape2D_bkenh")
 [node name="AttTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 
+[node name="HealthBar" parent="." instance=ExtResource("4_e4wbi")]
+unique_name_in_owner = true
+offset_left = -40.0
+offset_top = -50.0
+offset_bottom = -43.0
+
 [connection signal="area_entered" from="AttackRange" to="." method="_on_attack_range_area_entered"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="timeout" from="AttTimer" to="." method="_on_att_timer_timeout"]
+[connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]

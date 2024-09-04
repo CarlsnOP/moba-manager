@@ -6,11 +6,10 @@ enum INTERFACE_STATE { HOME, HEROES, BATTLESETUP, BATTLESIM, INVENTORY, CRAFTING
 @onready var battle_setup = %BattleSetup
 @onready var home = %Home
 
-var _state: INTERFACE_STATE = INTERFACE_STATE.HEROES
+var _state: INTERFACE_STATE = INTERFACE_STATE.HOME
 
 func _ready():
 	SignalManager.new_interface.connect(new_interface)
-	set_state(INTERFACE_STATE.HOME)
 	heroes.add_heroes()
 	battle_setup.add_heroes()
 	

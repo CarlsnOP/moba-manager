@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq3hnduswc1vy"]
+
+[ext_resource type="PackedScene" uid="uid://tok3p3bx8dry" path="res://scenes/interface_base/battlesim/tower_basic/tower_basic.tscn" id="1_s436j"]
+[ext_resource type="Texture2D" uid="uid://b73a0f3pmfmv" path="res://assets/art/map/friendly_tower.png" id="2_q5s4l"]
+
+[node name="BuddyTower" groups=["buddy"] instance=ExtResource("1_s436j")]
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_q5s4l")
+
+[node name="AttackRange" parent="." index="2"]
+collision_layer = 0
+collision_mask = 2
+
+[connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]

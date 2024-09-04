@@ -4,7 +4,7 @@
 bg_color = Color(0.184314, 0.352941, 0.411765, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11qjg"]
-bg_color = Color(0.184314, 0.352941, 0.411765, 0.784314)
+bg_color = Color(0.184314, 0.352941, 0.411765, 1)
 
 [resource]
 HeaderLarge/constants/outline_size = 20

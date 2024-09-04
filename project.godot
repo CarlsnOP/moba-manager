@@ -60,6 +60,9 @@ theme/custom="res://theme.tres"
 
 2d_physics/layer_1="buddies"
 2d_physics/layer_2="bullies"
+2d_physics/layer_3="jungle"
+2d_physics/layer_4="buddyhero"
+2d_physics/layer_5="bullyhero"
 
 [navigation]
 

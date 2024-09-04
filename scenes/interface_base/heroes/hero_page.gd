@@ -12,10 +12,6 @@ extends PanelContainer
 @onready var type_label = %TypeLabel
 @onready var lore_label = %LoreLabel
 @onready var texture_rect = %TextureRect
-#buttons
-@onready var hp_button = %HpButton
-@onready var dmg_button = %DmgButton
-@onready var ap_button = %ApButton
 
 var _hero: HeroResource
 var hp_growth: float
@@ -46,14 +42,14 @@ func setup(hero: HeroResource):
 	lore_label.text = hero.lore
 	texture_rect.texture = hero.hero_icon
 
-func _on_hp_button_pressed():
-	_hero.health += _hero.extra_hp
-	health_label.text = "Health: %s" % _hero.health
-
-func _on_dmg_button_pressed():
-	_hero.attack_damage += _hero.extra_ad
-	damage_label.text = "Attack Damage: %s" % _hero.attack_damage
-
-func _on_ap_button_pressed():
-	_hero.ability_power += _hero.extra_ap
-	ability_power_label.text = "Ability Power: %s" % _hero.ability_power
+#func _on_hp_button_pressed():
+	#_hero.health += _hero.extra_hp
+	#health_label.text = "Health: %s" % _hero.health
+#
+#func _on_dmg_button_pressed():
+	#_hero.attack_damage += _hero.extra_ad
+	#damage_label.text = "Attack Damage: %s" % _hero.attack_damage
+#
+#func _on_ap_button_pressed():
+	#_hero.ability_power += _hero.extra_ap
+	#ability_power_label.text = "Ability Power: %s" % _hero.ability_power

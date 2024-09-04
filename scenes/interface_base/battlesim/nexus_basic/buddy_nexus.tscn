@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8qf8vwe6kwt0"]
+
+[ext_resource type="PackedScene" uid="uid://c8wg23dssxfcy" path="res://scenes/interface_base/battlesim/nexus_basic/nexus_basic.tscn" id="1_dqfro"]
+[ext_resource type="Texture2D" uid="uid://dnjdsm2pwdhui" path="res://assets/art/map/friendly_nexus.png" id="2_43d67"]
+
+[node name="BuddyNexus" groups=["buddy"] instance=ExtResource("1_dqfro")]
+collision_mask = 0
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="0"]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_43d67")
+
+[node name="AttackRange" parent="." index="3"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="HealthBar" parent="." index="4"]
+offset_left = -75.0
+offset_top = -110.0
+offset_right = 75.0
+offset_bottom = -95.0
+
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]
+[connection signal="timeout" from="AttTimer" to="." method="_on_att_timer_timeout"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dubhlqa5a3rmg"]
+[gd_scene load_steps=7 format=3 uid="uid://dubhlqa5a3rmg"]
 
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/buddy/buddy.gd" id="1_42604"]
 [ext_resource type="Texture2D" uid="uid://bnub0wwjilltd" path="res://assets/art/map/friendly_minion.png" id="1_j8mvj"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/buddy/character_body_2d.gd" id="2_blne7"]
+[ext_resource type="PackedScene" uid="uid://bsqfqqlswcbnk" path="res://scenes/interface_base/battlesim/utility/health_bar/health_bar.tscn" id="4_c6esc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ofyew"]
 radius = 40.0
@@ -10,10 +11,12 @@ radius = 40.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_0lukq"]
 radius = 72.0
 
-[node name="Buddy" type="PathFollow2D" groups=["buddy"]]
+[node name="Buddy" type="PathFollow2D"]
 script = ExtResource("1_42604")
+_health = 150.0
+_damage = 10.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["buddy"]]
 collision_mask = 2
 script = ExtResource("2_blne7")
 
@@ -34,5 +37,13 @@ shape = SubResource("CircleShape2D_0lukq")
 [node name="AttTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 
+[node name="HealthBar" parent="." instance=ExtResource("4_c6esc")]
+unique_name_in_owner = true
+offset_left = -40.0
+offset_top = -50.0
+offset_bottom = -43.0
+
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="timeout" from="AttTimer" to="." method="_on_att_timer_timeout"]
+[connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]

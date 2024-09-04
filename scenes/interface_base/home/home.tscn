@@ -8,6 +8,12 @@
 script = ExtResource("2_gedj6")
 log_scene = ExtResource("3_ruq4k")
 
+[node name="MC" parent="PC" index="0"]
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
 [node name="Label" parent="PC/MC/VB" index="0"]
 text = "Moba Manager"
 
@@ -25,5 +31,4 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PC/MC/VB/PC/VB" index="0"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
-text = "Rubber Duckies Earned:"
-horizontal_alignment = 1
+text = "LOG:"

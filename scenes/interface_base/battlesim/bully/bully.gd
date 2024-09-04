@@ -1,55 +1,74 @@
 extends PathFollow2D
 
-enum BULLY_STATE { WALK, ATTACK }
+enum STATE { WALK, ATTACK }
 
 @onready var att_timer = %AttTimer
+@onready var health_bar = %HealthBar
 
-#Stats
-var _health := 200.0
-var _damage := 50.0
-var _move_speed := 0.1
-var _att_speed := 1.0
+@export_category("Stats:")
+@export var _health := 200.0
+@export var _damage := 75.0
+@export var _move_speed := 0.1
+@export var _att_speed := 1.0
 
-var _state: BULLY_STATE
+var _current_state: STATE
 var _target = null
+var _enemies_in_range := []
 
 func _ready():
 	setup()
-	set_state(BULLY_STATE.WALK)
+	set_state(STATE.WALK)
 
 func _physics_process(delta):
-	if _state == BULLY_STATE.WALK:
+	set_target()
+	
+	if _current_state == STATE.WALK:
 		progress_ratio += _move_speed * delta
 
 func setup() -> void:
+	health_bar.setup(_health)
 	att_timer.wait_time = _att_speed
 
-func set_state(new_state: BULLY_STATE) -> void:
-	if new_state == _state:
+func set_state(new_state: STATE) -> void:
+	if new_state == _current_state:
 		return
 	
-	_state = new_state
+	_current_state = new_state
 
-func take_damage(dmg: float) -> void:
-	_health -= dmg
+func set_target() -> void:
+	if _target != null:
+		return
 	
-	if _health <= 0:
-		queue_free()
+	for enemy in _enemies_in_range:
+		if enemy == null:
+			pass
+		else:
+			_target = enemy
+			att_timer.start()
 	
+	if _target == null:
+		set_state(STATE.WALK)
+		att_timer.stop()
+	return
+
 
 func deal_damage(dmg: float) -> void:
 	if _target != null:
 		if _target.has_method("take_damage"):
 			_target.take_damage(dmg)
 	else:
-		set_state(BULLY_STATE.WALK)
+		set_state(STATE.WALK)
+
+func die() -> void:
+	queue_free()
 
 func _on_attack_range_body_entered(body):
-	set_state(BULLY_STATE.ATTACK)
-	if _target == null:
-		_target = body
-		att_timer.start()
-
+	if body.is_in_group("buddy"):
+		set_state(STATE.ATTACK)
+		_enemies_in_range.append(body)
 
 func _on_att_timer_timeout():
 	deal_damage(_damage)
+
+func _on_health_bar_died():
+	die()
