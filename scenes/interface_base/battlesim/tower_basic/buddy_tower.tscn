@@ -13,5 +13,3 @@ texture = ExtResource("2_q5s4l")
 [node name="AttackRange" parent="." index="2"]
 collision_layer = 0
 collision_mask = 2
-
-[connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]

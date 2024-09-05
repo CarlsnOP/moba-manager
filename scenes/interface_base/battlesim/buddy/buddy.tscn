@@ -12,6 +12,7 @@ radius = 40.0
 radius = 72.0
 
 [node name="Buddy" type="PathFollow2D"]
+rotates = false
 script = ExtResource("1_42604")
 _health = 150.0
 _damage = 10.0
@@ -29,7 +30,7 @@ shape = SubResource("CircleShape2D_ofyew")
 
 [node name="AttackRange" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_0lukq")

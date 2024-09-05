@@ -5,6 +5,7 @@ enum STATE { WALK, ATTACK, IDLE, DEAD }
 
 @onready var health_bar = %HealthBar
 @onready var att_timer = %AttTimer
+@onready var ai_manager = %AiManager
 
 @export_category("Stats:")
 @export var _health := 200.0
@@ -13,21 +14,37 @@ enum STATE { WALK, ATTACK, IDLE, DEAD }
 @export var _move_speed := 0.1
 @export var _att_speed := 1.0
 
+@export_category("Lane:")
+@export var lane_points: NodePath
+
 #Other vars
 var _state: STATE
 var _target = null
 var _dead := false
+var _target_pos: Vector2
+
+var _waypoints := []
+var _current_wp := 0
 
 func _ready():
 	setup()
 	set_state(STATE.IDLE)
 
 func _physics_process(delta):
-	pass
+	move(delta)
 
 func setup() -> void:
 	att_timer.wait_time = _att_speed
 	health_bar.setup(_health)
+
+func move(delta) -> void:
+	var target_pos = ai_manager.get_nearest_point(position, 0)
+	move_towards(target_pos, delta)
+	
+func move_towards(target_position: Vector2, delta) -> void:
+	var direction = (target_position - position).normalized()
+	velocity = direction * _move_speed * delta
+	move_and_slide()
 
 func set_state(new_state: STATE) -> void:
 	if new_state == _state:

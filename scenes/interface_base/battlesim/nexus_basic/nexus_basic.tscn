@@ -30,3 +30,8 @@ shape = SubResource("CircleShape2D_u3nlj")
 unique_name_in_owner = true
 
 [node name="AttTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
+[connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]
+[connection signal="timeout" from="AttTimer" to="." method="_on_att_timer_timeout"]

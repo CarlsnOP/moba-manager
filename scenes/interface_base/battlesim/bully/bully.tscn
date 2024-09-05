@@ -12,6 +12,7 @@ radius = 40.0
 radius = 72.0
 
 [node name="Bully" type="PathFollow2D"]
+rotates = false
 script = ExtResource("1_y5mfn")
 _damage = 15.0
 
@@ -23,13 +24,13 @@ script = ExtResource("2_jtroc")
 unique_name_in_owner = true
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_o2dti")
-flip_v = true
 
 [node name="HitBox" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_jgddr")
 
 [node name="AttackRange" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_bkenh")
@@ -45,5 +46,6 @@ offset_bottom = -43.0
 
 [connection signal="area_entered" from="AttackRange" to="." method="_on_attack_range_area_entered"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="timeout" from="AttTimer" to="." method="_on_att_timer_timeout"]
 [connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]

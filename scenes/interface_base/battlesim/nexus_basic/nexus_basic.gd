@@ -49,5 +49,9 @@ func _on_health_bar_died():
 func _on_attack_range_body_entered(body):
 	_enemies_in_range.append(body)
 
+func _on_attack_range_body_exited(body):
+	if _target == body:
+		_target = null
+
 func _on_att_timer_timeout():
 	deal_damage(_damage)

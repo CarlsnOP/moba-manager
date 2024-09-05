@@ -51,7 +51,6 @@ func set_target() -> void:
 		att_timer.stop()
 	return
 
-
 func deal_damage(dmg: float) -> void:
 	if _target != null:
 		if _target.has_method("take_damage"):
@@ -66,6 +65,10 @@ func _on_attack_range_body_entered(body):
 	if body.is_in_group("buddy"):
 		set_state(STATE.ATTACK)
 		_enemies_in_range.append(body)
+
+func _on_attack_range_body_exited(body):
+	if _target == body:
+		_target = null
 
 func _on_att_timer_timeout():
 	deal_damage(_damage)

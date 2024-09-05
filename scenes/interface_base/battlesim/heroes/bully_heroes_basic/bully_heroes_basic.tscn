@@ -23,11 +23,11 @@ texture = ExtResource("2_2ahtd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_wayp2")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AttackRange" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 13
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_xq6u3")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_t82pm")]
@@ -40,5 +40,6 @@ offset_bottom = -42.0
 [node name="AttTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]
 [connection signal="timeout" from="AttTimer" to="." method="_on_att_timer_timeout"]

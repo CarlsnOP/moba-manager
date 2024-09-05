@@ -4,6 +4,9 @@ extends Node2D
 
 func _ready():
 	saver_loader.load_game()
+	
+	#speed up/slow down game. 1 = normal speed
+	Engine.time_scale = 3
 
 func _notification(what):
 	if what == NOTIFICATION_CRASH:
