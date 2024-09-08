@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://736mkfdvqo8"]
+[gd_scene load_steps=8 format=3 uid="uid://736mkfdvqo8"]
 
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/heroes/bully_heroes_basic/bully_heroes_basic.gd" id="1_2c2vv"]
 [ext_resource type="Texture2D" uid="uid://df11rwqd2srmf" path="res://assets/art/characters/bullies/Bruce.png" id="2_2ahtd"]
 [ext_resource type="PackedScene" uid="uid://bsqfqqlswcbnk" path="res://scenes/interface_base/battlesim/utility/health_bar/health_bar.tscn" id="2_t82pm"]
+[ext_resource type="PackedScene" uid="uid://deh2disexwroh" path="res://scenes/state_machines/state_machine.tscn" id="4_yqpm1"]
+[ext_resource type="PackedScene" uid="uid://dd1mo5s2pcwkg" path="res://scenes/state_machines/lane_state_machine.tscn" id="5_fmquj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wayp2"]
 radius = 19.105
@@ -14,6 +16,9 @@ radius = 63.0
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_2c2vv")
+
+[node name="NavAgent" type="NavigationAgent2D" parent="."]
+debug_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -40,6 +45,15 @@ offset_bottom = -42.0
 [node name="AttTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 
+[node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("4_yqpm1")]
+initial_state = NodePath("Defensive")
+
+[node name="LaneStateMachine" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("5_fmquj")]
+initial_state = NodePath("topLaneEnemy")
+
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]
 [connection signal="timeout" from="AttTimer" to="." method="_on_att_timer_timeout"]
+
+[editable path="StateMachine"]
+[editable path="LaneStateMachine"]

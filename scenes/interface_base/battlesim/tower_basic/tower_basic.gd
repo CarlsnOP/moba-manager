@@ -36,6 +36,9 @@ func set_target() -> void:
 		att_timer.stop()
 	return
 
+func get_structure_position() -> Vector2:
+	return global_position
+
 func take_damage(dmg: float) -> void:
 	health_bar.take_damage(dmg)
 

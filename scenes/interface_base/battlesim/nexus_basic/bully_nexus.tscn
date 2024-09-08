@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c8wg23dssxfcy" path="res://scenes/interface_base/battlesim/nexus_basic/nexus_basic.tscn" id="1_cnl07"]
 [ext_resource type="Texture2D" uid="uid://cnthng11d3aww" path="res://assets/art/map/enemy_nexus.png" id="2_7vwgv"]
 
-[node name="BullyNexus" groups=["bully"] instance=ExtResource("1_cnl07")]
+[node name="BullyNexus" groups=["bully", "bully_structure"] instance=ExtResource("1_cnl07")]
 collision_layer = 2
 collision_mask = 0
 

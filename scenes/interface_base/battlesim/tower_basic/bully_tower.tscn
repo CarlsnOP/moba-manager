@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://tok3p3bx8dry" path="res://scenes/interface_base/battlesim/tower_basic/tower_basic.tscn" id="1_h42wb"]
 [ext_resource type="Texture2D" uid="uid://cwkdgg1srpd0a" path="res://assets/art/map/enemy_tower.png" id="2_ecabc"]
 
-[node name="BullyTower" groups=["bully"] instance=ExtResource("1_h42wb")]
+[node name="BullyTower" groups=["bully", "bully_structure"] instance=ExtResource("1_h42wb")]
 collision_layer = 2
 collision_mask = 0
 

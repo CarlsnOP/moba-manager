@@ -1,80 +1,130 @@
 extends CharacterBody2D
 
-enum LANE { TOP, BOT, JUNGLE }
-enum STATE { WALK, ATTACK, IDLE, DEAD }
-
-@onready var health_bar = %HealthBar
-@onready var att_timer = %AttTimer
-@onready var ai_manager = %AiManager
+enum ENEMY_STATE { DEFENSIVE, AGGRESSIVE, RETREATING }
 
 @export_category("Stats:")
 @export var _health := 200.0
 @export var _damage := 75.0
 @export var _ability_power := 30
-@export var _move_speed := 0.1
+@export var _move_speed := 90.0
 @export var _att_speed := 1.0
 
 @export_category("Lane:")
 @export var lane_points: NodePath
 
-#Other vars
-var _state: STATE
-var _target = null
-var _dead := false
-var _target_pos: Vector2
+@onready var health_bar = %HealthBar
+@onready var att_timer = %AttTimer
+@onready var ai_manager = %AiManager
+@onready var nav_agent = $NavAgent
+@onready var ai_data = %AiData
+@onready var top_lane_bullies = %TopLaneBullies
+@onready var bot_lane_bullies = %BotLaneBullies
+@onready var top_lane_buddies = %TopLaneBuddies
+@onready var bot_lane_buddies = %BotLaneBuddies
 
 var _waypoints := []
 var _current_wp := 0
+var _state := ENEMY_STATE.AGGRESSIVE
+var minions: Array[PathFollow2D] = []
+var _furthest_minion: PathFollow2D = null
+var nearest_structure = INF
+var _target_loc: Vector2
 
 func _ready():
-	setup()
-	set_state(STATE.IDLE)
-
-func _physics_process(delta):
-	move(delta)
-
-func setup() -> void:
-	att_timer.wait_time = _att_speed
-	health_bar.setup(_health)
-
-func move(delta) -> void:
-	var target_pos = ai_manager.get_nearest_point(position, 0)
-	move_towards(target_pos, delta)
+	set_physics_process(false)
+	await get_tree().physics_frame
+	create_wp()
 	
-func move_towards(target_position: Vector2, delta) -> void:
-	var direction = (target_position - position).normalized()
-	velocity = direction * _move_speed * delta
-	move_and_slide()
+	top_lane_bullies.connect("child_entered_tree", Callable(self, "_on_minion_added"))
+	top_lane_bullies.connect("child_exiting_tree", Callable(self, "_on_minion_removed"))
+	call_deferred("late_setup")
+	update_minions_list()
 
-func set_state(new_state: STATE) -> void:
-	if new_state == _state:
-		return
-	
-	_state = new_state
-	
-	match _state:
-		STATE.IDLE:
-			_dead = true
+func late_setup():
+	await get_tree().physics_frame
+	call_deferred("set_physics_process", true )
 
-func deal_damage(dmg: float) -> void:
-	if _target != null:
-		if _target.has_method("take_damage"):
-			_target.take_damage(dmg)
+func _physics_process(_delta):
+	update_movement()
+	update_navigation()
+
+func _on_minion_added(child):
+	if child is PathFollow2D:
+		minions.append(child)
+
+func _on_minion_removed(child):
+	if child is PathFollow2D:
+		minions.erase(child)
+
+func update_minions_list() -> void:
+	minions.clear()
+	for child in top_lane_bullies.get_children():
+		if child is PathFollow2D:
+			minions.append(child)
+
+func create_wp() -> void:
+	_waypoints = ai_data.get_enemy_top_lane_data()
+
+func update_navigation() -> void:
+	if !nav_agent.is_navigation_finished():
+		var next_path_position: Vector2 = nav_agent.get_next_path_position()
+		
+		if global_position.distance_to(next_path_position) > 5.0:
+			velocity = global_position.direction_to(next_path_position) * _move_speed
+			move_and_slide()
+
+func process_push() -> void:
+	get_all_minions()
+	
+	if minions.size() == 0:
+		get_nearest_defence()
+		nav_agent.target_position = _target_loc
 	else:
-		set_state(STATE.WALK)
-		att_timer.stop()
+		get_furthest_minion()
+		nav_agent.target_position = _target_loc
 
-func die() -> void:
-	queue_free()
+func get_all_minions() -> void:
+	for child in top_lane_bullies.get_children():
+		if child is PathFollow2D:
+			minions.append(child)
 
-func _on_attack_range_body_entered(body):
-	set_state(STATE.ATTACK)
-	if _target == null:
-		_target = body
-		att_timer.start()
+func get_furthest_minion() -> void:
+	var max_progress = -1.0
+	var valid_minions: Array[PathFollow2D] = []
+	
+	for minion in minions:
+		if is_instance_valid(minion):
+			valid_minions.append(minion)
+	
+	for minion in valid_minions:
+		if minion.progress_ratio > max_progress:
+			max_progress = minion.progress_ratio
+			_target_loc = minion.global_position
+	
+	minions = valid_minions
 
-func _on_att_timer_timeout():
-	deal_damage(_damage)
+func get_nearest_defence() -> Vector2:
+	var structures = get_tree().get_nodes_in_group("bully")
+	nearest_structure = INF
+	
+	for structure in structures:
+		if structure.has_method("get_structure_position"):
+			var structure_pos = structure.get_structure_position()
+			var check_distance = global_position.distance_to(structure_pos)
+			var nearest_distance = INF
+			if check_distance < nearest_distance:
+				nearest_distance = check_distance
+				return structure_pos
+	return Vector2(0, 0)
+	
+	
+func update_movement() -> void:
+	match _state:
+		ENEMY_STATE.AGGRESSIVE:
+			process_push()
 
-func _on_health_bar_died():
-	die()
+func navigate_wp() -> void:
+	if _current_wp >= len(_waypoints):
+		_current_wp = 0
+	nav_agent.target_position = _waypoints[_current_wp]
+	_current_wp += 1
