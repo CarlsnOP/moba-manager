@@ -11,18 +11,12 @@ func enter():
 	top_lane.connect("child_exiting_tree", Callable(self, "_on_minion_removed"))
 	await get_tree().physics_frame
 	update_minions_list()
-	
-func exit():
-	pass
-
-func update(delta: float):
-	pass
-	
-func physics_update(detla: float):
-	pass
 
 func update_minions_list() -> void:
 	minions.clear()
 	for child in top_lane.get_children():
 		if child is PathFollow2D:
 			minions.append(child)
+
+func get_minion_array() -> Array[PathFollow2D]:
+	return minions

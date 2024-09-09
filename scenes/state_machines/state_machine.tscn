@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://deh2disexwroh"]
+[gd_scene load_steps=6 format=3 uid="uid://deh2disexwroh"]
 
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/utility/state_machine/state_machine.gd" id="1_vhe4t"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/utility/state_machine/aggressive.gd" id="2_ohkf1"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/utility/state_machine/defensive.gd" id="3_jsyfg"]
-[ext_resource type="Script" path="res://scenes/interface_base/battlesim/utility/state_machine/farming.gd" id="4_3udck"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/utility/state_machine/retreat.gd" id="5_v1r8n"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/utility/state_machine/chasing.gd" id="6_oms1u"]
 
@@ -16,9 +15,6 @@ script = ExtResource("2_ohkf1")
 
 [node name="Defensive" type="Node" parent="."]
 script = ExtResource("3_jsyfg")
-
-[node name="Farming" type="Node" parent="."]
-script = ExtResource("4_3udck")
 
 [node name="Retreat" type="Node" parent="."]
 script = ExtResource("5_v1r8n")

@@ -45,11 +45,14 @@ offset_bottom = -42.0
 [node name="AttTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 
-[node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("4_yqpm1")]
+[node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "hero", "nav_agent") instance=ExtResource("4_yqpm1")]
+unique_name_in_owner = true
 initial_state = NodePath("Defensive")
+hero = NodePath("..")
+nav_agent = NodePath("../NavAgent")
 
-[node name="LaneStateMachine" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("5_fmquj")]
-initial_state = NodePath("topLaneEnemy")
+[node name="LaneStateMachine" parent="." instance=ExtResource("5_fmquj")]
+unique_name_in_owner = true
 
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]

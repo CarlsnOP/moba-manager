@@ -37,7 +37,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SimpleTODO/plugin.cfg", "res://addons/safe_resource_loader/plugin.cfg")
+enabled=PackedStringArray("res://addons/SimpleTODO/plugin.cfg", "res://addons/addons/godot_state_charts/plugin.cfg", "res://addons/safe_resource_loader/plugin.cfg")
 
 [file_customization]
 
@@ -52,7 +52,6 @@ folder_colors={
 
 game_events=""
 map=""
-top_lane_enemy=""
 
 [gui]
 
