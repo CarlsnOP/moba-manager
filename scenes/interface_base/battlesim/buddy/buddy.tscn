@@ -6,15 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bsqfqqlswcbnk" path="res://scenes/interface_base/battlesim/utility/health_bar/health_bar.tscn" id="4_c6esc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ofyew"]
-radius = 40.0
+radius = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0lukq"]
-radius = 72.0
+radius = 50.0
 
 [node name="Buddy" type="PathFollow2D"]
 rotates = false
 script = ExtResource("1_42604")
-_health = 150.0
 _damage = 10.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["buddy"]]

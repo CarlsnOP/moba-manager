@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5ad65d07uf41"]
+
+[ext_resource type="PackedScene" uid="uid://bghvcjtoyyaev" path="res://scenes/interface_base/battlesim/heroes/team_heroes_basic/team_heroes_basic.tscn" id="1_3ol2w"]
+
+[node name="TeamHeroesBot" instance=ExtResource("1_3ol2w")]
+
+[editable path="StateMachine"]
+[editable path="LaneStateMachine"]

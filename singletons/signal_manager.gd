@@ -15,3 +15,6 @@ signal rubberduckies_spent(quantity: int)
 
 #Battle
 signal on_battle_end
+signal on_jungle_clear(lane_state: LaneState, new_lane_state: LaneState)
+signal on_jungle_respawn_enemy()
+signal on_jungle_respawn_team()

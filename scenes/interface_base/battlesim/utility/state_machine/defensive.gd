@@ -6,7 +6,6 @@ var _self: CharacterBody2D
 var nav_agent: NavigationAgent2D
 var _move_speed: float
 var _target_loc: Vector2
-var _furthest_minion: PathFollow2D = null
 var _minions: Array[PathFollow2D]
 var _tower_progress := 0.3
 

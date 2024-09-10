@@ -7,10 +7,12 @@ extends Node
 
 var current_state: State
 var states: Dictionary = {}
+var parent_node
 
 func _ready():
-	var parent_node = get_parent()
-	
+	parent_node = get_parent()
+	SignalManager.on_jungle_respawn_enemy.connect(on_jungle_respawn_enemy)
+
 	if parent_node.has_method("get_initial_state"):
 		initial_state = parent_node.get_initial_state()
 		
@@ -32,7 +34,7 @@ func _physics_process(delta):
 	if current_state:
 		current_state.physics_update(delta)
 
-func on_child_transition(state, new_state_name):
+func on_child_transition(state, new_state_name: String):
 	if state != current_state:
 		return
 		
@@ -43,6 +45,14 @@ func on_child_transition(state, new_state_name):
 	if current_state:
 		current_state.exit()
 		
-	new_state.enter(nav_agent, hero)
+	new_state.enter(hero, nav_agent)
 	
 	current_state = new_state
+	#parent_node.on_new_state(current_state)
+
+func on_jungle_respawn_enemy():
+	if parent_node._jungler:
+		on_child_transition(current_state, "Jungle")
+
+func get_state() -> State:
+	return current_state

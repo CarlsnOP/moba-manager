@@ -12,6 +12,9 @@ func enter():
 	await get_tree().physics_frame
 	update_minions_list()
 
+func exit():
+	pass
+
 func update_minions_list() -> void:
 	minions.clear()
 	for child in top_lane.get_children():

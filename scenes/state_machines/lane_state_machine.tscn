@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd1mo5s2pcwkg"]
+[gd_scene load_steps=7 format=3 uid="uid://dd1mo5s2pcwkg"]
 
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/utility/lane_state_machine/lane_state_machine.gd" id="1_fd36e"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/utility/lane_state_machine/bot_lane_enemy.gd" id="2_70bwu"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/utility/lane_state_machine/bot_lane_team.gd" id="3_820yo"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/utility/lane_state_machine/top_lane_enemy.gd" id="4_jkr5y"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/utility/lane_state_machine/top_lane_team.gd" id="5_ey51x"]
+[ext_resource type="Script" path="res://scenes/interface_base/battlesim/utility/lane_state_machine/jungle_lane.gd" id="6_j1hq0"]
 
 [node name="LaneStateMachine" type="Node"]
 script = ExtResource("1_fd36e")
@@ -20,3 +21,6 @@ script = ExtResource("4_jkr5y")
 
 [node name="topLaneTeam" type="Node" parent="."]
 script = ExtResource("5_ey51x")
+
+[node name="JungleLane" type="Node" parent="."]
+script = ExtResource("6_j1hq0")

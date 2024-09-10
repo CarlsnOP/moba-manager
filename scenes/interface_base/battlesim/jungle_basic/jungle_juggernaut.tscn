@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dt85conrpa426" path="res://assets/art/map/jungle_minion.png" id="2_xpvij"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x4hjk"]
-radius = 23.1948
+radius = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xnjo8"]
-radius = 90.0
+radius = 50.0
 
 [node name="JungleJuggernaut" instance=ExtResource("1_32r65")]
 

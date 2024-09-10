@@ -5,13 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://cnthng11d3aww" path="res://assets/art/map/enemy_nexus.png" id="2_tky6u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fohix"]
-radius = 47.1699
+radius = 40.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u3nlj"]
-radius = 150.003
+radius = 100.0
 
 [node name="NexusBasic" type="CharacterBody2D"]
 script = ExtResource("1_cemrp")
+_damage = 50.0
+_att_speed = 0.3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

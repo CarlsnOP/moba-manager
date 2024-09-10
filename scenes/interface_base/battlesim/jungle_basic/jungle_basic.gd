@@ -38,6 +38,9 @@ func deal_damage(dmg: float) -> void:
 		set_state(JUNGLE_STATE.IDLE)
 		att_timer.stop()
 
+func take_damage(dmg: float) -> void:
+	health_bar.take_damage(dmg)
+
 func die() -> void:
 	var parent = get_parent()
 	if parent.has_method("respawn_mob"):

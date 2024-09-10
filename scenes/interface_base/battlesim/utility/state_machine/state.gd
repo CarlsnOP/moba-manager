@@ -5,7 +5,7 @@ extends Node
 signal on_child_transition(state: State, new_state_name: String)
 
 
-func enter(hero: CharacterBody2D, nav: NavigationAgent2D):
+func enter(_hero: CharacterBody2D, _nav: NavigationAgent2D):
 	pass
 
 func exit():

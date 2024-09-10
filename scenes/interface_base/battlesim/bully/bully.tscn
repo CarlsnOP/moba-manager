@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bsqfqqlswcbnk" path="res://scenes/interface_base/battlesim/utility/health_bar/health_bar.tscn" id="4_e4wbi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgddr"]
-radius = 40.0
+radius = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bkenh"]
-radius = 72.0
+radius = 50.0
 
 [node name="Bully" type="PathFollow2D"]
 rotates = false

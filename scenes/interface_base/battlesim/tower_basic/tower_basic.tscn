@@ -4,16 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://bsqfqqlswcbnk" path="res://scenes/interface_base/battlesim/utility/health_bar/health_bar.tscn" id="3_1uhiw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jqxoa"]
-radius = 30.0
+radius = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e5r60"]
-radius = 110.005
+radius = 100.0
 
 [node name="TowerBasic" type="CharacterBody2D"]
 script = ExtResource("1_ja1sv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 19)
 shape = SubResource("CircleShape2D_jqxoa")
 
 [node name="AttackRange" type="Area2D" parent="."]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://bghvcjtoyyaev"]
+
+[ext_resource type="PackedScene" uid="uid://bsqfqqlswcbnk" path="res://scenes/interface_base/battlesim/utility/health_bar/health_bar.tscn" id="1_3dwth"]
+[ext_resource type="Script" path="res://scenes/interface_base/battlesim/heroes/team_heroes_basic/team_heroes_basic.gd" id="1_4mgy6"]
+[ext_resource type="PackedScene" uid="uid://deh2disexwroh" path="res://scenes/state_machines/state_machine.tscn" id="2_lw4uu"]
+[ext_resource type="PackedScene" uid="uid://dd1mo5s2pcwkg" path="res://scenes/state_machines/lane_state_machine.tscn" id="3_8he6j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tkjsj"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nuw6h"]
+radius = 50.0
+
+[node name="TeamHeroesBasic" type="CharacterBody2D"]
+script = ExtResource("1_4mgy6")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tkjsj")
+
+[node name="AttackRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_nuw6h")
+
+[node name="HealthBar" parent="." instance=ExtResource("1_3dwth")]
+
+[node name="AttTimer" type="Timer" parent="."]
+
+[node name="StateMachine" parent="." instance=ExtResource("2_lw4uu")]
+
+[node name="LaneStateMachine" parent="." instance=ExtResource("3_8he6j")]
+
+[editable path="StateMachine"]
+[editable path="LaneStateMachine"]
