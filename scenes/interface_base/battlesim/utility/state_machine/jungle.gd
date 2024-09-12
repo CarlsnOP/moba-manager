@@ -18,8 +18,8 @@ var bot_camp_team: Node2D
 func enter(hero: CharacterBody2D, nav: NavigationAgent2D):
 	_self = hero
 	nav_agent = nav
-	_move_speed = hero._move_speed
-	_team = hero._team
+	_move_speed = hero.move_speed
+	_team = hero.team
 	await get_tree().create_timer(1.0).timeout
 	jungle_camps = hero.get_jungle_array()
 	top_camp_enemy = jungle_camps[0]
@@ -51,7 +51,16 @@ func update_navigation() -> void:
 			_self.move_and_slide()
 
 func process_jungle_team() -> void:
-	pass
+	if jungle_camps.size() > 0:
+		if mid_camp_team.get_children().size() > 1:
+			_target_loc = mid_camp_team.global_position
+			nav_agent.target_position = _target_loc
+		elif bot_camp_team.get_children().size() > 1:
+			_target_loc = bot_camp_team.global_position
+			nav_agent.target_position = _target_loc
+		else:
+			on_child_transition.emit(self, "Defensive")
+			SignalManager.on_jungle_clear.emit()
 
 func process_jungle_enemy() -> void:
 	if jungle_camps.size() > 0:
@@ -63,5 +72,5 @@ func process_jungle_enemy() -> void:
 			nav_agent.target_position = _target_loc
 		else:
 			on_child_transition.emit(self, "Defensive")
-			SignalManager.on_jungle_clear.emit(JungleLane, "BotLaneEnemy")
+			SignalManager.on_jungle_clear.emit()
 	

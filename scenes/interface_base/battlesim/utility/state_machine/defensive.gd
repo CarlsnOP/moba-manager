@@ -8,12 +8,15 @@ var _move_speed: float
 var _target_loc: Vector2
 var _minions: Array[PathFollow2D]
 var _tower_progress := 0.3
+var structures
+var nearest_distance = INF
+var nearest_structure_pos: Vector2
 
 
 func enter(hero: CharacterBody2D, nav: NavigationAgent2D):
 	_self = hero
 	nav_agent = nav
-	_move_speed = hero._move_speed
+	_move_speed = hero.move_speed
 
 func exit():
 	pass
@@ -63,9 +66,14 @@ func get_furthest_minion() -> void:
 	_minions = valid_minions
 
 func get_nearest_defence() -> Vector2:
-	var structures = get_tree().get_nodes_in_group("bully_structure")
-	var nearest_distance = INF
-	var nearest_structure_pos = Vector2(0,0)
+	if _self.team == 1:
+		structures = get_tree().get_nodes_in_group("bully_structure")
+		nearest_distance = INF
+		nearest_structure_pos = Vector2(0,0)
+	elif _self.team == 0:
+		structures = get_tree().get_nodes_in_group("buddy_structure")
+		nearest_distance = INF
+		nearest_structure_pos = Vector2(0,0)
 	
 	
 	for structure in structures:
@@ -76,5 +84,5 @@ func get_nearest_defence() -> Vector2:
 			if check_distance < nearest_distance:
 				nearest_distance = check_distance
 				nearest_structure_pos = structure_pos
-				
+					
 	return nearest_structure_pos

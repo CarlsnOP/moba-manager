@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c8wg23dssxfcy" path="res://scenes/interface_base/battlesim/nexus_basic/nexus_basic.tscn" id="1_dqfro"]
 [ext_resource type="Texture2D" uid="uid://dnjdsm2pwdhui" path="res://assets/art/map/friendly_nexus.png" id="2_43d67"]
 
-[node name="BuddyNexus" groups=["buddy"] instance=ExtResource("1_dqfro")]
+[node name="BuddyNexus" groups=["buddy", "buddy_structure"] instance=ExtResource("1_dqfro")]
 collision_mask = 0
 
 [node name="Sprite2D2" type="Sprite2D" parent="." index="0"]

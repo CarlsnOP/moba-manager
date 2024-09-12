@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bghvcjtoyyaev"]
+[gd_scene load_steps=8 format=3 uid="uid://bghvcjtoyyaev"]
 
 [ext_resource type="PackedScene" uid="uid://bsqfqqlswcbnk" path="res://scenes/interface_base/battlesim/utility/health_bar/health_bar.tscn" id="1_3dwth"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/heroes/team_heroes_basic/team_heroes_basic.gd" id="1_4mgy6"]
+[ext_resource type="Texture2D" uid="uid://d3yo0f5qh8g0t" path="res://assets/art/characters/Egon the Fighter.png" id="2_c0dla"]
 [ext_resource type="PackedScene" uid="uid://deh2disexwroh" path="res://scenes/state_machines/state_machine.tscn" id="2_lw4uu"]
 [ext_resource type="PackedScene" uid="uid://dd1mo5s2pcwkg" path="res://scenes/state_machines/lane_state_machine.tscn" id="3_8he6j"]
 
@@ -11,26 +12,53 @@ radius = 20.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_nuw6h"]
 radius = 50.0
 
-[node name="TeamHeroesBasic" type="CharacterBody2D"]
+[node name="TeamHeroesBasic" type="CharacterBody2D" groups=["buddy"]]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource("1_4mgy6")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="NavAgent" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+path_postprocessing = 1
+radius = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("2_c0dla")
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tkjsj")
 
 [node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 22
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_nuw6h")
 
 [node name="HealthBar" parent="." instance=ExtResource("1_3dwth")]
+unique_name_in_owner = true
+offset_left = -25.0
+offset_top = -50.0
+offset_right = 25.0
+offset_bottom = -43.0
 
 [node name="AttTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 
-[node name="StateMachine" parent="." instance=ExtResource("2_lw4uu")]
+[node name="StateMachine" parent="." node_paths=PackedStringArray("hero", "nav_agent") instance=ExtResource("2_lw4uu")]
+unique_name_in_owner = true
+hero = NodePath("..")
+nav_agent = NodePath("../NavAgent")
 
 [node name="LaneStateMachine" parent="." instance=ExtResource("3_8he6j")]
+unique_name_in_owner = true
+
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
+[connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]
+[connection signal="timeout" from="AttTimer" to="." method="_on_att_timer_timeout"]
 
 [editable path="StateMachine"]
 [editable path="LaneStateMachine"]

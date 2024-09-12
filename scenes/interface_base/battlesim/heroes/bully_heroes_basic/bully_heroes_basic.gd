@@ -3,15 +3,15 @@ extends CharacterBody2D
 enum TEAM { BUDDY, BULLY }
 
 @export_category("Stats:")
-@export var _team: TEAM
+@export var team: TEAM
 @export var _health := 200.0
 @export var _damage := 75.0
-@export var _ability_power := 30
-@export var _move_speed := 90.0
+@export var ability_power := 30
+@export var move_speed := 90.0
 @export var _att_speed := 1.0
 @export var _initial_state: State
 @export var _initial_lane: LaneState
-@export var _jungler: bool
+@export var jungler: bool
 
 @onready var health_bar = %HealthBar
 @onready var att_timer = %AttTimer

@@ -11,7 +11,6 @@ enum STATE { WALK, ATTACK }
 @export var _move_speed := 0.1
 @export var _att_speed := 1.0
 
-
 var _current_state: STATE
 var _target = null
 var _enemies_in_range := []

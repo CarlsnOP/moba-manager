@@ -42,20 +42,30 @@ func on_child_transition(state, new_state_name: String):
 	
 	current_state = new_state
 
-func on_jungle_clear(_state, _new_state_name: String):
-	if parent_node._jungler:
-		on_child_transition(current_state, get_random_choice())
+func on_jungle_clear():
+	if parent_node.jungler:
+		if parent_node.team == 0:
+			on_child_transition(current_state, get_random_lane_team())
+		elif parent_node.team == 1:
+			on_child_transition(current_state, get_random_lane_enemy())
 
 func on_jungle_respawn_enemy():
-	if parent_node._jungler:
+	if parent_node.jungler:
 		on_child_transition(current_state, "JungleLane")
-		
-func get_random_choice() -> String:
+
+func get_random_lane_team() -> String:
+	var rng_value = randf()  
+	if rng_value < 0.5:
+		return "BotLaneTeam"
+	else:
+		return "topLaneTeam"
+
+func get_random_lane_enemy() -> String:
 	var rng_value = randf()  
 	if rng_value < 0.5:
 		return "BotLaneEnemy"
 	else:
-		return "topLaneEnemy"
+		return "TopLaneEnemy"
 
 func get_minion_array() -> Array[PathFollow2D]:
 	return current_state.get_minion_array()
