@@ -52,7 +52,7 @@ func on_child_transition(state, new_state_name: String):
 
 func on_jungle_respawn_enemy():
 	if parent_node.jungler:
-		on_child_transition(current_state, "Jungle")
+		on_child_transition(current_state, "jungle")
 
 func get_state() -> State:
 	return current_state

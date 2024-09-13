@@ -8,6 +8,8 @@ extends CharacterBody2D
 @export var _health := 1000.0
 @export var _att_speed := 1.5
 
+@export var _lane: String
+
 var _target = null
 var _enemies_in_range := []
 
@@ -51,6 +53,9 @@ func _on_attack_range_body_entered(body):
 	_enemies_in_range.append(body)
 
 func _on_attack_range_body_exited(body):
+	if _enemies_in_range.has(body):
+		_enemies_in_range.erase(body)
+
 	if _target == body:
 		_target = null
 

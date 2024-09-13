@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bghvcjtoyyaev"]
+[gd_scene load_steps=9 format=3 uid="uid://bghvcjtoyyaev"]
 
 [ext_resource type="PackedScene" uid="uid://bsqfqqlswcbnk" path="res://scenes/interface_base/battlesim/utility/health_bar/health_bar.tscn" id="1_3dwth"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/heroes/team_heroes_basic/team_heroes_basic.gd" id="1_4mgy6"]
 [ext_resource type="Texture2D" uid="uid://d3yo0f5qh8g0t" path="res://assets/art/characters/Egon the Fighter.png" id="2_c0dla"]
 [ext_resource type="PackedScene" uid="uid://deh2disexwroh" path="res://scenes/state_machines/state_machine.tscn" id="2_lw4uu"]
 [ext_resource type="PackedScene" uid="uid://dd1mo5s2pcwkg" path="res://scenes/state_machines/lane_state_machine.tscn" id="3_8he6j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4fae3"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tkjsj"]
 radius = 20.0
@@ -16,6 +20,15 @@ radius = 50.0
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_4mgy6")
+
+[node name="DebugLabel" type="Label" parent="."]
+offset_left = -31.0
+offset_top = -108.0
+offset_right = 32.0
+offset_bottom = -49.0
+text = "State:
+Lane: "
+label_settings = SubResource("LabelSettings_4fae3")
 
 [node name="NavAgent" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
@@ -47,6 +60,10 @@ offset_bottom = -43.0
 [node name="AttTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 
+[node name="RespawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
 [node name="StateMachine" parent="." node_paths=PackedStringArray("hero", "nav_agent") instance=ExtResource("2_lw4uu")]
 unique_name_in_owner = true
 hero = NodePath("..")
@@ -59,6 +76,7 @@ unique_name_in_owner = true
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]
 [connection signal="timeout" from="AttTimer" to="." method="_on_att_timer_timeout"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
 
 [editable path="StateMachine"]
 [editable path="LaneStateMachine"]

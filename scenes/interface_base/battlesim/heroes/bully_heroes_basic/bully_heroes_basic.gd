@@ -18,10 +18,16 @@ enum TEAM { BUDDY, BULLY }
 @onready var lane_state_machine = %LaneStateMachine
 @onready var nav_agent = $NavAgent
 @onready var state_machine = %StateMachine
+@onready var respawn_timer: Timer = %RespawnTimer
+@onready var respawn_enemy: Marker2D = $"../RespawnEnemy"
+
 
 var _target = null
 var _enemies_in_range := []
 var current_state: State
+var _dead_pos := Vector2(0, 0)
+var _respawn_time := 15.0
+
 
 func _ready():
 	setup()
@@ -29,6 +35,7 @@ func _ready():
 func setup() -> void:
 	health_bar.setup(_health)
 	att_timer.wait_time = _att_speed
+	respawn_timer.wait_time = _respawn_time
 
 func _physics_process(_delta):
 	set_target()
@@ -57,7 +64,14 @@ func take_damage(dmg: float) -> void:
 	health_bar.take_damage(dmg)
 
 func die() -> void:
-	queue_free()
+	set_physics_process(false)
+	global_position = _dead_pos
+	respawn_timer.start()
+
+func respawn() -> void:
+	global_position = respawn_enemy.global_position
+	health_bar.setup(_health)
+	set_physics_process(true)
 
 func _on_attack_range_body_entered(body):
 	if body.is_in_group("jungle"):
@@ -67,6 +81,9 @@ func _on_attack_range_body_entered(body):
 		_enemies_in_range.append(body)
 
 func _on_attack_range_body_exited(body):
+	if _enemies_in_range.has(body):
+		_enemies_in_range.erase(body)
+
 	if _target == body:
 		_target = null
 
@@ -87,3 +104,6 @@ func get_minion_array() -> Array[PathFollow2D]:
 
 func get_jungle_array() -> Array:
 	return lane_state_machine.get_jungle_array()
+
+func _on_respawn_timer_timeout() -> void:
+	respawn()

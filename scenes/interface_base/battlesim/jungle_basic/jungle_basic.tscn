@@ -33,5 +33,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]
 [connection signal="timeout" from="AttTimer" to="." method="_on_att_timer_timeout"]

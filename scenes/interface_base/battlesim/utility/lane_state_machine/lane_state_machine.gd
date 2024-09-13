@@ -12,7 +12,6 @@ var parent_node: CharacterBody2D
 func _ready():
 	parent_node = get_parent()
 	SignalManager.on_jungle_clear.connect(on_jungle_clear)
-	SignalManager.on_jungle_respawn_enemy.connect(on_jungle_respawn_enemy)
 	
 	if parent_node.has_method("get_initial_lane"):
 		initial_lane = parent_node.get_initial_lane()
@@ -46,12 +45,9 @@ func on_jungle_clear():
 	if parent_node.jungler:
 		if parent_node.team == 0:
 			on_child_transition(current_state, get_random_lane_team())
-		elif parent_node.team == 1:
+			
+		if parent_node.team == 1:
 			on_child_transition(current_state, get_random_lane_enemy())
-
-func on_jungle_respawn_enemy():
-	if parent_node.jungler:
-		on_child_transition(current_state, "JungleLane")
 
 func get_random_lane_team() -> String:
 	var rng_value = randf()  
@@ -72,3 +68,6 @@ func get_minion_array() -> Array[PathFollow2D]:
 	
 func get_jungle_array() -> Array:
 	return current_state.get_jungle_array()
+
+func get_state() -> LaneState:
+	return current_state

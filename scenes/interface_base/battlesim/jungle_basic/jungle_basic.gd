@@ -11,6 +11,7 @@ extends CharacterBody2D
 
 #Other vars
 var _target = null
+var _enemies_in_range := []
 
 func _ready():
 	setup()
@@ -18,6 +19,21 @@ func _ready():
 func setup() -> void:
 	att_timer.wait_time = _att_speed
 	health_bar.setup(_health)
+
+func set_target() -> void:
+	if _target != null:
+		return
+	
+	for enemy in _enemies_in_range:
+		if enemy == null:
+			pass
+		else:
+			_target = enemy
+			att_timer.start()
+	
+	if _target == null:
+		att_timer.stop()
+	return
 
 func deal_damage(dmg: float) -> void:
 	if _target != null:
@@ -36,12 +52,20 @@ func die() -> void:
 	queue_free()
 
 func _on_attack_range_body_entered(body):
-	if _target == null:
-		_target = body
-		att_timer.start()
+	_enemies_in_range.append(body)
+	set_target()
 
 func _on_health_bar_died():
 	die()
 
 func _on_att_timer_timeout():
 	deal_damage(_damage)
+
+func _on_attack_range_body_exited(body: Node2D) -> void:
+	if _enemies_in_range.has(body):
+		_enemies_in_range.erase(body)
+
+	if _target == body:
+		_target = null
+	
+	set_target()

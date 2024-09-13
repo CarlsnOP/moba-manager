@@ -188,9 +188,11 @@ texture = ExtResource("1_ifuak")
 
 [node name="BuddyTower" parent="HB/Towers" instance=ExtResource("5_bvvme")]
 position = Vector2(545, 553)
+_lane = "top"
 
 [node name="BuddyTower2" parent="HB/Towers" instance=ExtResource("5_bvvme")]
 position = Vector2(956, 720)
+_lane = "bot"
 
 [node name="BullyTower" parent="HB/Towers" instance=ExtResource("4_khfx1")]
 position = Vector2(1302, 433)
@@ -225,6 +227,9 @@ position = Vector2(1261, 127)
 team = 1
 jungler = true
 
+[node name="RespawnEnemy" type="Marker2D" parent="HB/BullyHeroes"]
+position = Vector2(1248, 172)
+
 [node name="TeamHeroes" type="Node" parent="HB"]
 
 [node name="TeamHeroesTop" parent="HB/TeamHeroes" instance=ExtResource("17_73tsf")]
@@ -236,6 +241,9 @@ position = Vector2(635, 870)
 [node name="TeamHeroesJungle" parent="HB/TeamHeroes" instance=ExtResource("19_pwtnw")]
 position = Vector2(556, 743)
 jungler = true
+
+[node name="RespawnTeam" type="Marker2D" parent="HB/TeamHeroes"]
+position = Vector2(560, 822)
 
 [node name="Jungle" type="Node" parent="HB"]
 
@@ -269,7 +277,7 @@ unique_name_in_owner = true
 wait_time = 20.0
 one_shot = true
 
-[node name="BotJungleBuddy" type="Marker2D" parent="HB/Jungle"]
+[node name="BotJungleBuddy" type="Marker2D" parent="HB/Jungle" groups=["bot_jungle_team"]]
 unique_name_in_owner = true
 position = Vector2(1189, 859)
 script = ExtResource("11_k1xsm")

@@ -1,32 +1,35 @@
 extends State
 class_name Jungle
 
-
-
 var _self: CharacterBody2D
 var nav_agent: NavigationAgent2D
 var _team: int
 var _move_speed: float
 var jungle_camps: Array
-var jungle_manager
 var _target_loc: Vector2
 var top_camp_enemy: Node2D
 var mid_camp_enemy: Node2D
 var mid_camp_team: Node2D
 var bot_camp_team: Node2D
+var first_setup := true
 
 func enter(hero: CharacterBody2D, nav: NavigationAgent2D):
-	_self = hero
-	nav_agent = nav
-	_move_speed = hero.move_speed
-	_team = hero.team
-	await get_tree().create_timer(1.0).timeout
-	jungle_camps = hero.get_jungle_array()
-	top_camp_enemy = jungle_camps[0]
-	mid_camp_enemy = jungle_camps[1]
-	mid_camp_team = jungle_camps[2]
-	bot_camp_team = jungle_camps[3]
-	
+	if first_setup:
+		_self = hero
+		nav_agent = nav
+		_move_speed = hero.move_speed
+		_team = hero.team
+		await get_tree().create_timer(1.0).timeout
+		var jungle_manager = get_tree().get_first_node_in_group("jungle_manager")
+		if jungle_manager.has_method("get_jungle"):
+			jungle_camps = jungle_manager.get_jungle()
+		top_camp_enemy = jungle_camps[0]
+		mid_camp_enemy = jungle_camps[1]
+		mid_camp_team = jungle_camps[2]
+		bot_camp_team = jungle_camps[3]
+		
+		first_setup = false
+		
 func exit():
 	pass
 
@@ -52,12 +55,15 @@ func update_navigation() -> void:
 
 func process_jungle_team() -> void:
 	if jungle_camps.size() > 0:
+		
 		if mid_camp_team.get_children().size() > 1:
 			_target_loc = mid_camp_team.global_position
 			nav_agent.target_position = _target_loc
+			
 		elif bot_camp_team.get_children().size() > 1:
 			_target_loc = bot_camp_team.global_position
 			nav_agent.target_position = _target_loc
+			
 		else:
 			on_child_transition.emit(self, "Defensive")
 			SignalManager.on_jungle_clear.emit()

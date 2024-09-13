@@ -5,8 +5,7 @@
 
 [node name="TeamHeroesJungle" node_paths=PackedStringArray("_initial_state", "_initial_lane") instance=ExtResource("1_1i6yr")]
 _initial_state = NodePath("StateMachine/Jungle")
-_initial_lane = NodePath("LaneStateMachine/JungleLane")
-_jungler = true
+_initial_lane = NodePath("LaneStateMachine/BotLaneTeam")
 _hero = ExtResource("2_k5i4i")
 
 [editable path="StateMachine"]

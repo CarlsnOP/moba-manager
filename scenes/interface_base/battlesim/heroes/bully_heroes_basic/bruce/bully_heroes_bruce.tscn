@@ -7,8 +7,7 @@
 _health = 1500.0
 _damage = 130.0
 _initial_state = NodePath("StateMachine/Jungle")
-_initial_lane = NodePath("LaneStateMachine/JungleLane")
-_jungler = true
+_initial_lane = NodePath("LaneStateMachine/BotLaneTeam")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." index="0"]
 scale = Vector2(0.075, 0.075)

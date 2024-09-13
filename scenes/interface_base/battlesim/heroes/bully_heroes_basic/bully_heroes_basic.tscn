@@ -46,6 +46,10 @@ offset_bottom = -43.0
 [node name="AttTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 
+[node name="RespawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
 [node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state", "hero", "nav_agent") instance=ExtResource("4_yqpm1")]
 unique_name_in_owner = true
 initial_state = NodePath("Defensive")
@@ -59,6 +63,7 @@ unique_name_in_owner = true
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]
 [connection signal="timeout" from="AttTimer" to="." method="_on_att_timer_timeout"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
 
 [editable path="StateMachine"]
 [editable path="LaneStateMachine"]

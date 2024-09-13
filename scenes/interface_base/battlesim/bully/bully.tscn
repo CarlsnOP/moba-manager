@@ -44,7 +44,6 @@ offset_left = -40.0
 offset_top = -50.0
 offset_bottom = -43.0
 
-[connection signal="area_entered" from="AttackRange" to="." method="_on_attack_range_area_entered"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="timeout" from="AttTimer" to="." method="_on_att_timer_timeout"]
