@@ -9,7 +9,7 @@ radius = 20.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_e5r60"]
 radius = 100.0
 
-[node name="TowerBasic" type="CharacterBody2D"]
+[node name="TowerBasic" type="CharacterBody2D" groups=["restart_map"]]
 script = ExtResource("1_ja1sv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

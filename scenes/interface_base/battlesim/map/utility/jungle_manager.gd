@@ -11,8 +11,8 @@ const JUNGLE_MOB = preload("res://scenes/interface_base/battlesim/jungle_basic/j
 
 var jungle := []
 
-func _ready():
-	spawn_jungle()
+#func _ready():
+	#spawn_jungle()
 
 func spawn_jungle() -> void:
 	jungle.append(top_jungle_bully)

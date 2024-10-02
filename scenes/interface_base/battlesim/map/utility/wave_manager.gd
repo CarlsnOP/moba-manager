@@ -5,6 +5,7 @@ const BUDDY = preload("res://scenes/interface_base/battlesim/buddy/buddy.tscn")
 
 
 @onready var map_setup = %MapSetup
+@onready var spawn_timer = %SpawnTimer
 
 var lanes := []
 
@@ -12,6 +13,11 @@ var lanes := []
 func _ready():
 	lanes = map_setup.retrieve_lane_data(lanes)
 	spawn_enemies()
+
+func new_game() -> void:
+	spawn_enemies()
+	spawn_timer.stop()
+	spawn_timer.start()
 
 func spawn_enemies():
 	var buddies := 0

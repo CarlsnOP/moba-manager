@@ -20,6 +20,9 @@ func setup() -> void:
 	att_timer.wait_time = _att_speed
 	health_bar.setup(_health)
 
+func new_game() -> void:
+	queue_free()
+
 func set_target() -> void:
 	if _target != null:
 		return

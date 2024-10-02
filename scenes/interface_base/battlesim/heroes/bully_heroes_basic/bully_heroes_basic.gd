@@ -37,6 +37,9 @@ func setup() -> void:
 	att_timer.wait_time = _att_speed
 	respawn_timer.wait_time = _respawn_time
 
+func new_game() -> void:
+	queue_free()
+
 func _physics_process(_delta):
 	set_target()
 

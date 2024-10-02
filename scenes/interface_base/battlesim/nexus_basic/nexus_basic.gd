@@ -20,6 +20,9 @@ func setup() -> void:
 	health_bar.setup(_health)
 	att_timer.wait_time = _att_speed
 
+func new_game() -> void:
+	queue_free()
+
 func set_target() -> void:
 	if _target != null:
 		return
@@ -47,11 +50,11 @@ func deal_damage(dmg: float) -> void:
 			_target.take_damage(dmg)
 
 func _on_health_bar_died():
-	queue_free()
+	SignalManager.on_battle_end.emit()
 
 func _on_attack_range_body_entered(body):
 	_enemies_in_range.append(body)
-
+	
 func _on_attack_range_body_exited(body):
 	if _enemies_in_range.has(body):
 		_enemies_in_range.erase(body)

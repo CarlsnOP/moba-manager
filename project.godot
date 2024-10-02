@@ -53,6 +53,7 @@ folder_colors={
 game_events=""
 map=""
 bot_jungle_team=""
+restart_map=""
 
 [gui]
 

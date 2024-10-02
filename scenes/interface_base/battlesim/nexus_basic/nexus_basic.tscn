@@ -10,7 +10,7 @@ radius = 40.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_u3nlj"]
 radius = 100.0
 
-[node name="NexusBasic" type="CharacterBody2D"]
+[node name="NexusBasic" type="CharacterBody2D" groups=["restart_map"]]
 script = ExtResource("1_cemrp")
 _damage = 50.0
 _att_speed = 0.3

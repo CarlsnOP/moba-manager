@@ -85,6 +85,7 @@ autostart = true
 [node name="BattleManager" parent="Utilities" instance=ExtResource("8_ywkkb")]
 
 [node name="SaveButton" type="Button" parent="."]
+visible = false
 offset_left = 504.0
 offset_top = 20.0
 offset_right = 548.0
@@ -92,6 +93,7 @@ offset_bottom = 51.0
 text = "Save"
 
 [node name="LoadButton" type="Button" parent="."]
+visible = false
 offset_left = 562.0
 offset_top = 19.0
 offset_right = 606.0
