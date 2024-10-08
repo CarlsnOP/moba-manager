@@ -7,6 +7,8 @@ extends CharacterBody2D
 @export var _health := 5000.0
 @export var _att_speed := 1.5
 
+@export var _win: bool
+
 var _target = null
 var _enemies_in_range := []
 
@@ -50,7 +52,7 @@ func deal_damage(dmg: float) -> void:
 			_target.take_damage(dmg)
 
 func _on_health_bar_died():
-	SignalManager.on_battle_end.emit()
+	SignalManager.on_battle_end.emit(_win)
 
 func _on_attack_range_body_entered(body):
 	_enemies_in_range.append(body)

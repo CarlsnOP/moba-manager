@@ -4,6 +4,12 @@ extends Node
 var _rubberduckies := 0
 
 
+func on_battle_end(win: bool) -> void:
+	if win:
+		create_rubberduckies(100)
+	else:
+		create_rubberduckies(10)
+
 func get_rubberduckies() -> int:
 	return _rubberduckies
 

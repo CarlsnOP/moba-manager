@@ -30,7 +30,6 @@ var _damage: float
 var _ability_power: float
 var _dead_pos := Vector2(0, 0)
 var _respawn_time := 15.0
-var _dead := false
 
 
 func _ready():
@@ -84,13 +83,14 @@ func take_damage(dmg: float) -> void:
 
 func die() -> void:
 	set_physics_process(false)
+	state_machine.on_death()
 	global_position = _dead_pos
 	respawn_timer.start()
 
 func respawn() -> void:
 	global_position = respawn_team.global_position
 	health_bar.setup(_health)
-	_dead = false
+	state_machine.on_respawn()
 	set_physics_process(true)
 
 func _on_attack_range_body_entered(body):
@@ -111,9 +111,7 @@ func _on_att_timer_timeout():
 	deal_damage(_damage)
 
 func _on_health_bar_died():
-	if !_dead:
 		die()
-		_dead = true
 
 func get_initial_state() -> State:
 	return _initial_state

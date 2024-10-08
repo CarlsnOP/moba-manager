@@ -24,12 +24,14 @@ const BULLY_TOWER = preload("res://scenes/interface_base/battlesim/tower_basic/b
 
 
 var objects_to_be_cleared := []
+var game_launced := false
 
 func _ready():
-	#on_battle_end()
+	on_battle_end(false)
+	game_launced = true
 	SignalManager.on_battle_end.connect(on_battle_end)
 
-func on_battle_end() -> void:
+func on_battle_end(win: bool) -> void:
 	objects_to_be_cleared = get_tree().get_nodes_in_group("restart_map")
 	
 	for object in objects_to_be_cleared:
@@ -38,6 +40,9 @@ func on_battle_end() -> void:
 	
 	spawn_enemy_team()
 	spawn_friendly_team()
+	
+	if game_launced:
+		CurrencyManager.on_battle_end(win)
 	
 func spawn_enemy_team() -> void:
 	spawn_enemy_nexus()

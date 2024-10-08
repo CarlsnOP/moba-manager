@@ -68,12 +68,14 @@ func take_damage(dmg: float) -> void:
 
 func die() -> void:
 	set_physics_process(false)
+	state_machine.on_death()
 	global_position = _dead_pos
 	respawn_timer.start()
 
 func respawn() -> void:
 	global_position = respawn_enemy.global_position
 	health_bar.setup(_health)
+	state_machine.on_respawn()
 	set_physics_process(true)
 
 func _on_attack_range_body_entered(body):

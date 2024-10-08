@@ -8,6 +8,7 @@ extends Node
 var current_state: State
 var states: Dictionary = {}
 var parent_node
+var dead := false
 
 func _ready():
 	parent_node = get_parent()
@@ -27,11 +28,11 @@ func _ready():
 		current_state = initial_state
  
 func _process(delta):
-	if current_state:
+	if current_state and !dead:
 		current_state.update(delta)
 
 func _physics_process(delta):
-	if current_state:
+	if current_state and !dead:
 		current_state.physics_update(delta)
 
 func on_child_transition(state, new_state_name: String):
@@ -49,6 +50,12 @@ func on_child_transition(state, new_state_name: String):
 	
 	current_state = new_state
 	#parent_node.on_new_state(current_state)
+
+func on_death() -> void:
+	dead = true
+
+func on_respawn() -> void:
+	dead = false
 
 func on_jungle_respawn_enemy():
 	if parent_node.jungler:

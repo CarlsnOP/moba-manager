@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://cj1gooqliastt"]
+
+[ext_resource type="Texture2D" uid="uid://b6vcofsehned8" path="res://assets/art/loot/broken-compass.webp" id="1_8bc5a"]
+[ext_resource type="Script" path="res://resources/loot/loot_resource.gd" id="2_4vjs6"]
+
+[resource]
+script = ExtResource("2_4vjs6")
+loot_name = "Broken Compass"
+loot_icon = ExtResource("1_8bc5a")
+loot_description = "Always points south"
+rarity = 1

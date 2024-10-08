@@ -1,31 +1,21 @@
-[gd_scene load_steps=46 format=4 uid="uid://b2uitoevl42b3"]
+[gd_scene load_steps=36 format=4 uid="uid://b2uitoevl42b3"]
 
 [ext_resource type="Texture2D" uid="uid://0jmm3api8fgm" path="res://assets/art/ui/arena.png" id="1_ifuak"]
 [ext_resource type="Texture2D" uid="uid://cewxeoce5dmwh" path="res://assets/art/map/navigation_tile_bot.png" id="2_11t10"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/map.gd" id="2_qjnf3"]
 [ext_resource type="Texture2D" uid="uid://mvr7fdgo5p77" path="res://assets/art/map/navigation_tile.png" id="3_oij6q"]
 [ext_resource type="Texture2D" uid="uid://dj4ljfsm1wqek" path="res://assets/art/map/navigation_tile_jungle_bot.png" id="4_hewks"]
-[ext_resource type="PackedScene" uid="uid://c34mwohv7hlrg" path="res://scenes/interface_base/battlesim/tower_basic/bully_tower.tscn" id="4_khfx1"]
-[ext_resource type="PackedScene" uid="uid://cq3hnduswc1vy" path="res://scenes/interface_base/battlesim/tower_basic/buddy_tower.tscn" id="5_bvvme"]
 [ext_resource type="Texture2D" uid="uid://cniipddi3l3nh" path="res://assets/art/map/navigation_tile_jungle_top.png" id="5_g8hvf"]
 [ext_resource type="Texture2D" uid="uid://1bth5gn6up2j" path="res://assets/art/map/navigation_tile_top.png" id="6_vhc6x"]
-[ext_resource type="PackedScene" uid="uid://dayv5famt6eyx" path="res://scenes/interface_base/battlesim/nexus_basic/bully_nexus.tscn" id="6_wp7o6"]
-[ext_resource type="PackedScene" uid="uid://c8qf8vwe6kwt0" path="res://scenes/interface_base/battlesim/nexus_basic/buddy_nexus.tscn" id="7_ql48n"]
 [ext_resource type="Texture2D" uid="uid://bi1vfkabcw3nt" path="res://assets/art/map/navigation_tile_buddy_nexus.png" id="7_rsi4n"]
 [ext_resource type="Texture2D" uid="uid://bywu4f2k1iuqa" path="res://assets/art/map/navigation_tile_bully_nexus.png" id="8_6dphc"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/top_jungle_bully.gd" id="8_cbt8x"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/mid_jungle_bully.gd" id="9_nw3ru"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/mid_jungle_buddy.gd" id="10_gpply"]
-[ext_resource type="PackedScene" uid="uid://c77vh35y708e0" path="res://scenes/interface_base/battlesim/heroes/bully_heroes_basic/sheila/bully_heroes_sheila.tscn" id="10_ryrnl"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/bot_jungle_buddy.gd" id="11_k1xsm"]
-[ext_resource type="PackedScene" uid="uid://dvq3gunynbwac" path="res://scenes/interface_base/battlesim/heroes/bully_heroes_basic/vinny/bully_heroes_vinny.tscn" id="15_gkivd"]
-[ext_resource type="PackedScene" uid="uid://hypcm57wubcn" path="res://scenes/interface_base/battlesim/heroes/team_heroes_basic/team_heroes_top/team_heroes_top.tscn" id="17_73tsf"]
-[ext_resource type="PackedScene" uid="uid://c5ad65d07uf41" path="res://scenes/interface_base/battlesim/heroes/team_heroes_basic/team_heroes_bot/team_heroes_bot.tscn" id="18_sbnwq"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/utility/map_setup.gd" id="21_ew3r1"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/utility/jungle_manager.gd" id="22_l2acy"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/utility/wave_manager.gd" id="23_1nm8l"]
-[ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/ai_manager.gd" id="24_0k2kd"]
-[ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/ai_data.gd" id="25_dj10f"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/new_game_manager.gd" id="27_12da5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tjxr4"]
@@ -186,20 +176,6 @@ texture = ExtResource("1_ifuak")
 [node name="Towers" type="Node" parent="HB"]
 unique_name_in_owner = true
 
-[node name="BuddyTower" parent="HB/Towers" instance=ExtResource("5_bvvme")]
-position = Vector2(545, 553)
-_lane = "top"
-
-[node name="BuddyTower2" parent="HB/Towers" instance=ExtResource("5_bvvme")]
-position = Vector2(956, 720)
-_lane = "bot"
-
-[node name="BullyTower" parent="HB/Towers" instance=ExtResource("4_khfx1")]
-position = Vector2(1302, 433)
-
-[node name="BullyTower2" parent="HB/Towers" instance=ExtResource("4_khfx1")]
-position = Vector2(893, 254)
-
 [node name="EnemyTowerTop" type="Marker2D" parent="HB/Towers"]
 unique_name_in_owner = true
 position = Vector2(892, 255)
@@ -219,17 +195,6 @@ position = Vector2(955, 721)
 [node name="Nexus" type="Node" parent="HB"]
 unique_name_in_owner = true
 
-[node name="BullyNexus" parent="HB/Nexus" instance=ExtResource("6_wp7o6")]
-position = Vector2(1260, 144)
-_damage = 200.0
-_att_speed = 1.5
-
-[node name="BuddyNexus" parent="HB/Nexus" instance=ExtResource("7_ql48n")]
-position = Vector2(555, 782)
-_damage = 100.0
-_health = 1500.0
-_att_speed = 1.5
-
 [node name="TeamNexusPosition" type="Marker2D" parent="HB/Nexus"]
 unique_name_in_owner = true
 position = Vector2(562, 807)
@@ -241,26 +206,12 @@ position = Vector2(1261, 147)
 [node name="BullyHeroes" type="Node" parent="HB"]
 unique_name_in_owner = true
 
-[node name="BullyHeroesSheila" parent="HB/BullyHeroes" instance=ExtResource("10_ryrnl")]
-position = Vector2(1252, 168)
-team = 1
-
-[node name="BullyHeroesVinny" parent="HB/BullyHeroes" instance=ExtResource("15_gkivd")]
-position = Vector2(1259, 165)
-team = 1
-
 [node name="RespawnEnemy" type="Marker2D" parent="HB/BullyHeroes"]
 unique_name_in_owner = true
 position = Vector2(1248, 172)
 
 [node name="TeamHeroes" type="Node" parent="HB"]
 unique_name_in_owner = true
-
-[node name="TeamHeroesTop" parent="HB/TeamHeroes" instance=ExtResource("17_73tsf")]
-position = Vector2(565, 823)
-
-[node name="TeamHeroesBot" parent="HB/TeamHeroes" instance=ExtResource("18_sbnwq")]
-position = Vector2(576, 833)
 
 [node name="RespawnTeam" type="Marker2D" parent="HB/TeamHeroes"]
 unique_name_in_owner = true
@@ -351,14 +302,6 @@ script = ExtResource("22_l2acy")
 [node name="WaveManager" type="Node" parent="HB/Utility" groups=["restart_map"]]
 unique_name_in_owner = true
 script = ExtResource("23_1nm8l")
-
-[node name="AiManager" type="Node" parent="HB/Utility"]
-unique_name_in_owner = true
-script = ExtResource("24_0k2kd")
-
-[node name="AiData" type="Node" parent="HB/Utility"]
-unique_name_in_owner = true
-script = ExtResource("25_dj10f")
 
 [node name="NewGameManager" type="Node" parent="HB/Utility"]
 unique_name_in_owner = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpnlghx13iay"]
+[gd_scene load_steps=9 format=3 uid="uid://bpnlghx13iay"]
 
 [ext_resource type="Script" path="res://scenes/homepage/homepage.gd" id="1_i64r6"]
 [ext_resource type="Texture2D" uid="uid://sxx71voh604e" path="res://assets/art/background/background.png" id="1_innmw"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://fgfie74mjqjs" path="res://scenes/interface_base/battlesim/battle_sim.tscn" id="6_88w18"]
 [ext_resource type="Script" path="res://scenes/homepage/saver_loader.gd" id="6_moooh"]
 [ext_resource type="PackedScene" uid="uid://b8fkla5rkmdyu" path="res://scenes/team_manager/team_manager.tscn" id="7_4dhdb"]
-[ext_resource type="PackedScene" uid="uid://bdm4fwelhkqev" path="res://scenes/utility/battle_manager/battle_manager.tscn" id="8_ywkkb"]
 
 [node name="Homepage" type="Node2D"]
 script = ExtResource("1_i64r6")
@@ -81,8 +80,6 @@ wait_time = 5.0
 autostart = true
 
 [node name="TeamManager" parent="Utilities" instance=ExtResource("7_4dhdb")]
-
-[node name="BattleManager" parent="Utilities" instance=ExtResource("8_ywkkb")]
 
 [node name="SaveButton" type="Button" parent="."]
 visible = false
