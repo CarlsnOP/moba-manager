@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=5 format=3 uid="uid://cvdigjqj0sxb6"]
+
+[ext_resource type="Texture2D" uid="uid://diser732wulb0" path="res://assets/art/items/golden-toothpick-of-doom.webp" id="1_ka076"]
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_fpwun"]
+[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/items/bent_fork.tres" id="3_gk0iu"]
+[ext_resource type="Script" path="res://resources/items/hero_items/item_resource.gd" id="4_3a0cv"]
+
+[resource]
+script = ExtResource("4_3a0cv")
+name = "Golden Toothpick of Doom"
+icon = ExtResource("1_ka076")
+description = "For the fanciest heroes!"
+rarity = 4
+effect = "Every third attack deals an additional 30% of Attack Damage (AD)."
+ingredients = Array[ExtResource("2_fpwun")]([ExtResource("3_gk0iu"), ExtResource("3_gk0iu")])

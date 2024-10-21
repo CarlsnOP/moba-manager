@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=5 format=3 uid="uid://c5x08txncdjy0"]
+
+[ext_resource type="Texture2D" uid="uid://d0lpbmwyqck6a" path="res://assets/art/items/warped-spoon-shield.webp" id="1_wr8c2"]
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_cwu2s"]
+[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/items/bent_fork.tres" id="3_5667f"]
+[ext_resource type="Script" path="res://resources/items/hero_items/item_resource.gd" id="4_wwewn"]
+
+[resource]
+script = ExtResource("4_wwewn")
+name = "Warped Spoon Shield"
+icon = ExtResource("1_wr8c2")
+description = "Deflects with style!"
+rarity = 1
+effect = "Reduces all incoming damage by 8%"
+ingredients = Array[ExtResource("2_cwu2s")]([ExtResource("3_5667f"), ExtResource("3_5667f")])

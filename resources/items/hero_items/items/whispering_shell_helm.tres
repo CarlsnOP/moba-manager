@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=5 format=3 uid="uid://u5l5by84d7wc"]
+
+[ext_resource type="Texture2D" uid="uid://b7f4lc1h50gbe" path="res://assets/art/items/whispering-shell-helm.webp" id="1_d1pe3"]
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_rnrtj"]
+[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/items/bent_fork.tres" id="3_cq546"]
+[ext_resource type="Script" path="res://resources/items/hero_items/item_resource.gd" id="4_cefbd"]
+
+[resource]
+script = ExtResource("4_cefbd")
+name = "Whispering Shell Helm"
+icon = ExtResource("1_d1pe3")
+description = "Listen closely!"
+rarity = 4
+effect = "Gain 5% of your missing Health every 10 seconds."
+ingredients = Array[ExtResource("2_rnrtj")]([ExtResource("3_cq546"), ExtResource("3_cq546")])

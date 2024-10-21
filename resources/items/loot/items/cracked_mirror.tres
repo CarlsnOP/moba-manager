@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://bn70crdmqufvb"]
+
+[ext_resource type="Texture2D" uid="uid://dq1a1dyid6krr" path="res://assets/art/loot/cracked-mirror.webp" id="1_yc5cq"]
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_86d8m"]
+
+[resource]
+script = ExtResource("2_86d8m")
+loot_name = "Cracked Mirror"
+icon = ExtResource("1_yc5cq")
+loot_description = "Reflects poorly."
+rarity = 2

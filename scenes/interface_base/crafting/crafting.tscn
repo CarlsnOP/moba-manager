@@ -1,5 +1,69 @@
-[gd_scene load_steps=2 format=3 uid="uid://enf2gme6mkyw"]
+[gd_scene load_steps=7 format=3 uid="uid://enf2gme6mkyw"]
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interface_base/interface_base.tscn" id="1_2ksn5"]
+[ext_resource type="Script" path="res://scenes/interface_base/crafting/crafting.gd" id="2_nomum"]
+[ext_resource type="PackedScene" uid="uid://crp36l631uhwm" path="res://scenes/interface_base/crafting/loot_grid.tscn" id="3_8rldi"]
+[ext_resource type="PackedScene" uid="uid://cbeqdlhkmic5y" path="res://scenes/interface_base/inventory/loot_slot.tscn" id="3_qrdfa"]
+[ext_resource type="PackedScene" uid="uid://yxjviv3ckgwo" path="res://scenes/interface_base/crafting/item_grid.tscn" id="4_c2wys"]
+[ext_resource type="PackedScene" uid="uid://bxh1fs1opeyhq" path="res://scenes/interface_base/crafting/item_slot.tscn" id="4_uj14i"]
 
 [node name="Crafting" instance=ExtResource("1_2ksn5")]
+script = ExtResource("2_nomum")
+loot_slot_scene = ExtResource("3_qrdfa")
+item_slot_scene = ExtResource("4_uj14i")
+
+[node name="Label" parent="PC/MC/VB" index="0"]
+text = "Crafting"
+
+[node name="HB" type="HBoxContainer" parent="PC/MC/VB" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VB" type="VBoxContainer" parent="PC/MC/VB/HB" index="0"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PC/MC/VB/HB/VB" index="0"]
+layout_mode = 2
+text = "Recipes"
+
+[node name="ItemList" type="ItemList" parent="PC/MC/VB/HB/VB" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 3
+item_count = 2
+item_0/text = "Spoon Of Destiny"
+item_1/text = "Worn-Out Wonder Boots"
+
+[node name="VB2" type="VBoxContainer" parent="PC/MC/VB/HB" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PC/MC/VB/HB/VB2" index="0"]
+layout_mode = 2
+text = "Ingredients"
+
+[node name="LootGrid" parent="PC/MC/VB/HB/VB2" index="1" instance=ExtResource("3_8rldi")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="PC/MC/VB/HB/VB2" index="2"]
+layout_mode = 2
+text = "Results"
+
+[node name="ItemGrid" parent="PC/MC/VB/HB/VB2" index="3" instance=ExtResource("4_c2wys")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="PC/MC/VB/HB/VB2" index="4"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CraftButton" type="Button" parent="PC/MC/VB/HB/VB2" index="5"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Craft"
+
+[connection signal="item_selected" from="PC/MC/VB/HB/VB/ItemList" to="." method="_on_recipe_list_item_selected"]
+[connection signal="pressed" from="PC/MC/VB/HB/VB2/CraftButton" to="." method="_on_craft_button_pressed"]

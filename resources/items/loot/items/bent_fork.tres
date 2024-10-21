@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://bmkwkkrkcnw3o"]
+
+[ext_resource type="Texture2D" uid="uid://drwgtbagm251l" path="res://assets/art/loot/bent-fork.webp" id="1_fne3a"]
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_4qq3n"]
+
+[resource]
+script = ExtResource("2_4qq3n")
+loot_name = "Bent Fork"
+icon = ExtResource("1_fne3a")
+loot_description = "Perfect for spaghetti!"
+rarity = 0

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://c8sk4ei08viwn"]
+
+[ext_resource type="Texture2D" uid="uid://b5175uso4y1fo" path="res://assets/art/loot/jeweled-goblet.webp" id="1_8str0"]
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_p220l"]
+
+[resource]
+script = ExtResource("2_p220l")
+loot_name = "Jeweled Goblet"
+icon = ExtResource("1_8str0")
+loot_description = "Fit for kings"
+rarity = 3

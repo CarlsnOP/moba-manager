@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://yppwmud45flm"]
+
+[ext_resource type="Texture2D" uid="uid://bn11apr5qpm0v" path="res://assets/art/loot/rainbow-ribbon.webp" id="1_vful8"]
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_ijgru"]
+
+[resource]
+script = ExtResource("2_ijgru")
+loot_name = "Rainbow Ribbon"
+icon = ExtResource("1_vful8")
+loot_description = "Ties everything!"
+rarity = 2

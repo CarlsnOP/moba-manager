@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=5 format=3 uid="uid://b1uyicpkejc85"]
+
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="1_cafpw"]
+[ext_resource type="Texture2D" uid="uid://di312a7ek66kw" path="res://assets/art/items/spoon-of-destiny.webp" id="1_t58yd"]
+[ext_resource type="Script" path="res://resources/items/hero_items/item_resource.gd" id="2_2tnuh"]
+[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/items/bent_fork.tres" id="2_8ivij"]
+
+[resource]
+script = ExtResource("2_2tnuh")
+name = "Spoon of Destiny"
+icon = ExtResource("1_t58yd")
+description = "Stir up some trouble!"
+rarity = 2
+effect = "Increases Ability Power (AP) by 10%."
+ingredients = Array[ExtResource("1_cafpw")]([ExtResource("2_8ivij"), ExtResource("2_8ivij")])

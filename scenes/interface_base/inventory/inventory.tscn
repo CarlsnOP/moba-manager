@@ -1,5 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://631q0hu1m73l"]
+[gd_scene load_steps=6 format=3 uid="uid://631q0hu1m73l"]
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interface_base/interface_base.tscn" id="1_6ghwu"]
+[ext_resource type="Script" path="res://scenes/interface_base/inventory/inventory.gd" id="2_tey51"]
+[ext_resource type="PackedScene" uid="uid://cbeqdlhkmic5y" path="res://scenes/interface_base/inventory/loot_slot.tscn" id="3_j6xac"]
+[ext_resource type="PackedScene" uid="uid://crp36l631uhwm" path="res://scenes/interface_base/crafting/loot_grid.tscn" id="4_drm5i"]
+[ext_resource type="PackedScene" uid="uid://yxjviv3ckgwo" path="res://scenes/interface_base/crafting/item_grid.tscn" id="5_pwjxc"]
 
 [node name="Inventory" instance=ExtResource("1_6ghwu")]
+script = ExtResource("2_tey51")
+loot_slot_scene = ExtResource("3_j6xac")
+
+[node name="Label" parent="PC/MC/VB" index="0"]
+text = "Inventory"
+
+[node name="TabContainer" type="TabContainer" parent="PC/MC/VB" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="GridContainer" parent="PC/MC/VB/TabContainer" index="1" instance=ExtResource("4_drm5i")]
+unique_name_in_owner = true
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ItemGrid" parent="PC/MC/VB/TabContainer" index="2" instance=ExtResource("5_pwjxc")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1

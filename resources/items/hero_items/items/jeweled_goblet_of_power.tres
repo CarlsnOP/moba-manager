@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=5 format=3 uid="uid://ccktctl4aep1m"]
+
+[ext_resource type="Texture2D" uid="uid://bf3vnf2pd6iqy" path="res://assets/art/items/jeweled-goblet-of-power.webp" id="1_0vu7h"]
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_r4lxq"]
+[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/items/bent_fork.tres" id="3_bl0x5"]
+[ext_resource type="Script" path="res://resources/items/hero_items/item_resource.gd" id="4_aps7k"]
+
+[resource]
+script = ExtResource("4_aps7k")
+name = "Jeweled Goblet of Power"
+icon = ExtResource("1_0vu7h")
+description = "Drink to that!"
+rarity = 3
+effect = "Attack Damage (AD) by 15%"
+ingredients = Array[ExtResource("2_r4lxq")]([ExtResource("3_bl0x5"), ExtResource("3_bl0x5")])

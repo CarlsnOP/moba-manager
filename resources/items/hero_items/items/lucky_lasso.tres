@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=5 format=3 uid="uid://b4qfc8mcwlout"]
+
+[ext_resource type="Texture2D" uid="uid://bny6gm6r4rma" path="res://assets/art/items/lucky-lasso.webp" id="1_2mfst"]
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_scftg"]
+[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/items/bent_fork.tres" id="3_0q01d"]
+[ext_resource type="Script" path="res://resources/items/hero_items/item_resource.gd" id="4_guggp"]
+
+[resource]
+script = ExtResource("4_guggp")
+name = "Lucky Lasso"
+icon = ExtResource("1_2mfst")
+description = "Rope in some good luck!"
+rarity = 3
+effect = "Grants a 10% chance to reflect 15% of incoming damage."
+ingredients = Array[ExtResource("2_scftg")]([ExtResource("3_0q01d"), ExtResource("3_0q01d")])

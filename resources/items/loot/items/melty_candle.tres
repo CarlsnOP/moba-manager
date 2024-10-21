@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://cu24o84ohtpm6"]
+
+[ext_resource type="Texture2D" uid="uid://cbnsme0ahusv8" path="res://assets/art/loot/melty-candle.webp" id="1_a2osm"]
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_0fnhi"]
+
+[resource]
+script = ExtResource("2_0fnhi")
+loot_name = "Melty Candle"
+icon = ExtResource("1_a2osm")
+loot_description = "Drip...drip..."
+rarity = 1

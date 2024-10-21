@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=5 format=3 uid="uid://cppd3cdtu8agp"]
+
+[ext_resource type="Texture2D" uid="uid://cpwyttwbvkuws" path="res://assets/art/items/squeaky-gauntlets.webp" id="1_2xsev"]
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_sfs5c"]
+[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/items/bent_fork.tres" id="3_t5xnx"]
+[ext_resource type="Script" path="res://resources/items/hero_items/item_resource.gd" id="4_4ajoy"]
+
+[resource]
+script = ExtResource("4_4ajoy")
+name = "Squeaky Gauntlets"
+icon = ExtResource("1_2xsev")
+description = "Hear them before you feel them!"
+rarity = 0
+effect = "Reduces damage taken by 5%"
+ingredients = Array[ExtResource("2_sfs5c")]([ExtResource("3_t5xnx"), ExtResource("3_t5xnx")])

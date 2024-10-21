@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxh1fs1opeyhq"]
+
+[ext_resource type="Texture2D" uid="uid://diser732wulb0" path="res://assets/art/items/golden-toothpick-of-doom.webp" id="1_7tagd"]
+[ext_resource type="Script" path="res://scenes/interface_base/crafting/item_slot.gd" id="1_xcu06"]
+
+[node name="item_slot" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xcu06")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("1_7tagd")
+expand_mode = 3

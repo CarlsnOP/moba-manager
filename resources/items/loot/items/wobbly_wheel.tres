@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://d14moyitm4df4"]
+
+[ext_resource type="Texture2D" uid="uid://dbloktomplxt1" path="res://assets/art/loot/wobbly-wheel.webp" id="1_uscub"]
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_buai1"]
+
+[resource]
+script = ExtResource("2_buai1")
+loot_name = "Wobbly Wheel"
+icon = ExtResource("1_uscub")
+loot_description = "Rolls... kinda."
+rarity = 1

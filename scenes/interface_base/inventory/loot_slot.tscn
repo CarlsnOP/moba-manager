@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbeqdlhkmic5y"]
+
+[ext_resource type="Script" path="res://scenes/interface_base/inventory/loot_slot.gd" id="1_83m0i"]
+[ext_resource type="Texture2D" uid="uid://d4dx7mttypx36" path="res://assets/art/loot/rusty-spoon.webp" id="1_q4xk8"]
+
+[node name="LootSlot" type="PanelContainer"]
+script = ExtResource("1_83m0i")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("1_q4xk8")
+expand_mode = 3

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://yxjviv3ckgwo"]
+
+[ext_resource type="Script" path="res://scenes/interface_base/crafting/item_grid.gd" id="1_03wj1"]
+[ext_resource type="PackedScene" uid="uid://bxh1fs1opeyhq" path="res://scenes/interface_base/crafting/item_slot.tscn" id="2_fwgvw"]
+
+[node name="ItemGrid" type="GridContainer"]
+columns = 5
+script = ExtResource("1_03wj1")
+slot_scene = ExtResource("2_fwgvw")

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=5 format=3 uid="uid://xvhs8efmp8io"]
+
+[ext_resource type="Texture2D" uid="uid://bqo360ntp3syn" path="res://assets/art/items/magic-mushroom-medallion.webp" id="1_43mbs"]
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_txb8f"]
+[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/items/bent_fork.tres" id="3_22b77"]
+[ext_resource type="Script" path="res://resources/items/hero_items/item_resource.gd" id="4_xhalo"]
+
+[resource]
+script = ExtResource("4_xhalo")
+name = "Magic Mushroom Medallion"
+icon = ExtResource("1_43mbs")
+description = "A little bit of magic!"
+rarity = 2
+effect = "Increases Ability Power (AP) by 12% and reduces cooldowns by 10%"
+ingredients = Array[ExtResource("2_txb8f")]([ExtResource("3_22b77"), ExtResource("3_22b77")])

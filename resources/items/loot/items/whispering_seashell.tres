@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://dwc7e4ic14vns"]
+
+[ext_resource type="Texture2D" uid="uid://c25bxxj8nomcd" path="res://assets/art/loot/whispering-seashell.webp" id="1_2ql42"]
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_2fhgy"]
+
+[resource]
+script = ExtResource("2_2fhgy")
+loot_name = "Whispering Seashell"
+icon = ExtResource("1_2ql42")
+loot_description = "It talks back!"
+rarity = 4

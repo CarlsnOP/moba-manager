@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://hb1kmaeo2ga1"]
+
+[ext_resource type="Texture2D" uid="uid://c35cxpfg77i7l" path="res://assets/art/loot/golden-toothpick.webp" id="1_g3dw1"]
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_7p4oe"]
+
+[resource]
+script = ExtResource("2_7p4oe")
+loot_name = "Golden Toothpick"
+icon = ExtResource("1_g3dw1")
+loot_description = "Not for teeth."
+rarity = 4

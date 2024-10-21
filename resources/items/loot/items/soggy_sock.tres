@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://b8hcv4cjg36sr"]
+
+[ext_resource type="Texture2D" uid="uid://cng4w3vhvrret" path="res://assets/art/loot/soggy-sock.webp" id="1_4yyor"]
+[ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_s6bym"]
+
+[resource]
+script = ExtResource("2_s6bym")
+loot_name = "Soggy Sock"
+icon = ExtResource("1_4yyor")
+loot_description = "Extra squishy!"
+rarity = 0
