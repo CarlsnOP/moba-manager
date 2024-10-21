@@ -4,20 +4,26 @@ extends Node
 var inventory: Inventory = Inventory.new()
 var _rubberduckies := 0
 var _all_loot: Array[LootResource] = []
+var _all_items: Array[ItemResource] = []
 
 func _ready():
 	for file in DirAccess.get_files_at("res://resources/items/loot/items/"):
 		var resource_file = "res://resources/items/loot/items/" + file
 		var loot: LootResource = load(resource_file) as LootResource
 		_all_loot.append(loot)
+	
+	for file in DirAccess.get_files_at("res://resources/items/hero_items/items/"):
+		var resource_file = "res://resources/items/hero_items/items/" + file
+		var item: ItemResource = load(resource_file) as ItemResource
+		_all_items.append(item)
 
 func on_battle_end(win: bool) -> void:
 	if win:
 		create_rubberduckies(100)
-		inventory.add_loot(_all_loot[0])
+		inventory.add_loot(_all_loot[0], 2)
 	else:
 		create_rubberduckies(10)
-		inventory.add_loot(_all_loot[5])
+		inventory.add_loot(_all_loot[5], 3)
 
 func get_rubberduckies() -> int:
 	return _rubberduckies

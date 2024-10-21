@@ -4,21 +4,28 @@ var _loot_content:Array[LootResource] = []
 var _item_content:Array[ItemResource] = []
 
 #LOOT FUNCTIONS
-func add_loot(loot: LootResource):
-	_loot_content.append(loot)
+func add_loot(loot: LootResource, amount: int):
+	loot.quantity += amount
 
-func remove_loot(loot: LootResource):
-	_loot_content.erase(loot)
+func remove_loot(loot: LootResource, amount: int):
+	loot.quantity -= amount
 
 func get_loot() -> Array[LootResource]:
 	return _loot_content
 
-#ITEM FUNCTIONS
-func add_item(item: ItemResource):
-	_item_content.append(item)
+func check_loot_contents(loot: LootResource) -> bool:
+	if _loot_content.has(loot):
+		return true
+	else:
+		return false
+		
 
-func remove_item(item: ItemResource):
-	_item_content.erase(item)
+#ITEM FUNCTIONS
+func add_item(item: ItemResource, amount: int):
+	item.quantity += amount
+
+func remove_item(item: ItemResource, amount: int):
+	item.quantity -= amount
 
 func get_item() -> Array[ItemResource]:
 	return _item_content

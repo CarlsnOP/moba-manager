@@ -10,3 +10,4 @@ enum RARITY { COMMON, UNCOMMON, RARE, EPIC, LEGENDARY}
 @export var icon: CompressedTexture2D
 @export var loot_description: String
 @export var rarity: RARITY
+@export var quantity: int = 0

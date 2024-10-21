@@ -10,9 +10,9 @@ extends Control
 func _ready():
 	SignalManager.on_battle_end.connect(on_battle_end)
 
-func open(inventory: Inventory):
-	grid_container.display(inventory.get_loot())
-	item_grid.display(inventory.get_item())
+func open():
+	grid_container.display(CurrencyManager._all_loot)
+	item_grid.display(CurrencyManager._all_items)
 
 func on_battle_end(_win: bool) -> void:
-	open(CurrencyManager.inventory)
+	open()

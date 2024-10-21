@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bbb7qlytywx8h" path="res://assets/art/items/fluffy-feather-cap.webp" id="1_o67wi"]
 [ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_m77x1"]
-[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/items/bent_fork.tres" id="3_m073f"]
+[ext_resource type="Resource" uid="uid://cbkf1v62jrvdk" path="res://resources/items/loot/items/dented_helmet.tres" id="3_iemx4"]
 [ext_resource type="Script" path="res://resources/items/hero_items/item_resource.gd" id="4_8qbgl"]
 
 [resource]
@@ -13,4 +13,6 @@ icon = ExtResource("1_o67wi")
 description = "As light as a feather!"
 rarity = 1
 effect = "Increases Ability Power (AP) by 8%"
-ingredients = Array[ExtResource("2_m77x1")]([ExtResource("3_m073f"), ExtResource("3_m073f")])
+quantity = 0
+ingredients = Array[ExtResource("2_m77x1")]([ExtResource("3_iemx4")])
+amounts = Array[int]([4])

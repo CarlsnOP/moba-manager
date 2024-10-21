@@ -62,7 +62,8 @@ size_flags_vertical = 3
 [node name="CraftButton" type="Button" parent="PC/MC/VB/HB/VB2" index="5"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
 text = "Craft"
 
 [connection signal="item_selected" from="PC/MC/VB/HB/VB/ItemList" to="." method="_on_recipe_list_item_selected"]
