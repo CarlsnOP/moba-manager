@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("4_gmc52")
+id = 0
 name = "Invisible Cloak"
 icon = ExtResource("1_aqpjm")
 description = "Not just a myth!"

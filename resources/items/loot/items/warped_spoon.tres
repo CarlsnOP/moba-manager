@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_lkx7i")
+id = 26.0
 loot_name = "Warped Spoon"
 icon = ExtResource("1_7t204")
 loot_description = "Stirs reality!"

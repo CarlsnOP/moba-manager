@@ -2,4 +2,4 @@ extends Resource
 
 class_name itemListResource
 
-@export var loot: Array[itemResource]
+@export var loot: Array[ItemResource]

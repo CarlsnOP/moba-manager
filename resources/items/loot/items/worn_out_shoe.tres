@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_juoet")
+id = 29.0
 loot_name = "Worn-Out Shoe"
 icon = ExtResource("1_sk5uv")
 loot_description = "Miles of stories."

@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("4_wwewn")
+id = 0
 name = "Warped Spoon Shield"
 icon = ExtResource("1_wr8c2")
 description = "Deflects with style!"

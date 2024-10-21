@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_v2kbn")
+id = 20.0
 loot_name = "Rusted Nail"
 icon = ExtResource("1_r8rkb")
 loot_description = "Tetanus, anyone?"

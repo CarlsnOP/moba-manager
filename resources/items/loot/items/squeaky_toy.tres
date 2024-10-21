@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_qxgjw")
+id = 24.0
 loot_name = "Squeaky Toy"
 icon = ExtResource("1_moev3")
 loot_description = "Annoyingly fun!"

@@ -11,7 +11,8 @@ func _ready():
 	setup()
 
 func _process(_delta):
-	wave_label.text = "Wave in: %02d" % time_till_next_wave()
+	#wave_label.text = "Wave in: %02d" % time_till_next_wave()
+	pass
 
 func setup() -> void:
 	spawn_timer.wait_time = wave_spawn_timer

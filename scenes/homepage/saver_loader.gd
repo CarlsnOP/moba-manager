@@ -52,5 +52,5 @@ func load_vars(saved_game: SavedGame) -> void:
 	TeamManager.jungle = saved_game.jungle
 
 func _on_save_timer_timeout():
-	print("game has been saved")
+	#print("game has been saved")
 	save_game()

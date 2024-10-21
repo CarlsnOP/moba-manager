@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("4_8qbgl")
+id = 0
 name = "Fluffy Feather Cap"
 icon = ExtResource("1_o67wi")
 description = "As light as a feather!"

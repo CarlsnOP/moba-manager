@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("2_2tnuh")
+id = 0
 name = "Spoon of Destiny"
 icon = ExtResource("1_t58yd")
 description = "Stir up some trouble!"

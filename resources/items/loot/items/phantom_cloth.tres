@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_5ls30")
+id = 17.0
 loot_name = "Phantom Cloth"
 icon = ExtResource("1_cpu0h")
 loot_description = "Ghostly feel."

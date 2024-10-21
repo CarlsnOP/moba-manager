@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_61lkf")
+id = 7.0
 loot_name = "Fluffy Feather"
 icon = ExtResource("1_8kdi5")
 loot_description = "Tickle power!"

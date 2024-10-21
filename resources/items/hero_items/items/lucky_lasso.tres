@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("4_guggp")
+id = 0
 name = "Lucky Lasso"
 icon = ExtResource("1_2mfst")
 description = "Rope in some good luck!"

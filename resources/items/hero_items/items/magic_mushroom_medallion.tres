@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("4_xhalo")
+id = 0
 name = "Magic Mushroom Medallion"
 icon = ExtResource("1_43mbs")
 description = "A little bit of magic!"

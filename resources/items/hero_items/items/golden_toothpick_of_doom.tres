@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("4_3a0cv")
+id = 0
 name = "Golden Toothpick of Doom"
 icon = ExtResource("1_ka076")
 description = "For the fanciest heroes!"

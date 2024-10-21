@@ -12,3 +12,10 @@ custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = ExtResource("1_q4xk8")
 expand_mode = 3
+
+[node name="StackLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_type_variation = &"HeaderMedium"
+text = "0"

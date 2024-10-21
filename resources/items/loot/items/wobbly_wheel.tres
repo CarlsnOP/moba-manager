@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_buai1")
+id = 28.0
 loot_name = "Wobbly Wheel"
 icon = ExtResource("1_uscub")
 loot_description = "Rolls... kinda."
