@@ -10,3 +10,4 @@ loot_name = "invisible Ink"
 icon = ExtResource("1_k7xov")
 loot_description = "You can't see it!"
 rarity = 2
+quantity = 0

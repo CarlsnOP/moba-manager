@@ -10,3 +10,4 @@ loot_name = "Ancient Scroll"
 icon = ExtResource("1_pksn4")
 loot_description = "Unreadable text."
 rarity = 3
+quantity = 0

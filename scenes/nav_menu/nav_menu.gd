@@ -30,7 +30,7 @@ func _on_inventorybutton_pressed():
 func _on_crafting_button_pressed():
 	SignalManager.new_interface.emit(5)
 
-func _on_highscore_button_pressed():
+func _on_rank_button_pressed():
 	SignalManager.new_interface.emit(6)
 
 func _on_settings_button_pressed():

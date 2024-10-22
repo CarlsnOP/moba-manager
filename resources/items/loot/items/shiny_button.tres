@@ -10,3 +10,4 @@ loot_name = "Shiny Button"
 icon = ExtResource("1_vc8v6")
 loot_description = "Eye-catching!"
 rarity = 1
+quantity = 0

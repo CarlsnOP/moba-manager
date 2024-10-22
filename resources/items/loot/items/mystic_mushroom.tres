@@ -10,3 +10,4 @@ loot_name = "Mystic Mushroom"
 icon = ExtResource("1_gm35a")
 loot_description = "Magic or mold?"
 rarity = 3
+quantity = 0

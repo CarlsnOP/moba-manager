@@ -6,3 +6,6 @@ extends PanelContainer
 func display(loot:LootResource):
 	texture_rect.texture = loot.icon
 	stack_label.text = "%s" % loot.quantity
+
+func update_cost(cost: int) -> void:
+	stack_label.text += "/%s" % cost

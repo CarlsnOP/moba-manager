@@ -28,6 +28,8 @@ func load_game():
 	get_tree().call_group("game_events", "on_before_load_game")
 	
 	load_vars(saved_game)
+	CurrencyManager.set_items_quantity(saved_game.collected_items)
+	CurrencyManager.set_loot_quantity(saved_game.collected_loot)
 	TeamManager.load_team()
 	
 	for item in saved_game.saved_data:
@@ -41,6 +43,8 @@ func load_game():
 
 func save_vars(saved_game: SavedGame) -> void:
 	saved_game.rubber_duckies = CurrencyManager.get_rubberduckies()
+	saved_game.collected_items = CurrencyManager.get_items_quantity()
+	saved_game.collected_loot = CurrencyManager.get_loot_quantity()
 	saved_game.top = TeamManager.top
 	saved_game.bot = TeamManager.bot
 	saved_game.jungle = TeamManager.jungle

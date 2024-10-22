@@ -10,3 +10,4 @@ loot_name = "Bent Fork"
 icon = ExtResource("1_fne3a")
 loot_description = "Perfect for spaghetti!"
 rarity = 0
+quantity = 0

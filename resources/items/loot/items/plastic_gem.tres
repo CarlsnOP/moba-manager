@@ -10,3 +10,4 @@ loot_name = "Plastic Gem"
 icon = ExtResource("1_f5vvy")
 loot_description = "Looks valuable!"
 rarity = 0
+quantity = 0

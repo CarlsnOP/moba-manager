@@ -10,3 +10,4 @@ loot_name = "Lucky Horseshoe"
 icon = ExtResource("1_l3tg0")
 loot_description = "Luck in a U."
 rarity = 3
+quantity = 0

@@ -10,3 +10,4 @@ loot_name = "Cursed Coin"
 icon = ExtResource("1_c2x2f")
 loot_description = "Spend at your risk."
 rarity = 4
+quantity = 0

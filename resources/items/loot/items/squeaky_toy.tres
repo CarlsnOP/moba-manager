@@ -10,3 +10,4 @@ loot_name = "Squeaky Toy"
 icon = ExtResource("1_moev3")
 loot_description = "Annoyingly fun!"
 rarity = 0
+quantity = 0

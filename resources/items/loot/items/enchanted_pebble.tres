@@ -10,3 +10,4 @@ loot_name = "Enchanted Pebble"
 icon = ExtResource("1_586eq")
 loot_description = "Pebble with power!"
 rarity = 4
+quantity = 0

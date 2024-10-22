@@ -10,3 +10,4 @@ loot_name = "Mini Anvil"
 icon = ExtResource("1_ame5v")
 loot_description = "Heavy for its size!"
 rarity = 2
+quantity = 0

@@ -10,3 +10,4 @@ loot_name = "Sticky Tape"
 icon = ExtResource("1_eel1x")
 loot_description = "Holds anything!"
 rarity = 1
+quantity = 0

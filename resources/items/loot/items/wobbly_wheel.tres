@@ -10,3 +10,4 @@ loot_name = "Wobbly Wheel"
 icon = ExtResource("1_uscub")
 loot_description = "Rolls... kinda."
 rarity = 1
+quantity = 0

@@ -10,3 +10,4 @@ loot_name = "Rusty Spoon"
 icon = ExtResource("1_8q53f")
 loot_description = "Adds flavor!"
 rarity = 0
+quantity = 0

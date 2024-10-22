@@ -10,3 +10,4 @@ loot_name = "Glowing Pebble"
 icon = ExtResource("1_mbscx")
 loot_description = "Tiny nightlight."
 rarity = 2
+quantity = 0

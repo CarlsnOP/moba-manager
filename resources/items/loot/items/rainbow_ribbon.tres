@@ -10,3 +10,4 @@ loot_name = "Rainbow Ribbon"
 icon = ExtResource("1_vful8")
 loot_description = "Ties everything!"
 rarity = 2
+quantity = 0

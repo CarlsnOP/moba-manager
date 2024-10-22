@@ -10,3 +10,4 @@ loot_name = "Phantom Cloth"
 icon = ExtResource("1_cpu0h")
 loot_description = "Ghostly feel."
 rarity = 4
+quantity = 0

@@ -10,3 +10,4 @@ loot_name = "Jeweled Goblet"
 icon = ExtResource("1_8str0")
 loot_description = "Fit for kings"
 rarity = 3
+quantity = 0

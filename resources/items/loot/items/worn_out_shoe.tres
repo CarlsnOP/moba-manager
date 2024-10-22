@@ -10,3 +10,4 @@ loot_name = "Worn-Out Shoe"
 icon = ExtResource("1_sk5uv")
 loot_description = "Miles of stories."
 rarity = 0
+quantity = 0

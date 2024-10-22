@@ -47,7 +47,7 @@ func on_battle_end(_win: bool) -> void:
 	update_displays()
 
 func update_displays() -> void:
-	loot_grid.display_recipe(_selected_item.ingredients)
+	loot_grid.display_recipe(_selected_item.ingredients, _selected_item.amounts[0])
 	item_grid.display_result(_results)
 	check_can_craft()
 

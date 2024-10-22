@@ -10,3 +10,4 @@ loot_name = "Warped Spoon"
 icon = ExtResource("1_7t204")
 loot_description = "Stirs reality!"
 rarity = 3
+quantity = 0

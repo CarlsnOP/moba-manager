@@ -10,3 +10,4 @@ loot_name = "Broken Compass"
 icon = ExtResource("1_8bc5a")
 loot_description = "Always points south"
 rarity = 1
+quantity = 0

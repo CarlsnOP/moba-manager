@@ -10,3 +10,4 @@ loot_name = "Rusted Nail"
 icon = ExtResource("1_r8rkb")
 loot_description = "Tetanus, anyone?"
 rarity = 0
+quantity = 0

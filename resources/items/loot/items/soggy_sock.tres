@@ -10,3 +10,4 @@ loot_name = "Soggy Sock"
 icon = ExtResource("1_4yyor")
 loot_description = "Extra squishy!"
 rarity = 0
+quantity = 0

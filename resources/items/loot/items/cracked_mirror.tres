@@ -10,3 +10,4 @@ loot_name = "Cracked Mirror"
 icon = ExtResource("1_yc5cq")
 loot_description = "Reflects poorly."
 rarity = 2
+quantity = 0

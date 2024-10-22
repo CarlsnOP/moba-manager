@@ -10,3 +10,4 @@ loot_name = "Melty Candle"
 icon = ExtResource("1_a2osm")
 loot_description = "Drip...drip..."
 rarity = 1
+quantity = 0

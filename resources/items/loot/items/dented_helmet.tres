@@ -10,3 +10,4 @@ loot_name = "Dented Helmet"
 icon = ExtResource("1_38klo")
 loot_description = "Was it useful?"
 rarity = 0
+quantity = 0

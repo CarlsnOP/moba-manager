@@ -10,3 +10,4 @@ loot_name = "Fluffy Feather"
 icon = ExtResource("1_8kdi5")
 loot_description = "Tickle power!"
 rarity = 1
+quantity = 0

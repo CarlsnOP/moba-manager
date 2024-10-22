@@ -90,10 +90,10 @@ text = "Crafting
 "
 alignment = 0
 
-[node name="HighscoreButton" type="Button" parent="PC/MC/VB"]
+[node name="RankButton" type="Button" parent="PC/MC/VB"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
-text = "Highscore
+text = "Rank
 "
 alignment = 0
 
@@ -134,6 +134,6 @@ alignment = 0
 [connection signal="pressed" from="PC/MC/VB/BattleSimButton" to="." method="_on_battle_sim_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/Inventorybutton" to="." method="_on_inventorybutton_pressed"]
 [connection signal="pressed" from="PC/MC/VB/CraftingButton" to="." method="_on_crafting_button_pressed"]
-[connection signal="pressed" from="PC/MC/VB/HighscoreButton" to="." method="_on_highscore_button_pressed"]
+[connection signal="pressed" from="PC/MC/VB/RankButton" to="." method="_on_rank_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/QuitButton" to="." method="_on_quit_button_pressed"]

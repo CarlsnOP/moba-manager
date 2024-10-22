@@ -10,3 +10,4 @@ loot_name = "Frayed Rope"
 icon = ExtResource("1_03xm0")
 loot_description = "Holds… maybe."
 rarity = 0
+quantity = 0

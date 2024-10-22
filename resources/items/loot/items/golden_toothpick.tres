@@ -10,3 +10,4 @@ loot_name = "Golden Toothpick"
 icon = ExtResource("1_g3dw1")
 loot_description = "Not for teeth."
 rarity = 4
+quantity = 0

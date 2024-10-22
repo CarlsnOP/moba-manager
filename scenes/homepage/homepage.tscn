@@ -81,6 +81,8 @@ autostart = true
 
 [node name="TeamManager" parent="Utilities" instance=ExtResource("7_4dhdb")]
 
+[node name="RankManager" type="Node" parent="Utilities"]
+
 [node name="SaveButton" type="Button" parent="."]
 visible = false
 offset_left = 504.0

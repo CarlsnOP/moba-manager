@@ -14,7 +14,7 @@ func display(loot: Array[LootResource]):
 			add_child(slot)
 			slot.display(item)
 
-func display_recipe(loot: Array[LootResource]):
+func display_recipe(loot: Array[LootResource], cost: int):
 	for child in get_children():
 		child.queue_free()
 	
@@ -22,3 +22,4 @@ func display_recipe(loot: Array[LootResource]):
 		var slot = slot_scene.instantiate()
 		add_child(slot)
 		slot.display(item)
+		slot.update_cost(cost)

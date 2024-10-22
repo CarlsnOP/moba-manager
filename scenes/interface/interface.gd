@@ -1,12 +1,13 @@
 extends Control
 
-enum INTERFACE_STATE { HOME, HEROES, BATTLESETUP, BATTLESIM, INVENTORY, CRAFTING, HIGHSCORE, SETTINGS }
+enum INTERFACE_STATE { HOME, HEROES, BATTLESETUP, BATTLESIM, INVENTORY, CRAFTING, RANK, SETTINGS }
 
 @onready var heroes = %Heroes
 @onready var battle_setup = %BattleSetup
 @onready var home = %Home
 @onready var inventory = %Inventory
 @onready var crafting = %Crafting
+@onready var rank = %Rank
 
 var _state: INTERFACE_STATE = INTERFACE_STATE.HOME
 
@@ -17,12 +18,10 @@ func _ready():
 	crafting.open()
 
 func hide_interface() -> void:
-	home.hide()
-	heroes.hide()
-	battle_setup.hide()
-	inventory.hide()
-	crafting.hide()
+	var all_interfaces = get_children()
 	
+	for interface in all_interfaces:
+		interface.hide()
 
 func new_interface(state: int) -> void:
 	set_state(state)
@@ -47,5 +46,8 @@ func set_state(new_state: INTERFACE_STATE) -> void:
 		INTERFACE_STATE.CRAFTING:
 			crafting.show()
 			crafting.open()
+		INTERFACE_STATE.RANK:
+			rank.show()
+			
 
 			

@@ -10,3 +10,4 @@ loot_name = "Whispering Seashell"
 icon = ExtResource("1_2ql42")
 loot_description = "It talks back!"
 rarity = 4
+quantity = 0
