@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1srca4b5kfs6"]
+[gd_scene load_steps=4 format=3 uid="uid://d1srca4b5kfs6"]
 
 [ext_resource type="PackedScene" uid="uid://g374ax7ka8ax" path="res://scenes/rubber_duckies_label/rubber_duckies_label.tscn" id="1_1hn6o"]
 [ext_resource type="Texture2D" uid="uid://cgr2kbja4eqpu" path="res://assets/art/logo.png" id="1_7ujfs"]
 [ext_resource type="Script" path="res://scenes/nav_menu/nav_menu.gd" id="1_ahuud"]
-[ext_resource type="PackedScene" uid="uid://dwbflcxxchnbl" path="res://scenes/generator/generator.tscn" id="4_fwgy7"]
 
 [node name="NavMenu" type="Control"]
 layout_mode = 3
@@ -40,6 +39,7 @@ expand_mode = 5
 stretch_mode = 4
 
 [node name="BattleLabel" type="Label" parent="PC/MC/VB"]
+visible = false
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Timer"
@@ -125,8 +125,6 @@ theme_type_variation = &"HeaderMedium"
 text = "Quit game
 "
 alignment = 0
-
-[node name="Generator" parent="." instance=ExtResource("4_fwgy7")]
 
 [connection signal="pressed" from="PC/MC/VB/HomeButton" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/HeroesButton" to="." method="_on_heroes_button_pressed"]

@@ -28,8 +28,8 @@ func load_game():
 	get_tree().call_group("game_events", "on_before_load_game")
 	
 	load_vars(saved_game)
-	CurrencyManager.set_items_quantity(saved_game.collected_items)
-	CurrencyManager.set_loot_quantity(saved_game.collected_loot)
+	InventoryManager.set_items_quantity(saved_game.collected_items)
+	InventoryManager.set_loot_quantity(saved_game.collected_loot)
 	TeamManager.load_team()
 	
 	for item in saved_game.saved_data:
@@ -42,15 +42,15 @@ func load_game():
 				restored_node.on_load_game(item)
 
 func save_vars(saved_game: SavedGame) -> void:
-	saved_game.rubber_duckies = CurrencyManager.get_rubberduckies()
-	saved_game.collected_items = CurrencyManager.get_items_quantity()
-	saved_game.collected_loot = CurrencyManager.get_loot_quantity()
+	saved_game.rubber_duckies = InventoryManager.get_rubberduckies()
+	saved_game.collected_items = InventoryManager.get_items_quantity()
+	saved_game.collected_loot = InventoryManager.get_loot_quantity()
 	saved_game.top = TeamManager.top
 	saved_game.bot = TeamManager.bot
 	saved_game.jungle = TeamManager.jungle
 
 func load_vars(saved_game: SavedGame) -> void:
-	CurrencyManager._rubberduckies = saved_game.rubber_duckies
+	InventoryManager._rubberduckies = saved_game.rubber_duckies
 	TeamManager.top = saved_game.top
 	TeamManager.bot = saved_game.bot
 	TeamManager.jungle = saved_game.jungle

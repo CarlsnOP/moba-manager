@@ -29,10 +29,10 @@ config/icon="res://logo.png"
 [autoload]
 
 SignalManager="*res://singletons/signal_manager.gd"
-CurrencyManager="*res://singletons/currency_manager.gd"
-GeneratorManager="*res://singletons/generator_manager.gd"
+RewardManager="*res://singletons/reward_manager.gd"
 TeamManager="*res://singletons/team_manager.gd"
 SoundManager="*res://singletons/sound_manager.gd"
+InventoryManager="*res://singletons/inventory_manager.gd"
 
 [debug]
 

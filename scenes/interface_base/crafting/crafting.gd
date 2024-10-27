@@ -17,10 +17,10 @@ func _ready():
 	SignalManager.on_battle_end.connect(on_battle_end)
 
 func open():
-	_inventory = CurrencyManager.inventory
+	_inventory = InventoryManager.inventory
 	item_list.clear()
 	
-	for item in CurrencyManager._all_items:
+	for item in InventoryManager._all_items:
 		var index = item_list.add_item(item.name)
 		item_list.set_item_metadata(index, item)
 	

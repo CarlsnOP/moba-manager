@@ -1,5 +1,6 @@
 extends Node
 
+#Contains all the users loot and Rubberduckies
 
 var inventory: Inventory = Inventory.new()
 var _rubberduckies := 0
@@ -18,23 +19,6 @@ func _ready():
 		var resource_file = "res://resources/items/hero_items/items/" + file
 		var item: ItemResource = load(resource_file) as ItemResource
 		_all_items.append(item)
-
-func on_battle_end(win: bool) -> void:
-	if win:
-		create_rubberduckies(100)
-		inventory.add_loot(_all_loot[0], 2)
-	else:
-		create_rubberduckies(10)
-		inventory.add_loot(_all_loot[5], 3)
-
-func create_rubberduckies(quantity: int) -> void:
-	if quantity <= 0:
-		return
-	
-	_rubberduckies += quantity
-	
-	SignalManager.rubberduckies_created.emit(quantity)
-	SignalManager.rubberduckies_updated.emit()
 
 func can_spend(quantity: int) -> bool:
 	if quantity < 0:

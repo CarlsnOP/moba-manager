@@ -42,7 +42,7 @@ func on_battle_end(win: bool) -> void:
 	spawn_friendly_team()
 	
 	if game_launced:
-		CurrencyManager.on_battle_end(win)
+		RewardManager.on_battle_end(win)
 	
 func spawn_enemy_team() -> void:
 	spawn_enemy_nexus()
