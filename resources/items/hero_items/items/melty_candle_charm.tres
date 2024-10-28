@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=5 format=3 uid="uid://cyq8tq4a4ss45"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=7 format=3 uid="uid://cyq8tq4a4ss45"]
 
 [ext_resource type="Texture2D" uid="uid://dlfh8tcu3lbrs" path="res://assets/art/items/melty-candle-charm.webp" id="1_ukaqa"]
 [ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_f5etk"]
-[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/items/bent_fork.tres" id="3_1dgxf"]
+[ext_resource type="Resource" uid="uid://cu24o84ohtpm6" path="res://resources/items/loot/items/melty_candle.tres" id="3_ld0kl"]
 [ext_resource type="Script" path="res://resources/items/hero_items/item_resource.gd" id="4_5avia"]
+[ext_resource type="Resource" uid="uid://cp4egk4atcvrd" path="res://resources/items/loot/items/glowing_pebble.tres" id="4_lhnuv"]
+[ext_resource type="Resource" uid="uid://dddob6rifroei" path="res://resources/items/loot/items/shiny_button.tres" id="5_qptv0"]
 
 [resource]
 script = ExtResource("4_5avia")
@@ -13,4 +15,6 @@ icon = ExtResource("1_ukaqa")
 description = "Burns bright, but careful!"
 rarity = 2
 effect = "Increases Attack Damage (AD) by 10%"
-ingredients = Array[ExtResource("2_f5etk")]([ExtResource("3_1dgxf"), ExtResource("3_1dgxf")])
+quantity = 0
+ingredients = Array[ExtResource("2_f5etk")]([ExtResource("3_ld0kl"), ExtResource("4_lhnuv"), ExtResource("5_qptv0")])
+amounts = Array[int]([500, 100, 300])

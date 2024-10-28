@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=5 format=3 uid="uid://xvhs8efmp8io"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=7 format=3 uid="uid://xvhs8efmp8io"]
 
 [ext_resource type="Texture2D" uid="uid://bqo360ntp3syn" path="res://assets/art/items/magic-mushroom-medallion.webp" id="1_43mbs"]
 [ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_txb8f"]
-[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/items/bent_fork.tres" id="3_22b77"]
+[ext_resource type="Resource" uid="uid://b8kq6guwjldkf" path="res://resources/items/loot/items/mystic_mushroom.tres" id="3_msvfc"]
+[ext_resource type="Resource" uid="uid://cp4egk4atcvrd" path="res://resources/items/loot/items/glowing_pebble.tres" id="4_22tlb"]
 [ext_resource type="Script" path="res://resources/items/hero_items/item_resource.gd" id="4_xhalo"]
+[ext_resource type="Resource" uid="uid://cj1gooqliastt" path="res://resources/items/loot/items/broken_compass.tres" id="5_uhxpm"]
 
 [resource]
 script = ExtResource("4_xhalo")
@@ -13,4 +15,6 @@ icon = ExtResource("1_43mbs")
 description = "A little bit of magic!"
 rarity = 2
 effect = "Increases Ability Power (AP) by 12% and reduces cooldowns by 10%"
-ingredients = Array[ExtResource("2_txb8f")]([ExtResource("3_22b77"), ExtResource("3_22b77")])
+quantity = 0
+ingredients = Array[ExtResource("2_txb8f")]([ExtResource("3_msvfc"), ExtResource("4_22tlb"), ExtResource("5_uhxpm")])
+amounts = Array[int]([100, 200, 150])

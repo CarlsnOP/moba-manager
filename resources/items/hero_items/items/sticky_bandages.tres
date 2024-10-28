@@ -1,15 +1,20 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=5 format=3 uid="uid://dsueeonyfanka"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=7 format=3 uid="uid://dsueeonyfanka"]
 
 [ext_resource type="Texture2D" uid="uid://b5idpasa3o2c5" path="res://assets/art/items/sticky-bandages.webp" id="1_i54ki"]
 [ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_816g6"]
-[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/items/bent_fork.tres" id="3_vogne"]
+[ext_resource type="Resource" uid="uid://dmsyuj78dhpqq" path="res://resources/items/loot/items/sticky_tape.tres" id="3_gaylc"]
 [ext_resource type="Script" path="res://resources/items/hero_items/item_resource.gd" id="4_klhab"]
+[ext_resource type="Resource" uid="uid://cu24o84ohtpm6" path="res://resources/items/loot/items/melty_candle.tres" id="4_sqb55"]
+[ext_resource type="Resource" uid="uid://bxfongb7wo3pt" path="res://resources/items/loot/items/rusted_nail.tres" id="5_laysk"]
 
 [resource]
 script = ExtResource("4_klhab")
+id = 0
 name = "Sticky Bandages"
 icon = ExtResource("1_i54ki")
 description = "Healing that sticks!"
 rarity = 0
 effect = "Heals 2% of max Health every 5 seconds."
-ingredients = Array[ExtResource("2_816g6")]([ExtResource("3_vogne"), ExtResource("3_vogne")])
+quantity = 0
+ingredients = Array[ExtResource("2_816g6")]([ExtResource("3_gaylc"), ExtResource("4_sqb55"), ExtResource("5_laysk")])
+amounts = Array[int]([500, 250, 300])

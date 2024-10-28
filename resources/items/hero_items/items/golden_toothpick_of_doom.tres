@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=5 format=3 uid="uid://cvdigjqj0sxb6"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=7 format=3 uid="uid://cvdigjqj0sxb6"]
 
 [ext_resource type="Texture2D" uid="uid://diser732wulb0" path="res://assets/art/items/golden-toothpick-of-doom.webp" id="1_ka076"]
 [ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_fpwun"]
-[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/items/bent_fork.tres" id="3_gk0iu"]
+[ext_resource type="Resource" uid="uid://hb1kmaeo2ga1" path="res://resources/items/loot/items/golden_toothpick.tres" id="3_oqinx"]
 [ext_resource type="Script" path="res://resources/items/hero_items/item_resource.gd" id="4_3a0cv"]
+[ext_resource type="Resource" uid="uid://c148upheyf4gy" path="res://resources/items/loot/items/fluffy_feather.tres" id="4_k1tp1"]
+[ext_resource type="Resource" uid="uid://cfq7gu1jwyuug" path="res://resources/items/loot/items/enchanted_pebble.tres" id="5_hf88h"]
 
 [resource]
 script = ExtResource("4_3a0cv")
@@ -13,4 +15,6 @@ icon = ExtResource("1_ka076")
 description = "For the fanciest heroes!"
 rarity = 4
 effect = "Every third attack deals an additional 30% of Attack Damage (AD)."
-ingredients = Array[ExtResource("2_fpwun")]([ExtResource("3_gk0iu"), ExtResource("3_gk0iu")])
+quantity = 0
+ingredients = Array[ExtResource("2_fpwun")]([ExtResource("3_oqinx"), ExtResource("4_k1tp1"), ExtResource("5_hf88h")])
+amounts = Array[int]([250, 200, 300])

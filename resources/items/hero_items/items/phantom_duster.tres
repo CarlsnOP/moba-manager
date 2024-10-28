@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=5 format=3 uid="uid://dy3dpnuxbuuq3"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=7 format=3 uid="uid://dy3dpnuxbuuq3"]
 
 [ext_resource type="Texture2D" uid="uid://cylhc7apfog0r" path="res://assets/art/items/phantom-duster.webp" id="1_ho0xk"]
 [ext_resource type="Script" path="res://resources/items/loot/loot_resource.gd" id="2_uy2g1"]
-[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/items/bent_fork.tres" id="3_irqoi"]
+[ext_resource type="Resource" uid="uid://jyqurawt1ib5" path="res://resources/items/loot/items/phantom_cloth.tres" id="3_ow83o"]
+[ext_resource type="Resource" uid="uid://b8hcv4cjg36sr" path="res://resources/items/loot/items/soggy_sock.tres" id="4_3ixys"]
 [ext_resource type="Script" path="res://resources/items/hero_items/item_resource.gd" id="4_5hian"]
+[ext_resource type="Resource" uid="uid://bo2jhqgexto4v" path="res://resources/items/loot/items/ancient_scroll.tres" id="5_pd52m"]
 
 [resource]
 script = ExtResource("4_5hian")
@@ -13,4 +15,6 @@ icon = ExtResource("1_ho0xk")
 description = "Dust your enemies!"
 rarity = 4
 effect = "15% chance to heal 5% of max Health every 10 seconds."
-ingredients = Array[ExtResource("2_uy2g1")]([ExtResource("3_irqoi"), ExtResource("3_irqoi")])
+quantity = 0
+ingredients = Array[ExtResource("2_uy2g1")]([ExtResource("3_ow83o"), ExtResource("4_3ixys"), ExtResource("5_pd52m")])
+amounts = Array[int]([50, 200, 150])

@@ -35,8 +35,10 @@ func _on_recipe_list_item_selected(index):
 	update_displays()
 
 func _on_craft_button_pressed():
-	for loot in _selected_item.ingredients:
-		_inventory.remove_loot(loot, _selected_item.amounts[0])
+	for i in _selected_item.ingredients.size():
+		var loot = _selected_item.ingredients[i]
+		var required_amount = _selected_item.amounts[i]
+		_inventory.remove_loot(loot, required_amount)
 		
 	for item in _results:
 		_inventory.add_item(item, 1)
@@ -52,9 +54,16 @@ func update_displays() -> void:
 	check_can_craft()
 
 func check_can_craft() -> bool:
-	for loot in _selected_item.ingredients:
-		if loot.quantity > _selected_item.amounts[0]:
-			craft_button.disabled = false
-		else:
+	craft_button.disabled = true
+	
+	for i in _selected_item.ingredients.size():
+		var ingredient = _selected_item.ingredients[i]
+		var required_amount = _selected_item.amounts[i]
+		
+
+		if ingredient.quantity < required_amount:
 			craft_button.disabled = true
+			return false
+			
+	craft_button.disabled = false
 	return false
