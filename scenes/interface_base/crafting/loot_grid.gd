@@ -23,3 +23,7 @@ func display_recipe(loot: Array[LootResource], cost: int):
 		add_child(slot)
 		slot.display(item)
 		slot.update_cost(cost)
+
+func update_quanities() -> void:
+	for loot in get_children():
+		loot.update_quantity()

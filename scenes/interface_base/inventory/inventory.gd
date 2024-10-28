@@ -16,4 +16,5 @@ func open():
 	items.display(InventoryManager._all_items)
 
 func on_battle_end(_win: bool) -> void:
-	open()
+	if visible:
+		loot.update_quanities()

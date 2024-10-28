@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk8d0pnwcee7b"]
+
+[ext_resource type="Texture2D" uid="uid://dnrme7jcrgoft" path="res://assets/art/particles/spotlight_1.png" id="1_iylqg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3xvie"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_vonnd"]
+_data = [Vector2(0.100746, 0.194607), 0.0, 0.0, 0, 0, Vector2(0.858209, 0.36516), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_uytk2"]
+offsets = PackedFloat32Array(0, 0.125683, 0.868852, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_rtf6b"]
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0663507, 37.3626), 0.0, 0.0, 0, 0, Vector2(0.322275, 61.5385), 0.0, 0.0, 0, 0, Vector2(0.729858, 76.9231), 0.0, 0.0, 0, 0, Vector2(1, 118.681), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[node name="Particles" type="CPUParticles2D"]
+material = SubResource("CanvasItemMaterial_3xvie")
+position = Vector2(75, 75)
+lifetime = 3.0
+preprocess = 0.2
+speed_scale = 0.2
+explosiveness = 0.1
+randomness = 0.1
+lifetime_randomness = 0.5
+texture = ExtResource("1_iylqg")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 60)
+spread = 90.0
+gravity = Vector2(0, 5)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+damping_min = 5.0
+damping_max = 10.0
+scale_amount_min = 0.01
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_vonnd")
+color_ramp = SubResource("Gradient_uytk2")
+hue_variation_min = -0.45
+anim_speed_curve = SubResource("Curve_rtf6b")

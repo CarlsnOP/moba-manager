@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbeqdlhkmic5y"]
+[gd_scene load_steps=4 format=3 uid="uid://cbeqdlhkmic5y"]
 
 [ext_resource type="Script" path="res://scenes/interface_base/inventory/loot_slot.gd" id="1_83m0i"]
 [ext_resource type="Texture2D" uid="uid://d4dx7mttypx36" path="res://assets/art/loot/rusty-spoon.webp" id="1_q4xk8"]
+[ext_resource type="PackedScene" uid="uid://dk8d0pnwcee7b" path="res://scenes/particles/particles.tscn" id="3_3qotj"]
 
 [node name="LootSlot" type="PanelContainer"]
 script = ExtResource("1_83m0i")
@@ -20,3 +21,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_type_variation = &"ItemQuantity"
 text = "0"
+
+[node name="Particles" parent="." instance=ExtResource("3_3qotj")]
+unique_name_in_owner = true

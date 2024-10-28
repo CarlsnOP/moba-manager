@@ -26,7 +26,6 @@ func on_battle_end(win: bool) -> void:
 	while loot_reward > 1:
 		var rand_weight = randf() * total_weight
 		var cumulative_weight = 0
-		#var possible_loot = eligible_loot[randi() % eligible_loot.size()]
 		
 		for loot in eligible_loot:
 			cumulative_weight += loot.weight
@@ -35,10 +34,6 @@ func on_battle_end(win: bool) -> void:
 					InventoryManager.inventory.add_loot(loot, 1)
 					loot_reward -= loot.value
 				break
-		
-		#if loot_reward >= possible_loot.value:
-			#InventoryManager.inventory.add_loot(possible_loot, 1)
-			#loot_reward -= possible_loot.value
 
 
 func create_rubberduckies(quantity: int) -> void:
