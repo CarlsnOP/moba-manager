@@ -5,9 +5,11 @@
 
 [resource]
 script = ExtResource("2_7p4oe")
-id = 10.0
+id = 0
 loot_name = "Golden Toothpick"
 icon = ExtResource("1_g3dw1")
 loot_description = "Not for teeth."
 rarity = 4
 quantity = 0
+value = 10.0
+weight = 0.1

@@ -5,9 +5,11 @@
 
 [resource]
 script = ExtResource("2_11mh1")
-id = 25.0
+id = 0
 loot_name = "Sticky Tape"
 icon = ExtResource("1_eel1x")
 loot_description = "Holds anything!"
 rarity = 1
 quantity = 0
+value = 3.0
+weight = 7.0

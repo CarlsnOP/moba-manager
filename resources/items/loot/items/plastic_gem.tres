@@ -5,9 +5,11 @@
 
 [resource]
 script = ExtResource("2_q4gf1")
-id = 18.0
+id = 0
 loot_name = "Plastic Gem"
 icon = ExtResource("1_f5vvy")
 loot_description = "Looks valuable!"
 rarity = 0
 quantity = 0
+value = 1
+weight = 10.0

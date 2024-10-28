@@ -5,9 +5,11 @@
 
 [resource]
 script = ExtResource("2_2fhgy")
-id = 27.0
+id = 0
 loot_name = "Whispering Seashell"
 icon = ExtResource("1_2ql42")
 loot_description = "It talks back!"
 rarity = 4
 quantity = 0
+value = 10.0
+weight = 0.1

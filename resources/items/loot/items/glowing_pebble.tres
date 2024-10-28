@@ -5,9 +5,11 @@
 
 [resource]
 script = ExtResource("2_baqxj")
-id = 9.0
+id = 0
 loot_name = "Glowing Pebble"
 icon = ExtResource("1_mbscx")
 loot_description = "Tiny nightlight."
 rarity = 2
 quantity = 0
+value = 5.0
+weight = 3.0

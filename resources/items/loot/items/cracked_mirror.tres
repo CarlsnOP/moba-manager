@@ -5,9 +5,11 @@
 
 [resource]
 script = ExtResource("2_86d8m")
-id = 3.0
+id = 0
 loot_name = "Cracked Mirror"
 icon = ExtResource("1_yc5cq")
 loot_description = "Reflects poorly."
 rarity = 2
 quantity = 0
+value = 5.0
+weight = 3.0

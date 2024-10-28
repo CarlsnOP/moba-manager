@@ -11,3 +11,6 @@ enum RARITY { COMMON, UNCOMMON, RARE, EPIC, LEGENDARY}
 @export var loot_description: String
 @export var rarity: RARITY
 @export var quantity: int = 0
+
+@export var value := 1
+@export var weight := 1.0

@@ -11,3 +11,5 @@ icon = ExtResource("1_pksn4")
 loot_description = "Unreadable text."
 rarity = 3
 quantity = 0
+value = 7.0
+weight = 1.0
