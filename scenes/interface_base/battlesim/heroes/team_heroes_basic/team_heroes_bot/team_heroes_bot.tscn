@@ -1,13 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5ad65d07uf41"]
+[gd_scene load_steps=3 format=3 uid="uid://c5ad65d07uf41"]
 
 [ext_resource type="PackedScene" uid="uid://bghvcjtoyyaev" path="res://scenes/interface_base/battlesim/heroes/team_heroes_basic/team_heroes_basic.tscn" id="1_3ol2w"]
 [ext_resource type="Texture2D" uid="uid://co6ywrjnv2o62" path="res://assets/art/characters/Em the Marksman.png" id="2_1cpx6"]
-[ext_resource type="Resource" uid="uid://45einw3mtxml" path="res://resources/heroes/resources/em.tres" id="2_n3v7t"]
 
 [node name="TeamHeroesBot" node_paths=PackedStringArray("_initial_state", "_initial_lane") instance=ExtResource("1_3ol2w")]
 _initial_state = NodePath("StateMachine/Defensive")
 _initial_lane = NodePath("LaneStateMachine/BotLaneTeam")
-_hero = ExtResource("2_n3v7t")
+bot = true
 
 [node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("2_1cpx6")

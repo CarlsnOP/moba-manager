@@ -8,8 +8,9 @@ enum TEAM { BUDDY, BULLY }
 @export var _att_speed := 1.0
 @export var _initial_state: State
 @export var _initial_lane: LaneState
+@export var top: bool
+@export var bot: bool
 @export var jungler: bool
-@export var _hero: HeroResource
 
 @onready var nav_agent = %NavAgent
 @onready var health_bar = %HealthBar
@@ -25,6 +26,7 @@ enum TEAM { BUDDY, BULLY }
 var _target = null
 var _enemies_in_range := []
 var current_state: State
+var _hero: HeroResource
 var _health: float
 var _damage: float
 var _ability_power: float
@@ -36,6 +38,12 @@ func _ready():
 	setup()
 	
 func setup() -> void:
+	if top:
+		_hero = TeamManager.top
+	if bot:
+		_hero = TeamManager.bot
+	if jungler:
+		_hero = TeamManager.jungle
 	sprite_2d.texture = _hero.hero_icon
 	_health = _hero.health
 	_damage = _hero.attack_damage
@@ -43,6 +51,7 @@ func setup() -> void:
 	health_bar.setup(_health)
 	att_timer.wait_time = _att_speed
 	respawn_timer.wait_time = _respawn_time
+
 
 func new_game() -> void:
 	queue_free()

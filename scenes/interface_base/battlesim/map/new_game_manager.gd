@@ -93,6 +93,7 @@ func spawn_friendly_towers() -> void:
 
 func spawn_friendly_heroes() -> void:
 	var hero1 = TEAM_HEROES_TOP.instantiate()
+	#TEAM_HEROES_TOP.setup()
 	hero1.global_position = team_nexus_position.global_position
 	team_heroes.add_child(hero1)
 	
