@@ -33,6 +33,7 @@ RewardManager="*res://singletons/reward_manager.gd"
 TeamManager="*res://singletons/team_manager.gd"
 SoundManager="*res://singletons/sound_manager.gd"
 InventoryManager="*res://singletons/inventory_manager.gd"
+LevelManager="*res://singletons/level_manager.gd"
 
 [debug]
 

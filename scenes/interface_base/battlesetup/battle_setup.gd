@@ -8,7 +8,6 @@ extends Control
 @onready var jungle_button = %JungleButton
 
 @export var slot_scene: PackedScene
-@export var hero_list: HeroListResource = preload("res://resources/heroes/resources/hero_list.tres")
 
 func on_before_load_game():
 	await get_tree().physics_frame
@@ -22,7 +21,7 @@ func _ready():
 func add_heroes():
 	get_tree().call_group("hero_buttons", "picked")
 	
-	for hero in hero_list.heroes:
+	for hero in TeamManager._all_heroes:
 		if !hero.in_team:
 			var slot = slot_scene.instantiate()
 			grid_container.add_child(slot)

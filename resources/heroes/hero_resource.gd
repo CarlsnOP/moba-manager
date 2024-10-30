@@ -11,6 +11,7 @@ class_name HeroResource
 @export_group("Hero Stats")
 @export var lvl: int
 @export var xp: int
+@export var prestige: int = 0
 @export var upgrade_points: int
 @export var health: float
 @export var attack_damage: float

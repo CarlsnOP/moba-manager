@@ -4,8 +4,6 @@ extends Node
 @onready var nav_menu = %NavMenu
 @onready var interface = $"../../CanvasLayer/MC/Interface"
 
-var hero_list: HeroListResource = preload("res://resources/heroes/resources/hero_list.tres")
-
 func save_game():
 	var saved_game: SavedGame = SavedGame.new()
 	
@@ -30,6 +28,7 @@ func load_game():
 	load_vars(saved_game)
 	InventoryManager.set_items_quantity(saved_game.collected_items)
 	InventoryManager.set_loot_quantity(saved_game.collected_loot)
+	TeamManager.set_hero_xp(saved_game.experience_gained)
 	TeamManager.load_team()
 	
 	for item in saved_game.saved_data:
@@ -45,6 +44,7 @@ func save_vars(saved_game: SavedGame) -> void:
 	saved_game.rubber_duckies = InventoryManager.get_rubberduckies()
 	saved_game.collected_items = InventoryManager.get_items_quantity()
 	saved_game.collected_loot = InventoryManager.get_loot_quantity()
+	saved_game.experience_gained = TeamManager.get_hero_xp()
 	saved_game.top = TeamManager.top
 	saved_game.bot = TeamManager.bot
 	saved_game.jungle = TeamManager.jungle
