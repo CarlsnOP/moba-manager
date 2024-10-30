@@ -25,6 +25,9 @@ const BULLY_TOWER = preload("res://scenes/interface_base/battlesim/tower_basic/b
 
 var objects_to_be_cleared := []
 var game_launced := false
+var old_enemy_modifier := 1.0
+var new_enemy_modifier := 1.0
+
 
 func _ready():
 	on_battle_end(false)
@@ -38,11 +41,14 @@ func on_battle_end(win: bool) -> void:
 		if object.has_method("new_game"):
 			object.new_game()
 	
+	new_enemy_modifier = randf_range(0.8, 1.2)
 	spawn_enemy_team()
 	spawn_friendly_team()
 	
 	if game_launced:
-		RewardManager.on_battle_end(win)
+		RewardManager.on_battle_end(win, old_enemy_modifier)
+	
+	old_enemy_modifier = new_enemy_modifier
 	
 func spawn_enemy_team() -> void:
 	spawn_enemy_nexus()
@@ -65,10 +71,12 @@ func spawn_enemy_towers() -> void:
 
 func spawn_enemy_heroes() -> void:
 	var bully1 = BULLY_HEROES_SHEILA.instantiate()
+	bully1.apply_match_modifier(new_enemy_modifier)
 	bully1.global_position = enemy_nexus_position.global_position
 	bully_heroes.add_child(bully1)
 	
 	var bully2 = BULLY_HEROES_VINNY.instantiate()
+	bully2.apply_match_modifier(new_enemy_modifier)
 	bully2.global_position = enemy_nexus_position.global_position
 	bully_heroes.add_child(bully2)
 	
@@ -100,3 +108,6 @@ func spawn_friendly_heroes() -> void:
 	var hero2 = TEAM_HEROES_BOT.instantiate()
 	hero2.global_position = team_nexus_position.global_position
 	team_heroes.add_child(hero2)
+
+func get_match_modifier() -> float:
+	return new_enemy_modifier

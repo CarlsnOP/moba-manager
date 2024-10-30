@@ -4,20 +4,19 @@ const BASE_LOOT_REWARD := 50
 const BASE_RUBBERDUCK_REWARD := 50
 const WIN_MODIFIER := 2.0
 
-var _mod_enemy_diff := 1.0
 var _mod_rank := 1.0
 
-func on_battle_end(win: bool) -> void:
-	var loot_reward = round(BASE_LOOT_REWARD * (_mod_enemy_diff + _mod_rank))
+func on_battle_end(win: bool, enemy_modifier: float) -> void:
+	var loot_reward = round(BASE_LOOT_REWARD * (enemy_modifier + _mod_rank))
 	var eligible_loot = []
 	var total_weight = 0
 	
 	if win:
 		loot_reward = loot_reward * WIN_MODIFIER
-		create_rubberduckies(round(BASE_RUBBERDUCK_REWARD * (_mod_enemy_diff + _mod_rank) * WIN_MODIFIER))
+		create_rubberduckies(round(BASE_RUBBERDUCK_REWARD * (enemy_modifier + _mod_rank) * WIN_MODIFIER))
 	
 	else:
-		create_rubberduckies(round(BASE_RUBBERDUCK_REWARD * (_mod_enemy_diff + _mod_rank)))
+		create_rubberduckies(round(BASE_RUBBERDUCK_REWARD * (enemy_modifier + _mod_rank)))
 	
 	for loot in InventoryManager._all_loot:
 		eligible_loot.append(loot)

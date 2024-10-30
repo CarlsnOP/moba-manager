@@ -6,7 +6,7 @@ enum TEAM { BUDDY, BULLY }
 @export var team: TEAM
 @export var _health := 200.0
 @export var _damage := 75.0
-@export var ability_power := 30
+@export var _ability_power := 30
 @export var move_speed := 90.0
 @export var _att_speed := 1.0
 @export var _initial_state: State
@@ -28,14 +28,18 @@ var current_state: State
 var _dead_pos := Vector2(0, 0)
 var _respawn_time := 15.0
 
-
-func _ready():
+func _ready() -> void:
 	setup()
-	
+
 func setup() -> void:
 	health_bar.setup(_health)
 	att_timer.wait_time = _att_speed
 	respawn_timer.wait_time = _respawn_time
+
+func apply_match_modifier(mod: float) -> void:
+	_health = _health * mod
+	_damage = _damage * mod
+	_ability_power =  _ability_power * mod
 
 func new_game() -> void:
 	queue_free()

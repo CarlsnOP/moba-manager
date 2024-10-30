@@ -29,6 +29,10 @@ func setup() -> void:
 	health_bar.setup(_health)
 	att_timer.wait_time = _att_speed
 
+func apply_match_modifier(mod: float) -> void:
+	_health = _health * mod
+	_damage = _damage * mod
+
 func new_game() -> void:
 	queue_free()
 

@@ -6,9 +6,9 @@ const BUDDY = preload("res://scenes/interface_base/battlesim/buddy/buddy.tscn")
 
 @onready var map_setup = %MapSetup
 @onready var spawn_timer = %SpawnTimer
+@onready var new_game_manager: Node = %NewGameManager
 
 var lanes := []
-
 
 func _ready():
 	lanes = map_setup.retrieve_lane_data(lanes)
@@ -29,6 +29,7 @@ func spawn_enemies():
 			lane.add_child(new_buddy)
 		else:
 			var new_bully = BULLY.instantiate()
+			new_bully.apply_match_modifier(new_game_manager.get_match_modifier())
 			lane.add_child(new_bully)
 
 
