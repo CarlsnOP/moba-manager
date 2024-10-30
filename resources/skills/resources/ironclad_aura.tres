@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SkillResource" load_steps=3 format=3 uid="uid://phrbnga4icum"]
+
+[ext_resource type="Texture2D" uid="uid://dmwgkg5jv5yxt" path="res://assets/art/skills/Ironclad Aura.png" id="1_kiim5"]
+[ext_resource type="Script" path="res://resources/skills/skill_resource.gd" id="2_ikt4t"]
+
+[resource]
+script = ExtResource("2_ikt4t")
+skill_name = "Ironclad Aura"
+icon = ExtResource("1_kiim5")
+description = "Fred's armor isn't just for show—it's imbued with protective magic that radiates out to shield his allies. With \"Ironclad Aura,\" Fred generates a powerful aura that reduces incoming damage for himself and nearby teammates during battles. While the effect isn’t constant, Fred’s aura can activate several times throughout a fight, providing crucial protection when it’s needed most."
+effect = "Fred’s aura reduces incoming damage by 20% for himself and nearby allies."
+effect_growth = "Damage reduction percentage increases by 4% per level."

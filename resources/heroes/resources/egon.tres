@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="HeroResource" load_steps=4 format=3 uid="uid://ccsqgbnokl05t"]
+[gd_resource type="Resource" script_class="HeroResource" load_steps=5 format=3 uid="uid://ccsqgbnokl05t"]
 
 [ext_resource type="Texture2D" uid="uid://d3yo0f5qh8g0t" path="res://assets/art/characters/Egon the Fighter.png" id="1_njhl5"]
 [ext_resource type="Texture2D" uid="uid://crbevsfr7osdv" path="res://assets/art/characters/portraits/Egon portrait.png" id="2_263oq"]
 [ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="2_kp7kd"]
+[ext_resource type="Resource" uid="uid://di7wcfodht8h7" path="res://resources/skills/resources/crushing_blow.tres" id="4_1mlst"]
 
 [resource]
 script = ExtResource("2_kp7kd")
@@ -10,6 +11,7 @@ hero_name = "Egon"
 hero_icon = ExtResource("1_njhl5")
 hero_portrait = ExtResource("2_263oq")
 in_team = false
+skill = ExtResource("4_1mlst")
 lvl = 1
 xp = 0
 prestige = 0

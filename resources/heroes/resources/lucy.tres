@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="HeroResource" load_steps=4 format=3 uid="uid://bf33sg6djlvp8"]
+[gd_resource type="Resource" script_class="HeroResource" load_steps=5 format=3 uid="uid://bf33sg6djlvp8"]
 
 [ext_resource type="Texture2D" uid="uid://bo5ya82c5uqv6" path="res://assets/art/characters/Lucy the Healer.png" id="1_gd0g0"]
 [ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="2_3is0s"]
 [ext_resource type="Texture2D" uid="uid://dlsna1nynujov" path="res://assets/art/characters/portraits/Lucy portrait.png" id="2_xowk5"]
+[ext_resource type="Resource" uid="uid://cjpdx85iqtob4" path="res://resources/skills/resources/second_chance.tres" id="4_pfe44"]
 
 [resource]
 script = ExtResource("2_3is0s")
@@ -10,6 +11,7 @@ hero_name = "Lucy"
 hero_icon = ExtResource("1_gd0g0")
 hero_portrait = ExtResource("2_xowk5")
 in_team = false
+skill = ExtResource("4_pfe44")
 lvl = 1
 xp = 0
 prestige = 0

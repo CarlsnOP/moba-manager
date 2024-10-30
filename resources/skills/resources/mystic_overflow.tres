@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SkillResource" load_steps=3 format=3 uid="uid://b3qrlq02niuy7"]
+
+[ext_resource type="Texture2D" uid="uid://dd7lbeebw4mxm" path="res://assets/art/skills/Mystic Overflow.png" id="1_ddyx7"]
+[ext_resource type="Script" path="res://resources/skills/skill_resource.gd" id="2_g4lrl"]
+
+[resource]
+script = ExtResource("2_g4lrl")
+skill_name = "Mystic Overflow"
+icon = ExtResource("1_ddyx7")
+description = "Todd’s connection to the arcane is so deep that his magical energy sometimes overflows uncontrollably. \"Mystic Overflow\" taps into this excess power, causing Todd's spells to randomly surge during battle. Each time Todd casts a spell, there's a chance that his Ability Power (AP) to be amplified, causing him to deal significantly more damage. This skill is all about unpredictability, making Todd's magic both powerful and chaotic—perfectly embodying his eccentric wizardry."
+effect = "Each time Todd attacks, there is a 20% chance for his Ability Power to be amplified by 50% for that spell."
+effect_growth = "The chance for a amplified attack increases by 5% per level."

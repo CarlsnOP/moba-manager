@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SkillResource" load_steps=3 format=3 uid="uid://elguuwbw8yoy"]
+
+[ext_resource type="Texture2D" uid="uid://jmroqjumunly" path="res://assets/art/skills/Loot Finder.png" id="1_b24ru"]
+[ext_resource type="Script" path="res://resources/skills/skill_resource.gd" id="2_sdru1"]
+
+[resource]
+script = ExtResource("2_sdru1")
+skill_name = "Loot Finder"
+icon = ExtResource("1_b24ru")
+description = "Eddy has a nose for trouble—and treasure! His endless curiosity and sharp instincts make him a master of the jungle, where others might get lost, Eddy finds hidden stashes of loot that others would walk right past. With \"Loot Finder,\" Eddy can sniff out even the most well-hidden treasures, ensuring that no chest, bag of gold, or shiny trinket goes unnoticed. Whether it’s behind a bush or under a rock, if there’s loot to be found, you can bet Eddy will find it, grinning ear to ear as he does."
+effect = "Loot amount is increased by 5%."
+effect_growth = "Increases the amount of loot Eddy finds in the jungle by 2%."

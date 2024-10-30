@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://673smdjoegvd"]
+[gd_scene load_steps=10 format=3 uid="uid://673smdjoegvd"]
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interface_base/interface_base.tscn" id="1_qir55"]
 [ext_resource type="Script" path="res://scenes/interface_base/heroes/heroes.gd" id="2_aktco"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bv2cxijy21p7h" path="res://assets/art/stats/health.png" id="5_wiflx"]
 [ext_resource type="Texture2D" uid="uid://d0gsjwva5fjcf" path="res://assets/art/stats/damage.png" id="6_tmxtq"]
 [ext_resource type="Texture2D" uid="uid://b5oq78l2e2x6t" path="res://assets/art/stats/mana.png" id="7_4mw7m"]
+[ext_resource type="Texture2D" uid="uid://djynu0f5rncvi" path="res://assets/art/skills/Crushing Blow.png" id="8_usq8v"]
 
 [node name="Heroes" instance=ExtResource("1_qir55")]
 script = ExtResource("2_aktco")
@@ -137,25 +138,16 @@ text = "Ability Power: "
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
-text = "Skills"
+text = "Skill:"
 
-[node name="HB4" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="9"]
+[node name="Skill" type="TextureRect" parent="HeroPage/MC/HBoxContainer/VB" index="9"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="HeroPage/MC/HBoxContainer/VB/HB4" index="0"]
-custom_minimum_size = Vector2(75, 75)
-layout_mode = 2
-color = Color(0.337255, 0.337255, 0.337255, 0.392157)
-
-[node name="ColorRect2" type="ColorRect" parent="HeroPage/MC/HBoxContainer/VB/HB4" index="1"]
-custom_minimum_size = Vector2(75, 75)
-layout_mode = 2
-color = Color(0.337255, 0.337255, 0.337255, 0.392157)
-
-[node name="ColorRect3" type="ColorRect" parent="HeroPage/MC/HBoxContainer/VB/HB4" index="2"]
-custom_minimum_size = Vector2(75, 75)
-layout_mode = 2
-color = Color(0.337255, 0.337255, 0.337255, 0.392157)
+size_flags_horizontal = 0
+tooltip_text = "Hejsaaa"
+texture = ExtResource("8_usq8v")
+expand_mode = 3
 
 [node name="ItemsLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="10"]
 unique_name_in_owner = true

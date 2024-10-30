@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="HeroResource" load_steps=4 format=3 uid="uid://bgrauay4le0gw"]
+[gd_resource type="Resource" script_class="HeroResource" load_steps=5 format=3 uid="uid://bgrauay4le0gw"]
 
 [ext_resource type="Texture2D" uid="uid://4oia8p3xvcdq" path="res://assets/art/characters/Todd the Wizard.png" id="1_36wvh"]
 [ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="2_4bqbc"]
 [ext_resource type="Texture2D" uid="uid://dak0pgobpvg4v" path="res://assets/art/characters/portraits/Todd portrait.png" id="2_mbhv5"]
+[ext_resource type="Resource" uid="uid://b3qrlq02niuy7" path="res://resources/skills/resources/mystic_overflow.tres" id="4_mu6v1"]
 
 [resource]
 script = ExtResource("2_4bqbc")
@@ -10,6 +11,7 @@ hero_name = "Todd"
 hero_icon = ExtResource("1_36wvh")
 hero_portrait = ExtResource("2_mbhv5")
 in_team = false
+skill = ExtResource("4_mu6v1")
 lvl = 1
 xp = 0
 prestige = 0

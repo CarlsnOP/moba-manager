@@ -29,7 +29,8 @@ func spawn_enemies():
 			lane.add_child(new_buddy)
 		else:
 			var new_bully = BULLY.instantiate()
-			new_bully.apply_match_modifier(new_game_manager.get_match_modifier())
+			#below comment applys modifier to enemy minions, if needed later
+			#new_bully.apply_match_modifier(new_game_manager.get_match_modifier())
 			lane.add_child(new_bully)
 
 

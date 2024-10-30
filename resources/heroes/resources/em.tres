@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="HeroResource" load_steps=4 format=3 uid="uid://45einw3mtxml"]
+[gd_resource type="Resource" script_class="HeroResource" load_steps=5 format=3 uid="uid://45einw3mtxml"]
 
 [ext_resource type="Texture2D" uid="uid://co6ywrjnv2o62" path="res://assets/art/characters/Em the Marksman.png" id="1_ux5i4"]
 [ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="2_3hdjb"]
 [ext_resource type="Texture2D" uid="uid://ic56vif0hfe1" path="res://assets/art/characters/portraits/Em portrait.png" id="2_guklg"]
+[ext_resource type="Resource" uid="uid://benvpqfdnowsj" path="res://resources/skills/resources/explosive_finale.tres" id="4_isvqw"]
 
 [resource]
 script = ExtResource("2_3hdjb")
@@ -10,6 +11,7 @@ hero_name = "Em"
 hero_icon = ExtResource("1_ux5i4")
 hero_portrait = ExtResource("2_guklg")
 in_team = true
+skill = ExtResource("4_isvqw")
 lvl = 1
 xp = 0
 prestige = 0

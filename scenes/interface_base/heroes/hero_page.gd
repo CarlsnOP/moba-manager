@@ -9,6 +9,7 @@ extends PanelContainer
 @onready var health_label = %HealthLabel
 @onready var damage_label = %DamageLabel
 @onready var ability_power_label = %AbilityPowerLabel
+@onready var skill: TextureRect = %Skill
 @onready var name_2_label = %Name2Label
 @onready var type_label = %TypeLabel
 @onready var lore_label = %LoreLabel
@@ -26,7 +27,6 @@ func _ready():
 func new_interface(_state) -> void:
 	if visible:
 		hide()
-
 		
 func setup(hero: HeroResource):
 	_hero = hero
@@ -38,6 +38,7 @@ func setup(hero: HeroResource):
 	health_label.text = "Health: %s" % str(hero.health + (hero.lvl * hero.extra_hp))
 	damage_label.text = "Attack Damage: %s" % str(hero.attack_damage + (hero.lvl * hero.extra_ad))
 	ability_power_label.text = "Ability Power: %s" % str(hero.ability_power + (hero.lvl * hero.extra_ap))
+	skill.tooltip_text = ""
 	type_label.text = hero.type
 	lore_label.text = hero.lore
 	texture_rect.texture = hero.hero_icon

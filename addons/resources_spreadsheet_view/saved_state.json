@@ -11,12 +11,17 @@
     "res://resources/items/loot/items/": {
       "resource_local_to_scene": true,
       "resource_name": true
+    },
+    "res://resources/skills/resources/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
     }
   },
   "recent_paths": [
     "res://resources/items/hero_items/items/",
     "res://resources/items/loot/items/",
-    "res://resources/heroes/resources/"
+    "res://resources/heroes/resources/",
+    "res://resources/skills/resources/"
   ],
   "table_functions": {
     "filter": [

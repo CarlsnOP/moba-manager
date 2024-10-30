@@ -37,9 +37,9 @@ func setup() -> void:
 	respawn_timer.wait_time = _respawn_time
 
 func apply_match_modifier(mod: float) -> void:
-	_health = _health * mod
-	_damage = _damage * mod
-	_ability_power =  _ability_power * mod
+	_health = _health * mod * RankManager.rank_enemy_multiplier
+	_damage = _damage * mod * RankManager.rank_enemy_multiplier
+	_ability_power =  _ability_power * mod * RankManager.rank_enemy_multiplier
 
 func new_game() -> void:
 	queue_free()
