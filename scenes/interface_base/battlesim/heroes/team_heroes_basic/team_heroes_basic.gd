@@ -45,9 +45,9 @@ func setup() -> void:
 	if jungler:
 		_hero = TeamManager.jungle
 	sprite_2d.texture = _hero.hero_icon
-	_health = _hero.health
-	_damage = _hero.attack_damage
-	_ability_power = _hero.ability_power
+	_health = _hero.health + (_hero.lvl * _hero.extra_hp)
+	_damage = _hero.attack_damage + (_hero.lvl * _hero.extra_ad)
+	_ability_power = _hero.ability_power + (_hero.lvl * _hero.extra_ap)
 	health_bar.setup(_health)
 	att_timer.wait_time = _att_speed
 	respawn_timer.wait_time = _respawn_time

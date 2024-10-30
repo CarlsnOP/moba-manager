@@ -6,7 +6,8 @@
 [node name="BullyTower" groups=["bully", "bully_structure"] instance=ExtResource("1_h42wb")]
 collision_layer = 2
 collision_mask = 0
-_damage = 35.0
+_damage = 350.0
+_health = 3000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 unique_name_in_owner = true

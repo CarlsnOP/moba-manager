@@ -35,9 +35,9 @@ func setup(hero: HeroResource):
 	name_2_label.text = hero.hero_name
 	update()
 	upgrade_points_label.text = "Upgrade points: %s" % hero.upgrade_points
-	health_label.text = "Health: %s" % hero.health
-	damage_label.text = "Attack Damage: %s" % hero.attack_damage
-	ability_power_label.text = "Ability Power: %s" % hero.ability_power
+	health_label.text = "Health: %s" % str(hero.health + (hero.lvl * hero.extra_hp))
+	damage_label.text = "Attack Damage: %s" % str(hero.attack_damage + (hero.lvl * hero.extra_ad))
+	ability_power_label.text = "Ability Power: %s" % str(hero.ability_power + (hero.lvl * hero.extra_ap))
 	type_label.text = hero.type
 	lore_label.text = hero.lore
 	texture_rect.texture = hero.hero_icon

@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://df11rwqd2srmf" path="res://assets/art/characters/bullies/Bruce.png" id="2_5l55k"]
 
 [node name="BullyHeroesBruce" node_paths=PackedStringArray("_initial_state", "_initial_lane") instance=ExtResource("1_f0ngk")]
-_health = 1500.0
-_damage = 130.0
+_health = 1250.0
+_damage = 280.0
+_ability_power = 90.0
 _initial_state = NodePath("StateMachine/Jungle")
 _initial_lane = NodePath("LaneStateMachine/BotLaneTeam")
 

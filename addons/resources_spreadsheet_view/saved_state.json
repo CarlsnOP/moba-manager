@@ -1,5 +1,9 @@
 {
   "hidden_columns": {
+    "res://resources/heroes/resources/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    },
     "res://resources/items/hero_items/items/": {
       "resource_local_to_scene": true,
       "resource_name": true
@@ -11,7 +15,8 @@
   },
   "recent_paths": [
     "res://resources/items/hero_items/items/",
-    "res://resources/items/loot/items/"
+    "res://resources/items/loot/items/",
+    "res://resources/heroes/resources/"
   ],
   "table_functions": {
     "filter": [

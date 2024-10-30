@@ -27,9 +27,10 @@ var old_enemy_modifier := 1.0
 var new_enemy_modifier := 1.0
 
 func _ready():
+	SignalManager.on_battle_end.connect(on_battle_end)
+	await get_tree().physics_frame
 	on_battle_end(false)
 	game_launced = true
-	SignalManager.on_battle_end.connect(on_battle_end)
 
 func on_battle_end(win: bool) -> void:
 	var objects_to_be_cleared = get_tree().get_nodes_in_group("restart_map")

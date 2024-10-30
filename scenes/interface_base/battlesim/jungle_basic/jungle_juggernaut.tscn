@@ -10,6 +10,8 @@ radius = 20.0
 radius = 50.0
 
 [node name="JungleJuggernaut" instance=ExtResource("1_32r65")]
+_health = 700.0
+_damage = 200.0
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.15, 0.15)

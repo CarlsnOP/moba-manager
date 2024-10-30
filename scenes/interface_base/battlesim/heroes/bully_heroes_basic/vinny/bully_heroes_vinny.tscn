@@ -5,7 +5,8 @@
 
 [node name="BullyHeroesVinny" node_paths=PackedStringArray("_initial_state", "_initial_lane") instance=ExtResource("1_x8c3a")]
 _health = 1200.0
-_damage = 100.0
+_damage = 250.0
+_ability_power = 100.0
 _initial_state = NodePath("StateMachine/Defensive")
 _initial_lane = NodePath("LaneStateMachine/BotLaneEnemy")
 
