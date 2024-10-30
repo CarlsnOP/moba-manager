@@ -22,12 +22,9 @@ const BULLY_TOWER = preload("res://scenes/interface_base/battlesim/tower_basic/b
 @onready var bully_heroes = %BullyHeroes
 @onready var team_heroes = %TeamHeroes
 
-
-var objects_to_be_cleared := []
 var game_launced := false
 var old_enemy_modifier := 1.0
 var new_enemy_modifier := 1.0
-
 
 func _ready():
 	on_battle_end(false)
@@ -35,7 +32,8 @@ func _ready():
 	SignalManager.on_battle_end.connect(on_battle_end)
 
 func on_battle_end(win: bool) -> void:
-	objects_to_be_cleared = get_tree().get_nodes_in_group("restart_map")
+	var objects_to_be_cleared = get_tree().get_nodes_in_group("restart_map")
+	var nodes_to_update = get_tree().get_nodes_in_group("update_post_match")
 	
 	for object in objects_to_be_cleared:
 		if object.has_method("new_game"):
@@ -47,6 +45,9 @@ func on_battle_end(win: bool) -> void:
 	
 	if game_launced:
 		RewardManager.on_battle_end(win, old_enemy_modifier)
+		for node in nodes_to_update:
+			if node.has_method("update"):
+				node.update()
 	
 	old_enemy_modifier = new_enemy_modifier
 	

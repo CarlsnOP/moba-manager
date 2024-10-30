@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/hero_slot/hero_slot.gd" id="1_8m23x"]
 [ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/Eddy the Jungler.png" id="2_j414c"]
 
-[node name="HeroSlot" type="PanelContainer"]
+[node name="HeroSlot" type="PanelContainer" groups=["update_post_match"]]
 custom_minimum_size = Vector2(128, 128)
 offset_right = 250.0
 offset_bottom = 250.0
@@ -34,11 +34,26 @@ texture = ExtResource("2_j414c")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="MarginContainer"]
+[node name="VB" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VB"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VB"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
 theme_type_variation = &"HeaderSmall"
 horizontal_alignment = 1
+
+[node name="XpProgressBar" type="ProgressBar" parent="MarginContainer/VB"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+value = 50.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

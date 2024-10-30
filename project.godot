@@ -69,6 +69,7 @@ game_events=""
 map=""
 bot_jungle_team=""
 restart_map=""
+update_post_match=""
 
 [godot_resource_groups]
 

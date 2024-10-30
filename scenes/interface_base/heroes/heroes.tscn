@@ -21,7 +21,7 @@ unique_name_in_owner = true
 layout_mode = 2
 columns = 4
 
-[node name="HeroPage" type="PanelContainer" parent="." index="1"]
+[node name="HeroPage" type="PanelContainer" parent="." index="1" groups=["update_post_match"]]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -59,11 +59,25 @@ layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "lvl"
 
-[node name="XPLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="2"]
+[node name="HB6" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="2"]
+layout_mode = 2
+
+[node name="XPLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB/HB6" index="0"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "XP"
+
+[node name="XpProgressBar" type="ProgressBar" parent="HeroPage/MC/HBoxContainer/VB/HB6" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Control" type="Control" parent="HeroPage/MC/HBoxContainer/VB/HB6" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="UpgradePointsLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="3"]
 unique_name_in_owner = true

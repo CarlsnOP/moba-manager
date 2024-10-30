@@ -37,6 +37,12 @@ func set_state(new_state: INTERFACE_STATE) -> void:
 		INTERFACE_STATE.HOME:
 			home.show()
 		INTERFACE_STATE.HEROES:
+			var hero_buttons = get_tree().get_nodes_in_group("hero_buttons")
+			
+			for button in hero_buttons:
+				if button.has_method("update"):
+					button.update()
+					
 			heroes.show()
 		INTERFACE_STATE.BATTLESETUP:
 			battle_setup.show()
