@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_ijgru")
 id = 0
-loot_name = "Rainbow Ribbon"
+name = "Rainbow Ribbon"
 icon = ExtResource("1_vful8")
-loot_description = "Ties everything!"
+description = "A rainbow ribbon, what a find!"
 rarity = 2
 quantity = 0
 value = 5.0

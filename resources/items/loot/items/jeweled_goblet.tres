@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_p220l")
 id = 0
-loot_name = "Jeweled Goblet"
+name = "Jeweled Goblet"
 icon = ExtResource("1_8str0")
-loot_description = "Fit for kings"
+description = "Bedazzled with fake jewels."
 rarity = 3
 quantity = 0
 value = 7.0

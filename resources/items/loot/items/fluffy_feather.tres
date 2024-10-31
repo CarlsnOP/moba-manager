@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_61lkf")
 id = 0
-loot_name = "Fluffy Feather"
+name = "Fluffy Feather"
 icon = ExtResource("1_8kdi5")
-loot_description = "Tickle power!"
+description = "Soft and fluffy."
 rarity = 1
 quantity = 0
 value = 3.0

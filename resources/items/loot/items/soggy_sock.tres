@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_s6bym")
 id = 0
-loot_name = "Soggy Sock"
+name = "Soggy Sock"
 icon = ExtResource("1_4yyor")
-loot_description = "Extra squishy!"
+description = "It’s wet, and smells awful."
 rarity = 0
 quantity = 0
 value = 1

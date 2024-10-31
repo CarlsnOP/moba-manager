@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_sdru1")
-skill_name = "Loot Finder"
+name = "Loot Finder"
 icon = ExtResource("1_b24ru")
 description = "Eddy has a nose for trouble—and treasure! His endless curiosity and sharp instincts make him a master of the jungle, where others might get lost, Eddy finds hidden stashes of loot that others would walk right past. With \"Loot Finder,\" Eddy can sniff out even the most well-hidden treasures, ensuring that no chest, bag of gold, or shiny trinket goes unnoticed. Whether it’s behind a bush or under a rock, if there’s loot to be found, you can bet Eddy will find it, grinning ear to ear as he does."
 effect = "Loot amount is increased by 5%."

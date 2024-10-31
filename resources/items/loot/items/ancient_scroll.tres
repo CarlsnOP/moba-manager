@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_jw6dl")
 id = 0
-loot_name = "Ancient Scroll"
+name = "Ancient Scroll"
 icon = ExtResource("1_pksn4")
-loot_description = "Unreadable text."
+description = "A scroll from long ago."
 rarity = 3
 quantity = 0
 value = 1

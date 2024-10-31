@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_buai1")
 id = 0
-loot_name = "Wobbly Wheel"
+name = "Wobbly Wheel"
 icon = ExtResource("1_uscub")
-loot_description = "Rolls... kinda."
+description = "A wheel that doesn’t quite roll right."
 rarity = 1
 quantity = 0
 value = 3.0

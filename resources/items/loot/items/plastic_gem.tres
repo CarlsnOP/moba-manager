@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_q4gf1")
 id = 0
-loot_name = "Plastic Gem"
+name = "Plastic Gem"
 icon = ExtResource("1_f5vvy")
-loot_description = "Looks valuable!"
+description = "It looks valuable, but it’s plastic."
 rarity = 0
 quantity = 0
 value = 1

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_f8qti")
-skill_name = "Second Chance"
+name = "Second Chance"
 icon = ExtResource("1_6mxk3")
 description = "Lucy’s magical concoctions are legendary, but there’s one potion she saves for only the direst of situations—her \"Second Chance\" elixir. When an ally is about to fall in battle, Lucy’s quick reflexes kick in, allowing her to toss this life-saving potion at them just in time. The result? The ally who would have otherwise met their demise is miraculously saved, surviving the encounter with a small portion of their health restored. This skill gives Lucy’s teammates the confidence to push forward, knowing that she’s got their back in the toughest of battles."
 effect = "Once per battle, when an ally is about to fall, Lucy automatically saves them, restoring 20% of their health."

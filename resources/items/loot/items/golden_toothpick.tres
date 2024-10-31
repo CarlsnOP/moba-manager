@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_7p4oe")
 id = 0
-loot_name = "Golden Toothpick"
+name = "Golden Toothpick"
 icon = ExtResource("1_g3dw1")
-loot_description = "Not for teeth."
+description = "Shiny, and possibly dangerous."
 rarity = 4
 quantity = 0
 value = 10.0

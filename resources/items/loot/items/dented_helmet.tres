@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_h8ink")
 id = 0
-loot_name = "Dented Helmet"
+name = "Dented Helmet"
 icon = ExtResource("1_38klo")
-loot_description = "Was it useful?"
+description = "Has seen better days."
 rarity = 0
 quantity = 0
 value = 1

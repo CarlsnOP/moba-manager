@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_6krse")
 id = 0
-loot_name = "Cursed Coin"
+name = "Cursed Coin"
 icon = ExtResource("1_c2x2f")
-loot_description = "Spend at your risk."
+description = "Seems cursed, but who knows?"
 rarity = 4
 quantity = 0
 value = 10.0

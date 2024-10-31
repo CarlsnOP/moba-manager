@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_q7bs1")
-skill_name = "Explosive Finale"
+name = "Explosive Finale"
 icon = ExtResource("1_gytux")
 description = "Em never goes down without making a big bang, and her \"Explosive Finale\" is the ultimate proof of that. When Em throws her specially crafted grenade, it detonates with tremendous force, dealing massive damage to her target. But the fun doesn’t stop there—there’s a chance that the explosion is so powerful, it sends shrapnel flying in all directions, hitting additional enemies nearby. While not guaranteed, when the shrapnel strikes true, it can turn the tide of a battle in an instant. This skill is all about high risk and high reward, just like Em herself!"
 effect = "Em's grenade deals 150% of her AD as damage to the primary target, with a 50% chance to deal 50% of her AD as splash damage to nearby enemies."

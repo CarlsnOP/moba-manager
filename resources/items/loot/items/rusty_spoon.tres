@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_tl0gj")
 id = 0
-loot_name = "Rusty Spoon"
+name = "Rusty Spoon"
 icon = ExtResource("1_8q53f")
-loot_description = "Adds flavor!"
+description = "Slightly rusted, barely functional."
 rarity = 0
 quantity = 0
 value = 1

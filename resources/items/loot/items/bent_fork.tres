@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_4qq3n")
 id = 0
-loot_name = "Bent Fork"
+name = "Bent Fork"
 icon = ExtResource("1_fne3a")
-loot_description = "Perfect for spaghetti!"
+description = "It’s bent, but still good for poking."
 rarity = 0
 quantity = 0
 value = 1

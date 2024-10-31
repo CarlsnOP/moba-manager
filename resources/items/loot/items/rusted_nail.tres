@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_v2kbn")
 id = 0
-loot_name = "Rusted Nail"
+name = "Rusted Nail"
 icon = ExtResource("1_r8rkb")
-loot_description = "Tetanus, anyone?"
+description = "A nail on its last legs."
 rarity = 0
 quantity = 0
 value = 1

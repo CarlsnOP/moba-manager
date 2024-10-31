@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_g4lrl")
-skill_name = "Mystic Overflow"
+name = "Mystic Overflow"
 icon = ExtResource("1_ddyx7")
 description = "Todd’s connection to the arcane is so deep that his magical energy sometimes overflows uncontrollably. \"Mystic Overflow\" taps into this excess power, causing Todd's spells to randomly surge during battle. Each time Todd casts a spell, there's a chance that his Ability Power (AP) to be amplified, causing him to deal significantly more damage. This skill is all about unpredictability, making Todd's magic both powerful and chaotic—perfectly embodying his eccentric wizardry."
 effect = "Each time Todd attacks, there is a 20% chance for his Ability Power to be amplified by 50% for that spell."

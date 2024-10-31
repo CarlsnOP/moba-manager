@@ -28,3 +28,12 @@ func update_quantity() -> void:
 
 func update_cost(cost: int) -> void:
 	stack_label.text += "/%s" % cost
+	
+func _on_mouse_entered() -> void:
+	if _loot == null:
+		return
+		
+	Popups.show_popup(Rect2i( Vector2i(global_position), Vector2i(size)), _loot)
+
+func _on_mouse_exited() -> void:
+	Popups.hide_popup()

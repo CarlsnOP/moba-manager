@@ -12,7 +12,7 @@ func _on_mouse_entered() -> void:
 	if skill == null:
 		return
 		
-	Popups.show_skill_popup(Rect2i( Vector2i(global_position), Vector2i(size)), skill)
+	Popups.show_popup(Rect2i( Vector2i(global_position), Vector2i(size)), skill)
 
 func _on_mouse_exited() -> void:
-	Popups.hide_skill_popup()
+	Popups.hide_popup()

@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_rt0oq")
 id = 0
-loot_name = "invisible Ink"
+name = "Invisible Ink"
 icon = ExtResource("1_k7xov")
-loot_description = "You can't see it!"
+description = "You can’t see it, but it’s there."
 rarity = 2
 quantity = 0
 value = 5.0

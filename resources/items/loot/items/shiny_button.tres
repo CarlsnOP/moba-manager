@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_hcqaf")
 id = 0
-loot_name = "Shiny Button"
+name = "Shiny Button"
 icon = ExtResource("1_vc8v6")
-loot_description = "Eye-catching!"
+description = "Still shines bright!"
 rarity = 1
 quantity = 0
 value = 3.0

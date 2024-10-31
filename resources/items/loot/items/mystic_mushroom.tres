@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_1hpkk")
 id = 0
-loot_name = "Mystic Mushroom"
+name = "Mystic Mushroom"
 icon = ExtResource("1_gm35a")
-loot_description = "Magic or mold?"
+description = "Has a faint magical glow."
 rarity = 3
 quantity = 0
 value = 7.0

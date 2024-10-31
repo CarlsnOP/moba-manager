@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_qxgjw")
 id = 0
-loot_name = "Squeaky Toy"
+name = "Squeaky Toy"
 icon = ExtResource("1_moev3")
-loot_description = "Annoyingly fun!"
+description = "Squeaks when you squeeze it."
 rarity = 0
 quantity = 0
 value = 1

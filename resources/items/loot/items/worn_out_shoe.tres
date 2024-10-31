@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_juoet")
 id = 0
-loot_name = "Worn-Out Shoe"
+name = "Worn-Out Shoe"
 icon = ExtResource("1_sk5uv")
-loot_description = "Miles of stories."
+description = "Definitely worn out."
 rarity = 0
 quantity = 0
 value = 1

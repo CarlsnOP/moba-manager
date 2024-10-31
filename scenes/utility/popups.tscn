@@ -25,25 +25,27 @@ script = ExtResource("1_dsxow")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="SkillPopup" type="PopupPanel" parent="UI"]
+[node name="ResourcePopup" type="PopupPanel" parent="UI"]
 unique_name_in_owner = true
-size = Vector2i(530, 300)
+size = Vector2i(730, 866)
+visible = true
 theme_override_styles/panel = SubResource("StyleBoxFlat_ff382")
 
-[node name="VB" type="VBoxContainer" parent="UI/SkillPopup"]
+[node name="VB" type="VBoxContainer" parent="UI/ResourcePopup"]
 offset_left = 15.0
 offset_top = 15.0
-offset_right = 515.0
-offset_bottom = 285.0
+offset_right = 715.0
+offset_bottom = 851.0
+theme_override_constants/separation = 20
 
-[node name="NameLabel" type="Label" parent="UI/SkillPopup/VB"]
+[node name="NameLabel" type="Label" parent="UI/ResourcePopup/VB"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(500, 0)
+custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Name"
 
-[node name="DescriptionLabel" type="Label" parent="UI/SkillPopup/VB"]
+[node name="DescriptionLabel" type="Label" parent="UI/ResourcePopup/VB"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
@@ -51,30 +53,11 @@ text = "Egon’s raw strength is legendary, and when he really puts his muscle i
 autowrap_mode = 3
 justification_flags = 161
 
-[node name="ItemPopup" type="PopupPanel" parent="UI"]
-unique_name_in_owner = true
-auto_translate_mode = 1
-size = Vector2i(530, 704)
-visible = true
-theme_override_styles/panel = SubResource("StyleBoxFlat_ff382")
-
-[node name="VB" type="VBoxContainer" parent="UI/ItemPopup"]
-offset_left = 15.0
-offset_top = 15.0
-offset_right = 515.0
-offset_bottom = 689.0
-
-[node name="ItemNameLabel" type="Label" parent="UI/ItemPopup/VB"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
-theme_type_variation = &"HeaderMedium"
-text = "Name"
-
-[node name="ItemDescriptionLabel" type="Label" parent="UI/ItemPopup/VB"]
+[node name="EffectLabel" type="Label" parent="UI/ResourcePopup/VB"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-text = "Egon’s raw strength is legendary, and when he really puts his muscle into it, there’s no enemy that can stand in his way. With \"Crushing Blow,\" Egon unleashes a devastating attack that deals massive extra damage. This skill represents Egon’s ability to land a hit so powerful, it can shatter defenses and leave opponents reeling. The impact of this blow is so intense that it has a chance to deal critical damage, making Egon’s presence on the battlefield impossible to ignore."
+theme_type_variation = &"ItemQuantity"
+text = "boo"
 autowrap_mode = 3
 justification_flags = 161
