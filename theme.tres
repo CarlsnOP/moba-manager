@@ -1,4 +1,7 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cfioapweow33c"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cfioapweow33c"]
+
+[ext_resource type="FontFile" uid="uid://qtceburuli1a" path="res://assets/fonts/Bangers-Regular.ttf" id="1_1raky"]
+[ext_resource type="FontFile" uid="uid://bcny1bgbhjhmt" path="res://assets/fonts/Fredoka-VariableFont_wdth,wght.ttf" id="1_qajaw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e66cw"]
 bg_color = Color(0.184314, 0.352941, 0.411765, 1)
@@ -10,10 +13,16 @@ bg_color = Color(0.184314, 0.352941, 0.411765, 1)
 bg_color = Color(0.47451, 0.662745, 0.411765, 0.784314)
 
 [resource]
-HeaderLarge/constants/outline_size = 20
-HeaderLarge/font_sizes/font_size = 72
-HeaderMedium/font_sizes/font_size = 50
-HeaderSmall/font_sizes/font_size = 30
+HeaderLarge/colors/font_shadow_color = Color(0.129558, 0.129558, 0.129558, 1)
+HeaderLarge/constants/shadow_offset_x = 1
+HeaderLarge/constants/shadow_offset_y = 1
+HeaderLarge/constants/shadow_outline_size = 3
+HeaderLarge/font_sizes/font_size = 64
+HeaderLarge/fonts/font = ExtResource("1_1raky")
+HeaderMedium/font_sizes/font_size = 48
+HeaderMedium/fonts/font = ExtResource("1_1raky")
+HeaderSmall/font_sizes/font_size = 32
+HeaderSmall/fonts/font = ExtResource("1_1raky")
 HeroPage/base_type = &"PanelContainer"
 HeroPage/styles/panel = SubResource("StyleBoxFlat_e66cw")
 ItemQuantity/base_type = &"Label"
@@ -22,10 +31,11 @@ ItemQuantity/colors/font_shadow_color = Color(0, 0, 0, 1)
 ItemQuantity/constants/shadow_offset_x = 1
 ItemQuantity/constants/shadow_offset_y = 2
 ItemQuantity/constants/shadow_outline_size = 5
-ItemQuantity/font_sizes/font_size = 30
+ItemQuantity/font_sizes/font_size = 32
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 0
-Label/font_sizes/font_size = 20
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_qajaw")
 MenuButton/constants/icon_max_width = 50
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_11qjg")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_aewll")

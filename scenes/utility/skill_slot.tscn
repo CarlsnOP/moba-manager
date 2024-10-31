@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh6i5ssmhkhq"]
+
+[ext_resource type="Script" path="res://scenes/utility/skill_slot.gd" id="1_nx1ay"]
+
+[node name="SkillSlot" type="PanelContainer"]
+custom_minimum_size = Vector2(150, 150)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_nx1ay")
+
+[node name="SkillTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 3
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 2
+mouse_filter = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

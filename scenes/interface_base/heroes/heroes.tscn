@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bv2cxijy21p7h" path="res://assets/art/stats/health.png" id="5_wiflx"]
 [ext_resource type="Texture2D" uid="uid://d0gsjwva5fjcf" path="res://assets/art/stats/damage.png" id="6_tmxtq"]
 [ext_resource type="Texture2D" uid="uid://b5oq78l2e2x6t" path="res://assets/art/stats/mana.png" id="7_4mw7m"]
-[ext_resource type="Texture2D" uid="uid://djynu0f5rncvi" path="res://assets/art/skills/Crushing Blow.png" id="8_usq8v"]
+[ext_resource type="PackedScene" uid="uid://bh6i5ssmhkhq" path="res://scenes/utility/skill_slot.tscn" id="8_d3csg"]
 
 [node name="Heroes" instance=ExtResource("1_qir55")]
 script = ExtResource("2_aktco")
@@ -46,7 +46,7 @@ layout_mode = 2
 [node name="VB" type="VBoxContainer" parent="HeroPage/MC/HBoxContainer" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 
 [node name="NameLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="0"]
 unique_name_in_owner = true
@@ -80,19 +80,13 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="UpgradePointsLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="3"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_type_variation = &"HeaderSmall"
-text = "Upgrade Points"
-
-[node name="StatsPointsLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="4"]
+[node name="StatsPointsLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="3"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Stats"
 
-[node name="HB" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="5"]
+[node name="HB" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="4"]
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="HeroPage/MC/HBoxContainer/VB/HB" index="0"]
@@ -106,7 +100,7 @@ layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Health: "
 
-[node name="HB2" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="6"]
+[node name="HB2" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="5"]
 layout_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="HeroPage/MC/HBoxContainer/VB/HB2" index="0"]
@@ -120,7 +114,7 @@ layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Attack Damage: "
 
-[node name="HB5" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="7"]
+[node name="HB5" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="6"]
 layout_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="HeroPage/MC/HBoxContainer/VB/HB5" index="0"]
@@ -134,28 +128,24 @@ layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Ability Power: "
 
-[node name="SkillsLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="8"]
+[node name="SkillsLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="7"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Skill:"
 
-[node name="Skill" type="TextureRect" parent="HeroPage/MC/HBoxContainer/VB" index="9"]
+[node name="SkillSlot" parent="HeroPage/MC/HBoxContainer/VB" index="8" instance=ExtResource("8_d3csg")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 0
-tooltip_text = "Hejsaaa"
-texture = ExtResource("8_usq8v")
-expand_mode = 3
 
-[node name="ItemsLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="10"]
+[node name="ItemsLabel" type="Label" parent="HeroPage/MC/HBoxContainer/VB" index="9"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Items"
 
-[node name="HB3" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="11"]
+[node name="HB3" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="10"]
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="HeroPage/MC/HBoxContainer/VB/HB3" index="0"]

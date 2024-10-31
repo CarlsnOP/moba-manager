@@ -5,15 +5,14 @@ extends PanelContainer
 @onready var lvl_label = %LvlLabel
 @onready var xp_label = %XPLabel
 @onready var xp_progress_bar: ProgressBar = %XpProgressBar
-@onready var upgrade_points_label = %UpgradePointsLabel
 @onready var health_label = %HealthLabel
 @onready var damage_label = %DamageLabel
 @onready var ability_power_label = %AbilityPowerLabel
-@onready var skill: TextureRect = %Skill
 @onready var name_2_label = %Name2Label
 @onready var type_label = %TypeLabel
 @onready var lore_label = %LoreLabel
 @onready var texture_rect = %TextureRect
+@onready var skill_slot: PanelContainer = %SkillSlot
 
 var _hero: HeroResource
 var hp_growth: float
@@ -30,18 +29,18 @@ func new_interface(_state) -> void:
 		
 func setup(hero: HeroResource):
 	_hero = hero
+	update()
 	#Labels
 	name_label.text = hero.hero_name
 	name_2_label.text = hero.hero_name
-	update()
-	upgrade_points_label.text = "Upgrade points: %s" % hero.upgrade_points
 	health_label.text = "Health: %s" % str(hero.health + (hero.lvl * hero.extra_hp))
 	damage_label.text = "Attack Damage: %s" % str(hero.attack_damage + (hero.lvl * hero.extra_ad))
 	ability_power_label.text = "Ability Power: %s" % str(hero.ability_power + (hero.lvl * hero.extra_ap))
-	skill.tooltip_text = ""
 	type_label.text = hero.type
 	lore_label.text = hero.lore
 	texture_rect.texture = hero.hero_icon
+	#setup skill popup
+	skill_slot.set_skill(hero.skill)
 
 func update() -> void:
 	if visible:

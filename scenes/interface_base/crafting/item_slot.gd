@@ -25,3 +25,12 @@ func display(item:ItemResource):
 
 func update_quantity() -> void:
 	stack_label.text = "%s" % _item.quantity
+
+func _on_mouse_entered() -> void:
+	if _item == null:
+		return
+		
+	Popups.show_item_popup(Rect2i( Vector2i(global_position), Vector2i(size)), _item)
+
+func _on_mouse_exited() -> void:
+	Popups.hide_item_popup()
