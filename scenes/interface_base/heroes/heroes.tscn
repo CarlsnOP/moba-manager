@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://673smdjoegvd"]
+[gd_scene load_steps=11 format=3 uid="uid://673smdjoegvd"]
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interface_base/interface_base.tscn" id="1_qir55"]
 [ext_resource type="Script" path="res://scenes/interface_base/heroes/heroes.gd" id="2_aktco"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d0gsjwva5fjcf" path="res://assets/art/stats/damage.png" id="6_tmxtq"]
 [ext_resource type="Texture2D" uid="uid://b5oq78l2e2x6t" path="res://assets/art/stats/mana.png" id="7_4mw7m"]
 [ext_resource type="PackedScene" uid="uid://bh6i5ssmhkhq" path="res://scenes/utility/skill_slot.tscn" id="8_d3csg"]
+[ext_resource type="Texture2D" uid="uid://ug5hh7ljyn0v" path="res://assets/art/ui/add_item.png" id="9_w1wtq"]
 
 [node name="Heroes" instance=ExtResource("1_qir55")]
 script = ExtResource("2_aktco")
@@ -143,25 +144,23 @@ size_flags_horizontal = 0
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
-text = "Items"
+text = "Equipped Items"
 
 [node name="HB3" type="HBoxContainer" parent="HeroPage/MC/HBoxContainer/VB" index="10"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="ColorRect" type="ColorRect" parent="HeroPage/MC/HBoxContainer/VB/HB3" index="0"]
-custom_minimum_size = Vector2(75, 75)
+[node name="Item1Button" type="Button" parent="HeroPage/MC/HBoxContainer/VB/HB3" index="0"]
 layout_mode = 2
-color = Color(0.337255, 0.337255, 0.337255, 0.392157)
+icon = ExtResource("9_w1wtq")
 
-[node name="ColorRect2" type="ColorRect" parent="HeroPage/MC/HBoxContainer/VB/HB3" index="1"]
-custom_minimum_size = Vector2(75, 75)
+[node name="Item2Button" type="Button" parent="HeroPage/MC/HBoxContainer/VB/HB3" index="1"]
 layout_mode = 2
-color = Color(0.337255, 0.337255, 0.337255, 0.392157)
+icon = ExtResource("9_w1wtq")
 
-[node name="ColorRect3" type="ColorRect" parent="HeroPage/MC/HBoxContainer/VB/HB3" index="2"]
-custom_minimum_size = Vector2(75, 75)
+[node name="Item3Button" type="Button" parent="HeroPage/MC/HBoxContainer/VB/HB3" index="2"]
 layout_mode = 2
-color = Color(0.337255, 0.337255, 0.337255, 0.392157)
+icon = ExtResource("9_w1wtq")
 
 [node name="VB2" type="VBoxContainer" parent="HeroPage/MC/HBoxContainer" index="1"]
 layout_mode = 2
@@ -218,4 +217,10 @@ theme_override_font_sizes/font_size = 50
 text = "X"
 flat = true
 
+[node name="ItemPopup" type="PopupPanel" parent="." index="2"]
+unique_name_in_owner = true
+initial_position = 1
+visible = true
+
+[connection signal="pressed" from="HeroPage/MC/HBoxContainer/VB/HB3/Item1Button" to="." method="_on_item_1_button_pressed"]
 [connection signal="pressed" from="HeroPage/MC/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

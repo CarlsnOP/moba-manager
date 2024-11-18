@@ -27,7 +27,7 @@ script = ExtResource("1_dsxow")
 
 [node name="ResourcePopup" type="PopupPanel" parent="UI"]
 unique_name_in_owner = true
-size = Vector2i(730, 866)
+size = Vector2i(730, 422)
 visible = true
 theme_override_styles/panel = SubResource("StyleBoxFlat_ff382")
 
@@ -35,7 +35,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ff382")
 offset_left = 15.0
 offset_top = 15.0
 offset_right = 715.0
-offset_bottom = 851.0
+offset_bottom = 407.0
 theme_override_constants/separation = 20
 
 [node name="NameLabel" type="Label" parent="UI/ResourcePopup/VB"]

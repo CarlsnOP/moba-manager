@@ -30,3 +30,8 @@ func set_value(res: Resource):
 	
 	if res is SkillResource:
 		effect_label.text = res.effect
+		
+	elif res is LootResource:
+		effect_label.hide()
+	elif res is ItemResource:
+		effect_label.text = res.effect

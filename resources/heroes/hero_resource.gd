@@ -15,8 +15,12 @@ class_name HeroResource
 @export var prestige: int = 0
 @export var upgrade_points: int
 @export var health: float
+@export var health_regen: float = 5.0
 @export var attack_damage: float
 @export var ability_power: float
+@export var dodge: float = 0.01
+@export var block: float = 0.05
+@export var crit: float = 0.05
 #-------------------------------------
 @export_group("Growth")
 @export var extra_hp: float

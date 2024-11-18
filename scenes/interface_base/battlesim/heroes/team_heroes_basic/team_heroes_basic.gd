@@ -27,9 +27,16 @@ var _target = null
 var _enemies_in_range := []
 var current_state: State
 var _hero: HeroResource
+
+#Hero Stats
 var _health: float
+var _health_regen: float
 var _damage: float
 var _ability_power: float
+var _dodge: float
+var _block: float
+var _crit: float
+
 var _dead_pos := Vector2(0, 0)
 var _respawn_time := 15.0
 
@@ -45,13 +52,19 @@ func setup() -> void:
 	if jungler:
 		_hero = TeamManager.jungle
 	sprite_2d.texture = _hero.hero_icon
-	_health = _hero.health + (_hero.lvl * _hero.extra_hp)
-	_damage = _hero.attack_damage + (_hero.lvl * _hero.extra_ad)
-	_ability_power = _hero.ability_power + (_hero.lvl * _hero.extra_ap)
+	setup_hero_stats()
 	health_bar.setup(_health)
 	att_timer.wait_time = _att_speed
 	respawn_timer.wait_time = _respawn_time
 
+func setup_hero_stats() -> void:
+	_health = _hero.health + (_hero.lvl * _hero.extra_hp)
+	_health_regen = _hero.health_regen
+	_damage = _hero.attack_damage + (_hero.lvl * _hero.extra_ad)
+	_ability_power = _hero.ability_power + (_hero.lvl * _hero.extra_ap)
+	_dodge = _hero.dodge
+	_block = _hero.block
+	_crit = _hero.crit
 
 func new_game() -> void:
 	queue_free()
@@ -85,9 +98,20 @@ func set_target() -> void:
 func deal_damage(dmg: float) -> void:
 	if _target != null:
 		if _target.has_method("take_damage"):
+			var is_critical = randf() <= _crit
+			if is_critical:
+				dmg *= 2.0
 			_target.take_damage(dmg)
 
 func take_damage(dmg: float) -> void:
+	var is_dodged = randf() <= _dodge
+	if is_dodged:
+		return
+		
+	var is_blocked = randf() <= _block
+	if is_blocked:
+		dmg *= 0.2
+	
 	health_bar.take_damage(dmg)
 
 func die() -> void:
