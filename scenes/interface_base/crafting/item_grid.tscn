@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bxh1fs1opeyhq" path="res://scenes/interface_base/crafting/item_slot.tscn" id="2_fwgvw"]
 
 [node name="ItemGrid" type="GridContainer"]
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
 columns = 5
 script = ExtResource("1_03wj1")
 slot_scene = ExtResource("2_fwgvw")

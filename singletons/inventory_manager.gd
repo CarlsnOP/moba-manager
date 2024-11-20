@@ -46,6 +46,7 @@ func spend_rubberduckies(quantity: int) -> Error:
 func get_rubberduckies() -> int:
 	return _rubberduckies
 
+#FOR SAVING AND LOADING
 func get_items_quantity() -> Array[int]:
 	quantity_of_items.clear()
 	

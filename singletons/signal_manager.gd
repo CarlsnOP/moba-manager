@@ -7,6 +7,7 @@ signal on_log_entry(node)
 signal on_hero_selected(hero: String)
 signal on_portrait_selected(hero: String)
 signal new_interface(state: int)
+signal item_picked(item: ItemResource)
 
 #Currency
 signal rubberduckies_updated

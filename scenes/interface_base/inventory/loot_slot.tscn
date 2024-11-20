@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbeqdlhkmic5y"]
+[gd_scene load_steps=5 format=3 uid="uid://cbeqdlhkmic5y"]
 
 [ext_resource type="Script" path="res://scenes/interface_base/inventory/loot_slot.gd" id="1_83m0i"]
 [ext_resource type="Texture2D" uid="uid://d4dx7mttypx36" path="res://assets/art/loot/rusty-spoon.webp" id="1_q4xk8"]
 [ext_resource type="PackedScene" uid="uid://dk8d0pnwcee7b" path="res://scenes/particles/particles.tscn" id="3_3qotj"]
+[ext_resource type="Texture2D" uid="uid://dyv71risq3oqo" path="res://assets/art/ui/border.png" id="4_tm5cu"]
 
 [node name="LootSlot" type="PanelContainer"]
 script = ExtResource("1_83m0i")
@@ -24,6 +25,11 @@ text = "0"
 
 [node name="Particles" parent="." instance=ExtResource("3_3qotj")]
 unique_name_in_owner = true
+
+[node name="Border" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("4_tm5cu")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

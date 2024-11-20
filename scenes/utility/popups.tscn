@@ -27,25 +27,28 @@ script = ExtResource("1_dsxow")
 
 [node name="ResourcePopup" type="PopupPanel" parent="UI"]
 unique_name_in_owner = true
-size = Vector2i(730, 422)
+size = Vector2i(730, 890)
 visible = true
 theme_override_styles/panel = SubResource("StyleBoxFlat_ff382")
 
-[node name="VB" type="VBoxContainer" parent="UI/ResourcePopup"]
+[node name="PanelContainer" type="PanelContainer" parent="UI/ResourcePopup"]
 offset_left = 15.0
 offset_top = 15.0
 offset_right = 715.0
-offset_bottom = 407.0
+offset_bottom = 875.0
+
+[node name="VB" type="VBoxContainer" parent="UI/ResourcePopup/PanelContainer"]
+layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="NameLabel" type="Label" parent="UI/ResourcePopup/VB"]
+[node name="NameLabel" type="Label" parent="UI/ResourcePopup/PanelContainer/VB"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Name"
 
-[node name="DescriptionLabel" type="Label" parent="UI/ResourcePopup/VB"]
+[node name="DescriptionLabel" type="Label" parent="UI/ResourcePopup/PanelContainer/VB"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
@@ -53,7 +56,7 @@ text = "Egon’s raw strength is legendary, and when he really puts his muscle i
 autowrap_mode = 3
 justification_flags = 161
 
-[node name="EffectLabel" type="Label" parent="UI/ResourcePopup/VB"]
+[node name="EffectLabel" type="Label" parent="UI/ResourcePopup/PanelContainer/VB"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2

@@ -5,6 +5,7 @@ extends Resource
 @export var collected_items: Array[int]
 @export var collected_loot: Array[int]
 @export var experience_gained: Array[int]
+@export var equipped_items: Array[ItemResource]
 @export var top: HeroResource
 @export var bot: HeroResource
 @export var jungle: HeroResource

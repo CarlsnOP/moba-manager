@@ -9,6 +9,7 @@ var bot: HeroResource = preload("res://resources/heroes/resources/em.tres")
 var jungle: HeroResource = preload("res://resources/heroes/resources/eddy.tres")
 var heroes_xp: Array[int] = []
 var _all_heroes: Array[HeroResource] = []
+var equipped_items: Array[ItemResource] = []
 
 func _ready():
 	for file in DirAccess.get_files_at("res://resources/heroes/resources/"):
@@ -57,3 +58,18 @@ func set_hero_xp(xp_list: Array[int]):
 	
 	for hero in range(_all_heroes.size()):
 		_all_heroes[hero].xp = xp_list[hero]
+
+#SAVE AND LOAD EQUIPPED ITEMS
+func get_equipped_items() -> Array[ItemResource]:
+	equipped_items.clear()
+	
+	for hero in _all_heroes:
+		equipped_items.append(hero.equipped_item)
+	return equipped_items
+
+func set_equipped_items(hero_items: Array[ItemResource]):
+	if hero_items.size() != _all_heroes.size():
+		return
+	
+	for equipped_item in range(_all_heroes.size()):
+		_all_heroes[equipped_item].equipped_item = hero_items[equipped_item]

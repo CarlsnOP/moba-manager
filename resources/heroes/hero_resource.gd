@@ -8,6 +8,7 @@ class_name HeroResource
 @export var hero_portrait: CompressedTexture2D
 @export var in_team: bool
 @export var skill: SkillResource
+@export var equipped_item: ItemResource
 #-------------------------------------
 @export_group("Hero Stats")
 @export var lvl: int

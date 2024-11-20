@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cbeqdlhkmic5y" path="res://scenes/interface_base/inventory/loot_slot.tscn" id="2_olvwj"]
 
 [node name="LootGrid" type="GridContainer"]
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
 columns = 5
 script = ExtResource("1_422oo")
 slot_scene = ExtResource("2_olvwj")

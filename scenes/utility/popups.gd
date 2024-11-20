@@ -28,6 +28,19 @@ func set_value(res: Resource):
 	name_label.text = res.name
 	description_label.text = res.description
 	
+	if res is ItemResource or res is LootResource:
+		match res.rarity:
+			0:
+				name_label.modulate = Color(1,1,1)
+			1:
+				name_label.modulate = Color(0,1,0)
+			2:
+				name_label.modulate = Color(0,0,1)
+			3:
+				name_label.modulate = Color(1,0,1)
+			4:
+				name_label.modulate = Color(1,1,0)
+	
 	if res is SkillResource:
 		effect_label.text = res.effect
 		

@@ -58,13 +58,24 @@ func setup() -> void:
 	respawn_timer.wait_time = _respawn_time
 
 func setup_hero_stats() -> void:
-	_health = _hero.health + (_hero.lvl * _hero.extra_hp)
-	_health_regen = _hero.health_regen
-	_damage = _hero.attack_damage + (_hero.lvl * _hero.extra_ad)
-	_ability_power = _hero.ability_power + (_hero.lvl * _hero.extra_ap)
-	_dodge = _hero.dodge
-	_block = _hero.block
-	_crit = _hero.crit
+	if _hero.equipped_item != null:
+		_health = (_hero.health + (_hero.lvl * _hero.extra_hp)) * _hero.equipped_item.item_hp
+		_health_regen = (_hero.health_regen) * _hero.equipped_item.item_hp_regen
+		_damage = (_hero.attack_damage + (_hero.lvl * _hero.extra_ad)) * _hero.equipped_item.item_ad
+		_ability_power = (_hero.ability_power + (_hero.lvl * _hero.extra_ap)) * _hero.equipped_item.item_ap
+		_dodge = _hero.dodge + _hero.equipped_item.item_dodge
+		_block = _hero.block + _hero.equipped_item.item_block
+		_crit = _hero.crit + _hero.equipped_item.item_crit
+		print(_damage)
+	else:
+		_health = _hero.health + (_hero.lvl * _hero.extra_hp)
+		_health_regen = _hero.health_regen
+		_damage = _hero.attack_damage + (_hero.lvl * _hero.extra_ad)
+		_ability_power = _hero.ability_power + (_hero.lvl * _hero.extra_ap)
+		_dodge = _hero.dodge
+		_block = _hero.block
+		_crit = _hero.crit
+		print(_damage)
 
 func new_game() -> void:
 	queue_free()

@@ -151,14 +151,19 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Item1Button" type="Button" parent="HeroPage/MC/HBoxContainer/VB/HB3" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 icon = ExtResource("9_w1wtq")
+expand_icon = true
 
 [node name="Item2Button" type="Button" parent="HeroPage/MC/HBoxContainer/VB/HB3" index="1"]
+visible = false
 layout_mode = 2
 icon = ExtResource("9_w1wtq")
 
 [node name="Item3Button" type="Button" parent="HeroPage/MC/HBoxContainer/VB/HB3" index="2"]
+visible = false
 layout_mode = 2
 icon = ExtResource("9_w1wtq")
 
@@ -217,10 +222,45 @@ theme_override_font_sizes/font_size = 50
 text = "X"
 flat = true
 
-[node name="ItemPopup" type="PopupPanel" parent="." index="2"]
+[node name="ItemContainer" type="PanelContainer" parent="." index="2"]
 unique_name_in_owner = true
-initial_position = 1
-visible = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VB" type="VBoxContainer" parent="ItemContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CloseItemsButton" type="Button" parent="ItemContainer/VB" index="0"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "X"
+
+[node name="Control" type="PanelContainer" parent="ItemContainer/VB" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="UnequipButton" type="Button" parent="ItemContainer/VB" index="2"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+text = "UN-EQUIP"
+expand_icon = true
 
 [connection signal="pressed" from="HeroPage/MC/HBoxContainer/VB/HB3/Item1Button" to="." method="_on_item_1_button_pressed"]
 [connection signal="pressed" from="HeroPage/MC/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="ItemContainer/VB/CloseItemsButton" to="." method="_on_close_items_button_pressed"]
+[connection signal="pressed" from="ItemContainer/VB/UnequipButton" to="." method="_on_unequip_button_pressed"]
