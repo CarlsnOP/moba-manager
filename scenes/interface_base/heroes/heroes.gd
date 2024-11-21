@@ -73,8 +73,9 @@ func _on_close_items_button_pressed():
 
 func _on_unequip_button_pressed():
 	for possible_item in InventoryManager._all_items:
-				if possible_item == current_hero.equipped_item:
-					possible_item.quantity += 1
+		if possible_item == current_hero.equipped_item:
+			current_hero.equipped_item = null
+			possible_item.quantity += 1
 	
 	item_1_button.icon = ADD_ITEM
 	unequip_button.hide()

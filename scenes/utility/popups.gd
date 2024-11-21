@@ -18,15 +18,28 @@ func show_popup(slot: Rect2i, res: Resource):
 		correction = Vector2i(slot.size.x + padding, 0)
 	else:
 		correction = -Vector2i(resource_popup.size.x + padding, 0)
-	
+
 	resource_popup.popup(Rect2i(slot.position + correction, resource_popup.size))
 
 func hide_popup():
 	resource_popup.hide()
 
 func set_value(res: Resource):
+	reset_box()
 	name_label.text = res.name
 	description_label.text = res.description
+	
+	if res is LootResource:
+		effect_label.hide()
+		
+	elif res is SkillResource:
+		name_label.modulate = Color(1,1,1)
+		effect_label.text = res.effect
+		effect_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		description_label.custom_minimum_size.x = 500
+		
+	elif res is ItemResource:
+		effect_label.text = res.effect
 	
 	if res is ItemResource or res is LootResource:
 		match res.rarity:
@@ -40,11 +53,8 @@ func set_value(res: Resource):
 				name_label.modulate = Color(1,0,1)
 			4:
 				name_label.modulate = Color(1,1,0)
-	
-	if res is SkillResource:
-		effect_label.text = res.effect
-		
-	elif res is LootResource:
-		effect_label.hide()
-	elif res is ItemResource:
-		effect_label.text = res.effect
+
+func reset_box() -> void:
+	effect_label.show()
+	description_label.custom_minimum_size.x = 0
+	effect_label.autowrap_mode = TextServer.AUTOWRAP_OFF

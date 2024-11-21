@@ -6,6 +6,7 @@ extends PanelContainer
 @onready var border = %Border
 
 var _item: ItemResource = null
+var _original_quantity := 1
 
 func display(item:ItemResource):
 	texture_rect.texture = item.icon
@@ -28,6 +29,14 @@ func display(item:ItemResource):
 		4:
 			particles.modulate = Color(1,1,0)
 			border.modulate = Color(1,1,0)
+
+func equipped_item() -> void:
+	stack_label.hide()
+
+func add_item() -> void:
+	_original_quantity += 1
+	stack_label.show()
+	stack_label.text = "%s" % _original_quantity
 
 func update_quantity() -> void:
 	stack_label.text = "%s" % _item.quantity

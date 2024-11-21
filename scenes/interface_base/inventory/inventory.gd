@@ -5,7 +5,7 @@ extends Control
 
 @onready var loot = %Loot
 @onready var items = %Items
-
+@onready var equipped_items = %EquippedItems
 
 
 func _ready():
@@ -14,6 +14,7 @@ func _ready():
 func open():
 	loot.display(InventoryManager._all_loot)
 	items.display(InventoryManager._all_items)
+	equipped_items.display(TeamManager.get_equipped_items())
 
 func on_battle_end(_win: bool) -> void:
 	if visible:

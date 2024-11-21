@@ -3,14 +3,16 @@
 [ext_resource type="Script" path="res://scenes/utility/skill_slot.gd" id="1_nx1ay"]
 
 [node name="SkillSlot" type="PanelContainer"]
-custom_minimum_size = Vector2(150, 150)
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 150.0
+offset_bottom = 150.0
 script = ExtResource("1_nx1ay")
 
 [node name="SkillTexture" type="TextureRect" parent="."]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 expand_mode = 3
 
 [node name="Panel" type="Panel" parent="."]

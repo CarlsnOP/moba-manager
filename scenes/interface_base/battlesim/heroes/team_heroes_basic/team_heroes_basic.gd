@@ -66,7 +66,6 @@ func setup_hero_stats() -> void:
 		_dodge = _hero.dodge + _hero.equipped_item.item_dodge
 		_block = _hero.block + _hero.equipped_item.item_block
 		_crit = _hero.crit + _hero.equipped_item.item_crit
-		print(_damage)
 	else:
 		_health = _hero.health + (_hero.lvl * _hero.extra_hp)
 		_health_regen = _hero.health_regen
@@ -75,7 +74,6 @@ func setup_hero_stats() -> void:
 		_dodge = _hero.dodge
 		_block = _hero.block
 		_crit = _hero.crit
-		print(_damage)
 
 func new_game() -> void:
 	queue_free()
