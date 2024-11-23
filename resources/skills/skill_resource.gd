@@ -8,3 +8,6 @@ class_name SkillResource
 @export var description: String
 @export var effect: String
 @export var effect_growth: String
+
+@export_group("Functionality")
+@export var skill_scene: PackedScene

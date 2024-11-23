@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://b2uitoevl42b3"]
+[gd_scene load_steps=37 format=4 uid="uid://b2uitoevl42b3"]
 
 [ext_resource type="Texture2D" uid="uid://0jmm3api8fgm" path="res://assets/art/ui/arena.png" id="1_ifuak"]
 [ext_resource type="Texture2D" uid="uid://cewxeoce5dmwh" path="res://assets/art/map/navigation_tile_bot.png" id="2_11t10"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/mid_jungle_bully.gd" id="9_nw3ru"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/mid_jungle_buddy.gd" id="10_gpply"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/bot_jungle_buddy.gd" id="11_k1xsm"]
+[ext_resource type="PackedScene" uid="uid://blynvsqjmb8on" path="res://scenes/interface_base/battlesim/map/utility/abilities.tscn" id="14_0vdhy"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/utility/map_setup.gd" id="21_ew3r1"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/utility/jungle_manager.gd" id="22_l2acy"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/utility/wave_manager.gd" id="23_1nm8l"]
@@ -284,6 +285,8 @@ unique_name_in_owner = true
 position = Vector2(403, 4)
 curve = SubResource("Curve2D_7pbqt")
 metadata/_edit_lock_ = true
+
+[node name="Abilities" parent="HB" groups=["ability"] instance=ExtResource("14_0vdhy")]
 
 [node name="Utility" type="Node" parent="HB"]
 

@@ -6,9 +6,10 @@ const BASE_RUBBERDUCK_REWARD := 50
 const WIN_MODIFIER := 2.0
 
 var _mod_rank := 1.0
+var _mod_luck := 1.0
 
 func on_battle_end(win: bool, enemy_modifier: float) -> void:
-	var loot_reward = round(BASE_LOOT_REWARD * (enemy_modifier + _mod_rank))
+	var loot_reward = round((BASE_LOOT_REWARD * (enemy_modifier + _mod_rank)) * _mod_luck)
 	var exp_reward = round(BASE_EXP_REWARD * (enemy_modifier + _mod_rank))
 	var eligible_loot = []
 	var total_weight = 0
@@ -38,7 +39,9 @@ func on_battle_end(win: bool, enemy_modifier: float) -> void:
 					InventoryManager.inventory.add_loot(loot, 1)
 					loot_reward -= loot.value
 				break
-
+				
+	_mod_luck = 1.0
+	
 func create_rubberduckies(quantity: int) -> void:
 	if quantity <= 0:
 		return

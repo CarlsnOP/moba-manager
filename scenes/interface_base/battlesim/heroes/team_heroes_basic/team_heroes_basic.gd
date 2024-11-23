@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 enum TEAM { BUDDY, BULLY }
 
+
 @export_category("Stats:")
 @export var team: TEAM
 @export var move_speed := 90.0
@@ -56,6 +57,7 @@ func setup() -> void:
 	health_bar.setup(_health)
 	att_timer.wait_time = _att_speed
 	respawn_timer.wait_time = _respawn_time
+	load_abilities()
 
 func setup_hero_stats() -> void:
 	if _hero.equipped_item != null:
@@ -74,6 +76,12 @@ func setup_hero_stats() -> void:
 		_dodge = _hero.dodge
 		_block = _hero.block
 		_crit = _hero.crit
+
+func load_abilities() -> void:
+	if _hero.skill.skill_scene != null:
+		var ability_node = get_tree().get_first_node_in_group("ability")
+		var hero_skill = _hero.skill.skill_scene.instantiate()
+		ability_node.add_child(hero_skill)
 
 func new_game() -> void:
 	queue_free()

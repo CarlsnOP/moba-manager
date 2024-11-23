@@ -62,6 +62,7 @@ folder_colors={
 "res://assets/": "yellow",
 "res://resources/": "red",
 "res://scenes/": "purple",
+"res://script/": "pink",
 "res://singletons/": "blue"
 }
 
@@ -72,6 +73,7 @@ map=""
 bot_jungle_team=""
 restart_map=""
 update_post_match=""
+loot_modifier=""
 
 [godot_resource_groups]
 
