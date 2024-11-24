@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://fgfie74mjqjs"]
 
-[ext_resource type="PackedScene" uid="uid://b2uitoevl42b3" path="res://scenes/interface_base/battlesim/map/map.tscn" id="1_5lldv"]
+[ext_resource type="PackedScene" uid="uid://b2uitoevl42b3" path="res://scenes/interface_base/battlesim/tower_basic/map/map.tscn" id="1_5lldv"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/battle_sim.gd" id="1_xnjbi"]
 
 [node name="BattleSim" type="Control"]

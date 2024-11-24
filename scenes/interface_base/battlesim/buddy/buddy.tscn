@@ -11,7 +11,7 @@ radius = 20.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_0lukq"]
 radius = 50.0
 
-[node name="Buddy" type="PathFollow2D" groups=["restart_map"]]
+[node name="Buddy" type="PathFollow2D" groups=["buddy", "restart_map"]]
 rotates = false
 script = ExtResource("1_42604")
 _health = 500.0

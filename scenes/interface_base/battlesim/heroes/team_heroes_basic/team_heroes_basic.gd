@@ -37,6 +37,7 @@ var _ability_power: float
 var _dodge: float
 var _block: float
 var _crit: float
+var _damage_reduction := 1.0
 
 var _dead_pos := Vector2(0, 0)
 var _respawn_time := 15.0
@@ -79,9 +80,8 @@ func setup_hero_stats() -> void:
 
 func load_abilities() -> void:
 	if _hero.skill.skill_scene != null:
-		var ability_node = get_tree().get_first_node_in_group("ability")
 		var hero_skill = _hero.skill.skill_scene.instantiate()
-		ability_node.add_child(hero_skill)
+		add_child(hero_skill)
 
 func new_game() -> void:
 	queue_free()
@@ -121,6 +121,8 @@ func deal_damage(dmg: float) -> void:
 			_target.take_damage(dmg)
 
 func take_damage(dmg: float) -> void:
+	dmg * _damage_reduction
+	
 	var is_dodged = randf() <= _dodge
 	if is_dodged:
 		return
@@ -142,6 +144,9 @@ func respawn() -> void:
 	health_bar.setup(_health)
 	state_machine.on_respawn()
 	set_physics_process(true)
+
+func set_dmg_red(dmg_red: float) -> void:
+	_damage_reduction += dmg_red
 
 func _on_attack_range_body_entered(body):
 	if body.is_in_group("jungle") and jungler:

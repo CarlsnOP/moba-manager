@@ -21,7 +21,7 @@ collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_4mgy6")
 
-[node name="DebugLabel" type="Label" parent="."]
+[node name="DebugLabel" type="Label" parent="." groups=["buddy"]]
 visible = false
 offset_left = -31.0
 offset_top = -108.0

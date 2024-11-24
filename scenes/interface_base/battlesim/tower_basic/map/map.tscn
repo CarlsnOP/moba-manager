@@ -1,23 +1,22 @@
-[gd_scene load_steps=37 format=4 uid="uid://b2uitoevl42b3"]
+[gd_scene load_steps=36 format=4 uid="uid://b2uitoevl42b3"]
 
 [ext_resource type="Texture2D" uid="uid://0jmm3api8fgm" path="res://assets/art/ui/arena.png" id="1_ifuak"]
 [ext_resource type="Texture2D" uid="uid://cewxeoce5dmwh" path="res://assets/art/map/navigation_tile_bot.png" id="2_11t10"]
-[ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/map.gd" id="2_qjnf3"]
+[ext_resource type="Script" path="res://scenes/interface_base/battlesim/tower_basic/map/map.gd" id="2_qjnf3"]
 [ext_resource type="Texture2D" uid="uid://mvr7fdgo5p77" path="res://assets/art/map/navigation_tile.png" id="3_oij6q"]
 [ext_resource type="Texture2D" uid="uid://dj4ljfsm1wqek" path="res://assets/art/map/navigation_tile_jungle_bot.png" id="4_hewks"]
 [ext_resource type="Texture2D" uid="uid://cniipddi3l3nh" path="res://assets/art/map/navigation_tile_jungle_top.png" id="5_g8hvf"]
 [ext_resource type="Texture2D" uid="uid://1bth5gn6up2j" path="res://assets/art/map/navigation_tile_top.png" id="6_vhc6x"]
 [ext_resource type="Texture2D" uid="uid://bi1vfkabcw3nt" path="res://assets/art/map/navigation_tile_buddy_nexus.png" id="7_rsi4n"]
 [ext_resource type="Texture2D" uid="uid://bywu4f2k1iuqa" path="res://assets/art/map/navigation_tile_bully_nexus.png" id="8_6dphc"]
-[ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/top_jungle_bully.gd" id="8_cbt8x"]
-[ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/mid_jungle_bully.gd" id="9_nw3ru"]
-[ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/mid_jungle_buddy.gd" id="10_gpply"]
-[ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/bot_jungle_buddy.gd" id="11_k1xsm"]
-[ext_resource type="PackedScene" uid="uid://blynvsqjmb8on" path="res://scenes/interface_base/battlesim/map/utility/abilities.tscn" id="14_0vdhy"]
-[ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/utility/map_setup.gd" id="21_ew3r1"]
-[ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/utility/jungle_manager.gd" id="22_l2acy"]
-[ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/utility/wave_manager.gd" id="23_1nm8l"]
-[ext_resource type="Script" path="res://scenes/interface_base/battlesim/map/new_game_manager.gd" id="27_12da5"]
+[ext_resource type="Script" path="res://scenes/interface_base/battlesim/tower_basic/map/top_jungle_bully.gd" id="8_cbt8x"]
+[ext_resource type="Script" path="res://scenes/interface_base/battlesim/tower_basic/map/mid_jungle_bully.gd" id="9_nw3ru"]
+[ext_resource type="Script" path="res://scenes/interface_base/battlesim/tower_basic/map/mid_jungle_buddy.gd" id="10_gpply"]
+[ext_resource type="Script" path="res://scenes/interface_base/battlesim/tower_basic/map/bot_jungle_buddy.gd" id="11_k1xsm"]
+[ext_resource type="Script" path="res://scenes/interface_base/battlesim/tower_basic/map/utility/map_setup.gd" id="21_ew3r1"]
+[ext_resource type="Script" path="res://scenes/interface_base/battlesim/tower_basic/map/utility/jungle_manager.gd" id="22_l2acy"]
+[ext_resource type="Script" path="res://scenes/interface_base/battlesim/tower_basic/map/utility/wave_manager.gd" id="23_1nm8l"]
+[ext_resource type="Script" path="res://scenes/interface_base/battlesim/tower_basic/map/new_game_manager.gd" id="27_12da5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tjxr4"]
 texture = ExtResource("2_11t10")
@@ -216,7 +215,7 @@ unique_name_in_owner = true
 
 [node name="RespawnTeam" type="Marker2D" parent="HB/TeamHeroes"]
 unique_name_in_owner = true
-position = Vector2(560, 822)
+position = Vector2(543, 841)
 
 [node name="Jungle" type="Node" parent="HB"]
 
@@ -278,15 +277,12 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 position = Vector2(403, 4)
 curve = SubResource("Curve2D_jmoo3")
-metadata/_edit_lock_ = true
 
 [node name="BotLaneBuddies" type="Path2D" parent="HB/Lanes" groups=["bot_lane_team"]]
 unique_name_in_owner = true
 position = Vector2(403, 4)
 curve = SubResource("Curve2D_7pbqt")
 metadata/_edit_lock_ = true
-
-[node name="Abilities" parent="HB" groups=["ability"] instance=ExtResource("14_0vdhy")]
 
 [node name="Utility" type="Node" parent="HB"]
 

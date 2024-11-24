@@ -73,7 +73,6 @@ map=""
 bot_jungle_team=""
 restart_map=""
 update_post_match=""
-loot_modifier=""
 
 [godot_resource_groups]
 
