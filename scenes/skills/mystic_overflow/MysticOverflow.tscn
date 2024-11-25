@@ -4,3 +4,9 @@
 
 [node name="MysticOverflow" type="Node"]
 script = ExtResource("1_u24ra")
+
+[node name="AbilityTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="AbilityTimer" to="." method="_on_ability_timer_timeout"]
