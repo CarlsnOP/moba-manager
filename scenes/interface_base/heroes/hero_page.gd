@@ -8,6 +8,9 @@ extends PanelContainer
 @onready var health_label = %HealthLabel
 @onready var damage_label = %DamageLabel
 @onready var ability_power_label = %AbilityPowerLabel
+@onready var dodge_label: Label = %DodgeLabel
+@onready var block_label: Label = %blockLabel
+@onready var crit_label: Label = %CritLabel
 @onready var name_2_label = %Name2Label
 @onready var type_label = %TypeLabel
 @onready var lore_label = %LoreLabel
@@ -32,12 +35,15 @@ func setup(hero: HeroResource):
 	update()
 	#Labels
 	name_label.text = hero.hero_name
-	name_2_label.text = hero.hero_name
+	name_2_label.text = "Name: %s" % hero.hero_name
 	health_label.text = "Health: %s" % str(hero.health + (hero.lvl * hero.extra_hp))
 	damage_label.text = "Attack Damage: %s" % str(hero.attack_damage + (hero.lvl * hero.extra_ad))
 	ability_power_label.text = "Ability Power: %s" % str(hero.ability_power + (hero.lvl * hero.extra_ap))
-	type_label.text = hero.type
-	lore_label.text = hero.lore
+	dodge_label.text += " %d%%" % int(hero.dodge * 100)
+	block_label.text += " %d%%" % int(hero.block * 100)
+	crit_label.text += " %d%%" % int(hero.crit * 100)
+	type_label.text = "Type: %s" % hero.type
+	lore_label.text = "Lore: %s" % hero.lore
 	texture_rect.texture = hero.hero_icon
 	#setup skill popup
 	skill_slot.set_skill(hero.skill)

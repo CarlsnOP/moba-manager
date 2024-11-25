@@ -60,3 +60,7 @@ func _on_jungle_button_pressed():
 	TeamManager._lane = TeamManager.LANE_SELECTED.JUNGLE
 	add_heroes()
 	open_hero_menu()
+
+
+func _on_exit_button_pressed() -> void:
+	hero_menu.hide()
