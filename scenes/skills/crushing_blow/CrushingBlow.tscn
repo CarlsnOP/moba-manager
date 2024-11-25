@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://78uxf256pkf5"]
+
+[ext_resource type="Script" path="res://scenes/skills/crushing_blow/crushing_blow.gd" id="1_vahir"]
+
+[node name="CrushingBlow" type="Node"]
+script = ExtResource("1_vahir")
