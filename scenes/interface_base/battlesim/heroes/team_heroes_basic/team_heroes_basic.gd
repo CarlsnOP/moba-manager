@@ -26,6 +26,7 @@ enum TEAM { BUDDY, BULLY }
 @onready var debug_label: Label = $DebugLabel
 
 var _target = null
+var _attacker: Node2D = null
 var _enemies_in_range := []
 var current_state: State
 var _hero: HeroResource
@@ -119,9 +120,10 @@ func deal_damage(dmg: float) -> void:
 			var is_critical = randf() <= _crit
 			if is_critical:
 				dmg *= 2.0
-			_target.take_damage(dmg)
+			_target.take_damage(dmg, self)
 
-func take_damage(dmg: float) -> void:
+func take_damage(dmg: float, attacker: Node2D) -> void:
+	_attacker = attacker
 	dmg * _damage_reduction
 	
 	var is_dodged = randf() <= _dodge

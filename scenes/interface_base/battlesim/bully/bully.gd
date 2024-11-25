@@ -4,6 +4,7 @@ enum STATE { WALK, ATTACK }
 
 @onready var att_timer = %AttTimer
 @onready var health_bar = %HealthBar
+@onready var character_body_2d: CharacterBody2D = $CharacterBody2D
 
 @export_category("Stats:")
 @export var _health := 200.0
@@ -61,9 +62,12 @@ func set_target() -> void:
 func deal_damage(dmg: float) -> void:
 	if _target != null:
 		if _target.has_method("take_damage"):
-			_target.take_damage(dmg)
+			_target.take_damage(dmg, self)
 	else:
 		set_state(STATE.WALK)
+
+func take_damage(dmg: float, node: Node2D) -> void:
+	character_body_2d.take_damage(dmg, node)
 
 func die() -> void:
 	queue_free()

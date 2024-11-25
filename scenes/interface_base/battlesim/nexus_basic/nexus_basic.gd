@@ -43,13 +43,13 @@ func set_target() -> void:
 func get_structure_position() -> Vector2:
 	return global_position
 
-func take_damage(dmg: float) -> void:
+func take_damage(dmg: float, attacker: Node2D) -> void:
 	health_bar.take_damage(dmg)
 	
 func deal_damage(dmg: float) -> void:
 	if _target != null:
 		if _target.has_method("take_damage"):
-			_target.take_damage(dmg)
+			_target.take_damage(dmg, self)
 
 func _on_health_bar_died():
 	SignalManager.on_battle_end.emit(_win)

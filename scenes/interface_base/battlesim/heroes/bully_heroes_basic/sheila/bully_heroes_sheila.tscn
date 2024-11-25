@@ -6,7 +6,7 @@
 [node name="BullyHeroesSheila" node_paths=PackedStringArray("_initial_state", "_initial_lane") instance=ExtResource("1_tthai")]
 team = 1
 _health = 1150.0
-_damage = 2000.0
+_damage = 200.0
 _ability_power = 120.0
 _initial_state = NodePath("StateMachine/Defensive")
 _initial_lane = NodePath("LaneStateMachine/topLaneEnemy")
