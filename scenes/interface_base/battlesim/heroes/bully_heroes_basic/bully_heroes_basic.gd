@@ -32,7 +32,7 @@ func _ready() -> void:
 	setup()
 
 func setup() -> void:
-	health_bar.setup(_health)
+	health_bar.setup(_health, _health)
 	att_timer.wait_time = _att_speed
 	respawn_timer.wait_time = _respawn_time
 
@@ -78,7 +78,7 @@ func die() -> void:
 
 func respawn() -> void:
 	global_position = respawn_enemy.global_position
-	health_bar.setup(_health)
+	health_bar.setup(_health, _health)
 	state_machine.on_respawn()
 	set_physics_process(true)
 

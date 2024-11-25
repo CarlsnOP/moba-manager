@@ -18,7 +18,7 @@ func _process(_delta):
 	set_target()
 
 func setup() -> void:
-	health_bar.setup(_health)
+	health_bar.setup(_health, _health)
 	att_timer.wait_time = _att_speed
 
 func new_game() -> void:

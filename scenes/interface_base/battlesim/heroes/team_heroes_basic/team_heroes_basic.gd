@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 enum TEAM { BUDDY, BULLY }
 
 
@@ -55,7 +56,7 @@ func setup() -> void:
 		_hero = TeamManager.jungle
 	sprite_2d.texture = _hero.hero_icon
 	setup_hero_stats()
-	health_bar.setup(_health)
+	health_bar.setup(_health, _health)
 	att_timer.wait_time = _att_speed
 	respawn_timer.wait_time = _respawn_time
 	load_abilities()
@@ -139,9 +140,10 @@ func die() -> void:
 	global_position = _dead_pos
 	respawn_timer.start()
 
-func respawn() -> void:
+func respawn(health: float) -> void:
+	respawn_timer.stop()
 	global_position = respawn_team.global_position
-	health_bar.setup(_health)
+	health_bar.setup(_health, health)
 	state_machine.on_respawn()
 	set_physics_process(true)
 
@@ -166,7 +168,12 @@ func _on_att_timer_timeout():
 	deal_damage(_damage)
 
 func _on_health_bar_died():
-		die()
+	var current_pos = global_position
+	die()
+	SignalManager.friendly_hero_died.emit(_hero, self, current_pos)
+
+func get_res() -> HeroResource:
+	return _hero
 
 func get_initial_state() -> State:
 	return _initial_state
@@ -181,4 +188,4 @@ func get_jungle_array() -> Array:
 	return lane_state_machine.get_jungle_array()
 
 func _on_respawn_timer_timeout() -> void:
-	respawn()
+	respawn(_health)

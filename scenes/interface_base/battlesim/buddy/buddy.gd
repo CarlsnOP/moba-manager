@@ -26,7 +26,7 @@ func _physics_process(delta):
 		progress_ratio += _move_speed * delta
 
 func setup() -> void:
-	health_bar.setup(_health)
+	health_bar.setup(_health, _health)
 	att_timer.wait_time = _att_speed
 
 func new_game() -> void:

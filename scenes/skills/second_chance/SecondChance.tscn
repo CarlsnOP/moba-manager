@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://f334vxftdwxa"]
+
+[ext_resource type="Script" path="res://scenes/skills/second_chance/second_chance.gd" id="1_fx2wi"]
+
+[node name="SecondChance" type="Node"]
+script = ExtResource("1_fx2wi")
+_cooldown = 120.0
+
+[node name="CooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 60.0
+one_shot = true
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

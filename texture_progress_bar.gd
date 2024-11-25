@@ -11,9 +11,9 @@ const COLOR_DANGER := Color("#cc0000")
 const COLOR_MIDDLE := Color("#FF9900")
 const COLOR_GOOD := Color("#33cc33")
 
-func setup(health: float) -> void:
-	max_value = health
-	value = health
+func setup(max_health: float, current_health: float) -> void:
+	max_value = max_health
+	value = current_health
 	set_color()
 
 func set_color() -> void:
