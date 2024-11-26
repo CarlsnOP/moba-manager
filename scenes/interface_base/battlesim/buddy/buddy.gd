@@ -7,8 +7,8 @@ enum STATE { WALK, ATTACK }
 
 @export_category("Stats:")
 @export var name_string := "Buddy"
-@export var _health := 200.0
-@export var _damage := 75.0
+var _health := CheatManager._health
+var _damage := CheatManager._damage
 @export var _move_speed := 0.1
 @export var _att_speed := 1.0
 

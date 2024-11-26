@@ -67,6 +67,7 @@ mouse_filter = 2
 [node name="Interface" parent="CanvasLayer/MC" groups=["background"] instance=ExtResource("5_upecu")]
 layout_mode = 2
 size_flags_vertical = 1
+mouse_filter = 2
 
 [node name="Home" parent="CanvasLayer/MC/Interface" index="0"]
 visible = true
