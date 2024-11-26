@@ -41,6 +41,9 @@ func picked() -> void:
 	if !icon:
 		queue_free()
 
+func scale_slot(scale_size: Vector2) -> void:
+	scale = scale_size
+
 func _on_button_pressed():
 	if icon:
 		SignalManager.on_hero_selected.emit(_hero)

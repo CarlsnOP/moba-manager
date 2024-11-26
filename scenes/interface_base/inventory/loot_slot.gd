@@ -6,6 +6,8 @@ extends PanelContainer
 @onready var border = %Border
 
 var _loot: LootResource = null
+var _original_quantity := 1
+
 
 func display(loot: LootResource):
 	texture_rect.texture = loot.icon
@@ -34,7 +36,18 @@ func update_quantity() -> void:
 
 func update_cost(cost: int) -> void:
 	stack_label.text += "/%s" % cost
-	
+
+func loot_reward() -> void:
+	stack_label.text = "%s" % _original_quantity
+
+func add_loot() -> void:
+	_original_quantity += 1
+	stack_label.show()
+	stack_label.text = "%s" % _original_quantity
+
+func get_loot() -> LootResource:
+	return _loot
+
 func _on_mouse_entered() -> void:
 	if _loot == null:
 		return

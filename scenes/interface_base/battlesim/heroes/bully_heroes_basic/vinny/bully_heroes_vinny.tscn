@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bhhhr81gttpug" path="res://assets/art/characters/bullies/Vinny.png" id="2_k3aov"]
 
 [node name="BullyHeroesVinny" node_paths=PackedStringArray("_initial_state", "_initial_lane") instance=ExtResource("1_x8c3a")]
+name_string = "Vinny"
 team = 1
 _health = 1200.0
 _damage = 250.0

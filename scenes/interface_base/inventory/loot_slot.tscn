@@ -6,11 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://dyv71risq3oqo" path="res://assets/art/ui/border.png" id="4_tm5cu"]
 
 [node name="LootSlot" type="PanelContainer"]
+offset_right = 150.0
+offset_bottom = 150.0
 script = ExtResource("1_83m0i")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = ExtResource("1_q4xk8")
 expand_mode = 3

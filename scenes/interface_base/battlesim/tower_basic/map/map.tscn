@@ -140,7 +140,7 @@ _data = {
 }
 point_count = 13
 
-[node name="Map" type="Control" groups=["map"]]
+[node name="Map" type="Control" groups=["map", "update_post_match"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -306,13 +306,16 @@ script = ExtResource("23_1nm8l")
 unique_name_in_owner = true
 script = ExtResource("27_12da5")
 
+[node name="MatchTimer" type="Timer" parent="HB/Utility"]
+unique_name_in_owner = true
+autostart = true
+
 [node name="Spacer" type="Control" parent="HB"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="WaveLabel" type="Label" parent="."]
+[node name="MatchTimerLabel" type="Label" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -322,6 +325,7 @@ offset_right = 0.5
 offset_bottom = 99.0
 grow_horizontal = 2
 theme_type_variation = &"HeaderLarge"
+text = "0:00"
 horizontal_alignment = 1
 
 [connection signal="timeout" from="HB/Jungle/TopJungleBully/RespawnTimer1" to="HB/Utility/JungleManager" method="_on_respawn_timer_1_timeout"]
@@ -329,3 +333,4 @@ horizontal_alignment = 1
 [connection signal="timeout" from="HB/Jungle/MidJungleBuddy/RespawnTimer3" to="HB/Utility/JungleManager" method="_on_respawn_timer_3_timeout"]
 [connection signal="timeout" from="HB/Jungle/BotJungleBuddy/RespawnTimer4" to="HB/Utility/JungleManager" method="_on_respawn_timer_4_timeout"]
 [connection signal="timeout" from="HB/Utility/SpawnTimer" to="HB/Utility/WaveManager" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="HB/Utility/MatchTimer" to="." method="_on_match_timer_timeout"]

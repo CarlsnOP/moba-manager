@@ -3,6 +3,7 @@ extends CharacterBody2D
 enum TEAM { BUDDY, BULLY }
 
 @export_category("Stats:")
+@export var name_string: String
 @export var team: TEAM
 @export var _health := 200.0
 @export var _damage := 75.0
@@ -27,6 +28,7 @@ var _enemies_in_range := []
 var current_state: State
 var _dead_pos := Vector2(0, 0)
 var _respawn_time := 15.0
+var _attacker: String
 
 func _ready() -> void:
 	setup()
@@ -67,10 +69,13 @@ func deal_damage(dmg: float) -> void:
 		if _target.has_method("take_damage"):
 			_target.take_damage(dmg, self)
 
-func take_damage(dmg: float, _attacker: Node2D) -> void:
+func take_damage(dmg: float, attacker: Node2D) -> void:
 	health_bar.take_damage(dmg)
+	var attacked_by := attacker
+	_attacker = attacked_by.name_string
 
 func die() -> void:
+	SignalManager.enemy_hero_died.emit(self)
 	set_physics_process(false)
 	state_machine.on_death()
 	global_position = _dead_pos

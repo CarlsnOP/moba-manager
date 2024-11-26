@@ -55,5 +55,3 @@ func set_state(new_state: INTERFACE_STATE) -> void:
 		INTERFACE_STATE.RANK:
 			rank.show()
 			
-
-			

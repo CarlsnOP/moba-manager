@@ -1,24 +1,31 @@
 extends Control
 
 
-@onready var wave_label = %WaveLabel
-@onready var spawn_timer = %SpawnTimer
+@onready var match_timer_label: Label = %MatchTimerLabel
+@onready var match_timer: Timer = %MatchTimer
 
-@export var wave_spawn_timer := 15.0
+var elapsed_time := 0
+var previous_game_length := 0
 
 
-func _ready():
-	setup()
+func _ready() -> void:
+	match_timer.start() 
 
-func _process(_delta):
-	#wave_label.text = "Wave in: %02d" % time_till_next_wave()
-	pass
+#called when new game starts
+func update() -> void:
+	previous_game_length = elapsed_time
+	elapsed_time = 0
 
-func setup() -> void:
-	spawn_timer.wait_time = wave_spawn_timer
-	spawn_timer.start()
-	
-func time_till_next_wave() -> Array:
-	var time_left = spawn_timer.time_left
-	var second = int(time_left) % 60
-	return [second]
+
+func _on_match_timer_timeout() -> void:
+	elapsed_time += 1
+	SignalManager.match_elapsed_time.emit(elapsed_time)
+	update_match_clock()
+
+func update_match_clock() -> void:
+	var minutes = elapsed_time / 60
+	var seconds = elapsed_time % 60
+	match_timer_label.text = "%02d:%02d" % [minutes, seconds]
+
+func get_game_length() -> int:
+	return previous_game_length

@@ -27,9 +27,11 @@ enum TEAM { BUDDY, BULLY }
 
 var _target = null
 var _attacker: Node2D = null
+var attacked_by: String
 var _enemies_in_range := []
 var current_state: State
 var _hero: HeroResource
+var name_string: String
 
 #Hero Stats
 var _health: float
@@ -57,6 +59,7 @@ func setup() -> void:
 		_hero = TeamManager.jungle
 	sprite_2d.texture = _hero.hero_icon
 	setup_hero_stats()
+	name_string = _hero.hero_name
 	health_bar.setup(_health, _health)
 	att_timer.wait_time = _att_speed
 	respawn_timer.wait_time = _respawn_time
@@ -124,7 +127,8 @@ func deal_damage(dmg: float) -> void:
 
 func take_damage(dmg: float, attacker: Node2D) -> void:
 	_attacker = attacker
-	dmg * _damage_reduction
+	attacked_by = attacker.name_string
+	dmg = dmg * _damage_reduction
 	
 	var is_dodged = randf() <= _dodge
 	if is_dodged:

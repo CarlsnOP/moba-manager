@@ -7,10 +7,12 @@ enum STATE { WALK, ATTACK }
 @onready var character_body_2d: CharacterBody2D = $CharacterBody2D
 
 @export_category("Stats:")
+@export var name_string := "Bully"
 @export var _health := 200.0
 @export var _damage := 75.0
 @export var _move_speed := 0.1
 @export var _att_speed := 1.0
+
 
 var _current_state: STATE
 var _target = null
