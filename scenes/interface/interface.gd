@@ -8,6 +8,7 @@ enum INTERFACE_STATE { HOME, HEROES, BATTLESETUP, BATTLESIM, INVENTORY, CRAFTING
 @onready var inventory = %Inventory
 @onready var crafting = %Crafting
 @onready var rank = %Rank
+@onready var settings: Control = %Settings
 
 var _state: INTERFACE_STATE = INTERFACE_STATE.HOME
 
@@ -46,12 +47,18 @@ func set_state(new_state: INTERFACE_STATE) -> void:
 			heroes.show()
 		INTERFACE_STATE.BATTLESETUP:
 			battle_setup.show()
+			
 		INTERFACE_STATE.INVENTORY:
 			inventory.show()
 			inventory.open()
+			
 		INTERFACE_STATE.CRAFTING:
 			crafting.show()
 			crafting.open()
+			
 		INTERFACE_STATE.RANK:
 			rank.show()
+			
+		INTERFACE_STATE.SETTINGS:
+			settings.show()
 			

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpnlghx13iay"]
+[gd_scene load_steps=12 format=3 uid="uid://bpnlghx13iay"]
 
 [ext_resource type="Script" path="res://scenes/homepage/homepage.gd" id="1_i64r6"]
 [ext_resource type="Texture2D" uid="uid://sxx71voh604e" path="res://assets/art/background/background.png" id="1_innmw"]
@@ -8,6 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://fgfie74mjqjs" path="res://scenes/interface_base/battlesim/battle_sim.tscn" id="6_88w18"]
 [ext_resource type="Script" path="res://scenes/homepage/saver_loader.gd" id="6_moooh"]
 [ext_resource type="PackedScene" uid="uid://b8fkla5rkmdyu" path="res://scenes/team_manager/team_manager.tscn" id="7_4dhdb"]
+[ext_resource type="AudioStream" uid="uid://7irdu1cd5ubh" path="res://assets/sounds/music/Bouncy Adventure.mp3" id="9_7tj1g"]
+[ext_resource type="AudioStream" uid="uid://4hp51cewv1an" path="res://assets/sounds/music/Happy Adventure.mp3" id="10_6io05"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_p3n3p"]
+stream_count = 2
+stream_0 = ExtResource("9_7tj1g")
+stream_1 = ExtResource("10_6io05")
 
 [node name="Homepage" type="Node2D"]
 script = ExtResource("1_i64r6")
@@ -84,6 +91,8 @@ autostart = true
 [node name="RankManager" type="Node" parent="Utilities"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_p3n3p")
+autoplay = true
 bus = &"Music"
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
