@@ -1,4 +1,4 @@
 extends Node
 
-var _health := 500.0
-var _damage := 150.0
+var health := 500.0
+var damage := 150.0

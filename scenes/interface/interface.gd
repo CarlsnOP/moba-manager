@@ -37,6 +37,7 @@ func set_state(new_state: INTERFACE_STATE) -> void:
 	match _state:
 		INTERFACE_STATE.HOME:
 			home.show()
+			
 		INTERFACE_STATE.HEROES:
 			var hero_buttons = get_tree().get_nodes_in_group("hero_buttons")
 			
@@ -61,4 +62,10 @@ func set_state(new_state: INTERFACE_STATE) -> void:
 			
 		INTERFACE_STATE.SETTINGS:
 			settings.show()
-			
+
+func reassign_home(saved_home: Control) -> void:
+	home = saved_home
+	move_child(home, 0)
+	
+func reassign_settings(saved_settings: Control) -> void:
+	settings = saved_settings

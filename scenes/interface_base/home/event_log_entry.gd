@@ -10,7 +10,14 @@ extends Control
 @export var hero_slot_scene: PackedScene
 
 var loot_scale := Vector2(0.5, 0.5)
+
+var _won: bool
 var elapsed_time: int
+var _exp_gained: String
+var _currency_gained: String
+var _top_hero: HeroResource
+var _bot_hero: HeroResource
+var _loot_received: Array[LootResource]
 
 
 func _ready() -> void:
@@ -18,38 +25,55 @@ func _ready() -> void:
 	
 	if map.has_method("get_game_length"):
 		elapsed_time = map.get_game_length()
-	
-	set_match_time()
-	exp_label.text += str(RewardManager._exp_gained)
-	currency_label.text += str(RewardManager._rubberduckies_gained)
-	loot_grid.display(RewardManager._loot_gained)
-	instantiate_friendly_team()
 
-func set_match_time() -> void:
-	var minutes = elapsed_time / 60
-	var seconds = elapsed_time % 60
+	
+func setup(exp: String, currency: String, loot: Array[LootResource]) -> void:
+	_exp_gained = exp
+	exp_label.text += exp
+	
+	_currency_gained = currency
+	currency_label.text += currency
+	
+	_loot_received = loot
+	loot_grid.display(loot)
+
+func set_match_time(time: int) -> void:
+	elapsed_time = time
+	var minutes = time / 60
+	var seconds = time % 60
 	match_length_label.text = "%02d:%02d" % [minutes, seconds]
 
 func set_result_label(win: bool) -> void:
 	if win:
+		_won = win
 		result_label.text = "WIN!"
 		result_label.modulate = Color.GREEN
 	else:
+		_won = win
 		result_label.text = "LOST!"
 		result_label.modulate = Color.RED
 
-func instantiate_friendly_team() -> void:
-	instantiate_friendly_top()
-	instantiate_friendly_bot()
-
-func instantiate_friendly_top() -> void:
-	var top_hero = TeamManager.top
+func instantiate_friendly_top(hero: HeroResource) -> void:
+	_top_hero = hero
 	var slot = hero_slot_scene.instantiate()
 	team_hb.add_child(slot)
-	slot.display(top_hero)
+	slot.display(hero)
 
-func instantiate_friendly_bot() -> void:
-	var bot_hero = TeamManager.bot
+func instantiate_friendly_bot(hero: HeroResource) -> void:
+	_bot_hero = hero
 	var slot = hero_slot_scene.instantiate()
 	team_hb.add_child(slot)
-	slot.display(bot_hero)
+	slot.display(hero)
+
+#For saving data
+func save_data() -> Dictionary:
+	var log_data_dict = { 
+		"Win": _won,
+		"Match_time": elapsed_time,
+		"Exp": _exp_gained,
+		"Currency": _currency_gained,
+		"Top": _top_hero,
+		"Bot": _bot_hero,
+		"Loot": _loot_received
+	}
+	return log_data_dict

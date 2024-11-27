@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interface_base/interface_base.tscn" id="1_hh7ly"]
 [ext_resource type="Script" path="res://scenes/interface_base/settings/settings.gd" id="2_vw8er"]
 
-[node name="Settings" instance=ExtResource("1_hh7ly")]
+[node name="Settings" groups=["game_events"] instance=ExtResource("1_hh7ly")]
 script = ExtResource("2_vw8er")
 
 [node name="VB" parent="PC/MC" index="0"]
@@ -56,12 +56,13 @@ theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 10
 columns = 2
 
-[node name="MusicLabel" type="Label" parent="PC/MC/VB/PanelContainer/VB/GridContainer" index="0"]
+[node name="MasterLabel" type="Label" parent="PC/MC/VB/PanelContainer/VB/GridContainer" index="0"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
-text = "Music"
+text = "Master"
 
-[node name="MusicSlider" type="HSlider" parent="PC/MC/VB/PanelContainer/VB/GridContainer" index="1"]
+[node name="MasterSlider" type="HSlider" parent="PC/MC/VB/PanelContainer/VB/GridContainer" index="1"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -69,12 +70,27 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="SFXLabel" type="Label" parent="PC/MC/VB/PanelContainer/VB/GridContainer" index="2"]
+[node name="MusicLabel" type="Label" parent="PC/MC/VB/PanelContainer/VB/GridContainer" index="2"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="PC/MC/VB/PanelContainer/VB/GridContainer" index="3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="SFXLabel" type="Label" parent="PC/MC/VB/PanelContainer/VB/GridContainer" index="4"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "SFX"
 
-[node name="SFXSlider" type="HSlider" parent="PC/MC/VB/PanelContainer/VB/GridContainer" index="3"]
+[node name="SFXSlider" type="HSlider" parent="PC/MC/VB/PanelContainer/VB/GridContainer" index="5"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -83,5 +99,6 @@ step = 0.05
 value = 1.0
 
 [connection signal="toggled" from="PC/MC/VB/PanelContainer/VB/DisplaySettings/HB/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="value_changed" from="PC/MC/VB/PanelContainer/VB/GridContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="PC/MC/VB/PanelContainer/VB/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="PC/MC/VB/PanelContainer/VB/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

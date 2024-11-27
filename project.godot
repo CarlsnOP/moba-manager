@@ -41,6 +41,7 @@ CheatManager="*res://singletons/cheat_manager.gd"
 [debug]
 
 gdscript/warnings/unused_signal=0
+gdscript/warnings/integer_division=0
 
 [display]
 
@@ -100,3 +101,5 @@ theme/custom="res://theme.tres"
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true

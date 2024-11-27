@@ -15,9 +15,9 @@ func new_interface(interface: int) -> void:
 		battle_manager.hide()
 
 func _on_buff_minion_button_pressed():
-	CheatManager._health += 100
-	CheatManager._damage += 100
+	CheatManager.health += 100
+	CheatManager.damage += 100
 
 func _on_reset_minion_button_pressed():
-	CheatManager._health = 500
-	CheatManager._damage = 150
+	CheatManager.health = 500
+	CheatManager.damage = 150

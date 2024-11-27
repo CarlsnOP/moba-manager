@@ -25,7 +25,6 @@ func save_vars(saved_game: SavedGame) -> void:
 	saved_game.top = TeamManager.top
 	saved_game.bot = TeamManager.bot
 	saved_game.jungle = TeamManager.jungle
-	
 
 
 #loading functionality

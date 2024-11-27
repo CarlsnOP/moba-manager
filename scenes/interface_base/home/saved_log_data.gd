@@ -1,5 +1,5 @@
 class_name SavedLogData
 extends SavedData
 
-@export var path: String
-@export var amount: int
+@export var parent_path: String
+@export var log_data: Array[Dictionary]
