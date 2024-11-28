@@ -9,11 +9,13 @@ offset_right = 250.0
 offset_bottom = 250.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_type_variation = &"InvisPanel"
 script = ExtResource("1_8m23x")
 icon = true
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
+flat = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

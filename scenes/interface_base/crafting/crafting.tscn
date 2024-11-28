@@ -22,8 +22,9 @@ size_flags_vertical = 3
 [node name="VB" type="VBoxContainer" parent="PC/MC/VB/HB" index="0"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PC/MC/VB/HB/VB" index="0"]
+[node name="RecipeLabel" type="Label" parent="PC/MC/VB/HB/VB" index="0"]
 layout_mode = 2
+theme_type_variation = &"HeaderMedium"
 text = "Recipes"
 
 [node name="ItemList" type="ItemList" parent="PC/MC/VB/HB/VB" index="1"]
@@ -39,16 +40,18 @@ item_1/text = "Worn-Out Wonder Boots"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PC/MC/VB/HB/VB2" index="0"]
+[node name="IngredientsLabel" type="Label" parent="PC/MC/VB/HB/VB2" index="0"]
 layout_mode = 2
+theme_type_variation = &"HeaderMedium"
 text = "Ingredients"
 
 [node name="LootGrid" parent="PC/MC/VB/HB/VB2" index="1" instance=ExtResource("3_8rldi")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="PC/MC/VB/HB/VB2" index="2"]
+[node name="ResultsLabel" type="Label" parent="PC/MC/VB/HB/VB2" index="2"]
 layout_mode = 2
+theme_type_variation = &"HeaderMedium"
 text = "Results"
 
 [node name="ItemGrid" parent="PC/MC/VB/HB/VB2" index="3" instance=ExtResource("4_c2wys")]

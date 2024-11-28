@@ -139,6 +139,7 @@ func take_damage(dmg: float, attacker: Node2D) -> void:
 		dmg *= 0.2
 	
 	health_bar.take_damage(dmg)
+	DamageNumbers.display_number(round(dmg), global_position, false)
 
 func die() -> void:
 	set_physics_process(false)

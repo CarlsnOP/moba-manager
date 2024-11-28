@@ -73,6 +73,7 @@ func take_damage(dmg: float, attacker: Node2D) -> void:
 	health_bar.take_damage(dmg)
 	var attacked_by := attacker
 	_attacker = attacked_by.name_string
+	DamageNumbers.display_number(round(dmg), global_position, false)
 
 func die() -> void:
 	SignalManager.enemy_hero_died.emit(self)

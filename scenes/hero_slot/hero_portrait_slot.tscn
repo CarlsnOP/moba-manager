@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ckooocc8ghpgl" path="res://scenes/hero_slot/hero_slot.tscn" id="1_uxpgb"]
 
 [node name="HeroPortraitSlot" instance=ExtResource("1_uxpgb")]
+theme_type_variation = &"InvisPanel"
 icon = false
 
 [node name="Button" parent="." index="0"]

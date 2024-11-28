@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cfioapweow33c"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cfioapweow33c"]
 
 [ext_resource type="FontFile" uid="uid://qtceburuli1a" path="res://assets/fonts/Bangers-Regular.ttf" id="1_1raky"]
 [ext_resource type="FontFile" uid="uid://bcny1bgbhjhmt" path="res://assets/fonts/Fredoka-VariableFont_wdth,wght.ttf" id="1_qajaw"]
@@ -10,8 +10,11 @@ bg_color = Color(0.133333, 0.133333, 0.133333, 0.392157)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e66cw"]
 bg_color = Color(0.184314, 0.352941, 0.411765, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08rc2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11qjg"]
-bg_color = Color(0.184314, 0.352941, 0.411765, 1)
+bg_color = Color(0.368627, 0.313726, 0.301961, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_scl3x"]
 texture = ExtResource("3_8uval")
@@ -33,12 +36,22 @@ HeaderLarge/constants/shadow_offset_y = 1
 HeaderLarge/constants/shadow_outline_size = 3
 HeaderLarge/font_sizes/font_size = 64
 HeaderLarge/fonts/font = ExtResource("1_1raky")
+HeaderMedium/colors/font_shadow_color = Color(0.129412, 0.129412, 0.129412, 1)
+HeaderMedium/constants/shadow_offset_x = 1
+HeaderMedium/constants/shadow_offset_y = 1
+HeaderMedium/constants/shadow_outline_size = 3
 HeaderMedium/font_sizes/font_size = 48
 HeaderMedium/fonts/font = ExtResource("1_1raky")
-HeaderSmall/font_sizes/font_size = 32
+HeaderSmall/colors/font_shadow_color = Color(0.129412, 0.129412, 0.129412, 1)
+HeaderSmall/constants/shadow_offset_x = 1
+HeaderSmall/constants/shadow_offset_y = 1
+HeaderSmall/constants/shadow_outline_size = 1
+HeaderSmall/font_sizes/font_size = 28
 HeaderSmall/fonts/font = ExtResource("1_1raky")
 HeroPage/base_type = &"PanelContainer"
 HeroPage/styles/panel = SubResource("StyleBoxFlat_e66cw")
+InvisPanel/base_type = &"PanelContainer"
+InvisPanel/styles/panel = SubResource("StyleBoxFlat_08rc2")
 ItemQuantity/base_type = &"Label"
 ItemQuantity/colors/font_color = Color(0.998379, 0.963455, 0.215508, 1)
 ItemQuantity/colors/font_shadow_color = Color(0.099986, 0.099986, 0.099986, 1)

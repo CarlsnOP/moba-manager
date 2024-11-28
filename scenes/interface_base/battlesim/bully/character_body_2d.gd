@@ -5,4 +5,4 @@ extends CharacterBody2D
 
 func take_damage(dmg: float, _attacker: Node2D) -> void:
 	health_bar.take_damage(dmg)
-	DamageNumbers.display_number(dmg, global_position, false)
+	DamageNumbers.display_number(round(dmg), global_position, false)

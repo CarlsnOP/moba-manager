@@ -137,5 +137,5 @@ func on_load_game(saved_data:SavedData):
 				new_eventlog.instantiate_friendly_top(child["Top"])
 				new_eventlog.instantiate_friendly_bot(child["Bot"])
 				on_log_entry(new_eventlog)
-		
+	hide()
 		

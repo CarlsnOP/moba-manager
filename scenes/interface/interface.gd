@@ -29,6 +29,8 @@ func new_interface(state: int) -> void:
 
 func set_state(new_state: INTERFACE_STATE) -> void:
 	if new_state == _state:
+		hide_interface()
+		_state = INTERFACE_STATE.BATTLESIM
 		return
 	
 	_state = new_state

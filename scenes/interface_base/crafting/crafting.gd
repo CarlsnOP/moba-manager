@@ -23,6 +23,7 @@ func open():
 	for item in InventoryManager._all_items:
 		var index = item_list.add_item(item.name)
 		item_list.set_item_metadata(index, item)
+		
 	
 	item_list.select(0)
 	_on_recipe_list_item_selected(0)

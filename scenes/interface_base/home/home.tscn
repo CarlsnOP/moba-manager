@@ -13,14 +13,11 @@ event_log_scene = ExtResource("4_14lci")
 [node name="VB" parent="PC/MC" index="0"]
 theme_override_constants/separation = 20
 
-[node name="Label" parent="PC/MC/VB" index="0"]
-text = "Home"
-
-[node name="HB" type="HBoxContainer" parent="PC/MC/VB" index="1"]
+[node name="HB2" type="HBoxContainer" parent="PC/MC/VB" index="1"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PC" type="PanelContainer" parent="PC/MC/VB/HB" index="0"]
+[node name="PC" type="PanelContainer" parent="PC/MC/VB/HB2" index="0"]
 unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(0, 500)
@@ -28,43 +25,43 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"AlphaPanel"
 
-[node name="VB" type="VBoxContainer" parent="PC/MC/VB/HB/PC" index="0"]
+[node name="VB" type="VBoxContainer" parent="PC/MC/VB/HB2/PC" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="BattleLogLabel" type="Label" parent="PC/MC/VB/HB/PC/VB" index="0"]
+[node name="BattleLogLabel" type="Label" parent="PC/MC/VB/HB2/PC/VB" index="0"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Battle LOG:"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PC/MC/VB/HB/PC/VB" index="1"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PC/MC/VB/HB2/PC/VB" index="1"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="BattleLogEntries" type="VBoxContainer" parent="PC/MC/VB/HB/PC/VB/ScrollContainer" index="0"]
+[node name="BattleLogEntries" type="VBoxContainer" parent="PC/MC/VB/HB2/PC/VB/ScrollContainer" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PC2" type="PanelContainer" parent="PC/MC/VB/HB" index="1"]
+[node name="PC2" type="PanelContainer" parent="PC/MC/VB/HB2" index="1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 theme_type_variation = &"AlphaPanel"
 
-[node name="VB" type="VBoxContainer" parent="PC/MC/VB/HB/PC2" index="0"]
+[node name="VB" type="VBoxContainer" parent="PC/MC/VB/HB2/PC2" index="0"]
 layout_mode = 2
 
-[node name="EventLogLabel" type="Label" parent="PC/MC/VB/HB/PC2/VB" index="0"]
+[node name="EventLogLabel" type="Label" parent="PC/MC/VB/HB2/PC2/VB" index="0"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "EVENT LOG:"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PC/MC/VB/HB/PC2/VB" index="1"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PC/MC/VB/HB2/PC2/VB" index="1"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="EventLogEntries" type="VBoxContainer" parent="PC/MC/VB/HB/PC2/VB/ScrollContainer" index="0"]
+[node name="EventLogEntries" type="VBoxContainer" parent="PC/MC/VB/HB2/PC2/VB/ScrollContainer" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
