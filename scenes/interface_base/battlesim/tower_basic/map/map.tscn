@@ -288,7 +288,7 @@ metadata/_edit_lock_ = true
 
 [node name="SpawnTimer" type="Timer" parent="HB/Utility"]
 unique_name_in_owner = true
-wait_time = 20.0
+wait_time = 10.0
 
 [node name="MapSetup" type="Node" parent="HB/Utility"]
 unique_name_in_owner = true

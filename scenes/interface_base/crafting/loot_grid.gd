@@ -19,6 +19,8 @@ func display(loot: Array[LootResource]):
 			
 	if loot_reward:
 		check_for_duplicates()
+	
+	
 
 func display_recipe(loot: Array[LootResource], cost: int):
 	for child in get_children():

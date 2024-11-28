@@ -7,12 +7,16 @@ extends PanelContainer
 
 var _loot: LootResource = null
 var _original_quantity := 1
+var _rarity: int
+var _name: String
 
 
 func display(loot: LootResource):
 	texture_rect.texture = loot.icon
 	stack_label.text = "%s" % loot.quantity
 	_loot = loot
+	_rarity = loot.rarity
+	_name  = loot.name
 	
 	match loot.rarity:
 		0:

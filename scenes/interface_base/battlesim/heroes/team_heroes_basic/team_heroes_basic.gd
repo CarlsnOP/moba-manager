@@ -6,7 +6,7 @@ enum TEAM { BUDDY, BULLY }
 
 @export_category("Stats:")
 @export var team: TEAM
-@export var move_speed := 90.0
+@export var move_speed := 500.0
 @export var _att_speed := 1.0
 @export var _initial_state: State
 @export var _initial_lane: LaneState

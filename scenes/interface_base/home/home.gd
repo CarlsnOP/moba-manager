@@ -54,7 +54,7 @@ func on_battle_end(win: bool) -> void:
 func create_event_log(win: bool) -> void:
 	var map = get_tree().get_first_node_in_group("map")
 	var elapsed_time: int
-	var exp = str(RewardManager._exp_gained)
+	var xp = str(RewardManager._exp_gained)
 	var currency = str(RewardManager._rubberduckies_gained)
 	var loot = RewardManager._loot_gained
 	var top_hero = TeamManager.top
@@ -67,7 +67,7 @@ func create_event_log(win: bool) -> void:
 	var new_eventlog = event_log_scene.instantiate()
 	event_log_entries.add_child(new_eventlog)
 	event_log_entries.move_child(new_eventlog, 0)
-	new_eventlog.setup(exp, currency, loot)
+	new_eventlog.setup(xp, currency, loot)
 	new_eventlog.set_match_time(elapsed_time)
 	new_eventlog.set_result_label(win)
 	new_eventlog.instantiate_friendly_top(top_hero)
@@ -103,10 +103,29 @@ func on_save_game(saved_data: Array[SavedData]):
 		my_data.parent_path = get_parent().get_path()
 	
 	for child in event_log_entries.get_children():
-		my_data.log_data.append(child.save_data())
+		var dict = child.save_data()
+		my_data.log_data.append(dict)
+		#remove_old_entry(my_data.log_data)
 		
 	saved_data.append(my_data)
-	
+
+#func remove_old_entry(logs: Array[Dictionary]) -> void:
+	#var valid_entries: Array[Dictionary] = []
+	##print(log_entries)
+	#for entry in logs:
+		#if entry != null:
+			#valid_entries.append(entry)
+			#logs = valid_entries
+##
+	#if len(logs) < 6:
+		#return
+##
+	#var entry_to_remove = logs[0]
+	#logs.remove_at(0)
+##
+	##if entry_to_remove != null:
+		##entry_to_remove.queue_free()
+
 #Loading function
 func on_before_load_game():
 	get_parent().remove_child(self)
@@ -121,12 +140,19 @@ func on_load_game(saved_data:SavedData):
 		
 		get_parent().reassign_home(self)
 		
-		var i = 0
-		for child in saved_data.log_data:
-			i += 1
-			var new_eventlog = event_log_scene.instantiate()
-			event_log_entries.add_child(new_eventlog)
-			event_log_entries.move_child(new_eventlog, 0)
-			on_log_entry(new_eventlog)
+		if saved_data.log_data is Array:
+			for child in saved_data.log_data:
+				var new_eventlog = event_log_scene.instantiate()
+				event_log_entries.add_child(new_eventlog)
+				event_log_entries.move_child(new_eventlog, 0)
+				new_eventlog.set_result_label(child["Win"])
+				new_eventlog.set_match_time(child["Match_time"])
+				new_eventlog.setup(
+					child["Exp"],
+					child["Currency"],
+					child["Loot"],)
+				new_eventlog.instantiate_friendly_top(child["Top"])
+				new_eventlog.instantiate_friendly_bot(child["Bot"])
+				on_log_entry(new_eventlog)
 		
 		

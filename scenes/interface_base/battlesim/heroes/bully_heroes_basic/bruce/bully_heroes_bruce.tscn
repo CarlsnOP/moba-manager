@@ -7,7 +7,7 @@
 name_string = "Bruce"
 team = 1
 _health = 1250.0
-_damage = 280.0
+_damage = 140.0
 _ability_power = 90.0
 _initial_state = NodePath("StateMachine/Jungle")
 _initial_lane = NodePath("LaneStateMachine/BotLaneTeam")

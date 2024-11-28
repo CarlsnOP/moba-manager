@@ -19,17 +19,10 @@ var _top_hero: HeroResource
 var _bot_hero: HeroResource
 var _loot_received: Array[LootResource]
 
-
-func _ready() -> void:
-	var map = get_tree().get_first_node_in_group("map")
 	
-	if map.has_method("get_game_length"):
-		elapsed_time = map.get_game_length()
-
-	
-func setup(exp: String, currency: String, loot: Array[LootResource]) -> void:
-	_exp_gained = exp
-	exp_label.text += exp
+func setup(xp: String, currency: String, loot: Array[LootResource]) -> void:
+	_exp_gained = xp
+	exp_label.text += xp
 	
 	_currency_gained = currency
 	currency_label.text += currency

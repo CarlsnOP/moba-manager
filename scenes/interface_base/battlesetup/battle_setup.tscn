@@ -73,6 +73,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Jungle" type="HBoxContainer" parent="PC/MC/VB/HB/VB" index="2"]
+visible = false
 layout_mode = 2
 
 [node name="JungleLabel" type="Label" parent="PC/MC/VB/HB/VB/Jungle" index="0"]

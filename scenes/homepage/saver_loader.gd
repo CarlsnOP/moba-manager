@@ -24,7 +24,7 @@ func save_vars(saved_game: SavedGame) -> void:
 	saved_game.equipped_items = TeamManager.get_equipped_items()
 	saved_game.top = TeamManager.top
 	saved_game.bot = TeamManager.bot
-	saved_game.jungle = TeamManager.jungle
+#	saved_game.jungle = TeamManager.jungle
 
 
 #loading functionality
@@ -58,7 +58,7 @@ func load_vars(saved_game: SavedGame) -> void:
 	InventoryManager._rubberduckies = saved_game.rubber_duckies
 	TeamManager.top = saved_game.top
 	TeamManager.bot = saved_game.bot
-	TeamManager.jungle = saved_game.jungle
+	#TeamManager.jungle = saved_game.jungle
 
 func _on_save_timer_timeout():
 	#print("game has been saved")

@@ -91,6 +91,7 @@ text = "Crafting
 alignment = 0
 
 [node name="RankButton" type="Button" parent="PC/MC/VB"]
+visible = false
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Rank

@@ -13,7 +13,7 @@ func on_before_load_game():
 	await get_tree().physics_frame
 	top_button.icon = TeamManager.top.hero_portrait
 	bot_button.icon = TeamManager.bot.hero_portrait
-	jungle_button.icon = TeamManager.jungle.hero_portrait
+#	jungle_button.icon = TeamManager.jungle.hero_portrait
 
 func _ready():
 	SignalManager.on_portrait_selected.connect(on_portrait_selected)

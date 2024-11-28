@@ -4,6 +4,10 @@
       "resource_local_to_scene": true,
       "resource_name": true
     },
+    "res://resources/heroes/resources/hero_list/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    },
     "res://resources/items/hero_items/items/": {
       "resource_local_to_scene": true,
       "resource_name": true
@@ -21,7 +25,8 @@
     "res://resources/items/hero_items/items/",
     "res://resources/items/loot/items/",
     "res://resources/heroes/resources/",
-    "res://resources/skills/resources/"
+    "res://resources/skills/resources/",
+    "res://resources/heroes/resources/hero_list/"
   ],
   "table_functions": {
     "filter": [

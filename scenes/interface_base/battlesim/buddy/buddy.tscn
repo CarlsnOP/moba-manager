@@ -14,6 +14,9 @@ radius = 50.0
 [node name="Buddy" type="PathFollow2D" groups=["buddy", "restart_map"]]
 rotates = false
 script = ExtResource("1_42604")
+_health = 800.0
+_damage = 100.0
+_att_speed = 0.5
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["buddy"]]
 collision_mask = 2

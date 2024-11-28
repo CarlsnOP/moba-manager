@@ -8,7 +8,7 @@ enum TEAM { BUDDY, BULLY }
 @export var _health := 200.0
 @export var _damage := 75.0
 @export var _ability_power := 30.0
-@export var move_speed := 90.0
+@export var move_speed := 500.0
 @export var _att_speed := 1.0
 @export var _initial_state: State
 @export var _initial_lane: LaneState

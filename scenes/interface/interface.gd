@@ -64,8 +64,8 @@ func set_state(new_state: INTERFACE_STATE) -> void:
 			settings.show()
 
 func reassign_home(saved_home: Control) -> void:
+	move_child(saved_home, 0)
 	home = saved_home
-	move_child(home, 0)
 	
 func reassign_settings(saved_settings: Control) -> void:
 	settings = saved_settings
