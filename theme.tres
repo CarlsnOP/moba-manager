@@ -1,7 +1,11 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cfioapweow33c"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cfioapweow33c"]
 
 [ext_resource type="FontFile" uid="uid://qtceburuli1a" path="res://assets/fonts/Bangers-Regular.ttf" id="1_1raky"]
 [ext_resource type="FontFile" uid="uid://bcny1bgbhjhmt" path="res://assets/fonts/Fredoka-VariableFont_wdth,wght.ttf" id="1_qajaw"]
+[ext_resource type="Texture2D" uid="uid://bneiuc2x5jqlc" path="res://assets/art/ui/gui.png" id="3_8uval"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dn7ws"]
+bg_color = Color(0.133333, 0.133333, 0.133333, 0.392157)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e66cw"]
 bg_color = Color(0.184314, 0.352941, 0.411765, 1)
@@ -9,10 +13,20 @@ bg_color = Color(0.184314, 0.352941, 0.411765, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11qjg"]
 bg_color = Color(0.184314, 0.352941, 0.411765, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_scl3x"]
+texture = ExtResource("3_8uval")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+region_rect = Rect2(151, 6.8481, 34, 34.1519)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aewll"]
 bg_color = Color(0.47451, 0.662745, 0.411765, 0.784314)
 
 [resource]
+AlphaPanel/base_type = &"PanelContainer"
+AlphaPanel/styles/panel = SubResource("StyleBoxFlat_dn7ws")
 HeaderLarge/colors/font_shadow_color = Color(0.129558, 0.129558, 0.129558, 1)
 HeaderLarge/constants/shadow_offset_x = 1
 HeaderLarge/constants/shadow_offset_y = 1
@@ -38,4 +52,6 @@ Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("1_qajaw")
 MenuButton/constants/icon_max_width = 50
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_11qjg")
+PanelWithBorder/base_type = &"PanelContainer"
+PanelWithBorder/styles/panel = SubResource("StyleBoxTexture_scl3x")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_aewll")

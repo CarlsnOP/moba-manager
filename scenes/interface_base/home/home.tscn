@@ -26,6 +26,7 @@ clip_contents = true
 custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"AlphaPanel"
 
 [node name="VB" type="VBoxContainer" parent="PC/MC/VB/HB/PC" index="0"]
 unique_name_in_owner = true
@@ -49,6 +50,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
+theme_type_variation = &"AlphaPanel"
 
 [node name="VB" type="VBoxContainer" parent="PC/MC/VB/HB/PC2" index="0"]
 layout_mode = 2

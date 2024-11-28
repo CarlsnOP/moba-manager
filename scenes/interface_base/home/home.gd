@@ -109,23 +109,6 @@ func on_save_game(saved_data: Array[SavedData]):
 		
 	saved_data.append(my_data)
 
-#func remove_old_entry(logs: Array[Dictionary]) -> void:
-	#var valid_entries: Array[Dictionary] = []
-	##print(log_entries)
-	#for entry in logs:
-		#if entry != null:
-			#valid_entries.append(entry)
-			#logs = valid_entries
-##
-	#if len(logs) < 6:
-		#return
-##
-	#var entry_to_remove = logs[0]
-	#logs.remove_at(0)
-##
-	##if entry_to_remove != null:
-		##entry_to_remove.queue_free()
-
 #Loading function
 func on_before_load_game():
 	get_parent().remove_child(self)

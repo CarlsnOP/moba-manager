@@ -23,8 +23,8 @@ func _on_match_timer_timeout() -> void:
 	update_match_clock()
 
 func update_match_clock() -> void:
-	var minutes = elapsed_time / 60
-	var seconds = elapsed_time % 60
+	var minutes = floor(elapsed_time / 60)
+	var seconds = int(elapsed_time) % 60
 	match_timer_label.text = "%02d:%02d" % [minutes, seconds]
 
 func get_game_length() -> int:

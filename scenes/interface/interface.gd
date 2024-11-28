@@ -10,7 +10,7 @@ enum INTERFACE_STATE { HOME, HEROES, BATTLESETUP, BATTLESIM, INVENTORY, CRAFTING
 @onready var rank = %Rank
 @onready var settings: Control = %Settings
 
-var _state: INTERFACE_STATE = INTERFACE_STATE.HOME
+var _state: INTERFACE_STATE = INTERFACE_STATE.RANK
 
 func _ready():
 	SignalManager.new_interface.connect(new_interface)

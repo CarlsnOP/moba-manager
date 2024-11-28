@@ -1,17 +1,5 @@
 extends Control
 
-@onready var battle_label = $PC/MC/VB/BattleLabel
-
-func _process(_delta):
-	#battle_label.text = "Match: %02d:%02d" % time_left_of_match()
-	pass
-
-#Used for clock / saving for reference later
-#func time_left_of_match():
-	#var time_left = generator.time_left
-	#var minute = floor(time_left / 60)
-	#var second = int(time_left) % 60
-	#return [minute, second]
 
 func _on_home_button_pressed():
 	SignalManager.new_interface.emit(0)

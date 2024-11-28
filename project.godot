@@ -37,6 +37,7 @@ LevelManager="*res://singletons/level_manager.gd"
 RankManager="*res://singletons/rank_manager.gd"
 Popups="*res://scenes/utility/popups.tscn"
 CheatManager="*res://singletons/cheat_manager.gd"
+DamageNumbers="*res://singletons/damage_numbers.gd"
 
 [debug]
 
@@ -83,6 +84,7 @@ auto_rebuild=true
 [gui]
 
 theme/custom="res://theme.tres"
+theme/custom_font="res://assets/fonts/Bangers-Regular.ttf"
 
 [layer_names]
 
@@ -99,6 +101,7 @@ theme/custom="res://theme.tres"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_s3tc_bptc=true

@@ -19,9 +19,10 @@ stream_1 = ExtResource("10_6io05")
 [node name="Homepage" type="Node2D"]
 script = ExtResource("1_i64r6")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Background" type="CanvasLayer" parent="."]
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+[node name="Background" type="ColorRect" parent="Background"]
+z_as_relative = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,8 +30,25 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+color = Color(0.184314, 0.352941, 0.411765, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="BattleSim" parent="CanvasLayer" instance=ExtResource("6_88w18")]
+
+[node name="DamageNumbers" type="Node" parent="CanvasLayer" groups=["dmg_numbers"]]
+
+[node name="NavMenu" parent="CanvasLayer" instance=ExtResource("3_tjgve")]
+unique_name_in_owner = true
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1
+mouse_filter = 2
 
 [node name="Background" type="Sprite2D" parent="CanvasLayer"]
 visible = false
@@ -39,43 +57,28 @@ texture = ExtResource("1_innmw")
 centered = false
 script = ExtResource("2_n3ov1")
 
-[node name="NavMenu" parent="CanvasLayer" instance=ExtResource("3_tjgve")]
-unique_name_in_owner = true
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_bottom = 1080.0
-grow_horizontal = 1
-grow_vertical = 1
-mouse_filter = 2
-
-[node name="MC" type="HBoxContainer" parent="CanvasLayer"]
+[node name="MC" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 200
 
-[node name="Spacer2" type="Control" parent="CanvasLayer/MC"]
-custom_minimum_size = Vector2(400, 0)
+[node name="HB" type="HBoxContainer" parent="CanvasLayer/MC"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Interface" parent="CanvasLayer/MC" groups=["background", "interface"] instance=ExtResource("5_upecu")]
+[node name="Interface" parent="CanvasLayer/MC/HB" groups=["background", "interface"] instance=ExtResource("5_upecu")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
-mouse_filter = 2
-
-[node name="Home" parent="CanvasLayer/MC/Interface" index="0"]
-visible = true
-
-[node name="Spacer" type="Control" parent="CanvasLayer/MC"]
-visible = false
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
 mouse_filter = 2
 
 [node name="Utilities" type="Node" parent="."]
@@ -100,4 +103,4 @@ bus = &"SFX"
 
 [connection signal="timeout" from="Utilities/SaverLoader/SaveTimer" to="Utilities/SaverLoader" method="_on_save_timer_timeout"]
 
-[editable path="CanvasLayer/MC/Interface"]
+[editable path="CanvasLayer/MC/HB/Interface"]

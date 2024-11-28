@@ -1,8 +1,10 @@
 class_name SaverLoader
 extends Node
 
+#Save and load functionality is with help from: https://www.youtube.com/watch?v=43BZsLZheA4&t=3144s
+#Saving and loading games with Godot
 @onready var nav_menu = %NavMenu
-@onready var interface = $"../../CanvasLayer/MC/Interface"
+@onready var interface = %Interface
 
 #Save functionality
 func save_game():

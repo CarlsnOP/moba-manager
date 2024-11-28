@@ -5,8 +5,8 @@ extends Control
 var buddy = preload("res://scenes/interface_base/battlesim/buddy/buddy.gd")
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	SignalManager.new_interface.connect(new_interface)
+#func _ready():
+	#SignalManager.new_interface.connect(new_interface)
 	
 func new_interface(interface: int) -> void:
 	if interface == 3:
