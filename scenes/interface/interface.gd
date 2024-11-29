@@ -18,6 +18,12 @@ func _ready():
 	battle_setup.add_heroes()
 	crafting.open()
 
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_ESCAPE:
+			hide_interface()
+			_state = INTERFACE_STATE.BATTLESIM
+
 func hide_interface() -> void:
 	var all_interfaces = get_children()
 	

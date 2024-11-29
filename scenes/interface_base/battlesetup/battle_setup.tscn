@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkdc3lgikvhio"]
+[gd_scene load_steps=9 format=3 uid="uid://dkdc3lgikvhio"]
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interface_base/interface_base.tscn" id="1_mn2md"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesetup/battle_setup.gd" id="2_ng1v2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://lt08ltq12ss6" path="res://scenes/hero_slot/hero_portrait_slot.tscn" id="3_uuksq"]
 [ext_resource type="Texture2D" uid="uid://crbevsfr7osdv" path="res://assets/art/characters/portraits/Egon portrait.png" id="4_bftr8"]
 [ext_resource type="Texture2D" uid="uid://ic56vif0hfe1" path="res://assets/art/characters/portraits/Em portrait.png" id="6_co4nc"]
+[ext_resource type="Script" path="res://scenes/interface_base/battlesetup/hero_menu.gd" id="7_j87wi"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v7ifr"]
 load_path = "res://.godot/imported/Eddy portrait.png-3a207cb37888210dc7a06ba9be07753a.ctex"
@@ -121,6 +122,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"PanelWithBorder"
+script = ExtResource("7_j87wi")
 
 [node name="MC" type="MarginContainer" parent="HeroMenu" index="0"]
 layout_mode = 2

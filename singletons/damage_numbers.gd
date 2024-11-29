@@ -1,5 +1,7 @@
 extends Node
 
+
+
 #This script is with help from: https://www.youtube.com/watch?v=F0DQLSiLkjg&t=33s
 #Damage Numbers in Godot 4 | Let's Godot
 func display_number(value: float, position: Vector2, is_critical: bool = false):
@@ -45,3 +47,5 @@ func display_number(value: float, position: Vector2, is_critical: bool = false):
 	
 	await tween.finished
 	number.queue_free()
+
+	

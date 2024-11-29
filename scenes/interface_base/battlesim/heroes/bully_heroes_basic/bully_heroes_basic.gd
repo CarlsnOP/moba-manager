@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 enum TEAM { BUDDY, BULLY }
 
+@export var hit_flash_animation_player: AnimationPlayer
+
 @export_category("Stats:")
 @export var name_string: String
 @export var team: TEAM
@@ -73,6 +75,7 @@ func take_damage(dmg: float, attacker: Node2D) -> void:
 	health_bar.take_damage(dmg)
 	var attacked_by := attacker
 	_attacker = attacked_by.name_string
+	hit_flash_animation_player.play("flash")
 	DamageNumbers.display_number(round(dmg), global_position, false)
 
 func die() -> void:

@@ -5,6 +5,8 @@ enum TEAM { BUDDY, BULLY }
 @onready var health_bar = %HealthBar
 @onready var att_timer = $AttTimer
 
+@export var hit_flash_animation_player: AnimationPlayer
+
 @export_category("Stats:")
 @export var team: TEAM
 @export var _damage := 30.0
@@ -47,7 +49,9 @@ func get_structure_position() -> Vector2:
 	return global_position
 
 func take_damage(dmg: float, attacker: Node2D) -> void:
+	hit_flash_animation_player.play("flash")
 	health_bar.take_damage(dmg)
+	DamageNumbers.display_number(round(dmg), global_position, false)
 	attacked_by = attacker.name_string
 
 func deal_damage(dmg: float) -> void:

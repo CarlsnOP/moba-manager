@@ -1,23 +1,74 @@
-[gd_scene load_steps=3 format=3 uid="uid://dayv5famt6eyx"]
+[gd_scene load_steps=8 format=3 uid="uid://dayv5famt6eyx"]
 
 [ext_resource type="PackedScene" uid="uid://c8wg23dssxfcy" path="res://scenes/interface_base/battlesim/nexus_basic/nexus_basic.tscn" id="1_cnl07"]
+[ext_resource type="Shader" path="res://shaders/on_hit_shader.gdshader" id="2_2tysv"]
 [ext_resource type="Texture2D" uid="uid://cnthng11d3aww" path="res://assets/art/map/enemy_nexus.png" id="2_7vwgv"]
 
-[node name="BullyNexus" groups=["bully", "bully_structure"] instance=ExtResource("1_cnl07")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ohmw4"]
+shader = ExtResource("2_2tysv")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = null
+
+[sub_resource type="Animation" id="Animation_lei10"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_w30xa"]
+resource_name = "flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [null, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o17kg"]
+_data = {
+"RESET": SubResource("Animation_lei10"),
+"flash": SubResource("Animation_w30xa")
+}
+
+[node name="BullyNexus" node_paths=PackedStringArray("hit_flash_animation_player") groups=["bully", "bully_structure"] instance=ExtResource("1_cnl07")]
 collision_layer = 2
 collision_mask = 0
-_damage = 500.0
+hit_flash_animation_player = NodePath("HitFlashAnimationPlayer")
+_att_speed = 0.3
 _win = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_ohmw4")
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_7vwgv")
 
 [node name="AttackRange" parent="." index="3"]
 collision_layer = 0
+collision_mask = 9
 
 [node name="HealthBar" parent="." index="4"]
 offset_left = -75.0
 offset_top = -110.0
 offset_right = 75.0
 offset_bottom = -95.0
+
+[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_o17kg")
+}

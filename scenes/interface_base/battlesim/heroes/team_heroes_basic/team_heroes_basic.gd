@@ -23,7 +23,8 @@ enum TEAM { BUDDY, BULLY }
 @onready var respawn_timer: Timer = %RespawnTimer
 @onready var respawn_team: Marker2D = $"../RespawnTeam"
 @onready var attack_range: Area2D = $AttackRange
-@onready var debug_label: Label = $DebugLabel
+@onready var hit_flash_animation_player = %HitFlashAnimationPlayer
+
 
 var _target = null
 var _attacker: Node2D = null
@@ -90,17 +91,9 @@ func load_abilities() -> void:
 
 func new_game() -> void:
 	queue_free()
-
-func _process(_delta: float) -> void:
-	update_debug()
 	
 func _physics_process(_delta):
 	set_target()
-	
-func update_debug() -> void:
-	var s = "State: %s \n" % state_machine.get_state()
-	s += "Lane: %s \n" % lane_state_machine.get_state()
-	debug_label.text = s
 
 func set_target() -> void:
 	if _target != null:
@@ -138,6 +131,7 @@ func take_damage(dmg: float, attacker: Node2D) -> void:
 	if is_blocked:
 		dmg *= 0.2
 	
+	hit_flash_animation_player.play("flash")
 	health_bar.take_damage(dmg)
 	DamageNumbers.display_number(round(dmg), global_position, false)
 
