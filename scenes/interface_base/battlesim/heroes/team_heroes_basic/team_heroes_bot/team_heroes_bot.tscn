@@ -8,7 +8,7 @@ _initial_state = NodePath("StateMachine/Defensive")
 _initial_lane = NodePath("LaneStateMachine/BotLaneTeam")
 bot = true
 
-[node name="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_1cpx6")
 
 [editable path="StateMachine"]

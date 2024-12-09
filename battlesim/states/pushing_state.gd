@@ -4,27 +4,28 @@ extends State
 @export var actor: CharacterBody2D
 @export var stats_component: StatsComponent
 @export var navigation_agent: NavigationAgent2D
-@export var move_component: MoveComponent
+@export var attack_component: AttackComponent
 
 var nearest_distance = INF
+var closest_target = null
 
-func _process(delta):
-	set_new_destination(delta)
+func _process(_delta):
+	set_new_destination()
 
-func set_new_destination(delta) -> void:
+func set_new_destination() -> void:
 	var possible_targets: Array[Node] = []
+	nearest_distance = INF
 	
 	if stats_component.enemy:
 		possible_targets = get_tree().get_nodes_in_group("team")
-	else:
+	elif !stats_component.enemy:
 		possible_targets = get_tree().get_nodes_in_group("enemy")
 	
 	for possible_target in possible_targets:
-		#Checking if we can navigate to target, if not go to next target
-		navigation_agent.target_position = possible_target.global_position
-		if !navigation_agent.is_target_reachable():
-			return
-		
-		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
-		move_component.move_to(delta, next_path_position)
-		
+		var check_distance = actor.global_position.distance_to(possible_target.global_position)
+			
+		if check_distance < nearest_distance:
+			nearest_distance = check_distance
+			closest_target = possible_target.global_position
+			navigation_agent.set_target_position(closest_target)
+			attack_component.current_target = possible_target

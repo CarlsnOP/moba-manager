@@ -101,14 +101,12 @@ CloseMenu={
 
 [layer_names]
 
-2d_physics/layer_1="buddies"
+2d_physics/layer_1="team"
 2d_navigation/layer_1="HeroNavLayer"
-2d_physics/layer_2="bullies"
+2d_physics/layer_2="enemy"
 2d_navigation/layer_2="TopNavLayer"
 2d_physics/layer_3="jungle"
 2d_navigation/layer_3="BotNavLayer"
-2d_physics/layer_4="buddyhero"
-2d_physics/layer_5="bullyhero"
 
 [navigation]
 
