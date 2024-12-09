@@ -3,14 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://b40j4r1cb5sa0" path="res://assets/art/map/enemy_minion.png" id="1_o2dti"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/bully/bully.gd" id="1_y5mfn"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/bully/character_body_2d.gd" id="2_jtroc"]
-[ext_resource type="Shader" path="res://shaders/on_hit_shader.gdshader" id="3_ejdpe"]
+[ext_resource type="Shader" path="res://effects/white_flash_material.gdshader" id="3_ejdpe"]
 [ext_resource type="PackedScene" uid="uid://bsqfqqlswcbnk" path="res://scenes/interface_base/battlesim/utility/health_bar/health_bar.tscn" id="4_e4wbi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hp2v2"]
 resource_local_to_scene = true
 shader = ExtResource("3_ejdpe")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_value = null
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgddr"]
 radius = 20.0

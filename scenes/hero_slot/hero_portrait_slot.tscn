@@ -3,11 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://ckooocc8ghpgl" path="res://scenes/hero_slot/hero_slot.tscn" id="1_uxpgb"]
 
 [node name="HeroPortraitSlot" instance=ExtResource("1_uxpgb")]
-theme_type_variation = &"InvisPanel"
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
 icon = false
-
-[node name="Button" parent="." index="0"]
-flat = true
 
 [node name="XpProgressBar" parent="MarginContainer/VB" index="2"]
 visible = false

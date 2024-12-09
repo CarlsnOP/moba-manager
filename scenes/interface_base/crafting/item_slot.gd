@@ -13,6 +13,7 @@ func display(item:ItemResource):
 	stack_label.text = "%s" % item.quantity
 	_item = item
 	
+	
 	match item.rarity:
 		0:
 			particles.modulate = Color(0,0,0,0)

@@ -15,12 +15,9 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
 texture = ExtResource("1_7tagd")
-expand_mode = 3
+expand_mode = 2
 
 [node name="StackLabel" type="Label" parent="."]
 unique_name_in_owner = true

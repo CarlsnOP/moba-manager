@@ -1,0 +1,84 @@
+[gd_scene load_steps=14 format=3 uid="uid://621r0t6hrohn"]
+
+[ext_resource type="Texture2D" uid="uid://b40j4r1cb5sa0" path="res://assets/art/map/enemy_minion.png" id="1_5aclp"]
+[ext_resource type="Script" path="res://battlesim/minions/minion.gd" id="1_i0ibx"]
+[ext_resource type="Script" path="res://battlesim/components/flash_component.gd" id="1_ve54a"]
+[ext_resource type="Script" path="res://battlesim/components/stats_component.gd" id="3_qqmyu"]
+[ext_resource type="Script" path="res://battlesim/components/hurt_component.gd" id="4_dsr61"]
+[ext_resource type="Script" path="res://battlesim/components/hurt_box_component.gd" id="5_sbblb"]
+[ext_resource type="Script" path="res://battlesim/components/hitbox_component.gd" id="6_y2u26"]
+[ext_resource type="Script" path="res://battlesim/components/move_component.gd" id="7_08i6x"]
+[ext_resource type="Script" path="res://battlesim/components/navigation_component.gd" id="8_y8prp"]
+[ext_resource type="Script" path="res://battlesim/states/pushing_state.gd" id="9_xkj5p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0qf73"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gkjbr"]
+radius = 17.0294
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6agtm"]
+radius = 30.0
+
+[node name="Minion" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_i0ibx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_5aclp")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+navigation_layers = 0
+path_postprocessing = 1
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0qf73")
+
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_ve54a")
+sprite = NodePath("../Sprite2D")
+
+[node name="StatsComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_qqmyu")
+actor = NodePath("..")
+health = 800
+move_speed = 500.0
+
+[node name="HurtboxComponent" type="Area2D" parent="."]
+script = ExtResource("5_sbblb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CircleShape2D_gkjbr")
+debug_color = Color(0.94902, 0.0470588, 0, 0.2)
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+script = ExtResource("6_y2u26")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_6agtm")
+debug_color = Color(0, 0.6, 0.701961, 0.203922)
+
+[node name="HurtComponent" type="Node" parent="HitboxComponent" node_paths=PackedStringArray("stats_component", "hurtbox_component")]
+script = ExtResource("4_dsr61")
+stats_component = NodePath("../../StatsComponent")
+hurtbox_component = NodePath("../../HurtboxComponent")
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component")]
+script = ExtResource("7_08i6x")
+actor = NodePath("..")
+stats_component = NodePath("../StatsComponent")
+
+[node name="NavigationComponent" type="Node" parent="." node_paths=PackedStringArray("navigation_agent")]
+script = ExtResource("8_y8prp")
+navigation_agent = NodePath("../NavigationAgent2D")
+
+[node name="PushingState" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "navigation_agent", "move_component")]
+script = ExtResource("9_xkj5p")
+actor = NodePath("..")
+stats_component = NodePath("../StatsComponent")
+navigation_agent = NodePath("../NavigationAgent2D")
+move_component = NodePath("../MoveComponent")

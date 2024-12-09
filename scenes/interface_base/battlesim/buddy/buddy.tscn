@@ -3,14 +3,12 @@
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/buddy/buddy.gd" id="1_42604"]
 [ext_resource type="Texture2D" uid="uid://bnub0wwjilltd" path="res://assets/art/map/friendly_minion.png" id="1_j8mvj"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/buddy/character_body_2d.gd" id="2_blne7"]
-[ext_resource type="Shader" path="res://shaders/on_hit_shader.gdshader" id="3_4djgo"]
+[ext_resource type="Shader" path="res://effects/white_flash_material.gdshader" id="3_4djgo"]
 [ext_resource type="PackedScene" uid="uid://bsqfqqlswcbnk" path="res://scenes/interface_base/battlesim/utility/health_bar/health_bar.tscn" id="4_c6esc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vo77t"]
 resource_local_to_scene = true
 shader = ExtResource("3_4djgo")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_value = null
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ofyew"]
 radius = 20.0

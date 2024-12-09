@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpnlghx13iay"]
+[gd_scene load_steps=13 format=3 uid="uid://bpnlghx13iay"]
 
 [ext_resource type="Script" path="res://scenes/homepage/homepage.gd" id="1_i64r6"]
 [ext_resource type="Texture2D" uid="uid://sxx71voh604e" path="res://assets/art/background/background.png" id="1_innmw"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://fgfie74mjqjs" path="res://scenes/interface_base/battlesim/battle_sim.tscn" id="6_88w18"]
 [ext_resource type="Script" path="res://scenes/homepage/saver_loader.gd" id="6_moooh"]
 [ext_resource type="PackedScene" uid="uid://b8fkla5rkmdyu" path="res://scenes/team_manager/team_manager.tscn" id="7_4dhdb"]
+[ext_resource type="PackedScene" uid="uid://b2uitoevl42b3" path="res://scenes/interface_base/battlesim/tower_basic/map/map.tscn" id="7_e6ve5"]
 [ext_resource type="AudioStream" uid="uid://7irdu1cd5ubh" path="res://assets/sounds/music/Bouncy Adventure.mp3" id="9_7tj1g"]
 [ext_resource type="AudioStream" uid="uid://4hp51cewv1an" path="res://assets/sounds/music/Happy Adventure.mp3" id="10_6io05"]
 
@@ -21,7 +22,7 @@ script = ExtResource("1_i64r6")
 
 [node name="Background" type="CanvasLayer" parent="."]
 
-[node name="Background" type="ColorRect" parent="Background"]
+[node name="Background2" type="ColorRect" parent="Background"]
 z_as_relative = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,20 +36,31 @@ color = Color(0.367533, 0.312106, 0.300657, 1)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="BattleSim" parent="CanvasLayer" instance=ExtResource("6_88w18")]
-
 [node name="DamageNumbers" type="Node" parent="CanvasLayer" groups=["dmg_numbers"]]
 
-[node name="NavMenu" parent="CanvasLayer" instance=ExtResource("3_tjgve")]
-unique_name_in_owner = true
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-grow_horizontal = 1
-grow_vertical = 1
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
 mouse_filter = 2
+
+[node name="NavMenu" parent="CanvasLayer/HBoxContainer" instance=ExtResource("3_tjgve")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Map" parent="CanvasLayer/HBoxContainer" instance=ExtResource("7_e6ve5")]
+layout_mode = 2
+
+[node name="BattleSim" parent="CanvasLayer/HBoxContainer" instance=ExtResource("6_88w18")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
 
 [node name="Background" type="Sprite2D" parent="CanvasLayer"]
 visible = false

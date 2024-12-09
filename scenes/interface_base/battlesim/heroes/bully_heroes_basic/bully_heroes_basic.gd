@@ -22,7 +22,6 @@ enum TEAM { BUDDY, BULLY }
 @onready var nav_agent = $NavAgent
 @onready var state_machine = %StateMachine
 @onready var respawn_timer: Timer = %RespawnTimer
-@onready var respawn_enemy: Marker2D = $"../RespawnEnemy"
 
 
 var _target = null
@@ -30,9 +29,11 @@ var _enemies_in_range := []
 var current_state: State
 var _dead_pos := Vector2(0, 0)
 var _respawn_time := 15.0
+var _respawn_point: Vector2
 var _attacker: String
 
 func _ready() -> void:
+	_respawn_point = get_parent().global_position
 	setup()
 
 func setup() -> void:
@@ -86,7 +87,7 @@ func die() -> void:
 	respawn_timer.start()
 
 func respawn() -> void:
-	global_position = respawn_enemy.global_position
+	global_position = _respawn_point
 	health_bar.setup(_health, _health)
 	state_machine.on_respawn()
 	set_physics_process(true)

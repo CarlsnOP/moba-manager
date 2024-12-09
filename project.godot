@@ -50,6 +50,7 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [editor]
 
@@ -62,8 +63,12 @@ enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg", 
 [file_customization]
 
 folder_colors={
+"res://addons/": "gray",
 "res://assets/": "yellow",
+"res://battlesim/": "teal",
+"res://effects/": "gray",
 "res://resources/": "red",
+"res://saved_game/": "gray",
 "res://scenes/": "purple",
 "res://script/": "pink",
 "res://singletons/": "blue"
@@ -97,8 +102,11 @@ CloseMenu={
 [layer_names]
 
 2d_physics/layer_1="buddies"
+2d_navigation/layer_1="HeroNavLayer"
 2d_physics/layer_2="bullies"
+2d_navigation/layer_2="TopNavLayer"
 2d_physics/layer_3="jungle"
+2d_navigation/layer_3="BotNavLayer"
 2d_physics/layer_4="buddyhero"
 2d_physics/layer_5="bullyhero"
 

@@ -4,15 +4,15 @@ class_name BotLaneEnemy
 
 var bot_lane: Path2D
 
-func _ready():
-	bot_lane = get_tree().get_first_node_in_group("bot_lane_enemy")
-	await get_tree().physics_frame
-	bot_lane.connect("child_entered_tree", Callable(self, "_on_minion_added"))
-	bot_lane.connect("child_exiting_tree", Callable(self, "_on_minion_removed"))
+#func _ready():
+	#bot_lane = get_tree().get_first_node_in_group("bot_lane_enemy")
+	#await get_tree().physics_frame
+	#bot_lane.connect("child_entered_tree", Callable(self, "_on_minion_added"))
+	#bot_lane.connect("child_exiting_tree", Callable(self, "_on_minion_removed"))
 
 func enter():
-	await get_tree().physics_frame
-	update_minions_list()
+	return
+
 
 func exit():
 	pass

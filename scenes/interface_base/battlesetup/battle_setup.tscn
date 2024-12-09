@@ -98,7 +98,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="PC/MC/VB/HB" index="1"]
-custom_minimum_size = Vector2(700, 0)
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4

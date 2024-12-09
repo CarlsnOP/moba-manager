@@ -1,60 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://bghvcjtoyyaev"]
+[gd_scene load_steps=8 format=3 uid="uid://bghvcjtoyyaev"]
 
 [ext_resource type="PackedScene" uid="uid://bsqfqqlswcbnk" path="res://scenes/interface_base/battlesim/utility/health_bar/health_bar.tscn" id="1_3dwth"]
 [ext_resource type="Script" path="res://scenes/interface_base/battlesim/heroes/team_heroes_basic/team_heroes_basic.gd" id="1_4mgy6"]
 [ext_resource type="Texture2D" uid="uid://d3yo0f5qh8g0t" path="res://assets/art/characters/Egon the Fighter.png" id="2_c0dla"]
-[ext_resource type="Shader" path="res://shaders/on_hit_shader.gdshader" id="2_lufkt"]
 [ext_resource type="PackedScene" uid="uid://deh2disexwroh" path="res://scenes/state_machines/state_machine.tscn" id="2_lw4uu"]
 [ext_resource type="PackedScene" uid="uid://dd1mo5s2pcwkg" path="res://scenes/state_machines/lane_state_machine.tscn" id="3_8he6j"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bmkqx"]
-resource_local_to_scene = true
-shader = ExtResource("2_lufkt")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_value = null
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tkjsj"]
 radius = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nuw6h"]
 radius = 70.0
-
-[sub_resource type="Animation" id="Animation_0awow"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%Sprite2D:material:shader_parameter/flash_value")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [null]
-}
-
-[sub_resource type="Animation" id="Animation_rnq4u"]
-resource_name = "flash"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%Sprite2D:material:shader_parameter/flash_value")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [null, 1.0, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6wr36"]
-_data = {
-"RESET": SubResource("Animation_0awow"),
-"flash": SubResource("Animation_rnq4u")
-}
 
 [node name="TeamHeroesBasic" type="CharacterBody2D" groups=["buddy", "restart_map"]]
 collision_layer = 8
@@ -71,7 +27,6 @@ avoidance_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_bmkqx")
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("2_c0dla")
 
@@ -108,12 +63,6 @@ unique_name_in_owner = true
 [node name="RespawnTimer" type="Timer" parent="Utility"]
 unique_name_in_owner = true
 one_shot = true
-
-[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="Utility"]
-unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_6wr36")
-}
 
 [connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]

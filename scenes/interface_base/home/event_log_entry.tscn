@@ -17,7 +17,7 @@ hero_slot_scene = ExtResource("2_2x5n3")
 
 [node name="Background" type="PanelContainer" parent="."]
 clip_contents = true
-custom_minimum_size = Vector2(0, 600)
+custom_minimum_size = Vector2(0, 500)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

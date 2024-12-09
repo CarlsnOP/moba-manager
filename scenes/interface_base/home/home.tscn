@@ -10,8 +10,14 @@ script = ExtResource("2_gedj6")
 log_scene = ExtResource("3_ruq4k")
 event_log_scene = ExtResource("4_14lci")
 
+[node name="PC" parent="." index="0"]
+custom_minimum_size = Vector2(0, 1000)
+
 [node name="VB" parent="PC/MC" index="0"]
 theme_override_constants/separation = 20
+
+[node name="Label" parent="PC/MC/VB" index="0"]
+text = "Home"
 
 [node name="HB2" type="HBoxContainer" parent="PC/MC/VB" index="1"]
 layout_mode = 2
@@ -66,3 +72,4 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 20

@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/Eddy the Jungler.png" id="2_j414c"]
 
 [node name="HeroSlot" type="PanelContainer" groups=["update_post_match"]]
-custom_minimum_size = Vector2(128, 128)
-offset_right = 250.0
-offset_bottom = 250.0
+custom_minimum_size = Vector2(200, 200)
+offset_right = 200.0
+offset_bottom = 200.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = &"InvisPanel"
@@ -20,17 +20,10 @@ flat = true
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("2_j414c")
 expand_mode = 4
@@ -40,7 +33,7 @@ stretch_mode = 5
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Control" type="Control" parent="MarginContainer/VB"]
+[node name="Spacer" type="Control" parent="MarginContainer/VB"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2

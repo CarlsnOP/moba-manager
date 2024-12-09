@@ -21,9 +21,7 @@ enum TEAM { BUDDY, BULLY }
 @onready var lane_state_machine = %LaneStateMachine
 @onready var sprite_2d = %Sprite2D
 @onready var respawn_timer: Timer = %RespawnTimer
-@onready var respawn_team: Marker2D = $"../RespawnTeam"
 @onready var attack_range: Area2D = $AttackRange
-@onready var hit_flash_animation_player = %HitFlashAnimationPlayer
 
 
 var _target = null
@@ -46,9 +44,11 @@ var _damage_reduction := 1.0
 
 var _dead_pos := Vector2(0, 0)
 var _respawn_time := 15.0
+var _respawn_point: Vector2
 
 
-func _ready():
+func _ready() -> void:
+	_respawn_point = get_parent().global_position
 	setup()
 	
 func setup() -> void:
@@ -131,7 +131,6 @@ func take_damage(dmg: float, attacker: Node2D) -> void:
 	if is_blocked:
 		dmg *= 0.2
 	
-	hit_flash_animation_player.play("flash")
 	health_bar.take_damage(dmg)
 	DamageNumbers.display_number(round(dmg), global_position, false)
 
@@ -143,7 +142,7 @@ func die() -> void:
 
 func respawn(health: float) -> void:
 	respawn_timer.stop()
-	global_position = respawn_team.global_position
+	global_position = _respawn_point
 	health_bar.setup(_health, health)
 	state_machine.on_respawn()
 	set_physics_process(true)

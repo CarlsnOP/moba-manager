@@ -1,5 +1,6 @@
 extends Node
 
+
 const BULLY_HEROES_SHEILA = preload("res://scenes/interface_base/battlesim/heroes/bully_heroes_basic/sheila/bully_heroes_sheila.tscn")
 const BULLY_HEROES_VINNY = preload("res://scenes/interface_base/battlesim/heroes/bully_heroes_basic/vinny/bully_heroes_vinny.tscn")
 const TEAM_HEROES_BOT = preload("res://scenes/interface_base/battlesim/heroes/team_heroes_basic/team_heroes_bot/team_heroes_bot.tscn")
@@ -9,18 +10,18 @@ const BULLY_NEXUS = preload("res://scenes/interface_base/battlesim/nexus_basic/b
 const BUDDY_TOWER = preload("res://scenes/interface_base/battlesim/tower_basic/buddy_tower.tscn")
 const BULLY_TOWER = preload("res://scenes/interface_base/battlesim/tower_basic/bully_tower.tscn")
 
-@onready var team_nexus_position = %TeamNexusPosition
-@onready var enemy_nexus_position = %EnemyNexusPosition
-@onready var enemy_tower_top = %EnemyTowerTop
-@onready var enemy_tower_bot = %EnemyTowerBot
-@onready var friendly_tower_top = %FriendlyTowerTop
-@onready var friendly_tower_bot = %FriendlyTowerBot
-@onready var respawn_enemy = %RespawnEnemy
-@onready var respawn_team = %RespawnTeam
-@onready var towers = %Towers
-@onready var nexus = %Nexus
-@onready var bully_heroes = %BullyHeroes
-@onready var team_heroes = %TeamHeroes
+@onready var spawn_enemy_nexus = %SpawnEnemyNexus
+@onready var spawn_enemy_tower_top = %SpawnEnemyTowerTop
+@onready var spawn_enemy_tower_bot = %SpawnEnemyTowerBot
+@onready var spawn_team_nexus = %SpawnTeamNexus
+@onready var spawn_team_tower_top = %SpawnTeamTowerTop
+@onready var spawn_team_tower_bot = %SpawnTeamTowerBot
+@onready var respawn_enemy_hero = %RespawnEnemyHero
+@onready var respawn_team_hero = %RespawnTeamHero
+@onready var respawn_enemy_minion_top = %RespawnEnemyMinionTop
+@onready var respawn_enemy_minion_bot = %RespawnEnemyMinionBot
+@onready var respawn_team_minion_top = %RespawnTeamMinionTop
+@onready var respawn_team_minion_bot = %RespawnTeamMinionBot
 
 var game_launced := false
 var old_enemy_modifier := 1.0
@@ -53,34 +54,32 @@ func on_battle_end(win: bool) -> void:
 	old_enemy_modifier = new_enemy_modifier
 	
 func spawn_enemy_team() -> void:
-	spawn_enemy_nexus()
-	spawn_enemy_towers()
+	spawn_enemy_structures()
 	spawn_enemy_heroes()
 
-func spawn_enemy_nexus() -> void:
+func spawn_enemy_structures() -> void:
 	var enemy_nexus = BULLY_NEXUS.instantiate()
-	enemy_nexus.global_position = enemy_nexus_position.global_position
-	nexus.add_child(enemy_nexus)
+	enemy_nexus.position = spawn_enemy_nexus.to_local(spawn_enemy_nexus.global_position)
+	spawn_enemy_nexus.add_child(enemy_nexus)
 
-func spawn_enemy_towers() -> void:
 	var top_tower = BULLY_TOWER.instantiate()
-	top_tower.global_position = enemy_tower_top.global_position
-	towers.add_child(top_tower)
+	top_tower.global_position = spawn_enemy_tower_top.to_local(spawn_enemy_tower_top.global_position)
+	spawn_enemy_tower_top.add_child(top_tower)
 	
 	var bot_tower = BULLY_TOWER.instantiate()
-	bot_tower.global_position = enemy_tower_bot.global_position
-	towers.add_child(bot_tower)
+	bot_tower.global_position = spawn_enemy_tower_bot.to_local(spawn_enemy_tower_bot.global_position)
+	spawn_enemy_tower_bot.add_child(bot_tower)
 
 func spawn_enemy_heroes() -> void:
-	var bully1 = BULLY_HEROES_SHEILA.instantiate()
-	bully1.apply_match_modifier(new_enemy_modifier)
-	bully1.global_position = enemy_nexus_position.global_position
-	bully_heroes.add_child(bully1)
+	var enemy_hero1 = BULLY_HEROES_SHEILA.instantiate()
+	enemy_hero1.apply_match_modifier(new_enemy_modifier)
+	enemy_hero1.global_position = respawn_enemy_hero.to_local(respawn_enemy_hero.global_position)
+	respawn_enemy_hero.add_child(enemy_hero1)
 	
-	var bully2 = BULLY_HEROES_VINNY.instantiate()
-	bully2.apply_match_modifier(new_enemy_modifier)
-	bully2.global_position = enemy_nexus_position.global_position
-	bully_heroes.add_child(bully2)
+	var enemy_hero2 = BULLY_HEROES_VINNY.instantiate()
+	enemy_hero2.apply_match_modifier(new_enemy_modifier)
+	enemy_hero2.global_position = respawn_enemy_hero.to_local(respawn_enemy_hero.global_position)
+	respawn_enemy_hero.add_child(enemy_hero2)
 	
 func spawn_friendly_team() -> void:
 	spawn_friendly_nexus()
@@ -89,27 +88,28 @@ func spawn_friendly_team() -> void:
 
 func spawn_friendly_nexus() -> void:
 	var friendly_nexus = BUDDY_NEXUS.instantiate()
-	friendly_nexus.global_position = team_nexus_position.global_position
-	nexus.add_child(friendly_nexus)
+	friendly_nexus.global_position = spawn_team_nexus.to_local(spawn_team_nexus.global_position)
+	spawn_team_nexus.add_child(friendly_nexus)
 
 func spawn_friendly_towers() -> void:
 	var top_tower = BUDDY_TOWER.instantiate()
-	top_tower.global_position = friendly_tower_top.global_position
-	towers.add_child(top_tower)
+	top_tower.global_position = spawn_team_tower_top.to_local(spawn_team_tower_top.global_position)
+	top_tower.add_to_group("team")
+	spawn_team_tower_top.add_child(top_tower)
 	
 	var bot_tower = BUDDY_TOWER.instantiate()
-	bot_tower.global_position = friendly_tower_bot.global_position
-	towers.add_child(bot_tower)
+	top_tower.add_to_group("team")
+	bot_tower.global_position = spawn_team_tower_bot.to_local(spawn_team_tower_bot.global_position)
+	spawn_team_tower_bot.add_child(bot_tower)
 
 func spawn_friendly_heroes() -> void:
 	var hero1 = TEAM_HEROES_TOP.instantiate()
-	#TEAM_HEROES_TOP.setup()
-	hero1.global_position = team_nexus_position.global_position
-	team_heroes.add_child(hero1)
+	hero1.global_position = respawn_team_hero.to_local(respawn_team_hero.global_position)
+	respawn_team_hero.add_child(hero1)
 	
 	var hero2 = TEAM_HEROES_BOT.instantiate()
-	hero2.global_position = team_nexus_position.global_position
-	team_heroes.add_child(hero2)
+	hero2.global_position = respawn_team_hero.to_local(respawn_team_hero.global_position)
+	respawn_team_hero.add_child(hero2)
 
 func get_match_modifier() -> float:
 	return new_enemy_modifier

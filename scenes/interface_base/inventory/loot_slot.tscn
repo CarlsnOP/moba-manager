@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dyv71risq3oqo" path="res://assets/art/ui/border.png" id="4_tm5cu"]
 
 [node name="LootSlot" type="PanelContainer"]
-offset_right = 150.0
-offset_bottom = 150.0
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
 script = ExtResource("1_83m0i")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -31,6 +32,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("4_tm5cu")
+expand_mode = 3
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
