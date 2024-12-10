@@ -47,7 +47,6 @@ func get_structure_position() -> Vector2:
 func take_damage(dmg: float, _attacker: Node2D) -> void:
 	hit_flash_animation_player.play("flash")
 	health_bar.take_damage(dmg)
-	DamageNumbers.display_number(round(dmg), global_position, false)
 	
 func deal_damage(dmg: float) -> void:
 	if _target != null:

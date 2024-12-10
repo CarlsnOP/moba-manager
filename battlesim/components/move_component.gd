@@ -1,7 +1,7 @@
 class_name MoveComponent
 extends Node
 
-@export var actor: CharacterBody2D
+@export var actor: Node2D
 @export var stats_component: StatsComponent
 @export var navigation_agent: NavigationAgent2D
 

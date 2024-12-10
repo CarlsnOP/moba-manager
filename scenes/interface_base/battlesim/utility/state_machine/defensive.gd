@@ -13,7 +13,7 @@ var nearest_distance = INF
 var nearest_structure_pos: Vector2
 
 
-func enter(hero: CharacterBody2D, nav: NavigationAgent2D):
+func enter(hero: Node2D, nav: NavigationAgent2D):
 	_self = hero
 	nav_agent = nav
 	_move_speed = hero.move_speed

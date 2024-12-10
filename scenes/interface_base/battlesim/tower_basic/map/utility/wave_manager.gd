@@ -32,6 +32,7 @@ func spawn_enemies() -> void:
 		new_minion.global_position = spawn_point.to_local(spawn_point.global_position)
 		spawn_point.add_child(new_minion)
 		new_minion.setup(enemy, top_lane)
+		new_minion.apply_match_modifier(new_game_manager.get_match_modifier())
 		new_minion.add_to_group("enemy")
 		new_minion.add_to_group("minion")
 		top_lane = false

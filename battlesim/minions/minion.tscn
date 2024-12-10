@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://battlesim/minions/minion.gd" id="1_i0ibx"]
 [ext_resource type="Script" path="res://battlesim/components/flash_component.gd" id="1_ve54a"]
 [ext_resource type="Script" path="res://battlesim/components/stats_component.gd" id="3_qqmyu"]
-[ext_resource type="Script" path="res://battlesim/components/hurt_component.gd" id="4_dsr61"]
 [ext_resource type="Script" path="res://battlesim/components/hurt_box_component.gd" id="5_sbblb"]
 [ext_resource type="Script" path="res://battlesim/components/hitbox_component.gd" id="6_y2u26"]
 [ext_resource type="Script" path="res://battlesim/components/move_component.gd" id="7_08i6x"]
@@ -14,6 +13,7 @@
 [ext_resource type="Script" path="res://battlesim/components/attack_component.gd" id="11_qo8da"]
 [ext_resource type="Script" path="res://battlesim/components/death_component.gd" id="12_4ag3r"]
 [ext_resource type="Script" path="res://battlesim/components/health_bar_component.gd" id="13_gglgh"]
+[ext_resource type="Script" path="res://battlesim/components/state_machine_component.gd" id="14_hqc5o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0qf73"]
 
@@ -36,8 +36,6 @@ texture = ExtResource("1_5aclp")
 navigation_layers = 0
 path_postprocessing = 1
 simplify_path = true
-debug_enabled = true
-debug_use_custom = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -53,19 +51,15 @@ script = ExtResource("3_qqmyu")
 actor = NodePath("..")
 health = 500.0
 
-[node name="HurtboxComponent" type="Area2D" parent="."]
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("stats_component")]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("5_sbblb")
+stats_component = NodePath("../StatsComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("CircleShape2D_gkjbr")
 debug_color = Color(0.94902, 0.0470588, 0, 0.2)
-
-[node name="HurtComponent" type="Node" parent="HurtboxComponent" node_paths=PackedStringArray("stats_component", "hurtbox_component")]
-script = ExtResource("4_dsr61")
-stats_component = NodePath("../../StatsComponent")
-hurtbox_component = NodePath("..")
 
 [node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("stats_component")]
 collision_layer = 0
@@ -92,21 +86,10 @@ script = ExtResource("10_1rvs2")
 actor = NodePath("..")
 hurtbox_Component = NodePath("../HurtboxComponent")
 
-[node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("attack_timer", "Navigation_agent", "hitbox_component", "stats_component")]
+[node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("hitbox_component", "stats_component")]
 script = ExtResource("11_qo8da")
-attack_timer = NodePath("../AttackTimer")
-Navigation_agent = NodePath("../NavigationAgent2D")
 hitbox_component = NodePath("../HitboxComponent")
 stats_component = NodePath("../StatsComponent")
-
-[node name="AttackTimer" type="Timer" parent="."]
-
-[node name="PushingState" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "navigation_agent", "attack_component")]
-script = ExtResource("9_xkj5p")
-actor = NodePath("..")
-stats_component = NodePath("../StatsComponent")
-navigation_agent = NodePath("../NavigationAgent2D")
-attack_component = NodePath("../AttackComponent")
 
 [node name="DeathComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component")]
 script = ExtResource("12_4ag3r")
@@ -114,12 +97,21 @@ actor = NodePath("..")
 stats_component = NodePath("../StatsComponent")
 
 [node name="HealthBarComponent" type="ProgressBar" parent="." node_paths=PackedStringArray("stats_component")]
-custom_minimum_size = Vector2(40, 5)
-offset_left = -20.0
-offset_top = -25.0
-offset_right = 20.0
-offset_bottom = -20.0
-value = 50.0
+offset_right = 4.0
+offset_bottom = 4.0
 show_percentage = false
 script = ExtResource("13_gglgh")
 stats_component = NodePath("../StatsComponent")
+
+[node name="StateMachineComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "initial_state", "navigation_agent")]
+script = ExtResource("14_hqc5o")
+actor = NodePath("..")
+initial_state = NodePath("PushingState")
+navigation_agent = NodePath("../NavigationAgent2D")
+
+[node name="PushingState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("actor", "stats_component", "navigation_agent", "attack_component")]
+script = ExtResource("9_xkj5p")
+actor = NodePath("../..")
+stats_component = NodePath("../../StatsComponent")
+navigation_agent = NodePath("../../NavigationAgent2D")
+attack_component = NodePath("../../AttackComponent")

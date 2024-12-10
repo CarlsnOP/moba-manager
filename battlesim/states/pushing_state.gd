@@ -1,7 +1,7 @@
 class_name PushingState
 extends State
 
-@export var actor: CharacterBody2D
+@export var actor: Node2D
 @export var stats_component: StatsComponent
 @export var navigation_agent: NavigationAgent2D
 @export var attack_component: AttackComponent
@@ -9,8 +9,12 @@ extends State
 var nearest_distance = INF
 var closest_target = null
 
-func _process(_delta):
+func update(_delta):
 	set_new_destination()
+
+#Not needed
+func physics_update(_delta):
+	pass
 
 func set_new_destination() -> void:
 	var possible_targets: Array[Node] = []
@@ -28,4 +32,4 @@ func set_new_destination() -> void:
 			nearest_distance = check_distance
 			closest_target = possible_target.global_position
 			navigation_agent.set_target_position(closest_target)
-			attack_component.current_target = possible_target
+			attack_component.current_target_hurtbox = possible_target.get_hurtbox()

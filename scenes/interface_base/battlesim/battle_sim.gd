@@ -13,11 +13,3 @@ func new_interface(interface: int) -> void:
 		battle_manager.show()
 	else:
 		battle_manager.hide()
-
-func _on_buff_minion_button_pressed():
-	CheatManager.health += 100
-	CheatManager.damage += 100
-
-func _on_reset_minion_button_pressed():
-	CheatManager.health = 500
-	CheatManager.damage = 150

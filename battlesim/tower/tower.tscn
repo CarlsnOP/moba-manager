@@ -1,0 +1,95 @@
+[gd_scene load_steps=16 format=3 uid="uid://dov471sd5rue"]
+
+[ext_resource type="Script" path="res://battlesim/tower/tower.gd" id="1_5bbri"]
+[ext_resource type="Texture2D" uid="uid://b73a0f3pmfmv" path="res://assets/art/map/friendly_tower.png" id="2_p4cgg"]
+[ext_resource type="Script" path="res://battlesim/components/stats_component.gd" id="2_yktpk"]
+[ext_resource type="Script" path="res://battlesim/components/hurt_box_component.gd" id="3_44xvj"]
+[ext_resource type="Script" path="res://battlesim/components/hitbox_component.gd" id="4_653by"]
+[ext_resource type="Script" path="res://battlesim/components/attack_component.gd" id="7_artcp"]
+[ext_resource type="Script" path="res://battlesim/components/damage_numbers_component.gd" id="8_d6oqv"]
+[ext_resource type="Script" path="res://battlesim/components/death_component.gd" id="9_lggq0"]
+[ext_resource type="Script" path="res://battlesim/components/flash_component.gd" id="10_e8kic"]
+[ext_resource type="Script" path="res://battlesim/components/state_machine_component.gd" id="11_iwdll"]
+[ext_resource type="Script" path="res://battlesim/states/structure_state.gd" id="12_b5xah"]
+[ext_resource type="Script" path="res://battlesim/components/health_bar_component.gd" id="13_g6xpu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_80hab"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ve4v"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6x1u6"]
+radius = 100.0
+
+[node name="Tower" type="StaticBody2D"]
+script = ExtResource("1_5bbri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_80hab")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_p4cgg")
+
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("stats_component")]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("3_44xvj")
+stats_component = NodePath("../StatsComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CircleShape2D_6ve4v")
+debug_color = Color(0.952941, 0, 0, 0.419608)
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("4_653by")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_6x1u6")
+
+[node name="StatsComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("2_yktpk")
+actor = NodePath("..")
+damage = 200.0
+move_speed = 0.0
+health = 3000.0
+
+[node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("hitbox_component", "stats_component")]
+script = ExtResource("7_artcp")
+hitbox_component = NodePath("../HitboxComponent")
+stats_component = NodePath("../StatsComponent")
+
+[node name="DamageNumbersComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "hurtbox_Component")]
+script = ExtResource("8_d6oqv")
+actor = NodePath("..")
+hurtbox_Component = NodePath("../HurtboxComponent")
+
+[node name="DeathComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component")]
+script = ExtResource("9_lggq0")
+actor = NodePath("..")
+stats_component = NodePath("../StatsComponent")
+
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component", "sprite")]
+script = ExtResource("10_e8kic")
+stats_component = NodePath("../StatsComponent")
+sprite = NodePath("../Sprite2D")
+
+[node name="StateMachineComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "initial_state")]
+script = ExtResource("11_iwdll")
+actor = NodePath("..")
+initial_state = NodePath("StructureState")
+
+[node name="StructureState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("actor", "stats_component", "attack_component", "hitbox_component")]
+script = ExtResource("12_b5xah")
+actor = NodePath("../..")
+stats_component = NodePath("../../StatsComponent")
+attack_component = NodePath("../../AttackComponent")
+hitbox_component = NodePath("../../HitboxComponent")
+
+[node name="HealthBarComponent" type="ProgressBar" parent="." node_paths=PackedStringArray("stats_component")]
+offset_right = 4.0
+offset_bottom = 22.0
+script = ExtResource("13_g6xpu")
+stats_component = NodePath("../StatsComponent")

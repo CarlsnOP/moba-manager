@@ -13,7 +13,7 @@ var mid_camp_team: Node2D
 var bot_camp_team: Node2D
 var first_setup := true
 
-func enter(hero: CharacterBody2D, nav: NavigationAgent2D):
+func enter(hero: Node2D, nav: NavigationAgent2D):
 	if first_setup:
 		_self = hero
 		nav_agent = nav

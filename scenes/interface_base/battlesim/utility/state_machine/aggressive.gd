@@ -1,7 +1,7 @@
 extends State
 class_name Aggressive
 
-func enter(_hero: CharacterBody2D, _nav: NavigationAgent2D):
+func enter(_hero: Node2D, _nav: NavigationAgent2D):
 	pass
 
 func exit():

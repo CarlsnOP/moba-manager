@@ -3,5 +3,7 @@ extends Area2D
 
 signal hurt()
 
+@export var stats_component: StatsComponent
+
 func take_damage(damage_taken: float) -> void:
-	hurt.emit(damage_taken)
+	stats_component.health -= damage_taken

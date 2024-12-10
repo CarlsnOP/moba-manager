@@ -2,7 +2,7 @@ class_name DamageNumbersComponent
 extends Node
 
 
-@export var actor: CharacterBody2D
+@export var actor: Node2D
 @export var hurtbox_Component: HurtboxComponent
 
 
@@ -31,6 +31,7 @@ func display_damage_number(damage: int) -> void:
 	number.pivot_offset = Vector2(number.size / 2)
 	number.position.x -= number.size.x/2
 	
+	
 	var tween = get_tree().create_tween()
 	tween.set_parallel(true)
 	tween.tween_property(
@@ -42,6 +43,9 @@ func display_damage_number(damage: int) -> void:
 	tween.tween_property(
 		number, "scale", Vector2.ZERO, 0.25
 	).set_ease(Tween.EASE_IN).set_delay(0.5)
+	
+	#Binds tween to node, so no errors happen if parent node is queued_free
+	tween.bind_node(self)
 	
 	await tween.finished
 	number.queue_free()
