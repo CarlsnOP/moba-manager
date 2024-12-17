@@ -3,7 +3,7 @@ extends Node
 
 const FLASH_MATERIAL = preload("res://effects/white_flash_material.tres")
 
-@export var stats_component: StatsComponent
+@export var hurtbox_component: HurtboxComponent
 @export var sprite: Sprite2D
 @export var flash_duration: = 0.2
 
@@ -14,7 +14,7 @@ var timer: Timer = Timer.new()
 func _ready() -> void:
 	add_child(timer)
 	original_sprite_material = sprite.material
-	stats_component.health_changed.connect(flash)
+	hurtbox_component.hurt.connect(flash)
 
 func flash():
 	sprite.material = FLASH_MATERIAL

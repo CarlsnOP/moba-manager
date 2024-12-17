@@ -36,8 +36,6 @@ color = Color(0.367533, 0.312106, 0.300657, 1)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="DamageNumbers" type="Node" parent="CanvasLayer" groups=["dmg_numbers"]]
-
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0

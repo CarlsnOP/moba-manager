@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="FriendlyHeroResource" load_steps=5 format=3 uid="uid://45einw3mtxml"]
+
+[ext_resource type="Texture2D" uid="uid://co6ywrjnv2o62" path="res://assets/art/characters/Em the Marksman.png" id="1_ptukc"]
+[ext_resource type="Texture2D" uid="uid://ic56vif0hfe1" path="res://assets/art/characters/portraits/Em portrait.png" id="2_ewqr6"]
+[ext_resource type="Script" path="res://resources/heroes/friendly_hero_resource.gd" id="3_x540k"]
+[ext_resource type="Resource" uid="uid://benvpqfdnowsj" path="res://resources/skills/resources/explosive_finale.tres" id="4_qkth3"]
+
+[resource]
+script = ExtResource("3_x540k")
+hero_portrait = ExtResource("2_ewqr6")
+in_team = false
+skill = ExtResource("4_qkth3")
+lvl = 0
+xp = 0
+prestige = 0
+upgrade_points = 0
+extra_hp = 500.0
+extra_ad = 70.0
+extra_ap = 25.0
+type = "Marksman"
+lore = "Em has always been a tinkerer with a passion for creating gadgets that go boom. From a young age, Em’s inventiveness got them into all sorts of trouble, but it also honed their skills with all things explosive. Armed with a custom-built water gun that packs a punch and a collection of homemade grenades, Em is a force to be reckoned with from a distance. Their infectious grin and boundless energy make them a lively addition to any team, always eager to show off the latest contraption and blow something up. Quick on their feet and quicker on the trigger, Em takes out enemies before they even know what hit them."
+hero_icon = ExtResource("1_ptukc")
+hero_name = "Em"
+health = 900.0
+health_regen = 5.0
+attack_damage = 125.0
+ability_power = 60.0
+dodge = 0.01
+block = 0.05
+crit = 0.05

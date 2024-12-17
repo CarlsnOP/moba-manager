@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://dwc7e4ic14vns"]
+
+[ext_resource type="Texture2D" uid="uid://c25bxxj8nomcd" path="res://assets/art/loot/whispering-seashell.webp" id="1_2ql42"]
+[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_2fhgy"]
+
+[resource]
+script = ExtResource("2_2fhgy")
+id = 0
+name = "Whispering Seashell"
+icon = ExtResource("1_2ql42")
+description = "Whispers in your ear if you listen closely."
+rarity = 4
+quantity = 0
+value = 10.0
+weight = 0.1

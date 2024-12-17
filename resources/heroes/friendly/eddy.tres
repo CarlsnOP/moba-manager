@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="FriendlyHeroResource" load_steps=5 format=3 uid="uid://crcqap55dro3u"]
+
+[ext_resource type="Script" path="res://resources/heroes/friendly_hero_resource.gd" id="1_8ym0q"]
+[ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/Eddy the Jungler.png" id="1_krg8b"]
+[ext_resource type="Texture2D" uid="uid://bsbkb378a73hv" path="res://assets/art/characters/portraits/Eddy portrait.png" id="2_abnpd"]
+[ext_resource type="Resource" uid="uid://elguuwbw8yoy" path="res://resources/skills/resources/loot_finder.tres" id="4_3d252"]
+
+[resource]
+script = ExtResource("1_8ym0q")
+hero_portrait = ExtResource("2_abnpd")
+in_team = false
+skill = ExtResource("4_3d252")
+lvl = 0
+xp = 0
+prestige = 0
+upgrade_points = 0
+extra_hp = 80.0
+extra_ad = 7.0
+extra_ap = 5.0
+type = "Jungler"
+lore = "Eddy was once just an ordinary kid with a love for exploring the wildest parts of the neighborhood. But one day, he stumbled upon a mysterious, enchanted scythe deep within a forgotten forest. The moment he touched it, Eddy was transformed into something... well, a bit crazier. Now, with a wicked grin permanently plastered on his face and a scythe that seems to have a mind of its own, Eddy roams the jungle like it’s his playground. He delights in ambushing unsuspecting foes, darting in and out of the shadows with wild laughter echoing behind him. Though his sanity might be questionable, his skills in the jungle are unmatched, and he’s always ready to leap into the fray when his team needs him most."
+hero_icon = ExtResource("1_krg8b")
+hero_name = "Eddy"
+health = 550.0
+health_regen = 5.0
+attack_damage = 60.0
+ability_power = 30.0
+dodge = 0.01
+block = 0.05
+crit = 0.05

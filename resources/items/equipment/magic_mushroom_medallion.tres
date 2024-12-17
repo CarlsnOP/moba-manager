@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=7 format=3 uid="uid://xvhs8efmp8io"]
+
+[ext_resource type="Texture2D" uid="uid://bqo360ntp3syn" path="res://assets/art/items/magic-mushroom-medallion.webp" id="1_43mbs"]
+[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_txb8f"]
+[ext_resource type="Resource" uid="uid://b8kq6guwjldkf" path="res://resources/items/drops/mystic_mushroom.tres" id="3_msvfc"]
+[ext_resource type="Resource" uid="uid://cp4egk4atcvrd" path="res://resources/items/drops/glowing_pebble.tres" id="4_22tlb"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="4_xhalo"]
+[ext_resource type="Resource" uid="uid://cj1gooqliastt" path="res://resources/items/drops/broken_compass.tres" id="5_uhxpm"]
+
+[resource]
+script = ExtResource("4_xhalo")
+id = 0
+name = "Magic Mushroom Medallion"
+icon = ExtResource("1_43mbs")
+description = "A medallion with a magical mushroom."
+rarity = 2
+effect = "+40% Health Regen"
+quantity = 0
+ingredients = Array[ExtResource("2_txb8f")]([ExtResource("3_msvfc"), ExtResource("4_22tlb"), ExtResource("5_uhxpm")])
+amounts = Array[int]([100, 200, 150])
+item_hp = 1.0
+item_hp_regen = 1.4
+item_ad = 1.0
+item_ap = 1.0
+item_dodge = 0.0
+item_block = 0.0
+item_crit = 0.0

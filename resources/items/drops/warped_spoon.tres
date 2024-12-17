@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://bgmo3elydj2k8"]
+
+[ext_resource type="Texture2D" uid="uid://drsxw0sqxnuq7" path="res://assets/art/loot/warped-spoon.webp" id="1_7t204"]
+[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_lkx7i"]
+
+[resource]
+script = ExtResource("2_lkx7i")
+id = 0
+name = "Warped Spoon"
+icon = ExtResource("1_7t204")
+description = "Slightly bent, but still a spoon."
+rarity = 3
+quantity = 0
+value = 7.0
+weight = 1.0

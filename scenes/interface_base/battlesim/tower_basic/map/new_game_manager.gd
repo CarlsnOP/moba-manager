@@ -1,10 +1,6 @@
 extends Node
 
-
-const BULLY_HEROES_SHEILA = preload("res://scenes/interface_base/battlesim/heroes/bully_heroes_basic/sheila/bully_heroes_sheila.tscn")
-const BULLY_HEROES_VINNY = preload("res://scenes/interface_base/battlesim/heroes/bully_heroes_basic/vinny/bully_heroes_vinny.tscn")
-const TEAM_HEROES_BOT = preload("res://scenes/interface_base/battlesim/heroes/team_heroes_basic/team_heroes_bot/team_heroes_bot.tscn")
-const TEAM_HEROES_TOP = preload("res://scenes/interface_base/battlesim/heroes/team_heroes_basic/team_heroes_top/team_heroes_top.tscn")
+const HERO = preload("res://battlesim/heroes/hero.tscn")
 const TOWER = preload("res://battlesim/tower/tower.tscn")
 const NEXUS = preload("res://battlesim/nexus/nexus.tscn")
 
@@ -86,15 +82,30 @@ func spawn_enemy_structures() -> void:
 	new_nexus.add_to_group("tower")
 
 func spawn_enemy_heroes() -> void:
-	var enemy_hero1 = BULLY_HEROES_SHEILA.instantiate()
-	enemy_hero1.apply_match_modifier(new_enemy_modifier)
+	enemy = true
+	#Choosing enemy heroes
+	var enemy1 = TeamManager.pick_random_enemy()
+	var enemy2 = TeamManager.pick_random_enemy()
+	
+	#making sure it isn't the same
+	while enemy2 == enemy1:
+		enemy2 = TeamManager.pick_random_enemy()
+	
+	var enemy_hero1 = HERO.instantiate()
 	enemy_hero1.global_position = respawn_enemy_hero.to_local(respawn_enemy_hero.global_position)
 	respawn_enemy_hero.add_child(enemy_hero1)
+	enemy_hero1.setup(enemy1, enemy)
+	enemy_hero1.apply_match_modifier(new_enemy_modifier)
+	enemy_hero1.add_to_group("enemy")
+	enemy_hero1.add_to_group("hero")
 	
-	var enemy_hero2 = BULLY_HEROES_VINNY.instantiate()
-	enemy_hero2.apply_match_modifier(new_enemy_modifier)
+	var enemy_hero2 = HERO.instantiate()
 	enemy_hero2.global_position = respawn_enemy_hero.to_local(respawn_enemy_hero.global_position)
 	respawn_enemy_hero.add_child(enemy_hero2)
+	enemy_hero2.setup(enemy2, enemy)
+	enemy_hero2.apply_match_modifier(new_enemy_modifier)
+	enemy_hero2.add_to_group("enemy")
+	enemy_hero2.add_to_group("hero")
 	
 func spawn_friendly_team() -> void:
 	spawn_friendly_nexus()
@@ -131,13 +142,21 @@ func spawn_friendly_towers() -> void:
 		top_lane = false
 
 func spawn_friendly_heroes() -> void:
-	var hero1 = TEAM_HEROES_TOP.instantiate()
-	hero1.global_position = respawn_team_hero.to_local(respawn_team_hero.global_position)
-	respawn_team_hero.add_child(hero1)
+	enemy = false
 	
-	var hero2 = TEAM_HEROES_BOT.instantiate()
-	hero2.global_position = respawn_team_hero.to_local(respawn_team_hero.global_position)
-	respawn_team_hero.add_child(hero2)
+	var top_hero = HERO.instantiate()
+	top_hero.global_position = respawn_team_hero.to_local(respawn_team_hero.global_position)
+	respawn_team_hero.add_child(top_hero)
+	top_hero.setup(TeamManager.top, enemy)
+	top_hero.add_to_group("team")
+	top_hero.add_to_group("hero")
+	
+	var bot_hero = HERO.instantiate()
+	bot_hero.global_position = respawn_team_hero.to_local(respawn_team_hero.global_position)
+	respawn_team_hero.add_child(bot_hero)
+	bot_hero.setup(TeamManager.bot, enemy)
+	bot_hero.add_to_group("team")
+	bot_hero.add_to_group("hero")
 
 func get_match_modifier() -> float:
 	return new_enemy_modifier

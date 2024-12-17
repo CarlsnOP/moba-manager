@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=7 format=3 uid="uid://j7te4psp47d8"]
+
+[ext_resource type="Texture2D" uid="uid://bbb7qlytywx8h" path="res://assets/art/items/fluffy-feather-cap.webp" id="1_o67wi"]
+[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_m77x1"]
+[ext_resource type="Resource" uid="uid://c148upheyf4gy" path="res://resources/items/drops/fluffy_feather.tres" id="3_kf0np"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="4_8qbgl"]
+[ext_resource type="Resource" uid="uid://d14moyitm4df4" path="res://resources/items/drops/wobbly_wheel.tres" id="4_nvbjv"]
+[ext_resource type="Resource" uid="uid://dddob6rifroei" path="res://resources/items/drops/shiny_button.tres" id="5_xjuoc"]
+
+[resource]
+script = ExtResource("4_8qbgl")
+id = 0
+name = "Fluffy Feather Cap"
+icon = ExtResource("1_o67wi")
+description = "A cap made from the fluffiest feathers."
+rarity = 1
+effect = "+10% AD"
+quantity = 0
+ingredients = Array[ExtResource("2_m77x1")]([ExtResource("3_kf0np"), ExtResource("4_nvbjv"), ExtResource("5_xjuoc")])
+amounts = Array[int]([250, 200, 300])
+item_hp = 1.0
+item_hp_regen = 1.0
+item_ad = 1.1
+item_ap = 1.0
+item_dodge = 0.0
+item_block = 0.0
+item_crit = 0.0

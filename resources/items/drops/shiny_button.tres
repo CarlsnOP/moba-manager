@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://dddob6rifroei"]
+
+[ext_resource type="Texture2D" uid="uid://ci4nrow0nn8x8" path="res://assets/art/loot/shiny-button.webp" id="1_vc8v6"]
+[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_hcqaf"]
+
+[resource]
+script = ExtResource("2_hcqaf")
+id = 0
+name = "Shiny Button"
+icon = ExtResource("1_vc8v6")
+description = "Still shines bright!"
+rarity = 1
+quantity = 0
+value = 3.0
+weight = 7.0

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=7 format=3 uid="uid://djlx4reauossi"]
+
+[ext_resource type="Texture2D" uid="uid://1wt3c7uoh1g2" path="res://assets/art/items/cursed-coin-amulet.webp" id="1_4wir1"]
+[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_x256j"]
+[ext_resource type="Resource" uid="uid://debq0o71joqnw" path="res://resources/items/drops/cursed_coin.tres" id="3_ysfk4"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="4_dids6"]
+[ext_resource type="Resource" uid="uid://bo2jhqgexto4v" path="res://resources/items/drops/ancient_scroll.tres" id="4_si12h"]
+[ext_resource type="Resource" uid="uid://bgmo3elydj2k8" path="res://resources/items/drops/warped_spoon.tres" id="5_0x57e"]
+
+[resource]
+script = ExtResource("4_dids6")
+id = 0
+name = "Cursed Coin Amulet"
+icon = ExtResource("1_4wir1")
+description = "An amulet with a cursed coin."
+rarity = 3
+effect = "+50% Crit chance"
+quantity = 0
+ingredients = Array[ExtResource("2_x256j")]([ExtResource("3_ysfk4"), ExtResource("4_si12h"), ExtResource("5_0x57e")])
+amounts = Array[int]([100, 50, 200])
+item_hp = 1.0
+item_hp_regen = 1.0
+item_ad = 1.0
+item_ap = 1.0
+item_dodge = 0.0
+item_block = 0.0
+item_crit = 0.5

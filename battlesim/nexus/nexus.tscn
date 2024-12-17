@@ -63,9 +63,9 @@ script = ExtResource("6_vfdnc")
 actor = NodePath("..")
 hurtbox_Component = NodePath("../HurtboxComponent")
 
-[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component", "sprite")]
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox_component", "sprite")]
 script = ExtResource("7_nu51a")
-stats_component = NodePath("../StatsComponent")
+hurtbox_component = NodePath("../HurtboxComponent")
 sprite = NodePath("../Sprite2D")
 
 [node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("hitbox_component", "stats_component")]

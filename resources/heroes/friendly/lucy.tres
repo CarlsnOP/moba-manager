@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="FriendlyHeroResource" load_steps=5 format=3 uid="uid://bf33sg6djlvp8"]
+
+[ext_resource type="Script" path="res://resources/heroes/friendly_hero_resource.gd" id="1_f5hnm"]
+[ext_resource type="Texture2D" uid="uid://bo5ya82c5uqv6" path="res://assets/art/characters/Lucy the Healer.png" id="1_gd0g0"]
+[ext_resource type="Texture2D" uid="uid://dlsna1nynujov" path="res://assets/art/characters/portraits/Lucy portrait.png" id="2_xowk5"]
+[ext_resource type="Resource" uid="uid://cjpdx85iqtob4" path="res://resources/skills/resources/second_chance.tres" id="4_pfe44"]
+
+[resource]
+script = ExtResource("1_f5hnm")
+hero_portrait = ExtResource("2_xowk5")
+in_team = false
+skill = ExtResource("4_pfe44")
+lvl = 0
+xp = 0
+prestige = 0
+upgrade_points = 0
+extra_hp = 65.0
+extra_ad = 3.0
+extra_ap = 10.0
+type = "Support"
+lore = "Lucy has always had a knack for mixing potions and concocting remedies that can cure just about anything. Her talent for healing started in her makeshift lab in the backyard, where she would mix ingredients from the garden to create powerful elixirs. Over time, her skills became legendary, and now she roams the battlefield with a bag full of potions, ready to heal and protect her allies. With a staff adorned with magical charms and an endless supply of restorative brews, Lucy is the glue that keeps her team alive through even the toughest of battles. Her cheerful demeanor and vibrant attire make her a beacon of hope, even in the direst of situations."
+hero_icon = ExtResource("1_gd0g0")
+hero_name = "Lucy"
+health = 520.0
+health_regen = 5.0
+attack_damage = 35.0
+ability_power = 75.0
+dodge = 0.01
+block = 0.05
+crit = 0.05

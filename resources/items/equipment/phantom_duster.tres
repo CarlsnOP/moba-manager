@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=7 format=3 uid="uid://dy3dpnuxbuuq3"]
+
+[ext_resource type="Texture2D" uid="uid://cylhc7apfog0r" path="res://assets/art/items/phantom-duster.webp" id="1_ho0xk"]
+[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_uy2g1"]
+[ext_resource type="Resource" uid="uid://jyqurawt1ib5" path="res://resources/items/drops/phantom_cloth.tres" id="3_ow83o"]
+[ext_resource type="Resource" uid="uid://b8hcv4cjg36sr" path="res://resources/items/drops/soggy_sock.tres" id="4_3ixys"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="4_5hian"]
+[ext_resource type="Resource" uid="uid://bo2jhqgexto4v" path="res://resources/items/drops/ancient_scroll.tres" id="5_pd52m"]
+
+[resource]
+script = ExtResource("4_5hian")
+id = 0
+name = "Phantom Duster"
+icon = ExtResource("1_ho0xk")
+description = "A duster made from ghostly fabric."
+rarity = 4
+effect = "+10% AD and Luck"
+quantity = 0
+ingredients = Array[ExtResource("2_uy2g1")]([ExtResource("3_ow83o"), ExtResource("4_3ixys"), ExtResource("5_pd52m")])
+amounts = Array[int]([50, 200, 150])
+item_hp = 1.0
+item_hp_regen = 1.0
+item_ad = 1.1
+item_ap = 1.0
+item_dodge = 0.0
+item_block = 0.0
+item_crit = 0.1

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="FriendlyHeroResource" load_steps=5 format=3 uid="uid://ccsqgbnokl05t"]
+
+[ext_resource type="Texture2D" uid="uid://d3yo0f5qh8g0t" path="res://assets/art/characters/Egon the Fighter.png" id="1_i1jsh"]
+[ext_resource type="Texture2D" uid="uid://crbevsfr7osdv" path="res://assets/art/characters/portraits/Egon portrait.png" id="2_1lrlb"]
+[ext_resource type="Script" path="res://resources/heroes/friendly_hero_resource.gd" id="3_qfceo"]
+[ext_resource type="Resource" uid="uid://di7wcfodht8h7" path="res://resources/skills/resources/crushing_blow.tres" id="4_33oc4"]
+
+[resource]
+script = ExtResource("3_qfceo")
+hero_portrait = ExtResource("2_1lrlb")
+in_team = false
+skill = ExtResource("4_33oc4")
+lvl = 0
+xp = 0
+prestige = 0
+upgrade_points = 0
+extra_hp = 100.0
+extra_ad = 10.0
+extra_ap = 7.0
+type = "Fighter"
+lore = "Egon wasn’t always the toughest kid on the block, but after years of being the smallest and scrawniest, he decided to take matters into his own hands—literally. Armed with a wooden plank studded with nails and a determination as thick as his biceps, Egon transformed himself into a walking wall of muscle. Now, with his oversized strength and unbreakable spirit, Egon charges into battles with reckless abandon, smashing through anything that stands in his way. Though he might not be the brightest bulb in the box, his sheer power and unwavering loyalty make him a formidable force on the battlefield."
+hero_icon = ExtResource("1_i1jsh")
+hero_name = "Egon"
+health = 700.0
+health_regen = 5.0
+attack_damage = 75.0
+ability_power = 15.0
+dodge = 0.01
+block = 0.05
+crit = 0.05

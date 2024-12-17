@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyHeroResource" load_steps=3 format=3 uid="uid://bpvaeob7ern07"]
+
+[ext_resource type="Texture2D" uid="uid://df11rwqd2srmf" path="res://assets/art/characters/bullies/Bruce.png" id="1_3v36q"]
+[ext_resource type="Script" path="res://resources/heroes/enemy_hero_resource.gd" id="2_u2qfe"]
+
+[resource]
+script = ExtResource("2_u2qfe")
+hero_icon = ExtResource("1_3v36q")
+hero_name = "Bruce"
+health = 1250.0
+health_regen = 5.0
+attack_damage = 140.0
+ability_power = 90.0
+dodge = 0.01
+block = 0.05
+crit = 0.05

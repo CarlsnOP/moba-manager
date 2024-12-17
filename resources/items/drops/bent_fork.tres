@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://bmkwkkrkcnw3o"]
+
+[ext_resource type="Texture2D" uid="uid://drwgtbagm251l" path="res://assets/art/loot/bent-fork.webp" id="1_fne3a"]
+[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_4qq3n"]
+
+[resource]
+script = ExtResource("2_4qq3n")
+id = 0
+name = "Bent Fork"
+icon = ExtResource("1_fne3a")
+description = "It’s bent, but still good for poking."
+rarity = 0
+quantity = 0
+value = 1
+weight = 10.0

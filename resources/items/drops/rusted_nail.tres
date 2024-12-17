@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://bxfongb7wo3pt"]
+
+[ext_resource type="Texture2D" uid="uid://c7wgu0t0sbbke" path="res://assets/art/loot/rusted-nail.webp" id="1_r8rkb"]
+[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_v2kbn"]
+
+[resource]
+script = ExtResource("2_v2kbn")
+id = 0
+name = "Rusted Nail"
+icon = ExtResource("1_r8rkb")
+description = "A nail on its last legs."
+rarity = 0
+quantity = 0
+value = 1
+weight = 10.0

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=7 format=3 uid="uid://7tdwm0si0fi3"]
+
+[ext_resource type="Texture2D" uid="uid://dk57es2ji2ttp" path="res://assets/art/items/invisible-cloak.webp" id="1_aqpjm"]
+[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_pvb48"]
+[ext_resource type="Resource" uid="uid://jyqurawt1ib5" path="res://resources/items/drops/phantom_cloth.tres" id="3_u18e5"]
+[ext_resource type="Resource" uid="uid://bb6s5ovu3pcl4" path="res://resources/items/drops/invisible_ink.tres" id="4_7o70u"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="4_gmc52"]
+[ext_resource type="Resource" uid="uid://bn70crdmqufvb" path="res://resources/items/drops/cracked_mirror.tres" id="5_ay5dt"]
+
+[resource]
+script = ExtResource("4_gmc52")
+id = 0
+name = "Invisible Cloak"
+icon = ExtResource("1_aqpjm")
+description = "A cloak so invisible, it may not even exist."
+rarity = 2
+effect = "+30% Dodge"
+quantity = 0
+ingredients = Array[ExtResource("2_pvb48")]([ExtResource("3_u18e5"), ExtResource("4_7o70u"), ExtResource("5_ay5dt")])
+amounts = Array[int]([200, 150, 100])
+item_hp = 1.0
+item_hp_regen = 1.0
+item_ad = 1.0
+item_ap = 1.0
+item_dodge = 0.3
+item_block = 0.0
+item_crit = 0.0

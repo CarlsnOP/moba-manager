@@ -31,10 +31,10 @@ func setup(enemy: bool, top: bool) -> void:
 	#if top = true, then top lane, else bot lane
 	navigation_component.set_lane(top)
 
-func apply_match_modifier(mod: float) -> void:
-	stats_component.health = stats_component.health * mod
-	stats_component.damage = stats_component.damage * mod
-	health_bar_component.update_max_health(stats_component.health * mod)
+func apply_match_modifier(modifier: float) -> void:
+	stats_component.health = stats_component.health * modifier
+	stats_component.damage = stats_component.damage * modifier
+	health_bar_component.update_max_health(stats_component.health * modifier)
 
 func get_hurtbox() -> HurtboxComponent:
 	return hurtbox_component

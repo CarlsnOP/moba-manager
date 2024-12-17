@@ -4,18 +4,24 @@ enum LANE_SELECTED { TOP, BOT, JUNGLE}
 
 var _lane: LANE_SELECTED = LANE_SELECTED.TOP
 
-var top: HeroResource = preload("res://resources/heroes/resources/egon.tres")
-var bot: HeroResource = preload("res://resources/heroes/resources/em.tres")
-#var jungle: HeroResource = preload("res://resources/heroes/resources/eddy.tres")
+var top: HeroResource = preload("res://resources/heroes/friendly/egon.tres")
+var bot: HeroResource = preload("res://resources/heroes/friendly/em.tres")
+#var jungle: HeroResource = preload("res://resources/heroes/friendly/eddy.tres")
 var heroes_xp: Array[int] = []
 var _all_heroes: Array[HeroResource] = []
+var _all_enemy_heroes: Array[EnemyHeroResource] = []
 var equipped_items: Array[ItemResource] = []
 
 func _ready():
-	for file in DirAccess.get_files_at("res://resources/heroes/resources/"):
-		var resource_file = "res://resources/heroes/resources/" + file
+	for file in DirAccess.get_files_at("res://resources/heroes/friendly/"):
+		var resource_file = "res://resources/heroes/friendly/" + file
 		var hero: HeroResource = load(resource_file) as HeroResource
 		_all_heroes.append(hero)
+	
+	for file in DirAccess.get_files_at("res://resources/heroes/enemy/"):
+		var resource_file = "res://resources/heroes/enemy/" + file
+		var hero: EnemyHeroResource = load(resource_file) as EnemyHeroResource
+		_all_enemy_heroes.append(hero)
 
 func load_team():
 	for heroes in _all_heroes:
@@ -37,7 +43,12 @@ func setup_team(hero: HeroResource) -> void:
 		#LANE_SELECTED.JUNGLE:
 			#jungle.in_team = false
 			#jungle = hero
-			hero.in_team = true
+			#hero.in_team = true
+
+func pick_random_enemy() -> EnemyHeroResource:
+	if _all_enemy_heroes.size() > 0:
+		return _all_enemy_heroes[randi() % _all_enemy_heroes.size()]
+	return null
 
 func grant_current_team_exp(xp: int):
 	top.xp += xp

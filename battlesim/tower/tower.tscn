@@ -71,9 +71,9 @@ script = ExtResource("9_lggq0")
 actor = NodePath("..")
 stats_component = NodePath("../StatsComponent")
 
-[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component", "sprite")]
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox_component", "sprite")]
 script = ExtResource("10_e8kic")
-stats_component = NodePath("../StatsComponent")
+hurtbox_component = NodePath("../HurtboxComponent")
 sprite = NodePath("../Sprite2D")
 
 [node name="StateMachineComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "initial_state")]

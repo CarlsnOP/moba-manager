@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyHeroResource" load_steps=3 format=3 uid="uid://dyht0ixt2r7ug"]
+
+[ext_resource type="Texture2D" uid="uid://bhhhr81gttpug" path="res://assets/art/characters/bullies/Vinny.png" id="1_24esu"]
+[ext_resource type="Script" path="res://resources/heroes/enemy_hero_resource.gd" id="2_ioj0r"]
+
+[resource]
+script = ExtResource("2_ioj0r")
+hero_name = "Vinny"
+hero_icon = ExtResource("1_24esu")
+health = 1200.0
+health_regen = 5.0
+attack_damage = 125.0
+ability_power = 100.0
+dodge = 0.01
+block = 0.05
+crit = 0.05

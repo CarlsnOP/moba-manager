@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyHeroResource" load_steps=3 format=3 uid="uid://tnjmmdiee3ea"]
+
+[ext_resource type="Texture2D" uid="uid://o274k0imgf8n" path="res://assets/art/characters/bullies/Sheila.png" id="1_codvt"]
+[ext_resource type="Script" path="res://resources/heroes/enemy_hero_resource.gd" id="2_slr4r"]
+
+[resource]
+script = ExtResource("2_slr4r")
+hero_name = "Sheila"
+hero_icon = ExtResource("1_codvt")
+health = 1150.0
+health_regen = 5.0
+attack_damage = 100.0
+ability_power = 120.0
+dodge = 0.01
+block = 0.05
+crit = 0.05

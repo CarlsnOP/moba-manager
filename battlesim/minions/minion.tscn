@@ -41,9 +41,9 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0qf73")
 
-[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component", "sprite")]
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox_component", "sprite")]
 script = ExtResource("1_ve54a")
-stats_component = NodePath("../StatsComponent")
+hurtbox_component = NodePath("../HurtboxComponent")
 sprite = NodePath("../Sprite2D")
 
 [node name="StatsComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]

@@ -1,6 +1,6 @@
 extends Node
 
-const LUCY = preload("res://resources/heroes/resources/lucy.tres")
+const LUCY = preload("res://resources/heroes/friendly/lucy.tres")
 
 @onready var cooldown_timer: Timer = %CooldownTimer
 

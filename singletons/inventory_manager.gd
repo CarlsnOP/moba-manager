@@ -10,13 +10,13 @@ var quantity_of_items: Array[int] = []
 var quantity_of_loot: Array[int] = []
 
 func _ready():
-	for file in DirAccess.get_files_at("res://resources/items/loot/items/"):
-		var resource_file = "res://resources/items/loot/items/" + file
+	for file in DirAccess.get_files_at("res://resources/items/drops/"):
+		var resource_file = "res://resources/items/drops/" + file
 		var loot: LootResource = load(resource_file) as LootResource
 		_all_loot.append(loot)
 	
-	for file in DirAccess.get_files_at("res://resources/items/hero_items/items/"):
-		var resource_file = "res://resources/items/hero_items/items/" + file
+	for file in DirAccess.get_files_at("res://resources/items/equipment/"):
+		var resource_file = "res://resources/items/equipment/" + file
 		var item: ItemResource = load(resource_file) as ItemResource
 		_all_items.append(item)
 

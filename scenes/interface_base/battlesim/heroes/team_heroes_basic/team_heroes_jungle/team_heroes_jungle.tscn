@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhxxtdis1cr2h"]
 
 [ext_resource type="PackedScene" uid="uid://bghvcjtoyyaev" path="res://scenes/interface_base/battlesim/heroes/team_heroes_basic/team_heroes_basic.tscn" id="1_1i6yr"]
-[ext_resource type="Resource" uid="uid://crcqap55dro3u" path="res://resources/heroes/resources/eddy.tres" id="2_k5i4i"]
+[ext_resource type="Resource" uid="uid://crcqap55dro3u" path="res://resources/heroes/friendly/eddy.tres" id="2_k5i4i"]
 
 [node name="TeamHeroesJungle" node_paths=PackedStringArray("_initial_state", "_initial_lane") instance=ExtResource("1_1i6yr")]
 _initial_state = NodePath("StateMachine/Jungle")
