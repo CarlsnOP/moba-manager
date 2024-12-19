@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://cpwyttwbvkuws" path="res://assets/art/items/squeaky-gauntlets.webp" id="1_2xsev"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_sfs5c"]
-[ext_resource type="Resource" uid="uid://bh5gut5hvjxuu" path="res://resources/items/drops/squeaky_toy.tres" id="3_6xm28"]
-[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/drops/bent_fork.tres" id="3_t5xnx"]
-[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="4_4ajoy"]
-[ext_resource type="Resource" uid="uid://ddbr76ucm1ivp" path="res://resources/items/drops/mini_anvil.tres" id="4_cmfsg"]
+[ext_resource type="Resource" uid="uid://bh5gut5hvjxuu" path="res://resources/items/loot/squeaky_toy.tres" id="3_6xm28"]
+[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/bent_fork.tres" id="3_t5xnx"]
+[ext_resource type="Script" path="res://resources/items/equipment_resource.gd" id="4_4ajoy"]
+[ext_resource type="Resource" uid="uid://ddbr76ucm1ivp" path="res://resources/items/loot/mini_anvil.tres" id="4_cmfsg"]
 
 [resource]
 script = ExtResource("4_4ajoy")

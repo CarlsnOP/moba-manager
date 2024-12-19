@@ -35,7 +35,7 @@ SoundManager="*res://singletons/sound_manager.gd"
 InventoryManager="*res://singletons/inventory_manager.gd"
 LevelManager="*res://singletons/level_manager.gd"
 RankManager="*res://singletons/rank_manager.gd"
-Popups="*res://scenes/utility/popups.tscn"
+Popups="*res://utility/popups/popups.tscn"
 CheatManager="res://singletons/cheat_manager.gd"
 
 [debug]
@@ -70,7 +70,8 @@ folder_colors={
 "res://saved_game/": "gray",
 "res://scenes/": "purple",
 "res://script/": "pink",
-"res://singletons/": "blue"
+"res://singletons/": "blue",
+"res://utility/": "pink"
 }
 
 [global_group]

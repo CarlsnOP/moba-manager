@@ -33,7 +33,7 @@ func setup_hero_stats() -> void:
 	apply_stats()
 	
 	if _hero is FriendlyHeroResource:
-		if _hero.equipped_item != null:
+		if _hero.equipped_equipment != null:
 			stats_component.health = (_hero.health + (_hero.lvl * _hero.extra_hp)) * _hero.equipped_item.item_hp
 			stats_component.health_regen = (_hero.health_regen) * _hero.equipped_item.item_hp_regen
 			stats_component.damage = (_hero.attack_damage + (_hero.lvl * _hero.extra_ad)) * _hero.equipped_item.item_ad

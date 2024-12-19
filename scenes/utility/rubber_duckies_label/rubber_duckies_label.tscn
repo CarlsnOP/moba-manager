@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://g374ax7ka8ax"]
+
+[ext_resource type="Script" path="res://scenes/utility/rubber_duckies_label/rubber_duckies_label.gd" id="1_4wcfx"]
+
+[node name="RubberDuckiesLabel" type="Label" groups=["game_events"]]
+size_flags_vertical = 1
+theme_type_variation = &"HeaderSmall"
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_4wcfx")

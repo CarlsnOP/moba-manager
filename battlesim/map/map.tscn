@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2uitoevl42b3"]
+
+[ext_resource type="Texture2D" uid="uid://0jmm3api8fgm" path="res://assets/art/ui/arena.png" id="1_ifuak"]
+[ext_resource type="Script" path="res://battlesim/map/map.gd" id="2_qjnf3"]
+[ext_resource type="PackedScene" uid="uid://cpkmpqcwgpdlu" path="res://battlesim/navigation_map/navigation_map.tscn" id="3_m4rwa"]
+[ext_resource type="Script" path="res://battlesim/utility/wave_manager.gd" id="4_mnbnl"]
+[ext_resource type="Script" path="res://battlesim/utility/new_game_manager.gd" id="27_12da5"]
+
+[node name="Map" type="Control" groups=["map", "update_post_match"]]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_qjnf3")
+
+[node name="NavigationMap" parent="." instance=ExtResource("3_m4rwa")]
+unique_name_in_owner = true
+position = Vector2(2, -6)
+
+[node name="MapTexture" type="Sprite2D" parent="."]
+texture = ExtResource("1_ifuak")
+centered = false
+
+[node name="Enemy" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="SpawnEnemyTowerTop" type="Marker2D" parent="Enemy"]
+unique_name_in_owner = true
+position = Vector2(417, 177)
+
+[node name="SpawnEnemyTowerBot" type="Marker2D" parent="Enemy"]
+unique_name_in_owner = true
+position = Vector2(893, 453)
+
+[node name="SpawnEnemyNexus" type="Marker2D" parent="Enemy"]
+unique_name_in_owner = true
+position = Vector2(868, 151)
+
+[node name="RespawnEnemyMinionTop" type="Marker2D" parent="Enemy"]
+unique_name_in_owner = true
+position = Vector2(784, 170)
+
+[node name="RespawnEnemyMinionBot" type="Marker2D" parent="Enemy"]
+unique_name_in_owner = true
+position = Vector2(846, 223)
+
+[node name="RespawnEnemyHero" type="Marker2D" parent="Enemy"]
+unique_name_in_owner = true
+position = Vector2(832, 173)
+
+[node name="Team" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="SpawnTeamTowerTop" type="Marker2D" parent="Team"]
+unique_name_in_owner = true
+position = Vector2(144, 519)
+
+[node name="SpawnTeamTowerBot" type="Marker2D" parent="Team"]
+unique_name_in_owner = true
+position = Vector2(471, 736)
+
+[node name="SpawnTeamNexus" type="Marker2D" parent="Team"]
+unique_name_in_owner = true
+position = Vector2(157, 812)
+
+[node name="RespawnTeamMinionTop" type="Marker2D" parent="Team"]
+unique_name_in_owner = true
+position = Vector2(155, 753)
+
+[node name="RespawnTeamMinionBot" type="Marker2D" parent="Team"]
+unique_name_in_owner = true
+position = Vector2(258, 839)
+
+[node name="RespawnTeamHero" type="Marker2D" parent="Team"]
+unique_name_in_owner = true
+position = Vector2(137, 831)
+
+[node name="Utility" type="Node" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="Utility"]
+unique_name_in_owner = true
+wait_time = 15.0
+
+[node name="WaveManager" type="Node" parent="Utility" groups=["restart_map"]]
+unique_name_in_owner = true
+script = ExtResource("4_mnbnl")
+
+[node name="NewGameManager" type="Node" parent="Utility"]
+unique_name_in_owner = true
+script = ExtResource("27_12da5")
+
+[node name="MatchTimer" type="Timer" parent="Utility"]
+unique_name_in_owner = true
+autostart = true
+
+[node name="MatchTimerLabel" type="Label" parent="Utility"]
+unique_name_in_owner = true
+offset_right = 1920.0
+offset_bottom = 69.0
+theme_type_variation = &"HeaderLarge"
+text = "0:00"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="Utility/SpawnTimer" to="Utility/WaveManager" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="Utility/MatchTimer" to="." method="_on_match_timer_timeout"]

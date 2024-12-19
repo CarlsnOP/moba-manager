@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="1_u5d0o"]
 [ext_resource type="Texture2D" uid="uid://gh2ru8uwj3ii" path="res://assets/art/items/worn-out-wonder-boots.webp" id="2_0k686"]
-[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="3_8cve1"]
-[ext_resource type="Resource" uid="uid://737gunlnv56j" path="res://resources/items/drops/worn_out_shoe.tres" id="3_a8wtt"]
-[ext_resource type="Resource" uid="uid://cb1cfmmoj3max" path="res://resources/items/drops/lucky_horseshoe.tres" id="4_gwn5n"]
-[ext_resource type="Resource" uid="uid://dmsyuj78dhpqq" path="res://resources/items/drops/sticky_tape.tres" id="5_1aekg"]
+[ext_resource type="Script" path="res://resources/items/equipment_resource.gd" id="3_8cve1"]
+[ext_resource type="Resource" uid="uid://737gunlnv56j" path="res://resources/items/loot/worn_out_shoe.tres" id="3_a8wtt"]
+[ext_resource type="Resource" uid="uid://cb1cfmmoj3max" path="res://resources/items/loot/lucky_horseshoe.tres" id="4_gwn5n"]
+[ext_resource type="Resource" uid="uid://dmsyuj78dhpqq" path="res://resources/items/loot/sticky_tape.tres" id="5_1aekg"]
 
 [resource]
 script = ExtResource("3_8cve1")

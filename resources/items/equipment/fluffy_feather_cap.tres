@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://bbb7qlytywx8h" path="res://assets/art/items/fluffy-feather-cap.webp" id="1_o67wi"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_m77x1"]
-[ext_resource type="Resource" uid="uid://c148upheyf4gy" path="res://resources/items/drops/fluffy_feather.tres" id="3_kf0np"]
-[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="4_8qbgl"]
-[ext_resource type="Resource" uid="uid://d14moyitm4df4" path="res://resources/items/drops/wobbly_wheel.tres" id="4_nvbjv"]
-[ext_resource type="Resource" uid="uid://dddob6rifroei" path="res://resources/items/drops/shiny_button.tres" id="5_xjuoc"]
+[ext_resource type="Resource" uid="uid://c148upheyf4gy" path="res://resources/items/loot/fluffy_feather.tres" id="3_kf0np"]
+[ext_resource type="Script" path="res://resources/items/equipment_resource.gd" id="4_8qbgl"]
+[ext_resource type="Resource" uid="uid://d14moyitm4df4" path="res://resources/items/loot/wobbly_wheel.tres" id="4_nvbjv"]
+[ext_resource type="Resource" uid="uid://dddob6rifroei" path="res://resources/items/loot/shiny_button.tres" id="5_xjuoc"]
 
 [resource]
 script = ExtResource("4_8qbgl")

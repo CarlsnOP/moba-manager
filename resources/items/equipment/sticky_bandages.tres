@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://b5idpasa3o2c5" path="res://assets/art/items/sticky-bandages.webp" id="1_i54ki"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_816g6"]
-[ext_resource type="Resource" uid="uid://dmsyuj78dhpqq" path="res://resources/items/drops/sticky_tape.tres" id="3_gaylc"]
-[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="4_klhab"]
-[ext_resource type="Resource" uid="uid://cu24o84ohtpm6" path="res://resources/items/drops/melty_candle.tres" id="4_sqb55"]
-[ext_resource type="Resource" uid="uid://bxfongb7wo3pt" path="res://resources/items/drops/rusted_nail.tres" id="5_laysk"]
+[ext_resource type="Resource" uid="uid://dmsyuj78dhpqq" path="res://resources/items/loot/sticky_tape.tres" id="3_gaylc"]
+[ext_resource type="Script" path="res://resources/items/equipment_resource.gd" id="4_klhab"]
+[ext_resource type="Resource" uid="uid://cu24o84ohtpm6" path="res://resources/items/loot/melty_candle.tres" id="4_sqb55"]
+[ext_resource type="Resource" uid="uid://bxfongb7wo3pt" path="res://resources/items/loot/rusted_nail.tres" id="5_laysk"]
 
 [resource]
 script = ExtResource("4_klhab")

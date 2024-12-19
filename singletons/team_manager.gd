@@ -6,11 +6,10 @@ var _lane: LANE_SELECTED = LANE_SELECTED.TOP
 
 var top: HeroResource = preload("res://resources/heroes/friendly/egon.tres")
 var bot: HeroResource = preload("res://resources/heroes/friendly/em.tres")
-#var jungle: HeroResource = preload("res://resources/heroes/friendly/eddy.tres")
 var heroes_xp: Array[int] = []
 var _all_heroes: Array[HeroResource] = []
 var _all_enemy_heroes: Array[EnemyHeroResource] = []
-var equipped_items: Array[ItemResource] = []
+var equipped_equipment: Array[EquipmentResource] = []
 
 func _ready():
 	for file in DirAccess.get_files_at("res://resources/heroes/friendly/"):
@@ -28,7 +27,6 @@ func load_team():
 		heroes.in_team = false
 		top.in_team = true
 		bot.in_team = true
-#		jungle.in_team = true
 
 func setup_team(hero: HeroResource) -> void:
 	match _lane:
@@ -40,10 +38,6 @@ func setup_team(hero: HeroResource) -> void:
 			bot.in_team = false
 			bot = hero
 			hero.in_team = true
-		#LANE_SELECTED.JUNGLE:
-			#jungle.in_team = false
-			#jungle = hero
-			#hero.in_team = true
 
 func pick_random_enemy() -> EnemyHeroResource:
 	if _all_enemy_heroes.size() > 0:
@@ -71,16 +65,16 @@ func set_hero_xp(xp_list: Array[int]):
 		_all_heroes[hero].xp = xp_list[hero]
 
 #SAVE AND LOAD EQUIPPED ITEMS
-func get_equipped_items() -> Array[ItemResource]:
-	equipped_items.clear()
+func get_equipped_equipment() -> Array[EquipmentResource]:
+	equipped_equipment.clear()
 	
 	for hero in _all_heroes:
-		equipped_items.append(hero.equipped_item)
-	return equipped_items
+		equipped_equipment.append(hero.equipped_equipment)
+	return equipped_equipment
 
-func set_equipped_items(hero_items: Array[ItemResource]):
-	if hero_items.size() != _all_heroes.size():
+func set_equipped_equipment(hero_equipment: Array[EquipmentResource]):
+	if hero_equipment.size() != _all_heroes.size():
 		return
 	
-	for equipped_item in range(_all_heroes.size()):
-		_all_heroes[equipped_item].equipped_item = hero_items[equipped_item]
+	for equipment in range(_all_heroes.size()):
+		_all_heroes[equipment].equipped_equipment = hero_equipment[equipment]

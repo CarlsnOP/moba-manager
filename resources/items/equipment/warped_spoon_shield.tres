@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://d0lpbmwyqck6a" path="res://assets/art/items/warped-spoon-shield.webp" id="1_wr8c2"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_cwu2s"]
-[ext_resource type="Resource" uid="uid://bgmo3elydj2k8" path="res://resources/items/drops/warped_spoon.tres" id="3_87us0"]
-[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/drops/bent_fork.tres" id="3_5667f"]
-[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="4_wwewn"]
-[ext_resource type="Resource" uid="uid://d14moyitm4df4" path="res://resources/items/drops/wobbly_wheel.tres" id="5_j0ifn"]
+[ext_resource type="Resource" uid="uid://bgmo3elydj2k8" path="res://resources/items/loot/warped_spoon.tres" id="3_87us0"]
+[ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/bent_fork.tres" id="3_5667f"]
+[ext_resource type="Script" path="res://resources/items/equipment_resource.gd" id="4_wwewn"]
+[ext_resource type="Resource" uid="uid://d14moyitm4df4" path="res://resources/items/loot/wobbly_wheel.tres" id="5_j0ifn"]
 
 [resource]
 script = ExtResource("4_wwewn")

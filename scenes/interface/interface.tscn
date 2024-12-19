@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://brfdff1sxe1as"]
 
 [ext_resource type="Script" path="res://scenes/interface/interface.gd" id="1_7qvry"]
-[ext_resource type="PackedScene" uid="uid://673smdjoegvd" path="res://scenes/interface_base/heroes/heroes.tscn" id="2_31ohs"]
-[ext_resource type="PackedScene" uid="uid://dkdc3lgikvhio" path="res://scenes/interface_base/battlesetup/battle_setup.tscn" id="3_2watf"]
-[ext_resource type="PackedScene" uid="uid://b24kcv61gsemj" path="res://scenes/interface_base/home/home.tscn" id="4_v3ki7"]
-[ext_resource type="PackedScene" uid="uid://631q0hu1m73l" path="res://scenes/interface_base/inventory/inventory.tscn" id="5_ow4ya"]
-[ext_resource type="PackedScene" uid="uid://enf2gme6mkyw" path="res://scenes/interface_base/crafting/crafting.tscn" id="6_rc5cu"]
-[ext_resource type="PackedScene" uid="uid://cm5h6ii3ncb4b" path="res://scenes/interface_base/highscore/highscore.tscn" id="7_cx26x"]
-[ext_resource type="PackedScene" uid="uid://cfm0ihkpiqfpg" path="res://scenes/interface_base/rank/rank.tscn" id="7_ieocr"]
-[ext_resource type="PackedScene" uid="uid://b4ipaxr61k83x" path="res://scenes/interface_base/settings/settings.tscn" id="8_5pgio"]
+[ext_resource type="PackedScene" uid="uid://673smdjoegvd" path="res://scenes/interfaces/heroes/heroes.tscn" id="2_31ohs"]
+[ext_resource type="PackedScene" uid="uid://dkdc3lgikvhio" path="res://scenes/interfaces/battlesetup/battle_setup.tscn" id="3_2watf"]
+[ext_resource type="PackedScene" uid="uid://b24kcv61gsemj" path="res://scenes/interfaces/home/home.tscn" id="4_v3ki7"]
+[ext_resource type="PackedScene" uid="uid://631q0hu1m73l" path="res://scenes/interfaces/inventory/inventory.tscn" id="5_ow4ya"]
+[ext_resource type="PackedScene" uid="uid://enf2gme6mkyw" path="res://scenes/interfaces/crafting/crafting.tscn" id="6_rc5cu"]
+[ext_resource type="PackedScene" uid="uid://cm5h6ii3ncb4b" path="res://scenes/interfaces/highscore/highscore.tscn" id="7_cx26x"]
+[ext_resource type="PackedScene" uid="uid://cfm0ihkpiqfpg" path="res://scenes/interfaces/rank/rank.tscn" id="7_ieocr"]
+[ext_resource type="PackedScene" uid="uid://b4ipaxr61k83x" path="res://scenes/interfaces/settings/settings.tscn" id="8_5pgio"]
 
 [node name="Interface" type="Control" groups=["game_events"]]
 layout_mode = 3

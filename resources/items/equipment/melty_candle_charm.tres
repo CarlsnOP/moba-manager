@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://dlfh8tcu3lbrs" path="res://assets/art/items/melty-candle-charm.webp" id="1_ukaqa"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_f5etk"]
-[ext_resource type="Resource" uid="uid://cu24o84ohtpm6" path="res://resources/items/drops/melty_candle.tres" id="3_ld0kl"]
-[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="4_5avia"]
-[ext_resource type="Resource" uid="uid://cp4egk4atcvrd" path="res://resources/items/drops/glowing_pebble.tres" id="4_lhnuv"]
-[ext_resource type="Resource" uid="uid://dddob6rifroei" path="res://resources/items/drops/shiny_button.tres" id="5_qptv0"]
+[ext_resource type="Resource" uid="uid://cu24o84ohtpm6" path="res://resources/items/loot/melty_candle.tres" id="3_ld0kl"]
+[ext_resource type="Script" path="res://resources/items/equipment_resource.gd" id="4_5avia"]
+[ext_resource type="Resource" uid="uid://cp4egk4atcvrd" path="res://resources/items/loot/glowing_pebble.tres" id="4_lhnuv"]
+[ext_resource type="Resource" uid="uid://dddob6rifroei" path="res://resources/items/loot/shiny_button.tres" id="5_qptv0"]
 
 [resource]
 script = ExtResource("4_5avia")
