@@ -1,13 +1,14 @@
 extends Node2D
 
 @onready var saver_loader = $Utilities/SaverLoader
-@onready var music_player: AudioStreamPlayer = $MusicPlayer
+@onready var music_player = %MusicPlayer
+
 
 func _ready():
 	saver_loader.load_game()
 	
 	#speed up/slow down game. 1 = normal speed
-	Engine.time_scale = 1
+	Engine.time_scale = 2
 	call_deferred("play_music")
 
 func play_music() -> void:

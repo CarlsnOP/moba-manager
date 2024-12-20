@@ -1,8 +1,6 @@
 class_name AttackComponent
 extends Node
 
-signal hit_hurtbox(hurtbox)
-
 @export var hitbox_component: HitboxComponent
 @export var stats_component: StatsComponent
 

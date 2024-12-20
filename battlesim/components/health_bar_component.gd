@@ -1,11 +1,12 @@
 class_name HealthBarComponent
 extends ProgressBar
 
+signal health_bar_updated
 
 @export var stats_component: StatsComponent
 
-var healthbar_minimum_size := Vector2(40, 5)
-var healthbar_position := Vector2(-20, -25)
+var healthbar_minimum_size := Vector2(50, 7)
+var healthbar_position := Vector2(-25, -30)
 
 func _ready():
 	stats_component.health_changed.connect(update_health_bar)
@@ -22,9 +23,9 @@ func setup(max_health: float, current_health: float) -> void:
 	max_value = max_health
 	value = current_health
 
-func update_max_health(new_max_health: float) -> void:
-	max_value = new_max_health
-	value = new_max_health
+func update_max_health() -> void:
+	max_value = stats_component.max_health
+	value = stats_component.max_health
 
 func update_health_bar() -> void:
 	value = stats_component.health

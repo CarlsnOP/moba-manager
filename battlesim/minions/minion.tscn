@@ -41,35 +41,47 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0qf73")
 
-[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox_component", "sprite")]
-script = ExtResource("1_ve54a")
-hurtbox_component = NodePath("../HurtboxComponent")
-sprite = NodePath("../Sprite2D")
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("stats_component", "state_machine_component")]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("5_sbblb")
+stats_component = NodePath("../StatsComponent")
+state_machine_component = NodePath("../StateMachineComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CircleShape2D_gkjbr")
+debug_color = Color(0.94902, 0.0470588, 0, 0.2)
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("6_y2u26")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_6agtm")
+debug_color = Color(0, 0.6, 0.701961, 0.203922)
 
 [node name="StatsComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("3_qqmyu")
 actor = NodePath("..")
 health = 500.0
 
-[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("stats_component")]
-collision_layer = 0
-collision_mask = 0
-script = ExtResource("5_sbblb")
+[node name="HealthBarComponent" type="ProgressBar" parent="." node_paths=PackedStringArray("stats_component")]
+offset_right = 4.0
+offset_bottom = 4.0
+show_percentage = false
+script = ExtResource("13_gglgh")
 stats_component = NodePath("../StatsComponent")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-shape = SubResource("CircleShape2D_gkjbr")
-debug_color = Color(0.94902, 0.0470588, 0, 0.2)
-
-[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("stats_component")]
-collision_layer = 0
-collision_mask = 0
-script = ExtResource("6_y2u26")
+[node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("hitbox_component", "stats_component")]
+script = ExtResource("11_qo8da")
+hitbox_component = NodePath("../HitboxComponent")
 stats_component = NodePath("../StatsComponent")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-shape = SubResource("CircleShape2D_6agtm")
-debug_color = Color(0, 0.6, 0.701961, 0.203922)
+[node name="DeathComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component")]
+script = ExtResource("12_4ag3r")
+actor = NodePath("..")
+stats_component = NodePath("../StatsComponent")
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "navigation_agent")]
 script = ExtResource("7_08i6x")
@@ -86,28 +98,16 @@ script = ExtResource("10_1rvs2")
 actor = NodePath("..")
 hurtbox_Component = NodePath("../HurtboxComponent")
 
-[node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("hitbox_component", "stats_component")]
-script = ExtResource("11_qo8da")
-hitbox_component = NodePath("../HitboxComponent")
-stats_component = NodePath("../StatsComponent")
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox_component", "sprite")]
+script = ExtResource("1_ve54a")
+hurtbox_component = NodePath("../HurtboxComponent")
+sprite = NodePath("../Sprite2D")
 
-[node name="DeathComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component")]
-script = ExtResource("12_4ag3r")
-actor = NodePath("..")
-stats_component = NodePath("../StatsComponent")
-
-[node name="HealthBarComponent" type="ProgressBar" parent="." node_paths=PackedStringArray("stats_component")]
-offset_right = 4.0
-offset_bottom = 4.0
-show_percentage = false
-script = ExtResource("13_gglgh")
-stats_component = NodePath("../StatsComponent")
-
-[node name="StateMachineComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "initial_state", "navigation_agent")]
+[node name="StateMachineComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "initial_state", "health_bar_component")]
 script = ExtResource("14_hqc5o")
 actor = NodePath("..")
 initial_state = NodePath("PushingState")
-navigation_agent = NodePath("../NavigationAgent2D")
+health_bar_component = NodePath("../HealthBarComponent")
 
 [node name="PushingState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("actor", "stats_component", "navigation_agent", "attack_component")]
 script = ExtResource("9_xkj5p")

@@ -12,9 +12,6 @@ var closest_target = null
 func update(_delta):
 	set_new_destination()
 
-#Not needed
-func physics_update(_delta):
-	pass
 
 func set_new_destination() -> void:
 	var possible_targets: Array[Node] = []

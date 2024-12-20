@@ -1,11 +1,7 @@
 class_name HitboxComponent
 extends Area2D
 
-@export var stats_component: StatsComponent
-
 var targets_in_range: Array = []
-
-signal hit_hurtbox(hurtbox)
 
 
 func _ready():

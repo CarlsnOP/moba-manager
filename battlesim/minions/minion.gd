@@ -32,9 +32,10 @@ func setup(enemy: bool, top: bool) -> void:
 	navigation_component.set_lane(top)
 
 func apply_match_modifier(modifier: float) -> void:
+	stats_component.max_health = stats_component.health * modifier
 	stats_component.health = stats_component.health * modifier
 	stats_component.damage = stats_component.damage * modifier
-	health_bar_component.update_max_health(stats_component.health * modifier)
+	health_bar_component.update_max_health()
 
 func get_hurtbox() -> HurtboxComponent:
 	return hurtbox_component

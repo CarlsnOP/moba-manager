@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/homepage/homepage.gd" id="1_i64r6"]
 [ext_resource type="PackedScene" uid="uid://d1srca4b5kfs6" path="res://scenes/nav_menu/nav_menu.tscn" id="3_tjgve"]
 [ext_resource type="PackedScene" uid="uid://brfdff1sxe1as" path="res://scenes/interface/interface.tscn" id="5_upecu"]
-[ext_resource type="PackedScene" uid="uid://fgfie74mjqjs" path="res://scenes/interfaces/battlesim/battle_sim.tscn" id="6_88w18"]
+[ext_resource type="PackedScene" uid="uid://fgfie74mjqjs" path="res://scenes/interfaces/battle_manager/battle_manager.tscn" id="6_88w18"]
 [ext_resource type="Script" path="res://utility/saving_and_loading/saver_loader.gd" id="6_ydpd0"]
 [ext_resource type="PackedScene" uid="uid://b8fkla5rkmdyu" path="res://scenes/utility/team_manager/team_manager.tscn" id="7_4dhdb"]
 [ext_resource type="PackedScene" uid="uid://b2uitoevl42b3" path="res://battlesim/map/map.tscn" id="7_e6ve5"]
@@ -31,10 +31,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.367533, 0.312106, 0.300657, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="GameCanvas" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="GameLayoutHB" type="HBoxContainer" parent="GameCanvas"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -44,21 +44,19 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 mouse_filter = 2
 
-[node name="NavMenu" parent="CanvasLayer/HBoxContainer" instance=ExtResource("3_tjgve")]
+[node name="NavMenu" parent="GameCanvas/GameLayoutHB" instance=ExtResource("3_tjgve")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Map" parent="CanvasLayer/HBoxContainer" instance=ExtResource("7_e6ve5")]
+[node name="Map" parent="GameCanvas/GameLayoutHB" instance=ExtResource("7_e6ve5")]
 layout_mode = 2
 
-[node name="BattleSim" parent="CanvasLayer/HBoxContainer" instance=ExtResource("6_88w18")]
+[node name="BattleManager" parent="GameCanvas/GameLayoutHB" instance=ExtResource("6_88w18")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
 
-[node name="MC" type="MarginContainer" parent="CanvasLayer"]
+[node name="InterfaceMC" type="MarginContainer" parent="GameCanvas"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -72,11 +70,11 @@ theme_override_constants/margin_top = 200
 theme_override_constants/margin_right = 400
 theme_override_constants/margin_bottom = 200
 
-[node name="HB" type="HBoxContainer" parent="CanvasLayer/MC"]
+[node name="HB" type="HBoxContainer" parent="GameCanvas/InterfaceMC"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Interface" parent="CanvasLayer/MC/HB" groups=["background", "interface"] instance=ExtResource("5_upecu")]
+[node name="Interface" parent="GameCanvas/InterfaceMC/HB" groups=["background", "interface"] instance=ExtResource("5_upecu")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
@@ -93,16 +91,15 @@ autostart = true
 
 [node name="TeamManager" parent="Utilities" instance=ExtResource("7_4dhdb")]
 
-[node name="RankManager" type="Node" parent="Utilities"]
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="Utilities"]
+unique_name_in_owner = true
 stream = SubResource("AudioStreamPlaylist_p3n3p")
 bus = &"Music"
 
-[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="Utilities"]
 bus = &"SFX"
 
 [connection signal="timeout" from="Utilities/SaverLoader/SaveTimer" to="Utilities/SaverLoader" method="_on_save_timer_timeout"]
 
-[editable path="CanvasLayer/MC/HB/Interface"]
-[editable path="CanvasLayer/MC/HB/Interface/Heroes"]
+[editable path="GameCanvas/InterfaceMC/HB/Interface"]
+[editable path="GameCanvas/InterfaceMC/HB/Interface/Heroes"]

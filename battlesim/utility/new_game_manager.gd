@@ -21,6 +21,7 @@ var game_launced := false
 var old_enemy_modifier := 1.0
 var new_enemy_modifier := 1.0
 var enemy: bool
+var top_lane: bool
 
 func _ready():
 	SignalManager.on_battle_end.connect(on_battle_end)
@@ -55,7 +56,7 @@ func spawn_enemy_team() -> void:
 
 func spawn_enemy_structures() -> void:
 	var spawn_enemy_towers := [spawn_enemy_tower_top, spawn_enemy_tower_bot]
-	var top_lane := true
+	top_lane = true
 	enemy = true
 	
 	for spawn_point in spawn_enemy_towers:
@@ -79,10 +80,11 @@ func spawn_enemy_structures() -> void:
 	spawn_enemy_nexus.add_child(new_nexus)
 	new_nexus.setup(enemy)
 	new_nexus.add_to_group("enemy")
-	new_nexus.add_to_group("tower")
+	new_nexus.add_to_group("nexus")
 
 func spawn_enemy_heroes() -> void:
 	enemy = true
+	top_lane = true
 	#Choosing enemy heroes
 	var enemy1 = TeamManager.pick_random_enemy()
 	var enemy2 = TeamManager.pick_random_enemy()
@@ -94,15 +96,17 @@ func spawn_enemy_heroes() -> void:
 	var enemy_hero1 = HERO.instantiate()
 	enemy_hero1.global_position = respawn_enemy_hero.to_local(respawn_enemy_hero.global_position)
 	respawn_enemy_hero.add_child(enemy_hero1)
-	enemy_hero1.setup(enemy1, enemy)
+	enemy_hero1.setup(enemy1, enemy, top_lane)
 	enemy_hero1.apply_match_modifier(new_enemy_modifier)
 	enemy_hero1.add_to_group("enemy")
 	enemy_hero1.add_to_group("hero")
 	
+	top_lane = false
+	
 	var enemy_hero2 = HERO.instantiate()
 	enemy_hero2.global_position = respawn_enemy_hero.to_local(respawn_enemy_hero.global_position)
 	respawn_enemy_hero.add_child(enemy_hero2)
-	enemy_hero2.setup(enemy2, enemy)
+	enemy_hero2.setup(enemy2, enemy, top_lane)
 	enemy_hero2.apply_match_modifier(new_enemy_modifier)
 	enemy_hero2.add_to_group("enemy")
 	enemy_hero2.add_to_group("hero")
@@ -119,12 +123,12 @@ func spawn_friendly_nexus() -> void:
 	spawn_team_nexus.add_child(new_nexus)
 	new_nexus.setup(enemy)
 	new_nexus.add_to_group("team")
-	new_nexus.add_to_group("tower")
+	new_nexus.add_to_group("nexus")
 	
 
 func spawn_friendly_towers() -> void:
 	var spawn_towers := [spawn_team_tower_top, spawn_team_tower_bot]
-	var top_lane := true
+	top_lane = true
 	enemy = false
 	
 	for spawn_point in spawn_towers:
@@ -139,22 +143,26 @@ func spawn_friendly_towers() -> void:
 			new_tower.add_to_group("top")
 		else:
 			new_tower.add_to_group("bot")
+			
 		top_lane = false
 
 func spawn_friendly_heroes() -> void:
 	enemy = false
+	top_lane = true
 	
 	var top_hero = HERO.instantiate()
 	top_hero.global_position = respawn_team_hero.to_local(respawn_team_hero.global_position)
 	respawn_team_hero.add_child(top_hero)
-	top_hero.setup(TeamManager.top, enemy)
+	top_hero.setup(TeamManager.top, enemy, top_lane)
 	top_hero.add_to_group("team")
 	top_hero.add_to_group("hero")
+	
+	top_lane = false
 	
 	var bot_hero = HERO.instantiate()
 	bot_hero.global_position = respawn_team_hero.to_local(respawn_team_hero.global_position)
 	respawn_team_hero.add_child(bot_hero)
-	bot_hero.setup(TeamManager.bot, enemy)
+	bot_hero.setup(TeamManager.bot, enemy, top_lane)
 	bot_hero.add_to_group("team")
 	bot_hero.add_to_group("hero")
 

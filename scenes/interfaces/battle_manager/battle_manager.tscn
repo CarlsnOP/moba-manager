@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://fgfie74mjqjs"]
+
+[ext_resource type="Script" path="res://scenes/interfaces/battle_manager/battle_manager.gd" id="1_xnjbi"]
+[ext_resource type="Texture2D" uid="uid://crbevsfr7osdv" path="res://assets/art/characters/portraits/Egon portrait.png" id="2_dxgcs"]
+
+[node name="BattleManager" type="PanelContainer" groups=["update_post_match"]]
+custom_minimum_size = Vector2(400, 0)
+offset_left = 1520.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 10
+mouse_filter = 2
+script = ExtResource("1_xnjbi")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VB" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="BattleManagerLabel" type="Label" parent="MarginContainer/VB"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"HeaderMedium"
+text = "Battle Manager"
+
+[node name="HeroesHB" type="HBoxContainer" parent="MarginContainer/VB"]
+layout_mode = 2
+
+[node name="TopHeroButton" type="Button" parent="MarginContainer/VB/HeroesHB"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("2_dxgcs")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="BotHeroButton" type="Button" parent="MarginContainer/VB/HeroesHB"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("2_dxgcs")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="LaneHB" type="HBoxContainer" parent="MarginContainer/VB"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TopButton" type="Button" parent="MarginContainer/VB/LaneHB"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Top lane"
+
+[node name="BotButton" type="Button" parent="MarginContainer/VB/LaneHB"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "bot lane"
+
+[connection signal="pressed" from="MarginContainer/VB/HeroesHB/TopHeroButton" to="." method="_on_top_hero_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VB/HeroesHB/BotHeroButton" to="." method="_on_bot_hero_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VB/LaneHB/TopButton" to="." method="_on_top_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VB/LaneHB/BotButton" to="." method="_on_bot_button_pressed"]

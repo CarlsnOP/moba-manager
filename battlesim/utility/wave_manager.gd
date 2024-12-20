@@ -35,6 +35,12 @@ func spawn_enemies() -> void:
 		new_minion.apply_match_modifier(new_game_manager.get_match_modifier())
 		new_minion.add_to_group("enemy")
 		new_minion.add_to_group("minion")
+		
+		if top_lane:
+			new_minion.add_to_group("top")
+		else:
+			new_minion.add_to_group("bot")
+			
 		top_lane = false
 
 func spawn_friendlies() -> void:
@@ -49,6 +55,12 @@ func spawn_friendlies() -> void:
 		new_minion.setup(enemy, top_lane)
 		new_minion.add_to_group("team")
 		new_minion.add_to_group("minion")
+		
+		if top_lane:
+			new_minion.add_to_group("top")
+		else:
+			new_minion.add_to_group("bot")
+			
 		top_lane = false
 
 func _on_spawn_timer_timeout():

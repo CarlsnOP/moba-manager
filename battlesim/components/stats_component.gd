@@ -16,8 +16,8 @@ signal no_health()
 
 @export var move_speed := 5000.0
 @export var att_speed := 1.0
-
-@export var health: float = 1.0:
+@export var max_health := 1.0
+@export var health := 1.0:
 	set(value):
 		health = value
 		health_changed.emit()

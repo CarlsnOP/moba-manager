@@ -36,7 +36,6 @@ InventoryManager="*res://singletons/inventory_manager.gd"
 LevelManager="*res://singletons/level_manager.gd"
 RankManager="*res://singletons/rank_manager.gd"
 Popups="*res://utility/popups/popups.tscn"
-CheatManager="res://singletons/cheat_manager.gd"
 
 [debug]
 
