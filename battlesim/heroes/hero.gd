@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var hitbox_component = $HitboxComponent
 @onready var lane_manager_component = $LaneManagerComponent
 @onready var navigation_component = $NavigationComponent
+@onready var state_machine_component: StateMachineComponent = $StateMachineComponent
 
 
 var _hero: HeroResource
@@ -77,3 +78,6 @@ func get_hero_resource() -> HeroResource:
 
 func get_lane_manager_component() -> Node:
 	return lane_manager_component
+
+func get_state_machine_component() -> StateMachineComponent:
+	return state_machine_component

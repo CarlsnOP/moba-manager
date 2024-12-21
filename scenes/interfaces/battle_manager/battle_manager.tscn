@@ -66,7 +66,19 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "bot lane"
 
+[node name="RetreatButton" type="Button" parent="MarginContainer/VB"]
+layout_mode = 2
+text = "Retreat to Nexus"
+
+[node name="FastForwardButton" type="Button" parent="MarginContainer/VB"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Speed up X2"
+flat = true
+
 [connection signal="pressed" from="MarginContainer/VB/HeroesHB/TopHeroButton" to="." method="_on_top_hero_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VB/HeroesHB/BotHeroButton" to="." method="_on_bot_hero_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VB/LaneHB/TopButton" to="." method="_on_top_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VB/LaneHB/BotButton" to="." method="_on_bot_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VB/RetreatButton" to="." method="_on_retreat_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VB/FastForwardButton" to="." method="_on_fast_forward_button_pressed"]

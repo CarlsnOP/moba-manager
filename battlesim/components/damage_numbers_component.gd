@@ -2,7 +2,7 @@ class_name DamageNumbersComponent
 extends Node
 
 
-@export var actor: Node2D
+@export var actor: PhysicsBody2D
 @export var hurtbox_Component: HurtboxComponent
 
 

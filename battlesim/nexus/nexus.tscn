@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b3kdvbeuw4nh5"]
+[gd_scene load_steps=19 format=3 uid="uid://b3kdvbeuw4nh5"]
 
 [ext_resource type="Script" path="res://battlesim/nexus/nexus.gd" id="1_4gx4f"]
 [ext_resource type="Texture2D" uid="uid://cnthng11d3aww" path="res://assets/art/map/enemy_nexus.png" id="1_xheii"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://battlesim/states/structure_state.gd" id="10_du3fc"]
 [ext_resource type="Script" path="res://battlesim/components/health_bar_component.gd" id="11_ab8tg"]
 [ext_resource type="Script" path="res://battlesim/components/death_component.gd" id="12_732pu"]
+[ext_resource type="Script" path="res://battlesim/components/new_game_component.gd" id="14_14sjn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fxgb8"]
 
@@ -23,7 +24,7 @@ radius = 50.0
 radius = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a0luf"]
-radius = 70.0
+radius = 50.0
 
 [node name="Nexus" type="StaticBody2D"]
 script = ExtResource("1_4gx4f")
@@ -61,6 +62,7 @@ script = ExtResource("5_s53iw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NexusHealingComponent"]
 shape = SubResource("CircleShape2D_a0luf")
+debug_color = Color(0.363395, 0.608513, 0.295636, 0.42)
 
 [node name="StatsComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("5_1xmsr")
@@ -80,8 +82,9 @@ script = ExtResource("7_nu51a")
 hurtbox_component = NodePath("../HurtboxComponent")
 sprite = NodePath("../Sprite2D")
 
-[node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("hitbox_component", "stats_component")]
+[node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "hitbox_component", "stats_component")]
 script = ExtResource("8_och41")
+actor = NodePath("..")
 hitbox_component = NodePath("../HitboxComponent")
 stats_component = NodePath("../StatsComponent")
 
@@ -108,3 +111,7 @@ actor = NodePath("../..")
 stats_component = NodePath("../../StatsComponent")
 attack_component = NodePath("../../AttackComponent")
 hitbox_component = NodePath("../../HitboxComponent")
+
+[node name="NewGameComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("14_14sjn")
+actor = NodePath("..")

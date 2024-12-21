@@ -4,7 +4,7 @@ extends State
 @export var move_component: MoveComponent
 
 func enter() -> void:
-	move_component.getting_healed = true
+	move_component.immovable = true
 
 func exit() -> void:
-	move_component.getting_healed = false
+	move_component.immovable = false

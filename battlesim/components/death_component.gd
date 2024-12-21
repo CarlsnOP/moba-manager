@@ -3,11 +3,11 @@ extends Node
 
 const MINIMUM_RESPAWN_TIME := 20.0
 
-@export var actor: Node2D
+@export var actor: PhysicsBody2D
 @export var stats_component: StatsComponent
 @export var lane_manager_component: LaneManagerComponent
 
-var dead_pos = Vector2(-20, -20)
+var dead_pos = Vector2(-50, -50)
 var respawn_timer: Timer = Timer.new()
 
 func _ready():

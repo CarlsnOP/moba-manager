@@ -1,7 +1,7 @@
 class_name RetreatState
 extends State
 
-@export var actor: Node2D
+@export var actor: PhysicsBody2D
 @export var stats_component: StatsComponent
 @export var navigation_agent: NavigationAgent2D
 

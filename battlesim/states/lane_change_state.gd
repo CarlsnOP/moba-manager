@@ -14,7 +14,7 @@ func enter() -> void:
 
 func update(_Delta) -> void:
 	if navigation_agent.is_target_reached():
-		state_machine_component.on_child_transition("PushingState")
+		state_machine_component.on_child_transition("AggressiveState")
 
 func exit() -> void:
 	lane_manager_component.nexus_reached()

@@ -20,9 +20,6 @@ func _ready():
 			enemy_nexus = nexus
 	
 
-func _process(_delta):
-	pass
-
 func on_lane_change(top: bool) -> void:
 	if top_lane == top:
 		return

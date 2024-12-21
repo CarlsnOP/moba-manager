@@ -16,7 +16,7 @@ func _ready() -> void:
 	original_sprite_material = sprite.material
 	hurtbox_component.hurt.connect(flash)
 
-func flash():
+func flash(_damage: float):
 	sprite.material = FLASH_MATERIAL
 	timer.start(flash_duration)
 	

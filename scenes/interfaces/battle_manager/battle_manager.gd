@@ -2,9 +2,11 @@ extends Control
 
 @onready var top_hero_button = %TopHeroButton
 @onready var bot_hero_button = %BotHeroButton
+@onready var fast_forward_button: Button = $MarginContainer/VB/FastForwardButton
 
 var selected_hero: Hero
 var selected_lane_manager_component: LaneManagerComponent
+var selected_state_machine_component: StateMachineComponent
 var top_hero_res: FriendlyHeroResource
 var bot_hero_res: FriendlyHeroResource
 var top_hero_node: CharacterBody2D
@@ -44,14 +46,24 @@ func _on_top_hero_button_pressed():
 	switch_active_button(top_lane)
 	selected_hero = top_hero_node
 	selected_lane_manager_component = selected_hero.get_lane_manager_component()
+	selected_state_machine_component = selected_hero.get_state_machine_component()
 
 func _on_bot_hero_button_pressed():
 	switch_active_button(bot_lane)
 	selected_hero = bot_hero_node
 	selected_lane_manager_component = selected_hero.get_lane_manager_component()
-
+	selected_state_machine_component = selected_hero.get_state_machine_component()
+	
 func _on_top_button_pressed():
 	selected_lane_manager_component.on_lane_change(top_lane)
 
 func _on_bot_button_pressed():
 	selected_lane_manager_component.on_lane_change(bot_lane)
+
+func _on_retreat_button_pressed() -> void:
+	selected_state_machine_component.on_child_transition("RetreatState")
+
+func _on_fast_forward_button_pressed() -> void:
+	var homepage = get_tree().get_first_node_in_group("homepage") as Homepage
+	if homepage.has_method("set_fast_forward"):
+		homepage.set_fast_forward()

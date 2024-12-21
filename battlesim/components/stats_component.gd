@@ -5,7 +5,7 @@ extends Node
 signal health_changed()
 signal no_health()
 
-@export var actor: Node2D
+@export var actor: PhysicsBody2D
 @export var enemy: bool = false
 @export var damage := 75.0
 @export var health_regen := 5.0

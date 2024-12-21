@@ -3,7 +3,7 @@ extends Node
 
 signal on_lane_change(top: bool)
 
-@export var actor: Node2D
+@export var actor: PhysicsBody2D
 @export var initial_state: State
 @export var health_bar_component: HealthBarComponent
 
@@ -53,10 +53,10 @@ func on_child_transition(new_state_name: String):
 
 func update_state(value: float) -> void:
 	if !current_state == LaneChangeState:
-		if value >= health_bar_component.max_value * 0.8:
+		if value >= health_bar_component.max_value * 0.7 and current_state != ChasingState:
 			on_child_transition("AggressiveState")
 		elif value >= health_bar_component.max_value * 0.2:
-			on_child_transition("AggressiveState")
+			on_child_transition("DefensiveState")
 		elif value > 0:
 			on_child_transition("RetreatState")
 		else:

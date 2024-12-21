@@ -4,7 +4,10 @@ extends State
 @export var move_component: MoveComponent
 
 func enter() -> void:
-	move_component.dead = true
+	move_component.immovable = true
+	
+func update(_delta) -> void:
+	move_component.immovable = true
 
 func exit() -> void:
-	move_component.dead = false
+	move_component.immovable = false

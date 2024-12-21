@@ -1,4 +1,8 @@
+class_name Homepage
 extends Node2D
+
+const NORMAL_GAME_SPEED := 1
+const FASTFORWARD_GAME_SPEED := 2
 
 @onready var saver_loader = $Utilities/SaverLoader
 @onready var music_player = %MusicPlayer
@@ -8,7 +12,7 @@ func _ready():
 	saver_loader.load_game()
 	
 	#speed up/slow down game. 1 = normal speed
-	Engine.time_scale = 2
+	Engine.time_scale = 1
 	call_deferred("play_music")
 
 func play_music() -> void:
@@ -25,3 +29,9 @@ func _notification(what):
 		saver_loader.save_game()
 
 		get_tree().quit()
+
+func set_fast_forward() -> void:
+	if Engine.time_scale == NORMAL_GAME_SPEED:
+		Engine.time_scale = FASTFORWARD_GAME_SPEED
+	else:
+		Engine.time_scale = NORMAL_GAME_SPEED

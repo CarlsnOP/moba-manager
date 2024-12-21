@@ -15,7 +15,7 @@ stream_count = 2
 stream_0 = ExtResource("9_7tj1g")
 stream_1 = ExtResource("10_6io05")
 
-[node name="Homepage" type="Node2D"]
+[node name="Homepage" type="Node2D" groups=["homepage"]]
 script = ExtResource("1_i64r6")
 
 [node name="Background" type="CanvasLayer" parent="."]
