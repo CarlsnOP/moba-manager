@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b8drdvlieafiq"]
+[gd_scene load_steps=27 format=3 uid="uid://b8drdvlieafiq"]
 
 [ext_resource type="Script" path="res://battlesim/heroes/hero.gd" id="1_2aodq"]
 [ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/Eddy the Jungler.png" id="1_qj134"]
@@ -22,11 +22,13 @@
 [ext_resource type="Script" path="res://battlesim/states/chasing_state.gd" id="21_8q6tk"]
 [ext_resource type="Script" path="res://battlesim/states/getting_healed_state.gd" id="21_j8gwa"]
 [ext_resource type="Script" path="res://battlesim/components/new_game_component.gd" id="21_rb42e"]
+[ext_resource type="Script" path="res://battlesim/components/debug_component.gd" id="23_u4yx1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lxl74"]
+radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vyiwj"]
-radius = 40.0
+radius = 30.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qudmt"]
 radius = 70.0
@@ -44,7 +46,7 @@ texture = ExtResource("1_qj134")
 shape = SubResource("CircleShape2D_lxl74")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-target_desired_distance = 30.0
+target_desired_distance = 20.0
 navigation_layers = 0
 path_postprocessing = 1
 debug_path_custom_color = Color(1, 0, 0, 1)
@@ -125,46 +127,63 @@ actor = NodePath("..")
 initial_state = NodePath("AggressiveState")
 health_bar_component = NodePath("../HealthBarComponent")
 
-[node name="AggressiveState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("actor", "stats_component", "navigation_agent", "attack_component", "lane_manager_component")]
+[node name="AggressiveState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("actor", "stats_component", "state_machine_component", "navigation_agent", "attack_component", "lane_manager_component", "hitbox_component")]
 script = ExtResource("15_6ru0j")
 actor = NodePath("../..")
 stats_component = NodePath("../../StatsComponent")
+state_machine_component = NodePath("..")
 navigation_agent = NodePath("../../NavigationAgent2D")
 attack_component = NodePath("../../AttackComponent")
 lane_manager_component = NodePath("../../LaneManagerComponent")
+hitbox_component = NodePath("../../HitboxComponent")
 
-[node name="DefensiveState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("actor", "stats_component", "navigation_agent", "attack_component", "lane_manager_component")]
+[node name="ChasingState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("attack_component", "stats_component", "navigation_agent", "state_machine_component", "hitbox_component", "health_bar_component")]
+script = ExtResource("21_8q6tk")
+attack_component = NodePath("../../AttackComponent")
+stats_component = NodePath("../../StatsComponent")
+navigation_agent = NodePath("../../NavigationAgent2D")
+state_machine_component = NodePath("..")
+hitbox_component = NodePath("../../HitboxComponent")
+health_bar_component = NodePath("../../HealthBarComponent")
+
+[node name="DefensiveState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("actor", "stats_component", "navigation_agent", "attack_component", "lane_manager_component", "hitbox_component", "state_machine_component")]
 script = ExtResource("15_sbujo")
 actor = NodePath("../..")
 stats_component = NodePath("../../StatsComponent")
 navigation_agent = NodePath("../../NavigationAgent2D")
 attack_component = NodePath("../../AttackComponent")
 lane_manager_component = NodePath("../../LaneManagerComponent")
+hitbox_component = NodePath("../../HitboxComponent")
+state_machine_component = NodePath("..")
 
-[node name="RetreatState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("actor", "stats_component", "navigation_agent")]
+[node name="RetreatState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("actor", "stats_component", "navigation_agent", "attack_component")]
 script = ExtResource("17_i0sic")
 actor = NodePath("../..")
 stats_component = NodePath("../../StatsComponent")
 navigation_agent = NodePath("../../NavigationAgent2D")
+attack_component = NodePath("../../AttackComponent")
 
-[node name="DeadState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("move_component")]
-script = ExtResource("19_dww3i")
-move_component = NodePath("../../MoveComponent")
-
-[node name="LaneChangeState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("stats_component", "navigation_agent", "lane_manager_component", "state_machine_component")]
+[node name="LaneChangeState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("stats_component", "navigation_agent", "lane_manager_component", "state_machine_component", "health_bar_component")]
 script = ExtResource("20_rlr5b")
 stats_component = NodePath("../../StatsComponent")
 navigation_agent = NodePath("../../NavigationAgent2D")
 lane_manager_component = NodePath("../../LaneManagerComponent")
 state_machine_component = NodePath("..")
+health_bar_component = NodePath("../../HealthBarComponent")
 
 [node name="GettingHealedState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("move_component")]
 script = ExtResource("21_j8gwa")
 move_component = NodePath("../../MoveComponent")
 
-[node name="ChasingState" type="Node" parent="StateMachineComponent"]
-script = ExtResource("21_8q6tk")
+[node name="DeadState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("move_component")]
+script = ExtResource("19_dww3i")
+move_component = NodePath("../../MoveComponent")
 
 [node name="NewGameComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("21_rb42e")
 actor = NodePath("..")
+
+[node name="DebugComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "state_machine_component")]
+script = ExtResource("23_u4yx1")
+actor = NodePath("..")
+state_machine_component = NodePath("../StateMachineComponent")

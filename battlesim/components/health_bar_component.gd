@@ -5,8 +5,8 @@ signal health_bar_updated
 
 @export var stats_component: StatsComponent
 
-var healthbar_minimum_size := Vector2(50, 7)
-var healthbar_position := Vector2(-25, -30)
+var healthbar_minimum_size := Vector2(70, 7)
+var healthbar_position := Vector2(-32, -40)
 
 func _ready():
 	stats_component.health_changed.connect(update_health_bar)

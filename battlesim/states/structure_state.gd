@@ -6,13 +6,8 @@ extends State
 @export var attack_component: AttackComponent
 @export var hitbox_component: HitboxComponent
 
-func update(_delta):
-	for target in hitbox_component.targets_in_range:
-		if target == null:
-			return
-		else:
-			attack_component.current_target_hurtbox = target
+var has_target := false
 
-#Not needed
-func physics_update(_delta):
-	pass
+func update(_delta):
+	if hitbox_component.targets_in_range.size() > 0:
+		attack_component.current_target_hurtbox = hitbox_component.targets_in_range[0]

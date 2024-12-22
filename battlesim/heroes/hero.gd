@@ -73,6 +73,9 @@ func apply_match_modifier(modifier: float) -> void:
 func get_hurtbox() -> HurtboxComponent:
 	return hurtbox_component
 
+func get_stats_component() -> StatsComponent:
+	return stats_component
+
 func get_hero_resource() -> HeroResource:
 	return _hero
 

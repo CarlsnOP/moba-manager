@@ -5,6 +5,7 @@ extends State
 @export var navigation_agent: NavigationAgent2D
 @export var lane_manager_component: LaneManagerComponent
 @export var state_machine_component: StateMachineComponent
+@export var health_bar_component: HealthBarComponent
 
 func enter() -> void:
 	if stats_component.enemy:
@@ -14,7 +15,7 @@ func enter() -> void:
 
 func update(_Delta) -> void:
 	if navigation_agent.is_target_reached():
-		state_machine_component.on_child_transition("AggressiveState")
+		state_machine_component.update_state(health_bar_component.value)
 
 func exit() -> void:
 	lane_manager_component.nexus_reached()

@@ -12,9 +12,7 @@ var closest_target = null
 func update(_delta):
 	set_new_destination()
 
-
 func set_new_destination() -> void:
-	var possible_targets: Array[Node] = []
 	nearest_distance = INF
 	
 	if stats_component.enemy:

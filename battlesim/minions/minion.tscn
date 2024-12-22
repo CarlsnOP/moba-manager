@@ -17,9 +17,10 @@
 [ext_resource type="Script" path="res://battlesim/components/new_game_component.gd" id="15_5po03"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0qf73"]
+radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gkjbr"]
-radius = 17.0294
+radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6agtm"]
 radius = 30.0
