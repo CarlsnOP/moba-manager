@@ -18,9 +18,6 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 script = ExtResource("2_qjnf3")
 
-[node name="TopBar" parent="." instance=ExtResource("6_dc8qn")]
-layout_mode = 1
-
 [node name="PositionAdjustment" type="Node2D" parent="."]
 position = Vector2(0, 72)
 
@@ -105,6 +102,9 @@ script = ExtResource("4_mnbnl")
 [node name="NewGameManager" type="Node" parent="PositionAdjustment/Utility" groups=["new_game_manager"]]
 unique_name_in_owner = true
 script = ExtResource("27_12da5")
+
+[node name="TopBar" parent="." instance=ExtResource("6_dc8qn")]
+layout_mode = 1
 
 [connection signal="timeout" from="PositionAdjustment/Utility/SpawnTimer" to="PositionAdjustment/Utility/WaveManager" method="_on_spawn_timer_timeout"]
 

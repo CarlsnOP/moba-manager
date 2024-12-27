@@ -12,10 +12,12 @@ extends CharacterBody2D
 @onready var ability_component = $AbilityComponent
 
 var _hero: HeroResource
+var actor_name := "hero"
 
 
 func setup(hero: HeroResource, enemy: bool, top: bool) -> void:
 	_hero = hero
+	actor_name = hero.hero_name
 	lane_manager_component.top_lane = top
 	navigation_component.set_lane(top)
 	

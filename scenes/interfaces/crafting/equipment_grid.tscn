@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://yxjviv3ckgwo"]
 
 [ext_resource type="Script" path="res://scenes/interfaces/crafting/equipment_grid.gd" id="1_03wj1"]
-[ext_resource type="PackedScene" uid="uid://bxh1fs1opeyhq" path="res://scenes/interfaces/crafting/equipment_slot.tscn" id="2_fwgvw"]
+[ext_resource type="PackedScene" uid="uid://bxh1fs1opeyhq" path="res://scenes/slots/equipment_slot/equipment_slot.tscn" id="2_fwgvw"]
 
 [node name="ItemGrid" type="GridContainer"]
 theme_override_constants/h_separation = 10

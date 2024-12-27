@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxh1fs1opeyhq"]
 
 [ext_resource type="Texture2D" uid="uid://diser732wulb0" path="res://assets/art/items/golden-toothpick-of-doom.webp" id="1_7tagd"]
-[ext_resource type="Script" path="res://scenes/interfaces/crafting/equipment_slot.gd" id="1_xcu06"]
+[ext_resource type="Script" path="res://scenes/slots/equipment_slot/equipment_slot.gd" id="1_xcu06"]
 [ext_resource type="PackedScene" uid="uid://dk8d0pnwcee7b" path="res://scenes/particles/particles.tscn" id="3_g3u5h"]
 [ext_resource type="Texture2D" uid="uid://dyv71risq3oqo" path="res://assets/art/ui/border.png" id="4_wdjc0"]
 

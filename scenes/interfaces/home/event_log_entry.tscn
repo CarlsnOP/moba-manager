@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://m1rfat6c7uhj"]
 
 [ext_resource type="Script" path="res://scenes/interfaces/home/event_log_entry.gd" id="1_hbj76"]
-[ext_resource type="PackedScene" uid="uid://lt08ltq12ss6" path="res://scenes/hero_slot/hero_portrait_slot.tscn" id="2_2x5n3"]
+[ext_resource type="PackedScene" uid="uid://lt08ltq12ss6" path="res://scenes/slots/hero_slot/hero_portrait_slot.tscn" id="2_2x5n3"]
 [ext_resource type="PackedScene" uid="uid://crp36l631uhwm" path="res://scenes/interfaces/crafting/loot_grid.tscn" id="2_l02s0"]
 
 [node name="EventLogEntry" type="Control" groups=["game_events"]]

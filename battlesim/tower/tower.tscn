@@ -70,15 +70,16 @@ script = ExtResource("8_d6oqv")
 actor = NodePath("..")
 hurtbox_Component = NodePath("../HurtboxComponent")
 
-[node name="DeathComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component")]
+[node name="DeathComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "hurtbox_component")]
 script = ExtResource("9_lggq0")
 actor = NodePath("..")
 stats_component = NodePath("../StatsComponent")
+hurtbox_component = NodePath("../HurtboxComponent")
 
-[node name="FlashComponent" type="Node" parent="DeathComponent" node_paths=PackedStringArray("hurtbox_component", "sprite")]
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox_component", "sprite")]
 script = ExtResource("10_e8kic")
-hurtbox_component = NodePath("../../HurtboxComponent")
-sprite = NodePath("../../Sprite2D")
+hurtbox_component = NodePath("../HurtboxComponent")
+sprite = NodePath("../Sprite2D")
 
 [node name="HealthBarComponent" type="ProgressBar" parent="." node_paths=PackedStringArray("stats_component")]
 offset_right = 4.0

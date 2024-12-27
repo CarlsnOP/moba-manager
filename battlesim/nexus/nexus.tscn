@@ -94,10 +94,11 @@ offset_bottom = 22.0
 script = ExtResource("11_ab8tg")
 stats_component = NodePath("../StatsComponent")
 
-[node name="DeathComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component")]
+[node name="DeathComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "hurtbox_component")]
 script = ExtResource("12_732pu")
 actor = NodePath("..")
 stats_component = NodePath("../StatsComponent")
+hurtbox_component = NodePath("../HurtboxComponent")
 
 [node name="StateMachineComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "initial_state", "health_bar_component")]
 script = ExtResource("9_lwib2")

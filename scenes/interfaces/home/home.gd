@@ -9,40 +9,21 @@ extends Control
 var log_entries: Array = []
 
 func _ready():
-	SignalManager.friendly_hero_died.connect(friendly_hero_died)
-	SignalManager.enemy_hero_died.connect(enemy_hero_died)
-	SignalManager.tower_died.connect(tower_died)
+	SignalManager.event.connect(event_happend)
 	SignalManager.on_battle_end.connect(on_battle_end)
 
-func friendly_hero_died(hero: HeroResource, node: Node2D, _pos: Vector2) -> void:
+func event_happend(actor: PhysicsBody2D, killer: PhysicsBody2D) -> void:
 	var new_battlelog = log_scene.instantiate()
 	battle_log_entries.add_child(new_battlelog)
 	battle_log_entries.move_child(new_battlelog, 0)
-	new_battlelog.new_log(hero.hero_name, node.attacked_by)
-	new_battlelog.set_colors_buddy_dead()
-
-func enemy_hero_died(node: Node2D):
-	var new_battlelog = log_scene.instantiate()
-	battle_log_entries.add_child(new_battlelog)
-	battle_log_entries.move_child(new_battlelog, 0)
-	new_battlelog.new_log(node.name_string, node._attacker)
-	new_battlelog.set_colors_bully_dead()
-
-func tower_died(tower: Node2D) -> void:
-	#Bully
-	if tower.team == 0:
-		var new_battlelog = log_scene.instantiate()
-		battle_log_entries.add_child(new_battlelog)
-		battle_log_entries.move_child(new_battlelog, 0)
-		new_battlelog.new_log("Enemy tower", tower.attacked_by)
-		new_battlelog.set_colors_bully_dead()
-		
-	elif tower.team == 1:
-		var new_battlelog = log_scene.instantiate()
-		battle_log_entries.add_child(new_battlelog)
-		battle_log_entries.move_child(new_battlelog, 0)
-		new_battlelog.new_log("Friendly tower", tower.attacked_by)
-		new_battlelog.set_colors_buddy_dead()
+	new_battlelog.new_log(actor.actor_name, killer.actor_name)
+	
+	for child in actor.get_children():
+		if child is StatsComponent:
+			if child.enemy:
+				new_battlelog.set_colors_bully_dead()
+			else:
+				new_battlelog.set_colors_buddy_dead()
 
 func on_battle_end(win: bool) -> void:
 	for child in battle_log_entries.get_children():
@@ -52,23 +33,19 @@ func on_battle_end(win: bool) -> void:
 	
 	
 func create_event_log(win: bool) -> void:
-	var map = get_tree().get_first_node_in_group("map")
-	var elapsed_time: int
 	var xp = str(RewardManager._exp_gained)
 	var currency = str(RewardManager._rubberduckies_gained)
 	var loot = RewardManager._loot_gained
 	var top_hero = TeamManager.top
 	var bot_hero = TeamManager.bot
 	
-	
-	if map.has_method("get_game_length"):
-		elapsed_time = map.get_game_length()
+
 		
 	var new_eventlog = event_log_scene.instantiate()
 	event_log_entries.add_child(new_eventlog)
 	event_log_entries.move_child(new_eventlog, 0)
 	new_eventlog.setup(xp, currency, loot)
-	new_eventlog.set_match_time(elapsed_time)
+	new_eventlog.set_match_time(MatchDataManager.previous_game_length)
 	new_eventlog.set_result_label(win)
 	new_eventlog.instantiate_friendly_top(top_hero)
 	new_eventlog.instantiate_friendly_bot(bot_hero)

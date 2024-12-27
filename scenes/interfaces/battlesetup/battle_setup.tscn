@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interfaces/interface_base.tscn" id="1_mn2md"]
 [ext_resource type="Script" path="res://scenes/interfaces/battlesetup/battle_setup.gd" id="2_ng1v2"]
 [ext_resource type="Texture2D" uid="uid://0jmm3api8fgm" path="res://assets/art/ui/arena.png" id="3_gu1wc"]
-[ext_resource type="PackedScene" uid="uid://lt08ltq12ss6" path="res://scenes/hero_slot/hero_portrait_slot.tscn" id="3_uuksq"]
+[ext_resource type="PackedScene" uid="uid://lt08ltq12ss6" path="res://scenes/slots/hero_slot/hero_portrait_slot.tscn" id="3_uuksq"]
 [ext_resource type="Texture2D" uid="uid://c1c26xn47bydm" path="res://assets/art/characters/team_heroes_portraits/egon_circle_portrait.png" id="4_a5huj"]
 [ext_resource type="Texture2D" uid="uid://bov1hs5fvyh28" path="res://assets/art/characters/team_heroes_portraits/eddy_circle_portrait.png" id="4_ymgtx"]
 [ext_resource type="Texture2D" uid="uid://d2x2gfqjxapts" path="res://assets/art/characters/team_heroes_portraits/em_circle_portrait.png" id="5_duoty"]

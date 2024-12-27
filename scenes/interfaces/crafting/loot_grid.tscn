@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://crp36l631uhwm"]
 
 [ext_resource type="Script" path="res://scenes/interfaces/crafting/loot_grid.gd" id="1_422oo"]
-[ext_resource type="PackedScene" uid="uid://cbeqdlhkmic5y" path="res://scenes/interfaces/inventory/loot_slot.tscn" id="2_olvwj"]
+[ext_resource type="PackedScene" uid="uid://cbeqdlhkmic5y" path="res://scenes/slots/loot_slot/loot_slot.tscn" id="2_olvwj"]
 
 [node name="LootGrid" type="GridContainer"]
 theme_override_constants/h_separation = 10

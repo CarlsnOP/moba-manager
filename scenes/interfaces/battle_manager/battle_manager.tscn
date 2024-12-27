@@ -73,7 +73,7 @@ text = "Retreat to Nexus"
 [node name="FastForwardButton" type="Button" parent="MarginContainer/VB"]
 layout_mode = 2
 size_flags_vertical = 10
-text = "Speed up X2"
+text = "Speed up X4"
 flat = true
 
 [connection signal="pressed" from="MarginContainer/VB/HeroesHB/TopHeroButton" to="." method="_on_top_hero_button_pressed"]

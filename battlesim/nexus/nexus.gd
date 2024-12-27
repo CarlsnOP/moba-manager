@@ -4,12 +4,14 @@ extends StaticBody2D
 const ENEMY_NEXUS = preload("res://assets/art/map/enemy_nexus.png")
 const FRIENDLY_NEXUS = preload("res://assets/art/map/friendly_nexus.png")
 
+
 @onready var stats_component = $StatsComponent
 @onready var sprite_2d = $Sprite2D
 @onready var hurtbox_component = $HurtboxComponent
 @onready var hitbox_component = $HitboxComponent
 @onready var nexus_healing_component = $NexusHealingComponent
 
+var actor_name := "Nexus"
 
 func setup(enemy: bool) -> void:
 	#apply to both enemy and friendly nexus

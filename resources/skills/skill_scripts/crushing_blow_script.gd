@@ -29,7 +29,7 @@ func crushing_blow() -> void:
 	if cooldown_timer.is_stopped() and is_instance_valid(enemy_hurtbox):
 		if enemy_hurtbox.has_method("take_damage") and \
 		enemy_hurtbox in _parent.hitbox_component.targets_in_range:
-			enemy_hurtbox.take_damage(_parent.stats_component.damage * skill_res.damage)
+			enemy_hurtbox.take_damage(_parent.stats_component.damage * skill_res.damage, _parent.get_parent())
 			var enemy = enemy_hurtbox.get_parent()
 			
 			for child in enemy.get_children():

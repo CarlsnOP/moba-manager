@@ -5,6 +5,8 @@ extends Node
 signal health_changed()
 signal no_health()
 
+var buffer := false
+
 @export var actor: PhysicsBody2D
 @export var enemy: bool = false
 @export var damage := 75.0
@@ -23,4 +25,8 @@ signal no_health()
 		health = value
 		health_changed.emit()
 		
-		if health <= 0: no_health.emit()
+		if health <= 0 and !buffer:
+			buffer = true
+			no_health.emit()
+			await get_tree().create_timer(1.0).timeout
+			buffer = false

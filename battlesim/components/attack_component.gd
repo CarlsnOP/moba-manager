@@ -36,7 +36,7 @@ func deal_damage() -> void:
 	if is_instance_valid(current_target_hurtbox):
 		if current_target_hurtbox.has_method("take_damage") and \
 		current_target_hurtbox in hitbox_component.targets_in_range:
-			current_target_hurtbox.take_damage(stats_component.damage)
+			current_target_hurtbox.take_damage(stats_component.damage, actor)
 			
 			if actor.is_in_group("hero"):
 				movement_component.immovable = true

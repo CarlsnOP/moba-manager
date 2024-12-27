@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://usdcupwtb8vt"]
+
+[ext_resource type="Script" path="res://scenes/slots/top_bar_slot/top_bar_slot.gd" id="1_akj1m"]
+[ext_resource type="Texture2D" uid="uid://bov1hs5fvyh28" path="res://assets/art/characters/team_heroes_portraits/eddy_circle_portrait.png" id="1_o47tj"]
+
+[node name="TopBarSlot" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("1_akj1m")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_o47tj")
+expand_mode = 2
+
+[node name="RespawnLabel" type="Label" parent="HBoxContainer/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -52.0
+offset_right = 23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"HeaderMedium"
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="KillsLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Kills: 0"
+
+[node name="DeathsLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Deaths: 0"

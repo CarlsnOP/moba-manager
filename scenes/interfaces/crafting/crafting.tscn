@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interfaces/interface_base.tscn" id="1_2ksn5"]
 [ext_resource type="Script" path="res://scenes/interfaces/crafting/crafting.gd" id="2_nomum"]
 [ext_resource type="PackedScene" uid="uid://crp36l631uhwm" path="res://scenes/interfaces/crafting/loot_grid.tscn" id="3_8rldi"]
-[ext_resource type="PackedScene" uid="uid://cbeqdlhkmic5y" path="res://scenes/interfaces/inventory/loot_slot.tscn" id="3_qrdfa"]
+[ext_resource type="PackedScene" uid="uid://cbeqdlhkmic5y" path="res://scenes/slots/loot_slot/loot_slot.tscn" id="3_qrdfa"]
 [ext_resource type="PackedScene" uid="uid://yxjviv3ckgwo" path="res://scenes/interfaces/crafting/equipment_grid.tscn" id="4_c2wys"]
-[ext_resource type="PackedScene" uid="uid://bxh1fs1opeyhq" path="res://scenes/interfaces/crafting/equipment_slot.tscn" id="4_uj14i"]
+[ext_resource type="PackedScene" uid="uid://bxh1fs1opeyhq" path="res://scenes/slots/equipment_slot/equipment_slot.tscn" id="4_uj14i"]
 
 [node name="Crafting" instance=ExtResource("1_2ksn5")]
 script = ExtResource("2_nomum")

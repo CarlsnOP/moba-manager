@@ -7,6 +7,7 @@ var skill_res: SkillResource
 var stats_component: StatsComponent
 var attack_component: AttackComponent
 var death_component: DeathComponent
+var hurtbox_component: HurtboxComponent
 var explosive_finale_area2d := Area2D.new()
 var explosive_finale_collision_shape := CollisionShape2D.new()
 var circle := CircleShape2D.new()
@@ -19,6 +20,7 @@ func setup_skill(skill: SkillResource, parent: AbilityComponent) -> void:
 	stats_component = parent.stats_component
 	attack_component = parent.attack_component
 	death_component = parent.death_component
+	hurtbox_component = parent.hurtbox_component
 	stats_component.no_health.connect(explosive_finale)
 	
 	setup_area2d()
@@ -43,8 +45,8 @@ func setup_collision_shape() -> void:
 
 func explosive_finale() -> void:
 	#if we have current target when hero dies, we will shoot at them, else explosion where we die
-	if attack_component.current_target_hurtbox != null: # does not work atm :/ Maybe when we setup a kill/death syste,
-		global_position = attack_component.current_target_hurtbox.global_position
+	if hurtbox_component.last_hitter != null:
+		global_position = hurtbox_component.last_hitter.global_position
 	
 	var possible_targets
 	
@@ -59,4 +61,4 @@ func explosive_finale() -> void:
 				for child in enemy.get_children():
 					if child is HurtboxComponent:
 						if child.has_method("take_damage"):
-							child.take_damage(skill_res.damage + stats_component.damage)
+							child.take_damage(skill_res.damage + stats_component.damage, actor)

@@ -2,7 +2,7 @@ class_name Homepage
 extends Node2D
 
 const NORMAL_GAME_SPEED := 1
-const FASTFORWARD_GAME_SPEED := 2
+const FASTFORWARD_GAME_SPEED := 3
 
 @onready var saver_loader = $Utilities/SaverLoader
 @onready var music_player = %MusicPlayer

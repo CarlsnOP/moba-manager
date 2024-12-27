@@ -7,6 +7,7 @@ extends Node2D
 @export var state_machine_component: StateMachineComponent
 @export var death_component: DeathComponent
 @export var attack_component: AttackComponent
+@export var hurtbox_component: HurtboxComponent
 
 var ability_logic := Node2D.new()
 

@@ -39,7 +39,7 @@ func _process(_delta):
 		if enemy_hurtbox.has_method("take_damage") and \
 		enemy_hurtbox in _parent.hitbox_component.targets_in_range:
 			
-			enemy_hurtbox.take_damage(skill_res.damage + (hero_resource.ability_power / 2))
+			enemy_hurtbox.take_damage(skill_res.damage + (hero_resource.ability_power / 2), _parent.get_parent())
 			var enemy = enemy_hurtbox.get_parent()
 			cooldown_timer.start()
 			

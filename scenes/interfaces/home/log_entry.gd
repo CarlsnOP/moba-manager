@@ -10,8 +10,7 @@ var saved_amount: int
 var elapsed_time := 0
 
 func _ready() -> void:
-	var map = get_tree().get_first_node_in_group("map")
-	elapsed_time = map.elapsed_time
+	elapsed_time = MatchDataManager.elapsed_time
 
 func update_match_clock() -> void:
 	var minutes = elapsed_time / 60
@@ -26,9 +25,7 @@ func new_log(dead: String, killer: String) -> void:
 func set_colors_bully_dead() -> void:
 	dead_label.modulate = Color.RED
 	killer_label.modulate = Color.GREEN
-	background.modulate = Color.LIME_GREEN
 
 func set_colors_buddy_dead() -> void:
 	dead_label.modulate = Color.GREEN
 	killer_label.modulate = Color.RED
-	background.modulate = Color.INDIAN_RED

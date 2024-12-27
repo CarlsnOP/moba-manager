@@ -89,11 +89,12 @@ stats_component = NodePath("../StatsComponent")
 movement_component = NodePath("../MoveComponent")
 state_machine_component = NodePath("../StateMachineComponent")
 
-[node name="DeathComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "lane_manager_component")]
+[node name="DeathComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "lane_manager_component", "hurtbox_component")]
 script = ExtResource("3_rjyem")
 actor = NodePath("..")
 stats_component = NodePath("../StatsComponent")
 lane_manager_component = NodePath("../LaneManagerComponent")
+hurtbox_component = NodePath("../HurtboxComponent")
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "navigation_agent")]
 script = ExtResource("8_qj5y5")
@@ -129,7 +130,7 @@ move_component = NodePath("../MoveComponent")
 sprite = NodePath("../Sprite2D")
 stats_component = NodePath("../StatsComponent")
 
-[node name="AbilityComponent" type="Node2D" parent="." node_paths=PackedStringArray("actor", "hitbox_component", "stats_component", "state_machine_component", "death_component", "attack_component")]
+[node name="AbilityComponent" type="Node2D" parent="." node_paths=PackedStringArray("actor", "hitbox_component", "stats_component", "state_machine_component", "death_component", "attack_component", "hurtbox_component")]
 script = ExtResource("24_fy47j")
 actor = NodePath("..")
 hitbox_component = NodePath("../HitboxComponent")
@@ -137,6 +138,7 @@ stats_component = NodePath("../StatsComponent")
 state_machine_component = NodePath("../StateMachineComponent")
 death_component = NodePath("../DeathComponent")
 attack_component = NodePath("../AttackComponent")
+hurtbox_component = NodePath("../HurtboxComponent")
 
 [node name="StateMachineComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "initial_state", "health_bar_component")]
 script = ExtResource("11_2pcrj")
@@ -192,9 +194,10 @@ health_bar_component = NodePath("../../HealthBarComponent")
 script = ExtResource("21_j8gwa")
 move_component = NodePath("../../MoveComponent")
 
-[node name="DeadState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("move_component")]
+[node name="DeadState" type="Node" parent="StateMachineComponent" node_paths=PackedStringArray("move_component", "attack_component")]
 script = ExtResource("19_dww3i")
 move_component = NodePath("../../MoveComponent")
+attack_component = NodePath("../../AttackComponent")
 
 [node name="NewGameComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("21_rb42e")

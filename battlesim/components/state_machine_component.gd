@@ -57,7 +57,7 @@ func update_state(value: float) -> void:
 	
 	if value >= health_bar_component.max_value * 0.6:
 		on_child_transition("AggressiveState")
-	elif value >= health_bar_component.max_value * 0.2:
+	elif value >= health_bar_component.max_value * 0.05:
 		on_child_transition("DefensiveState")
 	elif value > 0:
 		on_child_transition("RetreatState")

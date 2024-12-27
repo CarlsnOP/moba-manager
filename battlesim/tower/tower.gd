@@ -11,6 +11,7 @@ const FRIENDLY_TOWER = preload("res://assets/art/map/friendly_tower.png")
 
 
 var scale_adjustment := Vector2(0.15, 0.15)
+var actor_name := "Tower"
 
 func setup(enemy: bool) -> void:
 	#apply to both enemy and friendly tower

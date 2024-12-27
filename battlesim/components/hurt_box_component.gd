@@ -6,8 +6,10 @@ signal hurt(damage: float)
 @export var stats_component: StatsComponent
 @export var state_machine_component: StateMachineComponent
 
+var last_hitter: PhysicsBody2D
 
-func take_damage(damage_taken: float) -> void:
+func take_damage(damage_taken: float, lh: PhysicsBody2D) -> void:
+	last_hitter = lh
 	var actual_damage_taken = damage_taken * stats_component.damage_reduction
 	stats_component.health -= actual_damage_taken
 	hurt.emit(actual_damage_taken)
