@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="EnemyHeroResource" load_steps=3 format=3 uid="uid://tnjmmdiee3ea"]
+[gd_resource type="Resource" script_class="HeroResource" load_steps=4 format=3 uid="uid://tnjmmdiee3ea"]
 
 [ext_resource type="Texture2D" uid="uid://o274k0imgf8n" path="res://assets/art/characters/bullies/Sheila.png" id="1_codvt"]
-[ext_resource type="Script" path="res://resources/heroes/enemy_hero_resource.gd" id="2_slr4r"]
+[ext_resource type="Texture2D" uid="uid://7d08r3a5erjf" path="res://assets/art/characters/enemy_heroes_portraits/sheila_circle_portrait.png" id="2_7e2uq"]
+[ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="3_fyed5"]
 
 [resource]
-script = ExtResource("2_slr4r")
-hero_name = "Sheila"
+script = ExtResource("3_fyed5")
 hero_icon = ExtResource("1_codvt")
+hero_portrait = ExtResource("2_7e2uq")
+hero_name = "Sheila"
 health = 1150.0
 health_regen = 5.0
 attack_damage = 100.0
@@ -14,3 +16,13 @@ ability_power = 120.0
 dodge = 0.01
 block = 0.05
 crit = 0.05
+in_team = false
+lvl = 0
+xp = 0
+prestige = 0
+upgrade_points = 0
+extra_hp = 0.0
+extra_ad = 0.0
+extra_ap = 0.0
+type = ""
+lore = ""

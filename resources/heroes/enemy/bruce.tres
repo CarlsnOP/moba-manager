@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="EnemyHeroResource" load_steps=3 format=3 uid="uid://bpvaeob7ern07"]
+[gd_resource type="Resource" script_class="HeroResource" load_steps=4 format=3 uid="uid://bpvaeob7ern07"]
 
 [ext_resource type="Texture2D" uid="uid://df11rwqd2srmf" path="res://assets/art/characters/bullies/Bruce.png" id="1_3v36q"]
-[ext_resource type="Script" path="res://resources/heroes/enemy_hero_resource.gd" id="2_u2qfe"]
+[ext_resource type="Texture2D" uid="uid://crr23ptdcw80o" path="res://assets/art/characters/enemy_heroes_portraits/bruce_circle_portrait.png" id="2_p5eu5"]
+[ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="3_umgo2"]
 
 [resource]
-script = ExtResource("2_u2qfe")
+script = ExtResource("3_umgo2")
 hero_icon = ExtResource("1_3v36q")
+hero_portrait = ExtResource("2_p5eu5")
 hero_name = "Bruce"
 health = 1250.0
 health_regen = 5.0
@@ -14,3 +16,13 @@ ability_power = 90.0
 dodge = 0.01
 block = 0.05
 crit = 0.05
+in_team = false
+lvl = 0
+xp = 0
+prestige = 0
+upgrade_points = 0
+extra_hp = 0.0
+extra_ad = 0.0
+extra_ap = 0.0
+type = ""
+lore = ""

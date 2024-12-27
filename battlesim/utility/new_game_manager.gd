@@ -1,3 +1,4 @@
+class_name NewGameManager
 extends Node
 
 const HERO = preload("res://battlesim/heroes/hero.tscn")
@@ -21,7 +22,11 @@ var game_launced := false
 var old_enemy_modifier := 1.0
 var new_enemy_modifier := 1.0
 var enemy: bool
+var enemy1: HeroResource
+var enemy2: HeroResource
 var top_lane: bool
+var enemy_modifier_low := 0.8
+var enemy_modifier_high := 1.2
 
 func _ready():
 	SignalManager.on_battle_end.connect(on_battle_end)
@@ -33,7 +38,7 @@ func on_battle_end(win: bool) -> void:
 	var objects_to_be_cleared = get_tree().get_nodes_in_group("restart_map")
 	var nodes_to_update = get_tree().get_nodes_in_group("update_post_match")
 	
-	new_enemy_modifier = randf_range(0.8, 1.2)
+	new_enemy_modifier = randf_range(enemy_modifier_low, enemy_modifier_high)
 	
 	for object in objects_to_be_cleared:
 		if object.has_method("new_game"):
@@ -86,8 +91,8 @@ func spawn_enemy_heroes() -> void:
 	enemy = true
 	top_lane = true
 	#Choosing enemy heroes
-	var enemy1 = TeamManager.pick_random_enemy()
-	var enemy2 = TeamManager.pick_random_enemy()
+	enemy1 = TeamManager.pick_random_enemy()
+	enemy2 = TeamManager.pick_random_enemy()
 	
 	#making sure it isn't the same
 	while enemy2 == enemy1:

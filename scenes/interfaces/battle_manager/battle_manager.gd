@@ -7,8 +7,8 @@ extends Control
 var selected_hero: Hero
 var selected_lane_manager_component: LaneManagerComponent
 var selected_state_machine_component: StateMachineComponent
-var top_hero_res: FriendlyHeroResource
-var bot_hero_res: FriendlyHeroResource
+var top_hero_res: HeroResource
+var bot_hero_res: HeroResource
 var top_hero_node: CharacterBody2D
 var bot_hero_node: CharacterBody2D
 var top_lane := true
@@ -61,7 +61,8 @@ func _on_bot_button_pressed():
 	selected_lane_manager_component.on_lane_change(bot_lane)
 
 func _on_retreat_button_pressed() -> void:
-	selected_state_machine_component.on_child_transition("RetreatState")
+	if selected_state_machine_component != null:
+		selected_state_machine_component.on_child_transition("RetreatState")
 
 func _on_fast_forward_button_pressed() -> void:
 	var homepage = get_tree().get_first_node_in_group("homepage") as Homepage

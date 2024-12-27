@@ -1,7 +1,7 @@
 class_name HitboxComponent
 extends Area2D
 
-var targets_in_range: Array = []
+var targets_in_range := []
 
 
 func _ready():

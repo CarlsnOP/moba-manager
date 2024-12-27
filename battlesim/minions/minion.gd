@@ -1,8 +1,8 @@
 class_name Minion
 extends CharacterBody2D
 
-const ENEMY_MINION = preload("res://assets/art/map/enemy_minion.png")
-const FRIENDLY_MINION = preload("res://assets/art/map/friendly_minion.png")
+const ENEMY_MINION = preload("res://assets/art/characters/enemy_minion.png")
+const FRIENDLY_MINION = preload("res://assets/art/characters/friendly_minion.png")
 
 @onready var stats_component = $StatsComponent
 @onready var sprite_2d = $Sprite2D

@@ -4,10 +4,6 @@ extends Resource
 
 const SAVE_GAME_PATH := "user://savegame.tres"
 
-@export var rubber_duckies := 0
-
-@export var heroes := Resource
-@export var inventory: Resource
 
 func write_savegame() -> void:
 	ResourceSaver.save(self, SAVE_GAME_PATH)

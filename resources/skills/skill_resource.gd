@@ -1,6 +1,6 @@
+class_name SkillResource
 extends Resource
 
-class_name SkillResource
 
 @export_group("Settings")
 @export var name: String
@@ -8,6 +8,8 @@ class_name SkillResource
 @export var description: String
 @export var effect: String
 @export var effect_growth: String
+@export var cooldown: float
+@export var damage: float
 
 @export_group("Functionality")
-@export var skill_scene: PackedScene
+@export var ability_script: Script

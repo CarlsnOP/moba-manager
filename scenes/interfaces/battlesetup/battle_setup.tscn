@@ -4,12 +4,10 @@
 [ext_resource type="Script" path="res://scenes/interfaces/battlesetup/battle_setup.gd" id="2_ng1v2"]
 [ext_resource type="Texture2D" uid="uid://0jmm3api8fgm" path="res://assets/art/ui/arena.png" id="3_gu1wc"]
 [ext_resource type="PackedScene" uid="uid://lt08ltq12ss6" path="res://scenes/hero_slot/hero_portrait_slot.tscn" id="3_uuksq"]
-[ext_resource type="Texture2D" uid="uid://crbevsfr7osdv" path="res://assets/art/characters/portraits/Egon portrait.png" id="4_bftr8"]
-[ext_resource type="Texture2D" uid="uid://ic56vif0hfe1" path="res://assets/art/characters/portraits/Em portrait.png" id="6_co4nc"]
+[ext_resource type="Texture2D" uid="uid://c1c26xn47bydm" path="res://assets/art/characters/team_heroes_portraits/egon_circle_portrait.png" id="4_a5huj"]
+[ext_resource type="Texture2D" uid="uid://bov1hs5fvyh28" path="res://assets/art/characters/team_heroes_portraits/eddy_circle_portrait.png" id="4_ymgtx"]
+[ext_resource type="Texture2D" uid="uid://d2x2gfqjxapts" path="res://assets/art/characters/team_heroes_portraits/em_circle_portrait.png" id="5_duoty"]
 [ext_resource type="Script" path="res://scenes/interfaces/battlesetup/hero_menu.gd" id="7_j87wi"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v7ifr"]
-load_path = "res://.godot/imported/Eddy portrait.png-3a207cb37888210dc7a06ba9be07753a.ctex"
 
 [node name="BattleSetup" groups=["game_events"] instance=ExtResource("1_mn2md")]
 script = ExtResource("2_ng1v2")
@@ -41,7 +39,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 10
-icon = ExtResource("4_bftr8")
+icon = ExtResource("4_a5huj")
 flat = true
 expand_icon = true
 
@@ -64,7 +62,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 10
-icon = ExtResource("6_co4nc")
+icon = ExtResource("5_duoty")
 flat = true
 expand_icon = true
 
@@ -88,7 +86,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 10
-icon = SubResource("CompressedTexture2D_v7ifr")
+icon = ExtResource("4_ymgtx")
 flat = true
 expand_icon = true
 

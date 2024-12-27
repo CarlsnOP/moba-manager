@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://de4ha8hhwstwa"]
-
-[ext_resource type="Script" path="res://scenes/skills/ironclad_aura/ironclad_aura.gd" id="1_upym1"]
-
-[node name="IroncladAura" type="Node"]
-script = ExtResource("1_upym1")

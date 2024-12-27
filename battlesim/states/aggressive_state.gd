@@ -89,14 +89,14 @@ func focus_priority_target() -> void:
 									state_machine_component.on_child_transition("ChasingState")
 								
 						"tower":
-							if priority > 3:
+							if priority < 3:
 								attack_component.current_target_hurtbox = possible_target
 								priority = 2
 						"nexus":
-							if priority > 3:
+							if priority < 3:
 								attack_component.current_target_hurtbox = possible_target
 								priority = 2
 						"minion":
-							if priority > 2:
+							if priority < 2:
 								attack_component.current_target_hurtbox = possible_target
 								priority = 1

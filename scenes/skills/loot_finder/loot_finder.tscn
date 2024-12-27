@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b20u5i8std4me"]
-
-[ext_resource type="Script" path="res://scenes/skills/loot_finder/loot_finder.gd" id="1_m8fqw"]
-
-[node name="Loot_Finder" type="Node"]
-script = ExtResource("1_m8fqw")

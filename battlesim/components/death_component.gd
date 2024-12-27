@@ -6,6 +6,7 @@ const MINIMUM_RESPAWN_TIME := 20.0
 @export var actor: PhysicsBody2D
 @export var stats_component: StatsComponent
 @export var lane_manager_component: LaneManagerComponent
+@export var original_position: Vector2
 
 var dead_pos = Vector2(-50, -50)
 var respawn_timer: Timer = Timer.new()
@@ -26,8 +27,9 @@ func process_death() -> void:
 		actor.queue_free()
 		
 	else:
+		original_position = actor.global_position
 		actor.global_position = dead_pos
-		var match_elapsed_time = get_tree().get_first_node_in_group("map") as Map
+		var match_elapsed_time = get_tree().get_first_node_in_group("top_bar") as TopBar
 		respawn_timer.wait_time = MINIMUM_RESPAWN_TIME + (match_elapsed_time.get_game_length() * 0.1)
 		respawn_timer.start()
 

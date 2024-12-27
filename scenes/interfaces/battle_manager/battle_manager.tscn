@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://fgfie74mjqjs"]
 
 [ext_resource type="Script" path="res://scenes/interfaces/battle_manager/battle_manager.gd" id="1_xnjbi"]
-[ext_resource type="Texture2D" uid="uid://crbevsfr7osdv" path="res://assets/art/characters/portraits/Egon portrait.png" id="2_dxgcs"]
+[ext_resource type="Texture2D" uid="uid://bov1hs5fvyh28" path="res://assets/art/characters/team_heroes_portraits/eddy_circle_portrait.png" id="2_dgssy"]
 
 [node name="BattleManager" type="PanelContainer" groups=["update_post_match"]]
 custom_minimum_size = Vector2(400, 0)
@@ -38,7 +38,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
-icon = ExtResource("2_dxgcs")
+icon = ExtResource("2_dgssy")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -47,7 +47,7 @@ expand_icon = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-icon = ExtResource("2_dxgcs")
+icon = ExtResource("2_dgssy")
 flat = true
 icon_alignment = 1
 expand_icon = true

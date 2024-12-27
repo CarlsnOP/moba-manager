@@ -1,105 +1,111 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2uitoevl42b3"]
+[gd_scene load_steps=7 format=3 uid="uid://b2uitoevl42b3"]
 
 [ext_resource type="Texture2D" uid="uid://0jmm3api8fgm" path="res://assets/art/ui/arena.png" id="1_ifuak"]
 [ext_resource type="Script" path="res://battlesim/map/map.gd" id="2_qjnf3"]
 [ext_resource type="PackedScene" uid="uid://cpkmpqcwgpdlu" path="res://battlesim/navigation_map/navigation_map.tscn" id="3_m4rwa"]
 [ext_resource type="Script" path="res://battlesim/utility/wave_manager.gd" id="4_mnbnl"]
+[ext_resource type="PackedScene" uid="uid://bacpg17x5vs5i" path="res://battlesim/top_bar/top_bar.tscn" id="6_dc8qn"]
 [ext_resource type="Script" path="res://battlesim/utility/new_game_manager.gd" id="27_12da5"]
 
-[node name="Map" type="Control" groups=["map", "update_post_match"]]
+[node name="Map" type="Control" groups=["map"]]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 script = ExtResource("2_qjnf3")
 
-[node name="NavigationMap" parent="." instance=ExtResource("3_m4rwa")]
-unique_name_in_owner = true
-position = Vector2(2, -6)
+[node name="TopBar" parent="." instance=ExtResource("6_dc8qn")]
+layout_mode = 1
 
-[node name="MapTexture" type="Sprite2D" parent="."]
+[node name="PositionAdjustment" type="Node2D" parent="."]
+position = Vector2(0, 72)
+
+[node name="NavigationMap" parent="PositionAdjustment" instance=ExtResource("3_m4rwa")]
+unique_name_in_owner = true
+position = Vector2(2, -10)
+
+[node name="MapTexture" type="Sprite2D" parent="PositionAdjustment"]
+position = Vector2(0, -4)
 texture = ExtResource("1_ifuak")
 centered = false
 
-[node name="EnemyStructures" type="Node2D" parent="."]
+[node name="EnemyStructures" type="Node2D" parent="PositionAdjustment"]
 unique_name_in_owner = true
+position = Vector2(0, -4)
 
-[node name="SpawnEnemyTowerTop" type="Marker2D" parent="EnemyStructures"]
+[node name="SpawnEnemyTowerTop" type="Marker2D" parent="PositionAdjustment/EnemyStructures"]
 unique_name_in_owner = true
 position = Vector2(417, 177)
 
-[node name="SpawnEnemyTowerBot" type="Marker2D" parent="EnemyStructures"]
+[node name="SpawnEnemyTowerBot" type="Marker2D" parent="PositionAdjustment/EnemyStructures"]
 unique_name_in_owner = true
 position = Vector2(893, 453)
 
-[node name="SpawnEnemyNexus" type="Marker2D" parent="EnemyStructures"]
+[node name="SpawnEnemyNexus" type="Marker2D" parent="PositionAdjustment/EnemyStructures"]
 unique_name_in_owner = true
 position = Vector2(868, 151)
 
-[node name="TeamStructures" type="Node2D" parent="."]
+[node name="TeamStructures" type="Node2D" parent="PositionAdjustment"]
 unique_name_in_owner = true
+position = Vector2(0, -4)
 
-[node name="SpawnTeamTowerTop" type="Marker2D" parent="TeamStructures"]
+[node name="SpawnTeamTowerTop" type="Marker2D" parent="PositionAdjustment/TeamStructures"]
 unique_name_in_owner = true
 position = Vector2(144, 519)
 
-[node name="SpawnTeamTowerBot" type="Marker2D" parent="TeamStructures"]
+[node name="SpawnTeamTowerBot" type="Marker2D" parent="PositionAdjustment/TeamStructures"]
 unique_name_in_owner = true
 position = Vector2(471, 736)
 
-[node name="SpawnTeamNexus" type="Marker2D" parent="TeamStructures"]
+[node name="SpawnTeamNexus" type="Marker2D" parent="PositionAdjustment/TeamStructures"]
 unique_name_in_owner = true
 position = Vector2(157, 812)
 
-[node name="RespawnEnemyHero" type="Marker2D" parent="."]
+[node name="RespawnEnemyHero" type="Marker2D" parent="PositionAdjustment"]
 unique_name_in_owner = true
-position = Vector2(851, 170)
+position = Vector2(851, 166)
 
-[node name="Minions" type="Node2D" parent="."]
+[node name="Minions" type="Node2D" parent="PositionAdjustment"]
+position = Vector2(0, -4)
 
-[node name="RespawnEnemyMinionTop" type="Marker2D" parent="Minions"]
+[node name="RespawnEnemyMinionTop" type="Marker2D" parent="PositionAdjustment/Minions"]
 unique_name_in_owner = true
 position = Vector2(784, 170)
 
-[node name="RespawnEnemyMinionBot" type="Marker2D" parent="Minions"]
+[node name="RespawnEnemyMinionBot" type="Marker2D" parent="PositionAdjustment/Minions"]
 unique_name_in_owner = true
 position = Vector2(852, 217)
 
-[node name="RespawnTeamMinionTop" type="Marker2D" parent="Minions"]
+[node name="RespawnTeamMinionTop" type="Marker2D" parent="PositionAdjustment/Minions"]
 unique_name_in_owner = true
 position = Vector2(157, 787)
 
-[node name="RespawnTeamMinionBot" type="Marker2D" parent="Minions"]
+[node name="RespawnTeamMinionBot" type="Marker2D" parent="PositionAdjustment/Minions"]
 unique_name_in_owner = true
 position = Vector2(215, 835)
 
-[node name="RespawnTeamHero" type="Marker2D" parent="."]
+[node name="RespawnTeamHero" type="Marker2D" parent="PositionAdjustment"]
 unique_name_in_owner = true
-position = Vector2(151, 826)
+position = Vector2(151, 822)
 
-[node name="Utility" type="Node" parent="."]
+[node name="Utility" type="Node" parent="PositionAdjustment"]
 
-[node name="SpawnTimer" type="Timer" parent="Utility"]
+[node name="SpawnTimer" type="Timer" parent="PositionAdjustment/Utility"]
 unique_name_in_owner = true
 wait_time = 15.0
 
-[node name="WaveManager" type="Node" parent="Utility" groups=["restart_map"]]
+[node name="WaveManager" type="Node" parent="PositionAdjustment/Utility" groups=["restart_map"]]
 unique_name_in_owner = true
 script = ExtResource("4_mnbnl")
 
-[node name="NewGameManager" type="Node" parent="Utility"]
+[node name="NewGameManager" type="Node" parent="PositionAdjustment/Utility" groups=["new_game_manager"]]
 unique_name_in_owner = true
 script = ExtResource("27_12da5")
 
-[node name="MatchTimer" type="Timer" parent="Utility"]
-unique_name_in_owner = true
-autostart = true
+[connection signal="timeout" from="PositionAdjustment/Utility/SpawnTimer" to="PositionAdjustment/Utility/WaveManager" method="_on_spawn_timer_timeout"]
 
-[node name="MatchTimerLabel" type="Label" parent="Utility"]
-unique_name_in_owner = true
-offset_right = 1920.0
-offset_bottom = 69.0
-theme_type_variation = &"HeaderLarge"
-text = "0:00"
-horizontal_alignment = 1
-
-[connection signal="timeout" from="Utility/SpawnTimer" to="Utility/WaveManager" method="_on_spawn_timer_timeout"]
-[connection signal="timeout" from="Utility/MatchTimer" to="." method="_on_match_timer_timeout"]
+[editable path="TopBar"]

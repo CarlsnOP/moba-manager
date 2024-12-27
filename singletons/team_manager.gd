@@ -8,7 +8,7 @@ var top: HeroResource = preload("res://resources/heroes/friendly/egon.tres")
 var bot: HeroResource = preload("res://resources/heroes/friendly/em.tres")
 var heroes_xp: Array[int] = []
 var _all_heroes: Array[HeroResource] = []
-var _all_enemy_heroes: Array[EnemyHeroResource] = []
+var _all_enemy_heroes: Array[HeroResource] = []
 var equipped_equipment: Array[EquipmentResource] = []
 
 func _ready():
@@ -19,7 +19,7 @@ func _ready():
 	
 	for file in DirAccess.get_files_at("res://resources/heroes/enemy/"):
 		var resource_file = "res://resources/heroes/enemy/" + file
-		var hero: EnemyHeroResource = load(resource_file) as EnemyHeroResource
+		var hero: HeroResource = load(resource_file) as HeroResource
 		_all_enemy_heroes.append(hero)
 
 func load_team():
@@ -39,7 +39,7 @@ func setup_team(hero: HeroResource) -> void:
 			bot = hero
 			hero.in_team = true
 
-func pick_random_enemy() -> EnemyHeroResource:
+func pick_random_enemy() -> HeroResource:
 	if _all_enemy_heroes.size() > 0:
 		return _all_enemy_heroes[randi() % _all_enemy_heroes.size()]
 	return null

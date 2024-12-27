@@ -1,3 +1,0 @@
-extends HeroResource
-
-class_name EnemyHeroResource

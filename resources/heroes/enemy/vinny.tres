@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="EnemyHeroResource" load_steps=3 format=3 uid="uid://dyht0ixt2r7ug"]
+[gd_resource type="Resource" script_class="HeroResource" load_steps=4 format=3 uid="uid://dyht0ixt2r7ug"]
 
 [ext_resource type="Texture2D" uid="uid://bhhhr81gttpug" path="res://assets/art/characters/bullies/Vinny.png" id="1_24esu"]
-[ext_resource type="Script" path="res://resources/heroes/enemy_hero_resource.gd" id="2_ioj0r"]
+[ext_resource type="Texture2D" uid="uid://y0ro3kmirgt3" path="res://assets/art/characters/enemy_heroes_portraits/vinny_circle_portrait.png" id="2_7bvcc"]
+[ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="3_0bbup"]
 
 [resource]
-script = ExtResource("2_ioj0r")
-hero_name = "Vinny"
+script = ExtResource("3_0bbup")
 hero_icon = ExtResource("1_24esu")
+hero_portrait = ExtResource("2_7bvcc")
+hero_name = "Vinny"
 health = 1200.0
 health_regen = 5.0
 attack_damage = 125.0
@@ -14,3 +16,13 @@ ability_power = 100.0
 dodge = 0.01
 block = 0.05
 crit = 0.05
+in_team = false
+lvl = 0
+xp = 0
+prestige = 0
+upgrade_points = 0
+extra_hp = 0.0
+extra_ad = 0.0
+extra_ap = 0.0
+type = ""
+lore = ""

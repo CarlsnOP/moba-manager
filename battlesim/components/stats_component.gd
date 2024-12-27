@@ -13,6 +13,7 @@ signal no_health()
 @export var dodge := 0.01
 @export var block := 0.05
 @export var crit := 0.05
+@export var damage_reduction := 1.0
 
 @export var move_speed := 5000.0
 @export var att_speed := 1.0

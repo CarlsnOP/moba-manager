@@ -1,14 +1,16 @@
 [gd_resource type="Resource" script_class="SkillResource" load_steps=4 format=3 uid="uid://elguuwbw8yoy"]
 
 [ext_resource type="Texture2D" uid="uid://jmroqjumunly" path="res://assets/art/skills/Loot Finder.png" id="1_b24ru"]
+[ext_resource type="Script" path="res://resources/skills/skill_scripts/loot_finder_script.gd" id="1_lc3ot"]
 [ext_resource type="Script" path="res://resources/skills/skill_resource.gd" id="2_sdru1"]
-[ext_resource type="PackedScene" uid="uid://b20u5i8std4me" path="res://scenes/skills/loot_finder/loot_finder.tscn" id="3_o4thw"]
 
 [resource]
 script = ExtResource("2_sdru1")
 name = "Loot Finder"
 icon = ExtResource("1_b24ru")
 description = "Eddy has a nose for trouble—and treasure! His endless curiosity and sharp instincts make him a master of the jungle, where others might get lost, Eddy finds hidden stashes of loot that others would walk right past. With \"Loot Finder,\" Eddy can sniff out even the most well-hidden treasures, ensuring that no chest, bag of gold, or shiny trinket goes unnoticed. Whether it’s behind a bush or under a rock, if there’s loot to be found, you can bet Eddy will find it, grinning ear to ear as he does."
-effect = "Loot amount is increased by 5%."
+effect = "Loot amount is increased by 10%."
 effect_growth = "Increases the amount of loot Eddy finds in the jungle by 2%."
-skill_scene = ExtResource("3_o4thw")
+cooldown = 0.0
+damage = 0.0
+ability_script = ExtResource("1_lc3ot")
