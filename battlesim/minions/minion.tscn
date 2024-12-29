@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://621r0t6hrohn"]
+[gd_scene load_steps=20 format=3 uid="uid://621r0t6hrohn"]
 
 [ext_resource type="Texture2D" uid="uid://b40j4r1cb5sa0" path="res://assets/art/characters/enemy_minion.png" id="1_5aclp"]
 [ext_resource type="Script" path="res://battlesim/minions/minion.gd" id="1_i0ibx"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://battlesim/components/health_bar_component.gd" id="13_gglgh"]
 [ext_resource type="Script" path="res://battlesim/components/state_machine_component.gd" id="14_hqc5o"]
 [ext_resource type="Script" path="res://battlesim/components/new_game_component.gd" id="15_5po03"]
+[ext_resource type="Script" path="res://battlesim/components/sfx_component.gd" id="16_iu15o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0qf73"]
 radius = 5.0
@@ -124,3 +125,6 @@ attack_component = NodePath("../../AttackComponent")
 [node name="NewGameComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("15_5po03")
 actor = NodePath("..")
+
+[node name="SFXComponent" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("16_iu15o")

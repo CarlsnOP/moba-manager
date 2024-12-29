@@ -46,6 +46,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/ColorRect/MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 8
 
