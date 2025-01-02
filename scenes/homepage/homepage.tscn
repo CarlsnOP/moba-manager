@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpnlghx13iay"]
+[gd_scene load_steps=12 format=3 uid="uid://bpnlghx13iay"]
 
 [ext_resource type="Script" path="res://scenes/homepage/homepage.gd" id="1_i64r6"]
 [ext_resource type="PackedScene" uid="uid://d1srca4b5kfs6" path="res://scenes/nav_menu/nav_menu.tscn" id="3_tjgve"]
 [ext_resource type="PackedScene" uid="uid://brfdff1sxe1as" path="res://scenes/interface/interface.tscn" id="5_upecu"]
 [ext_resource type="PackedScene" uid="uid://fgfie74mjqjs" path="res://scenes/interfaces/battle_manager/battle_manager.tscn" id="6_88w18"]
-[ext_resource type="Script" path="res://utility/saving_and_loading/saver_loader.gd" id="6_ydpd0"]
+[ext_resource type="Script" path="res://utility/scripts/saving_and_loading/saver_loader.gd" id="6_ydpd0"]
 [ext_resource type="PackedScene" uid="uid://b8fkla5rkmdyu" path="res://scenes/utility/team_manager/team_manager.tscn" id="7_4dhdb"]
 [ext_resource type="PackedScene" uid="uid://b2uitoevl42b3" path="res://battlesim/map/map.tscn" id="7_e6ve5"]
+[ext_resource type="PackedScene" uid="uid://deflmyqw7x3wv" path="res://singletons/sound_manager.tscn" id="8_qnl7l"]
 [ext_resource type="AudioStream" uid="uid://7irdu1cd5ubh" path="res://assets/sounds/music/Bouncy Adventure.mp3" id="9_7tj1g"]
 [ext_resource type="AudioStream" uid="uid://4hp51cewv1an" path="res://assets/sounds/music/Happy Adventure.mp3" id="10_6io05"]
 
@@ -94,13 +95,12 @@ autostart = true
 
 [node name="TeamManager" parent="Utilities" instance=ExtResource("7_4dhdb")]
 
+[node name="SoundManager" parent="Utilities" instance=ExtResource("8_qnl7l")]
+
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="Utilities"]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamPlaylist_p3n3p")
 bus = &"Music"
-
-[node name="SFXPlayer" type="AudioStreamPlayer" parent="Utilities"]
-bus = &"SFX"
 
 [connection signal="timeout" from="Utilities/SaverLoader/SaveTimer" to="Utilities/SaverLoader" method="_on_save_timer_timeout"]
 

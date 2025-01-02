@@ -41,22 +41,35 @@ theme_override_constants/margin_bottom = 10
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Control" type="Control" parent="VBoxContainer/ColorRect/MarginContainer/TopBarHB"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer/ColorRect/MarginContainer"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="MatchTimerLabel" type="Label" parent="VBoxContainer"]
+[node name="TeamHB" type="HBoxContainer" parent="VBoxContainer/ColorRect/MarginContainer/TopBarHB"]
 unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSeperator" type="VSeparator" parent="VBoxContainer/ColorRect/MarginContainer/TopBarHB"]
+layout_mode = 2
+
+[node name="MatchTimerLabel" type="Label" parent="VBoxContainer/ColorRect/MarginContainer/TopBarHB"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderLarge"
 text = "00:00"
 horizontal_alignment = 1
+
+[node name="VSeperator2" type="VSeparator" parent="VBoxContainer/ColorRect/MarginContainer/TopBarHB"]
+layout_mode = 2
+
+[node name="EnemyHB" type="HBoxContainer" parent="VBoxContainer/ColorRect/MarginContainer/TopBarHB"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/ColorRect/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
 
 [node name="MatchTimer" type="Timer" parent="."]
 unique_name_in_owner = true

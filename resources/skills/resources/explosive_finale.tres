@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="SkillResource" load_steps=4 format=3 uid="uid://benvpqfdnowsj"]
+[gd_resource type="Resource" script_class="SkillResource" load_steps=5 format=3 uid="uid://benvpqfdnowsj"]
 
 [ext_resource type="Script" path="res://resources/skills/skill_scripts/explosive_finale_script.gd" id="1_oao7l"]
 [ext_resource type="Script" path="res://resources/skills/skill_resource.gd" id="2_q7bs1"]
 [ext_resource type="Texture2D" uid="uid://cb6f1n4ho42k" path="res://assets/art/skills/Explosive Finale.png" id="2_tr5vx"]
+[ext_resource type="Resource" uid="uid://dutotoraaeema" path="res://resources/projectiles/explosive_finale_projectile.tres" id="3_1otls"]
 
 [resource]
 script = ExtResource("2_q7bs1")
@@ -13,4 +14,5 @@ effect = "Em's grenade deals 150% of her AD as damage to the primary target, wit
 effect_growth = "Grenade damage percentage increases by 10% per level."
 cooldown = 0.0
 damage = 400.0
+projectile = ExtResource("3_1otls")
 ability_script = ExtResource("1_oao7l")

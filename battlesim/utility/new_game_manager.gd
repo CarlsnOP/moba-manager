@@ -49,6 +49,12 @@ func on_battle_end(win: bool) -> void:
 	
 	if game_launced:
 		RewardManager.on_battle_end(win, old_enemy_modifier)
+		
+		if win:
+			SoundManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.GAME_WIN)
+		else:
+			SoundManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.GAME_LOSE)
+		
 		for node in nodes_to_update:
 			if node.has_method("update"):
 				node.update()

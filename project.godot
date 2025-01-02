@@ -31,12 +31,13 @@ config/icon="res://logo.png"
 SignalManager="*res://singletons/signal_manager.gd"
 RewardManager="*res://singletons/reward_manager.gd"
 TeamManager="*res://singletons/team_manager.gd"
-SoundManager="*res://singletons/sound_manager.gd"
+SoundManager="*res://singletons/sound_manager.tscn"
 InventoryManager="*res://singletons/inventory_manager.gd"
 LevelManager="*res://singletons/level_manager.gd"
 RankManager="*res://singletons/rank_manager.gd"
 Popups="*res://utility/popups/popups.tscn"
 MatchDataManager="*res://singletons/match_data_manager.gd"
+ObjectMakerManager="*res://singletons/object_maker_manager.gd"
 
 [debug]
 

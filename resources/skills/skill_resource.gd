@@ -12,4 +12,5 @@ extends Resource
 @export var damage: float
 
 @export_group("Functionality")
+@export var projectile: ProjectileResource
 @export var ability_script: Script

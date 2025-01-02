@@ -1,0 +1,58 @@
+[gd_scene load_steps=13 format=3 uid="uid://deflmyqw7x3wv"]
+
+[ext_resource type="Script" path="res://singletons/sound_manager.gd" id="1_rmpyl"]
+[ext_resource type="Script" path="res://utility/scripts/sound_effect_settings/sound_effect_settings.gd" id="2_rnnka"]
+[ext_resource type="AudioStream" uid="uid://byxx7veg4s8yg" path="res://assets/sounds/sfx/skills/crushing_blow/crushing_blow_hit.wav" id="3_lham7"]
+[ext_resource type="AudioStream" uid="uid://0em8swi20fq8" path="res://assets/sounds/sfx/skills/explosive_finale/explosive_finale_explosion.wav" id="4_qxopu"]
+[ext_resource type="AudioStream" uid="uid://3v2y5qiur3oo" path="res://assets/sounds/sfx/battlesim/game_over/win_game.wav" id="5_6to17"]
+[ext_resource type="AudioStream" uid="uid://dsf7osahwtmdq" path="res://assets/sounds/sfx/battlesim/game_over/lose_game.wav" id="6_tiae0"]
+[ext_resource type="AudioStream" uid="uid://djirfx0ybuq24" path="res://assets/sounds/sfx/skills/explosive_finale/explosive_finale_rocket_fire.wav" id="7_5rwbt"]
+
+[sub_resource type="Resource" id="Resource_kfu05"]
+script = ExtResource("2_rnnka")
+limit = 5
+type = 2
+sound_effect = ExtResource("3_lham7")
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.3
+
+[sub_resource type="Resource" id="Resource_ppyya"]
+script = ExtResource("2_rnnka")
+limit = 5
+type = 3
+sound_effect = ExtResource("4_qxopu")
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.3
+
+[sub_resource type="Resource" id="Resource_vkgmi"]
+script = ExtResource("2_rnnka")
+limit = 5
+type = 0
+sound_effect = ExtResource("5_6to17")
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.0
+
+[sub_resource type="Resource" id="Resource_akyxf"]
+script = ExtResource("2_rnnka")
+limit = 5
+type = 1
+sound_effect = ExtResource("6_tiae0")
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.0
+
+[sub_resource type="Resource" id="Resource_wtuc5"]
+script = ExtResource("2_rnnka")
+limit = 5
+type = 4
+sound_effect = ExtResource("7_5rwbt")
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.3
+
+[node name="SoundManager" type="Node2D"]
+script = ExtResource("1_rmpyl")
+sound_effect_settings = Array[ExtResource("2_rnnka")]([SubResource("Resource_kfu05"), SubResource("Resource_ppyya"), SubResource("Resource_vkgmi"), SubResource("Resource_akyxf"), SubResource("Resource_wtuc5")])

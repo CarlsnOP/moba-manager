@@ -1,14 +1,19 @@
 class_name StateMachineComponent
 extends Node
 
+const DEAD_VALUE := 0
+
 signal on_lane_change(top: bool)
 
 @export var actor: PhysicsBody2D
 @export var initial_state: State
 @export var health_bar_component: HealthBarComponent
+@export var defensive_threshold := 0.6
+@export var retreat_threshold := 0.15
 
 var current_state: State
 var states: Dictionary = {}
+
 
 func _ready():
 	if actor is Hero:
@@ -55,11 +60,11 @@ func update_state(value: float) -> void:
 	if current_state is LaneChangeState:
 		return
 	
-	if value >= health_bar_component.max_value * 0.6:
+	if value >= health_bar_component.max_value * defensive_threshold:
 		on_child_transition("AggressiveState")
-	elif value >= health_bar_component.max_value * 0.05:
+	elif value >= health_bar_component.max_value * retreat_threshold:
 		on_child_transition("DefensiveState")
-	elif value > 0:
+	elif value > DEAD_VALUE:
 		on_child_transition("RetreatState")
 	else:
 		on_child_transition("DeadState")

@@ -8,6 +8,7 @@ extends Node
 @export var state_machine_component: StateMachineComponent
 @export var immovable_time := 0.2
 
+
 var current_target_hurtbox: HurtboxComponent = null
 var attack_timer: Timer = Timer.new()
 var immovable_timer: Timer = Timer.new()

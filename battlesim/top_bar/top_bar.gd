@@ -3,7 +3,8 @@ extends Control
 
 @export var top_bar_slot: PackedScene
 
-@onready var top_bar_hb = %TopBarHB
+@onready var team_hb = %TeamHB
+@onready var enemy_hb = %EnemyHB
 @onready var match_timer_label: Label = %MatchTimerLabel
 @onready var match_timer: Timer = %MatchTimer
 
@@ -21,11 +22,16 @@ func update() -> void:
 
 
 func setup_top_bar_slots() -> void:
+	var i = 0
 	for hero in MatchDataManager.array_of_hero_dics:
 		var slot = top_bar_slot.instantiate()
-		top_bar_hb.add_child(slot)
+		if i < 2:
+			team_hb.add_child(slot)
+		else:
+			enemy_hb.add_child(slot)
 		slot.display(hero)
 		slot.add_to_group("restart_map")
+		i += 1
 		
 
 func _on_match_timer_timeout() -> void:

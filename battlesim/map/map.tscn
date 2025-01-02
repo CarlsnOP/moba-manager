@@ -103,6 +103,8 @@ script = ExtResource("4_mnbnl")
 unique_name_in_owner = true
 script = ExtResource("27_12da5")
 
+[node name="TempSceneHolder" type="Node" parent="PositionAdjustment/Utility" groups=["temp_scene_holder"]]
+
 [node name="TopBar" parent="." instance=ExtResource("6_dc8qn")]
 layout_mode = 1
 

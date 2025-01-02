@@ -1,6 +1,7 @@
 class_name ExplosiveFinaleScript
 extends Node2D
 
+
 var actor: Hero
 var _parent: AbilityComponent
 var skill_res: SkillResource
@@ -8,10 +9,10 @@ var stats_component: StatsComponent
 var attack_component: AttackComponent
 var death_component: DeathComponent
 var hurtbox_component: HurtboxComponent
+var explosive_finale_radius := 150.0
 var explosive_finale_area2d := Area2D.new()
 var explosive_finale_collision_shape := CollisionShape2D.new()
 var circle := CircleShape2D.new()
-var explosive_finale_radius := 150.0
 
 func setup_skill(skill: SkillResource, parent: AbilityComponent) -> void:
 	actor = parent.actor
@@ -22,13 +23,14 @@ func setup_skill(skill: SkillResource, parent: AbilityComponent) -> void:
 	death_component = parent.death_component
 	hurtbox_component = parent.hurtbox_component
 	stats_component.no_health.connect(explosive_finale)
-	
-	setup_area2d()
-	setup_collision_shape()
-	
-func setup_area2d() -> void:
 
-	add_child(explosive_finale_area2d)
+func create_new_collision() -> void:
+	explosive_finale_area2d = Area2D.new()
+	explosive_finale_collision_shape = CollisionShape2D.new()
+	circle = CircleShape2D.new()
+
+func setup_area2d(projectile: BaseProjectile) -> void:
+	projectile.add_child(explosive_finale_area2d)
 	explosive_finale_area2d.add_child(explosive_finale_collision_shape)
 	explosive_finale_area2d.set_collision_layer_value(1, false)
 	
@@ -42,12 +44,20 @@ func setup_collision_shape() -> void:
 	explosive_finale_collision_shape.shape = circle
 	circle.radius = explosive_finale_radius
 
-
 func explosive_finale() -> void:
 	#if we have current target when hero dies, we will shoot at them, else explosion where we die
+	create_new_collision()
 	if hurtbox_component.last_hitter != null:
-		global_position = hurtbox_component.last_hitter.global_position
-	
+		var last_hitter = hurtbox_component.last_hitter.global_position
+		ObjectMakerManager.create_projectile(death_component.original_position, last_hitter, skill_res.projectile, self)
+		SoundManager.create_2d_audio_at_location(global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.EXPLOSIVE_FINALE_ROCKET_FIRE)
+		for child in get_children():
+			if child is BaseProjectile and is_instance_valid(child):
+				setup_area2d(child)
+				setup_collision_shape()
+				child.reached_target.connect(explode)
+				
+func explode() -> void:
 	var possible_targets
 	
 	if stats_component.enemy:

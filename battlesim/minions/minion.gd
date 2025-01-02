@@ -11,7 +11,6 @@ const FRIENDLY_MINION = preload("res://assets/art/characters/friendly_minion.png
 @onready var hitbox_component = $HitboxComponent
 @onready var health_bar_component = $HealthBarComponent
 
-
 var friendly_minion_scale := Vector2(0.06, 0.06)
 var actor_name := "Minion"
 
