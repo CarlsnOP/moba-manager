@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlokgnxf5eck6"]
+
+[ext_resource type="Script" path="res://battlesim/effects/healing/healing_particles.gd" id="1_ayhva"]
+[ext_resource type="Texture2D" uid="uid://d2wiusam60fgx" path="res://assets/art/particles/heal.png" id="1_mj82q"]
+[ext_resource type="Texture2D" uid="uid://bm7qiahpjhijq" path="res://assets/art/particles/spotlight_8.png" id="2_stney"]
+
+[sub_resource type="Gradient" id="Gradient_y3ny8"]
+offsets = PackedFloat32Array(0.0156658, 0.519582, 1)
+colors = PackedColorArray(6.85863e-07, 0.431357, 1.92523e-07, 1, 0, 0.647059, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_83jm2"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_pytok"]
+offsets = PackedFloat32Array(0, 0.195822, 0.791123, 1)
+colors = PackedColorArray(1, 0.980392, 0, 0, 1, 0.980392, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="HealingParticles" type="Node2D"]
+script = ExtResource("1_ayhva")
+
+[node name="PlusParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 5
+lifetime = 0.5
+one_shot = true
+speed_scale = 0.8
+texture = ExtResource("1_mj82q")
+emission_shape = 1
+emission_sphere_radius = 20.0
+gravity = Vector2(0, -20)
+tangential_accel_max = 0.5
+scale_amount_min = 0.01
+scale_amount_max = 0.05
+color_initial_ramp = SubResource("Gradient_y3ny8")
+
+[node name="SparklesParticles" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_83jm2")
+emitting = false
+lifetime = 0.5
+one_shot = true
+preprocess = 0.5
+speed_scale = 0.3
+texture = ExtResource("2_stney")
+emission_shape = 1
+emission_sphere_radius = 20.0
+gravity = Vector2(0, 2)
+damping_max = 1.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.01
+scale_amount_max = 0.03
+color_ramp = SubResource("Gradient_pytok")
+hue_variation_min = -0.32

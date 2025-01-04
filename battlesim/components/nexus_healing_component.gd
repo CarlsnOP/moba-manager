@@ -1,6 +1,8 @@
 class_name NexusHealingComponent
 extends Area2D
 
+signal on_heal(friend_pos: Vector2)
+
 const HEAL_WAIT_TIME := 0.3
 const HEAL_AMOUNT := 100.0
 
@@ -22,8 +24,15 @@ func _process(_delta):
 
 func heal_friend() -> void:
 	for friend in friend_in_range:
-		if friend.has_method("get_healed"):
-			friend.get_healed(HEAL_AMOUNT)
+		var friends_parent = friend.get_parent()
+		for child in friends_parent.get_children():
+			if child is StatsComponent:
+				if child.health < child.max_health:
+					if friend.has_method("get_healed"):
+						friend.get_healed(HEAL_AMOUNT)
+						on_heal.emit(friend.global_position)
+				else:
+					heal_timer.stop()
 
 
 func _on_area_entered(area):

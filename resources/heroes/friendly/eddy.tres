@@ -19,6 +19,7 @@ block = 0.05
 crit = 0.05
 in_team = false
 skill = ExtResource("4_3d252")
+hero_autoattack_sfx = 8
 lvl = 0
 xp = 0
 prestige = 0

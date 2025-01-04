@@ -16,6 +16,7 @@ class_name HeroResource
 @export var in_team: bool
 @export var skill: SkillResource
 @export var equipped_equipment: EquipmentResource
+@export var hero_autoattack_sfx: SoundEffectSettings.SOUND_EFFECT_TYPE
 #-------------------------------------
 @export_group("Hero Stats")
 @export var lvl: int

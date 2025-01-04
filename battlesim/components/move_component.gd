@@ -6,6 +6,7 @@ extends Node
 @export var navigation_agent: NavigationAgent2D
 
 var immovable := false
+var standing_still := true
 
 func _physics_process(delta):
 	if !immovable:
@@ -14,3 +15,6 @@ func _physics_process(delta):
 		if actor.global_position.distance_to(next_path_position) > 20.0:
 			actor.velocity = actor.global_position.direction_to(next_path_position) * stats_component.move_speed * delta
 			actor.move_and_slide()
+			standing_still = false
+		else:
+			standing_still = true

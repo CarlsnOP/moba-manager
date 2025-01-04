@@ -21,10 +21,21 @@ func set_new_destination() -> void:
 		possible_targets = get_tree().get_nodes_in_group("enemy")
 	
 	for possible_target in possible_targets:
-		var check_distance = actor.global_position.distance_to(possible_target.global_position)
+		if possible_target is Nexus or possible_target is Tower:
+			check_distance(possible_target)
 			
-		if check_distance < nearest_distance:
-			nearest_distance = check_distance
-			closest_target = possible_target.global_position
-			navigation_agent.set_target_position(closest_target)
-			attack_component.current_target_hurtbox = possible_target.get_hurtbox()
+		#Making sure the minion only targets units on the same navigation layer
+		for child in possible_target.get_children():
+			if child is NavigationAgent2D:
+				var targets_navigation = child as NavigationAgent2D
+				if targets_navigation.navigation_layers == navigation_agent.navigation_layers:
+					check_distance(possible_target)
+
+func check_distance(possible_target) -> void:
+	var check_dis = actor.global_position.distance_to(possible_target.global_position)
+						
+	if check_dis < nearest_distance:
+		nearest_distance = check_dis
+		closest_target = possible_target.global_position
+		navigation_agent.set_target_position(closest_target)
+		attack_component.current_target_hurtbox = possible_target.get_hurtbox()

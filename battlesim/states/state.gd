@@ -1,7 +1,7 @@
 class_name State
 extends Node
 
-const ALLY_TOO_FAR_AWAY := 50.0
+const ALLY_TOO_FAR_AWAY := 80.0
 
 signal on_child_transition(state: State, new_state_name: String)
 

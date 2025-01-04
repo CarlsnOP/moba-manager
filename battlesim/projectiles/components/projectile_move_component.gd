@@ -3,6 +3,6 @@ extends Node
 
 @export var actor: BaseProjectile
 
-
 func _process(delta):
-	actor.global_position += actor._direction * actor._speed * delta
+	if is_instance_valid(actor._target):
+		actor.global_position += actor.global_position.direction_to(actor._target.global_position) * actor._speed * delta

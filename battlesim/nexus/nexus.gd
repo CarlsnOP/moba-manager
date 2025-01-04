@@ -11,6 +11,8 @@ const FRIENDLY_NEXUS = preload("res://assets/art/map/friendly_nexus.png")
 @onready var hitbox_component = $HitboxComponent
 @onready var nexus_healing_component = $NexusHealingComponent
 
+@export var actor_projectile: ProjectileResource
+
 var actor_name := "Nexus"
 
 func setup(enemy: bool) -> void:

@@ -18,8 +18,13 @@ func _ready() -> void:
 
 #called when new game starts
 func update() -> void:
+	#wait for old game to end
+	await get_tree().create_timer(0.2).timeout
 	MatchDataManager.update()
-
+	
+	#wait for match to have been setup
+	await get_tree().create_timer(0.2).timeout
+	setup_top_bar_slots()
 
 func setup_top_bar_slots() -> void:
 	var i = 0

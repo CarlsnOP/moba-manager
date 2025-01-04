@@ -3,6 +3,7 @@ extends Node
 const DEFAULT_HERO_DATA: Dictionary = {
 	"hero_node": null,
 	"hero_portrait": null,
+	"hero_ability": null,
 	"kills": 0,
 	"deaths": 0
 }
@@ -10,30 +11,11 @@ const DEFAULT_HERO_DATA: Dictionary = {
 var array_of_hero_dics: Array = []
 var elapsed_time := 0
 var previous_game_length := 0
-var team_hero1: Dictionary = {
-	"hero_node": null,
-	"hero_portrait": null,
-	"kills": 0,
-	"deaths": 0
-}
-var team_hero2: Dictionary = {
-	"hero_node": null,
-	"hero_portrait": null,
-	"kills": 0,
-	"deaths": 0
-}
-var enemy_hero1: Dictionary = {
-	"hero_node": null,
-	"hero_portrait": null,
-	"kills": 0,
-	"deaths": 0
-}
-var enemy_hero2: Dictionary = {
-	"hero_node": null,
-	"hero_portrait": null,
-	"kills": 0,
-	"deaths": 0
-}
+
+var team_hero1: Dictionary = DEFAULT_HERO_DATA.duplicate()
+var team_hero2: Dictionary = DEFAULT_HERO_DATA.duplicate()
+var enemy_hero1: Dictionary = DEFAULT_HERO_DATA.duplicate()
+var enemy_hero2: Dictionary = DEFAULT_HERO_DATA.duplicate()
 
 func _ready():
 	array_of_hero_dics.append(team_hero1)

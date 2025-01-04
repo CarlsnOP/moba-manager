@@ -6,6 +6,7 @@ const FASTFORWARD_GAME_SPEED := 3
 
 @onready var saver_loader = $Utilities/SaverLoader
 @onready var music_player = %MusicPlayer
+@onready var ambience_player = %AmbiencePlayer
 
 
 func _ready():
@@ -13,10 +14,15 @@ func _ready():
 	
 	#speed up/slow down game. 1 = normal speed
 	Engine.time_scale = 1
+	
 	call_deferred("play_music")
+	call_deferred("play_ambience")
 
 func play_music() -> void:
 	music_player.play()
+
+func play_ambience() -> void:
+	ambience_player.play()
 
 func _notification(what):
 	if what == NOTIFICATION_CRASH:

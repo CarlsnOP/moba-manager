@@ -12,6 +12,9 @@ extends Node2D
 var ability_logic := Node2D.new()
 
 func setup_ability(skill: SkillResource) -> void:
+	if skill == null:
+		return
+		
 	call_deferred("add_child", ability_logic)
 	
 	await get_tree().create_timer(0.2).timeout

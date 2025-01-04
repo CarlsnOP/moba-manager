@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://b3kdvbeuw4nh5"]
+[gd_scene load_steps=22 format=3 uid="uid://b3kdvbeuw4nh5"]
 
 [ext_resource type="Script" path="res://battlesim/nexus/nexus.gd" id="1_4gx4f"]
 [ext_resource type="Texture2D" uid="uid://cnthng11d3aww" path="res://assets/art/map/enemy_nexus.png" id="1_xheii"]
+[ext_resource type="Resource" uid="uid://cv47v3cpcwq0q" path="res://resources/projectiles/nexus_projectile.tres" id="2_nibyx"]
 [ext_resource type="Script" path="res://battlesim/components/hurt_box_component.gd" id="2_qmxlh"]
 [ext_resource type="Script" path="res://battlesim/components/hitbox_component.gd" id="3_lx534"]
 [ext_resource type="Script" path="res://battlesim/components/stats_component.gd" id="5_1xmsr"]
@@ -13,6 +14,8 @@
 [ext_resource type="Script" path="res://battlesim/states/structure_state.gd" id="10_du3fc"]
 [ext_resource type="Script" path="res://battlesim/components/health_bar_component.gd" id="11_ab8tg"]
 [ext_resource type="Script" path="res://battlesim/components/death_component.gd" id="12_732pu"]
+[ext_resource type="Script" path="res://battlesim/components/juice_component.gd" id="12_m8d28"]
+[ext_resource type="PackedScene" uid="uid://cottssx1s1fc1" path="res://battlesim/components/attack_progress_bar_component.tscn" id="13_tidby"]
 [ext_resource type="Script" path="res://battlesim/components/new_game_component.gd" id="14_14sjn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fxgb8"]
@@ -28,6 +31,7 @@ radius = 50.0
 
 [node name="Nexus" type="StaticBody2D"]
 script = ExtResource("1_4gx4f")
+actor_projectile = ExtResource("2_nibyx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fxgb8")
@@ -99,6 +103,20 @@ script = ExtResource("12_732pu")
 actor = NodePath("..")
 stats_component = NodePath("../StatsComponent")
 hurtbox_component = NodePath("../HurtboxComponent")
+
+[node name="JuiceComponent" type="Node2D" parent="." node_paths=PackedStringArray("actor", "attack_component", "death_component")]
+script = ExtResource("12_m8d28")
+actor = NodePath("..")
+attack_component = NodePath("../AttackComponent")
+death_component = NodePath("../DeathComponent")
+
+[node name="AttackProgressBarComponent" parent="." node_paths=PackedStringArray("attack_component", "hitbox_component") instance=ExtResource("13_tidby")]
+offset_left = 55.0
+offset_top = -55.0
+offset_right = 311.0
+offset_bottom = 201.0
+attack_component = NodePath("../AttackComponent")
+hitbox_component = NodePath("../HitboxComponent")
 
 [node name="StateMachineComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "initial_state", "health_bar_component")]
 script = ExtResource("9_lwib2")

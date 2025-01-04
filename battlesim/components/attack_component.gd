@@ -1,6 +1,8 @@
 class_name AttackComponent
 extends Node
 
+signal on_attack
+
 @export var actor: PhysicsBody2D
 @export var hitbox_component: HitboxComponent
 @export var stats_component: StatsComponent
@@ -27,7 +29,7 @@ func setup_timers() -> void:
 	attack_timer.wait_time = stats_component.att_speed
 	
 	await get_tree().physics_frame
-	if actor.is_in_group("hero"):
+	if actor is Hero or actor is Minion:
 		add_child(immovable_timer)
 		immovable_timer.timeout.connect(allow_movement)
 		immovable_timer.wait_time = immovable_time
@@ -37,13 +39,22 @@ func deal_damage() -> void:
 	if is_instance_valid(current_target_hurtbox):
 		if current_target_hurtbox.has_method("take_damage") and \
 		current_target_hurtbox in hitbox_component.targets_in_range:
-			current_target_hurtbox.take_damage(stats_component.damage, actor)
+			on_attack.emit()
 			
-			if actor.is_in_group("hero"):
+			if actor is Tower or actor is Nexus:
+				var projectile = ObjectMakerManager.create_projectile(
+					actor.global_position,
+					current_target_hurtbox.get_parent(),
+					actor.actor_projectile)
+				projectile.reached_target.connect(on_enemy_hit.unbind(1))
+							
+			else:
+				on_enemy_hit()
+				
 				movement_component.immovable = true
 				immovable_timer.start()
 		
-		if current_target_hurtbox == null:
+		else:
 			attack_timer.stop()
 
 	else:
@@ -52,3 +63,7 @@ func deal_damage() -> void:
 func allow_movement() -> void:
 	if state_machine_component.current_state != DeadState:
 		movement_component.immovable = false
+
+func on_enemy_hit() -> void:
+	current_target_hurtbox.take_damage(stats_component.damage, actor)
+	

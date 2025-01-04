@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://4hp51cewv1an" path="res://assets/sounds/music/Happy Adventure.mp3" id="10_6io05"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_p3n3p"]
+shuffle = true
 stream_count = 2
 stream_0 = ExtResource("9_7tj1g")
 stream_1 = ExtResource("10_6io05")
@@ -101,6 +102,11 @@ autostart = true
 unique_name_in_owner = true
 stream = SubResource("AudioStreamPlaylist_p3n3p")
 bus = &"Music"
+
+[node name="AmbiencePlayer" type="AudioStreamPlayer" parent="Utilities"]
+unique_name_in_owner = true
+volume_db = -10.0
+bus = &"Ambience"
 
 [connection signal="timeout" from="Utilities/SaverLoader/SaveTimer" to="Utilities/SaverLoader" method="_on_save_timer_timeout"]
 

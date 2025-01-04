@@ -18,6 +18,9 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 script = ExtResource("2_qjnf3")
 
+[node name="TopBar" parent="." instance=ExtResource("6_dc8qn")]
+layout_mode = 1
+
 [node name="PositionAdjustment" type="Node2D" parent="."]
 position = Vector2(0, 72)
 
@@ -104,9 +107,6 @@ unique_name_in_owner = true
 script = ExtResource("27_12da5")
 
 [node name="TempSceneHolder" type="Node" parent="PositionAdjustment/Utility" groups=["temp_scene_holder"]]
-
-[node name="TopBar" parent="." instance=ExtResource("6_dc8qn")]
-layout_mode = 1
 
 [connection signal="timeout" from="PositionAdjustment/Utility/SpawnTimer" to="PositionAdjustment/Utility/WaveManager" method="_on_spawn_timer_timeout"]
 

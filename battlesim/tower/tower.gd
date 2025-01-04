@@ -9,13 +9,12 @@ const FRIENDLY_TOWER = preload("res://assets/art/map/friendly_tower.png")
 @onready var hurtbox_component = $HurtboxComponent
 @onready var hitbox_component = $HitboxComponent
 
+@export var actor_projectile: ProjectileResource
 
 var scale_adjustment := Vector2(0.15, 0.15)
 var actor_name := "Tower"
 
 func setup(enemy: bool) -> void:
-	#apply to both enemy and friendly tower
-	
 	#Apply to enemy towers
 	if enemy:
 		stats_component.enemy = enemy

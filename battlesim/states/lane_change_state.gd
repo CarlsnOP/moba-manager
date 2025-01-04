@@ -15,6 +15,8 @@ func enter() -> void:
 
 func update(_Delta) -> void:
 	if navigation_agent.is_target_reached():
+		#Temp state to allow state change
+		state_machine_component.current_state = state_machine_component.on_child_transition("DefensiveState")
 		state_machine_component.update_state(health_bar_component.value)
 
 func exit() -> void:

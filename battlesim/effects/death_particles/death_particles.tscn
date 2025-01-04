@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx56a1oocjjlu"]
+
+[ext_resource type="Texture2D" uid="uid://cab67gkxsw6kv" path="res://assets/art/particles/blood_particle.png" id="1_rywuo"]
+[ext_resource type="Script" path="res://battlesim/effects/basic_particles.gd" id="1_uypxg"]
+
+[sub_resource type="Gradient" id="Gradient_h5df5"]
+offsets = PackedFloat32Array(0, 0.154047, 0.830287, 0.986945)
+colors = PackedColorArray(0.237539, 0.237539, 0.237539, 0, 0.898039, 0.898039, 0.898039, 0.588235, 1, 1, 1, 0.392157, 1, 1, 1, 0)
+
+[node name="DeathParticles" type="Node2D"]
+scale = Vector2(1e-05, 1e-05)
+script = ExtResource("1_uypxg")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 6
+lifetime = 0.6
+one_shot = true
+preprocess = 0.1
+speed_scale = 0.8
+explosiveness = 0.9
+randomness = 0.5
+lifetime_randomness = 0.2
+texture = ExtResource("1_rywuo")
+direction = Vector2(180, -180)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 8.0
+damping_min = 3.0
+damping_max = 7.0
+angle_min = -154.0
+angle_max = 169.9
+scale_amount_min = 0.1
+scale_amount_max = 0.15
+color_ramp = SubResource("Gradient_h5df5")
+hue_variation_min = -1.0
+hue_variation_max = 0.74

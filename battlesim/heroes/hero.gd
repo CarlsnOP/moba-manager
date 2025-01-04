@@ -21,12 +21,14 @@ func setup(hero: HeroResource, enemy: bool, top: bool) -> void:
 	lane_manager_component.top_lane = top
 	navigation_component.set_lane(top)
 	
+	
 	if enemy:
 		stats_component.enemy = enemy
 		
 		sprite_2d.texture = hero.hero_icon
 		hurtbox_component.set_collision_layer_value(2, true)
 		hitbox_component.set_collision_mask_value(1, true)
+		ability_component.setup_ability(hero.skill)
 		
 	else:
 		sprite_2d.texture = hero.hero_icon

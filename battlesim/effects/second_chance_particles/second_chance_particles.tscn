@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://1j7lr6fv0eqn"]
+
+[ext_resource type="Script" path="res://battlesim/effects/basic_particles.gd" id="1_20n4f"]
+[ext_resource type="Texture2D" uid="uid://b1lj2ix4ug8sr" path="res://assets/art/skills/extra/second_chance_particles.png" id="2_rdtbo"]
+
+[sub_resource type="Gradient" id="Gradient_qpl31"]
+offsets = PackedFloat32Array(0, 0.125326, 0.362924, 0.624021, 0.861619, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0.776471, 1, 1, 1, 0.615686, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="SecondChanceParticles" type="Node2D"]
+script = ExtResource("1_20n4f")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+one_shot = true
+speed_scale = 0.8
+explosiveness = 0.6
+randomness = 0.2
+lifetime_randomness = 0.2
+texture = ExtResource("2_rdtbo")
+emission_shape = 2
+emission_sphere_radius = 30.0
+gravity = Vector2(0, -30)
+damping_max = 1.395
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+color_ramp = SubResource("Gradient_qpl31")

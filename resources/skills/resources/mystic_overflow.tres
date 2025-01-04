@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="SkillResource" load_steps=4 format=3 uid="uid://b3qrlq02niuy7"]
+[gd_resource type="Resource" script_class="SkillResource" load_steps=5 format=3 uid="uid://b3qrlq02niuy7"]
 
 [ext_resource type="Script" path="res://resources/skills/skill_scripts/mystic_overflow_script.gd" id="1_17n77"]
 [ext_resource type="Texture2D" uid="uid://dd7lbeebw4mxm" path="res://assets/art/skills/Mystic Overflow.png" id="1_ddyx7"]
 [ext_resource type="Script" path="res://resources/skills/skill_resource.gd" id="2_g4lrl"]
+[ext_resource type="Resource" uid="uid://cfbor82sneoiy" path="res://resources/projectiles/mystic_overflow_projectile.tres" id="3_qw38k"]
 
 [resource]
 script = ExtResource("2_g4lrl")
@@ -13,4 +14,5 @@ effect = "Todd fires a mystical projectile, whenever it is off cooldown at his t
 effect_growth = "Amplifies his ability power by 10%."
 cooldown = 15.0
 damage = 100.0
+projectile = ExtResource("3_qw38k")
 ability_script = ExtResource("1_17n77")

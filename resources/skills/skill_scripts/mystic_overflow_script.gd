@@ -9,9 +9,11 @@ var attack_component: AttackComponent
 var target: HurtboxComponent
 var enemy_hurtbox: HurtboxComponent
 var skill_res: SkillResource
-var slow_duration := 2.0
-var slow_amount := 0.2
 var hero_resource: HeroResource
+
+#Skill specific
+var slow_duration := 4.0
+var slow_amount := 0.4
 
 func setup_skill(skill: SkillResource, parent: AbilityComponent) -> void:
 	set_process(true)
@@ -29,7 +31,7 @@ func setup_cooldown_timer(skill: SkillResource) -> void:
 	
 	cooldown_timer.wait_time = skill.cooldown
 	cooldown_timer.one_shot = true
-	cooldown_timer.autostart = true
+	cooldown_timer.autostart = false
 
 func _process(_delta):
 	if _parent.attack_component.current_target_hurtbox != null:
@@ -38,13 +40,17 @@ func _process(_delta):
 	if cooldown_timer.is_stopped() and is_instance_valid(enemy_hurtbox):
 		if enemy_hurtbox.has_method("take_damage") and \
 		enemy_hurtbox in _parent.hitbox_component.targets_in_range:
-			
-			enemy_hurtbox.take_damage(skill_res.damage + (hero_resource.ability_power / 2), _parent.get_parent())
-			var enemy = enemy_hurtbox.get_parent()
 			cooldown_timer.start()
-			
-			for child in enemy.get_children():
-				if child is StatusEffectComponent:
-					var enemy_status_effect_component = child
-					if enemy_status_effect_component.has_method("handle_slow"):
-						enemy_status_effect_component.handle_slow(slow_duration, slow_amount)
+			var projectile = ObjectMakerManager.create_projectile(global_position, enemy_hurtbox.get_parent(), skill_res.projectile)
+			projectile.reached_target.connect(on_enemy_hit)
+
+func on_enemy_hit(_projectile: Node2D) -> void:
+	enemy_hurtbox.take_damage(skill_res.damage + (hero_resource.ability_power / 2), _parent.get_parent())
+	SoundManager.create_2d_audio_at_location(global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.SKILL_MYSTIC_OVERFLOW_SFX)
+	var enemy = enemy_hurtbox.get_parent()
+	
+	for child in enemy.get_children():
+		if child is StatusEffectComponent:
+			var enemy_status_effect_component = child
+			if enemy_status_effect_component.has_method("handle_slow"):
+				enemy_status_effect_component.handle_slow(slow_duration, slow_amount)

@@ -48,16 +48,15 @@ func explosive_finale() -> void:
 	#if we have current target when hero dies, we will shoot at them, else explosion where we die
 	create_new_collision()
 	if hurtbox_component.last_hitter != null:
-		var last_hitter = hurtbox_component.last_hitter.global_position
-		ObjectMakerManager.create_projectile(death_component.original_position, last_hitter, skill_res.projectile, self)
+		var last_hitter = hurtbox_component.last_hitter
+		var projectile = ObjectMakerManager.create_projectile(death_component.original_position, last_hitter, skill_res.projectile)
 		SoundManager.create_2d_audio_at_location(global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.EXPLOSIVE_FINALE_ROCKET_FIRE)
-		for child in get_children():
-			if child is BaseProjectile and is_instance_valid(child):
-				setup_area2d(child)
-				setup_collision_shape()
-				child.reached_target.connect(explode)
+		setup_area2d(projectile)
+		setup_collision_shape()
+		projectile.reached_target.connect(explode)
 				
-func explode() -> void:
+func explode(projectile: Node2D) -> void:
+	ObjectMakerManager.instantiate_particle_scene(projectile.global_position, DataStorage.BASE_EXPLOSION)
 	var possible_targets
 	
 	if stats_component.enemy:

@@ -1,6 +1,8 @@
 class_name DeathComponent
 extends Node
 
+signal on_death
+
 const MINIMUM_RESPAWN_TIME := 20.0
 
 @export var actor: PhysicsBody2D
@@ -22,6 +24,8 @@ func _ready():
 
 
 func process_death() -> void:
+	on_death.emit()
+	
 	if !actor is Minion:
 		SignalManager.event.emit(actor, hurtbox_component.last_hitter)
 		

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ProjectileResource" load_steps=3 format=3 uid="uid://dx5623hpbda55"]
+
+[ext_resource type="Script" path="res://resources/projectiles/projectile_resource.gd" id="1_o0kk4"]
+[ext_resource type="Texture2D" uid="uid://bepnqcvwfw7gd" path="res://assets/art/map/cannon_ball.png" id="2_g7fpj"]
+
+[resource]
+script = ExtResource("1_o0kk4")
+sprite = ExtResource("2_g7fpj")
+speed = 300.0
+scale = Vector2(0.2, 0.2)

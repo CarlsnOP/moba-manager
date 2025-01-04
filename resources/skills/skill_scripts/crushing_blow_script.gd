@@ -22,7 +22,6 @@ func setup_cooldown_timer(skill: SkillResource) -> void:
 	
 	cooldown_timer.wait_time = skill.cooldown
 	cooldown_timer.one_shot = true
-	cooldown_timer.autostart = false
 
 func crushing_blow() -> void:
 	enemy_hurtbox = _parent.attack_component.current_target_hurtbox
@@ -32,6 +31,8 @@ func crushing_blow() -> void:
 			enemy_hurtbox.take_damage(_parent.stats_component.damage * skill_res.damage, _parent.get_parent())
 			SoundManager.create_2d_audio_at_location(global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.CRUSHING_BLOW_HIT)
 			var enemy = enemy_hurtbox.get_parent()
+			ObjectMakerManager.instantiate_particle_scene(enemy.global_position, DataStorage.CRUSHING_BLOW_PARTICLES)
+
 			
 			for child in enemy.get_children():
 				if child is StatusEffectComponent:

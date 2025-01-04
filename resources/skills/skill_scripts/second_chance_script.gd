@@ -37,7 +37,6 @@ func setup_cooldown_timer(skill: SkillResource) -> void:
 	
 	cooldown_timer.wait_time = skill.cooldown
 	cooldown_timer.one_shot = true
-	cooldown_timer.autostart = true
 
 func revive() -> void:
 	await get_tree().create_timer(0.5).timeout
@@ -45,4 +44,8 @@ func revive() -> void:
 	if cooldown_timer.is_stopped() and \
 	!_parent.state_machine_component.current_state is DeadState:
 		ally_death_component.respawn()
+		var ally_pos = ally_death_component.get_parent().global_position
+		ObjectMakerManager.instantiate_particle_scene(global_position, DataStorage.SECOND_CHANCE_PARTICLES)
+		ObjectMakerManager.instantiate_particle_scene(ally_pos, DataStorage.SECOND_CHANCE_PARTICLES)
+		SoundManager.create_2d_audio_at_location(global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.SKILL_SECOND_CHANCE_SFX)
 		cooldown_timer.start()
