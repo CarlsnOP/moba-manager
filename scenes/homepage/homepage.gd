@@ -8,16 +8,29 @@ const FASTFORWARD_GAME_SPEED := 3
 @onready var music_player = %MusicPlayer
 @onready var ambience_player = %AmbiencePlayer
 
-
 func _ready():
 	saver_loader.load_game()
+	
 	
 	#speed up/slow down game. 1 = normal speed
 	Engine.time_scale = 1
 	
 	call_deferred("play_music")
 	call_deferred("play_ambience")
+	
+	await get_tree().create_timer(0.1).timeout
+	
+	var temp_buttons = get_tree().get_nodes_in_group("sound_button")
+	for button in temp_buttons:
+		button.connect("mouse_entered", play_hover)
+		button.connect("pressed", play_pressed)
 
+func play_hover() -> void:
+	SoundManager.create_ui_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.UI_BUTTON_HOVER)
+
+func play_pressed() -> void:
+	SoundManager.create_ui_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.UI_BUTTON_PRESSED)
+	
 func play_music() -> void:
 	music_player.play()
 

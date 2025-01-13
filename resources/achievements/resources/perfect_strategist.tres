@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AchievementResource" load_steps=2 format=3 uid="uid://o628jtiqjg5w"]
+
+[ext_resource type="Script" path="res://resources/achievements/achievement_resource.gd" id="1_t1rsv"]
+
+[resource]
+script = ExtResource("1_t1rsv")
+ach_index = 0
+ach_title = "Perfect Strategist"
+ach_1st_description = "Win"
+ach_2nd_description = "battles without losing a hero."
+ach_current_step = 0
+ach_requirement = Array[int]([10, 50, 100, 500])
+ach_completion_step = 0
+ach_reward_description = "Increase your loot gain by "
+ach_reward_base = 5
+ach_reward_growth = 3

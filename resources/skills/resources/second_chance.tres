@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="SkillResource" load_steps=4 format=3 uid="uid://cjpdx85iqtob4"]
+[gd_resource type="Resource" script_class="SkillResource" load_steps=5 format=3 uid="uid://cjpdx85iqtob4"]
 
 [ext_resource type="Texture2D" uid="uid://x7yqjbaidb2h" path="res://assets/art/skills/Second Chance.png" id="1_6mxk3"]
 [ext_resource type="Script" path="res://resources/skills/skill_scripts/second_chance_script.gd" id="1_ytuw6"]
 [ext_resource type="Script" path="res://resources/skills/skill_resource.gd" id="2_f8qti"]
+[ext_resource type="Texture2D" uid="uid://c7tf42bd6kkbn" path="res://assets/art/skills/extra/second_chance_portrait.png" id="3_oktfr"]
 
 [resource]
 script = ExtResource("2_f8qti")
 name = "Second Chance"
 icon = ExtResource("1_6mxk3")
+portrait = ExtResource("3_oktfr")
 description = "Lucy’s magical concoctions are legendary, but there’s one potion she saves for only the direst of situations—her \"Second Chance\" elixir. When an ally is about to fall in battle, Lucy’s quick reflexes kick in, allowing her to toss this life-saving potion at them just in time. The result? The ally who would have otherwise met their demise is miraculously saved, surviving the encounter with a small portion of their health restored. This skill gives Lucy’s teammates the confidence to push forward, knowing that she’s got their back in the toughest of battles."
 effect = "Once per battle, when an ally is about to fall, Lucy automatically saves them, restoring 20% of their health."
 effect_growth = "Increases the amount of restored health by 5% per level, and the number of times she can do this in a battle increases by 1 every 2 skill levels."

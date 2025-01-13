@@ -54,44 +54,56 @@ text = "Rubberduckies: 0"
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="BattleSimButton" type="Button" parent="PC/MC/VB"]
+[node name="BattleSimButton" type="Button" parent="PC/MC/VB" groups=["sound_button"]]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Battle Sim"
 alignment = 0
 
-[node name="HomeButton" type="Button" parent="PC/MC/VB"]
+[node name="HomeButton" type="Button" parent="PC/MC/VB" groups=["sound_button"]]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Home"
 alignment = 0
 
-[node name="HeroesButton" type="Button" parent="PC/MC/VB"]
+[node name="HeroesButton" type="Button" parent="PC/MC/VB" groups=["sound_button"]]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Heroes"
 alignment = 0
 
-[node name="BattleSetupButton" type="Button" parent="PC/MC/VB"]
+[node name="BattleSetupButton" type="Button" parent="PC/MC/VB" groups=["sound_button"]]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Battle Setup"
 alignment = 0
 
-[node name="Inventorybutton" type="Button" parent="PC/MC/VB"]
+[node name="HSeparator2" type="HSeparator" parent="PC/MC/VB"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Achievementsbutton" type="Button" parent="PC/MC/VB" groups=["sound_button"]]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Achievements
+"
+alignment = 0
+
+[node name="Inventorybutton" type="Button" parent="PC/MC/VB" groups=["sound_button"]]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Inventory"
 alignment = 0
 
-[node name="CraftingButton" type="Button" parent="PC/MC/VB"]
+[node name="CraftingButton" type="Button" parent="PC/MC/VB" groups=["sound_button"]]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Crafting
 "
 alignment = 0
 
-[node name="RankButton" type="Button" parent="PC/MC/VB"]
+[node name="RankButton" type="Button" parent="PC/MC/VB" groups=["sound_button"]]
 visible = false
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
@@ -112,7 +124,7 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
-[node name="SettingsButton" type="Button" parent="PC/MC/VB"]
+[node name="SettingsButton" type="Button" parent="PC/MC/VB" groups=["sound_button"]]
 layout_mode = 2
 size_flags_vertical = 10
 theme_type_variation = &"HeaderMedium"
@@ -120,7 +132,7 @@ text = "Settings
 "
 alignment = 0
 
-[node name="QuitButton" type="Button" parent="PC/MC/VB"]
+[node name="QuitButton" type="Button" parent="PC/MC/VB" groups=["sound_button"]]
 layout_mode = 2
 size_flags_vertical = 10
 theme_type_variation = &"HeaderMedium"
@@ -132,6 +144,7 @@ alignment = 0
 [connection signal="pressed" from="PC/MC/VB/HomeButton" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/HeroesButton" to="." method="_on_heroes_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/BattleSetupButton" to="." method="_on_battle_setup_button_pressed"]
+[connection signal="pressed" from="PC/MC/VB/Achievementsbutton" to="." method="_on_achievementsbutton_pressed"]
 [connection signal="pressed" from="PC/MC/VB/Inventorybutton" to="." method="_on_inventorybutton_pressed"]
 [connection signal="pressed" from="PC/MC/VB/CraftingButton" to="." method="_on_crafting_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/RankButton" to="." method="_on_rank_button_pressed"]

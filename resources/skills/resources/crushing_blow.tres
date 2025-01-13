@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="SkillResource" load_steps=4 format=3 uid="uid://di7wcfodht8h7"]
+[gd_resource type="Resource" script_class="SkillResource" load_steps=5 format=3 uid="uid://di7wcfodht8h7"]
 
 [ext_resource type="Script" path="res://resources/skills/skill_scripts/crushing_blow_script.gd" id="1_1waha"]
 [ext_resource type="Texture2D" uid="uid://djynu0f5rncvi" path="res://assets/art/skills/Crushing Blow.png" id="1_i08cv"]
 [ext_resource type="Script" path="res://resources/skills/skill_resource.gd" id="2_jsdjc"]
+[ext_resource type="Texture2D" uid="uid://01nxb5weomiu" path="res://assets/art/skills/extra/crushing_blow_portrait.png" id="3_tgm3n"]
 
 [resource]
 script = ExtResource("2_jsdjc")
 name = "Crushing Blow"
 icon = ExtResource("1_i08cv")
+portrait = ExtResource("3_tgm3n")
 description = "Egon’s raw strength is legendary, and when he really puts his muscle into it, there’s no enemy that can stand in his way. With \"Crushing Blow,\" Egon unleashes a devastating attack that deals massive extra damage. This skill represents Egon’s ability to land a hit so powerful, it can shatter defenses and leave opponents reeling. The impact of this blow is so intense that it has a chance to deal critical damage, making Egon’s presence on the battlefield impossible to ignore."
 effect = "Egon slams the enemy with an extra strong hit, dealing 50 % more damage and stunning for 1 second."
 effect_growth = "Additional damage percentage increases by 4% per level."

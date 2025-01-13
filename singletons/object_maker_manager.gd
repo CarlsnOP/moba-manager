@@ -12,3 +12,8 @@ func instantiate_particle_scene(start_pos: Vector2, scene: PackedScene) -> void:
 	var new_particle = scene.instantiate()
 	get_tree().get_first_node_in_group("temp_scene_holder").add_child(new_particle)
 	new_particle.global_position = start_pos
+
+func instantiate_scene(scene: PackedScene) -> void:
+	var new_scene = scene.instantiate()
+	get_tree().get_first_node_in_group("canvas").add_child(new_scene)
+	

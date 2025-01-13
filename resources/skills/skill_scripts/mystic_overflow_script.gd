@@ -28,10 +28,9 @@ func setup_skill(skill: SkillResource, parent: AbilityComponent) -> void:
 
 func setup_cooldown_timer(skill: SkillResource) -> void:
 	call_deferred("add_child", cooldown_timer)
-	
+	cooldown_timer.add_to_group("cooldown_timer")
 	cooldown_timer.wait_time = skill.cooldown
 	cooldown_timer.one_shot = true
-	cooldown_timer.autostart = false
 
 func _process(_delta):
 	if _parent.attack_component.current_target_hurtbox != null:

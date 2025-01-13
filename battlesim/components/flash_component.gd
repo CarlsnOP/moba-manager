@@ -5,7 +5,7 @@ const FLASH_MATERIAL = preload("res://effects/white_flash_material.tres")
 
 @export var hurtbox_component: HurtboxComponent
 @export var sprite: Sprite2D
-@export var flash_duration: = 0.2
+@export var flash_duration: = 0.15
 
 var original_sprite_material: Material
 var timer: Timer = Timer.new()
@@ -14,9 +14,9 @@ var timer: Timer = Timer.new()
 func _ready() -> void:
 	add_child(timer)
 	original_sprite_material = sprite.material
-	hurtbox_component.hurt.connect(flash)
+	hurtbox_component.hurt.connect(flash.unbind(4))
 
-func flash(_damage: float):
+func flash():
 	sprite.material = FLASH_MATERIAL
 	timer.start(flash_duration)
 	

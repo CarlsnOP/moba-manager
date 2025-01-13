@@ -55,10 +55,12 @@ func _on_bot_hero_button_pressed():
 	selected_state_machine_component = selected_hero.get_state_machine_component()
 	
 func _on_top_button_pressed():
-	selected_lane_manager_component.on_lane_change(top_lane)
+	if selected_state_machine_component != null:
+		selected_lane_manager_component.on_lane_change(top_lane)
 
 func _on_bot_button_pressed():
-	selected_lane_manager_component.on_lane_change(bot_lane)
+	if selected_state_machine_component != null:
+		selected_lane_manager_component.on_lane_change(bot_lane)
 
 func _on_retreat_button_pressed() -> void:
 	if selected_state_machine_component != null:

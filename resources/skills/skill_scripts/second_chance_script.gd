@@ -34,7 +34,7 @@ func setup() -> void:
 
 func setup_cooldown_timer(skill: SkillResource) -> void:
 	call_deferred("add_child", cooldown_timer)
-	
+	cooldown_timer.add_to_group("cooldown_timer")
 	cooldown_timer.wait_time = skill.cooldown
 	cooldown_timer.one_shot = true
 

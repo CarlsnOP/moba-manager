@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2uitoevl42b3"]
+[gd_scene load_steps=8 format=3 uid="uid://b2uitoevl42b3"]
 
 [ext_resource type="Texture2D" uid="uid://0jmm3api8fgm" path="res://assets/art/ui/arena.png" id="1_ifuak"]
 [ext_resource type="Script" path="res://battlesim/map/map.gd" id="2_qjnf3"]
 [ext_resource type="PackedScene" uid="uid://cpkmpqcwgpdlu" path="res://battlesim/navigation_map/navigation_map.tscn" id="3_m4rwa"]
 [ext_resource type="Script" path="res://battlesim/utility/wave_manager.gd" id="4_mnbnl"]
 [ext_resource type="PackedScene" uid="uid://bacpg17x5vs5i" path="res://battlesim/top_bar/top_bar.tscn" id="6_dc8qn"]
+[ext_resource type="PackedScene" uid="uid://dfgru6ciat4rq" path="res://battlesim/utility/stage_manager/stage_manager.tscn" id="7_1nw7y"]
 [ext_resource type="Script" path="res://battlesim/utility/new_game_manager.gd" id="27_12da5"]
 
 [node name="Map" type="Control" groups=["map"]]
@@ -107,6 +108,15 @@ unique_name_in_owner = true
 script = ExtResource("27_12da5")
 
 [node name="TempSceneHolder" type="Node" parent="PositionAdjustment/Utility" groups=["temp_scene_holder"]]
+
+[node name="StageManager" parent="PositionAdjustment/Utility" instance=ExtResource("7_1nw7y")]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_bottom = 0.0
+grow_vertical = 0
 
 [connection signal="timeout" from="PositionAdjustment/Utility/SpawnTimer" to="PositionAdjustment/Utility/WaveManager" method="_on_spawn_timer_timeout"]
 

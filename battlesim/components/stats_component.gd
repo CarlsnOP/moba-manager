@@ -12,9 +12,9 @@ var buffer := false
 @export var damage := 75.0
 @export var health_regen := 5.0
 @export var ability_power := 0
-@export var dodge := 0.01
-@export var block := 0.05
-@export var crit := 0.05
+@export var dodge := 0.0
+@export var block := 0.0
+@export var crit := 0.0
 @export var damage_reduction := 1.0
 
 @export var move_speed := 5000.0

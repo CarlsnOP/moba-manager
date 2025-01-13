@@ -24,6 +24,9 @@ resources_spreadsheet_view/fold_docks=false
 config/name="Moba Manager"
 run/main_scene="res://scenes/homepage/homepage.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0.0452479, 0.108256, 1)
+boot_splash/image="res://logo.png"
+boot_splash/fullsize=false
 config/icon="res://logo.png"
 
 [autoload]
@@ -38,6 +41,7 @@ RankManager="*res://singletons/rank_manager.gd"
 Popups="*res://utility/popups/popups.tscn"
 MatchDataManager="*res://singletons/match_data_manager.gd"
 ObjectMakerManager="*res://singletons/object_maker_manager.gd"
+AchievementManager="*res://singletons/achievement_manager.gd"
 
 [debug]
 
@@ -82,6 +86,7 @@ map=""
 bot_jungle_team=""
 restart_map=""
 update_post_match=""
+sound_button="Buttons you want to emit sound"
 
 [godot_resource_groups]
 

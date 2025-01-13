@@ -33,7 +33,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.367533, 0.312106, 0.300657, 1)
 
-[node name="GameCanvas" type="CanvasLayer" parent="."]
+[node name="GameCanvas" type="CanvasLayer" parent="." groups=["canvas"]]
 layer = 2
 
 [node name="GameLayoutHB" type="HBoxContainer" parent="GameCanvas"]

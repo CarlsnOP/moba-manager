@@ -6,11 +6,13 @@ const GREY_SCALE_MATERIAL = preload("res://effects/grey_scale_material.tres")
 @onready var kills_label = %KillsLabel
 @onready var deaths_label = %DeathsLabel
 @onready var respawn_label = %RespawnLabel
+@onready var texture_progress_bar = %TextureProgressBar
 
 var _hero: Dictionary
 var _hero_node: PhysicsBody2D
 var respawn_timer_ref: Timer
 var original_texture_material: Material
+var cooldown_timer_ref: Timer = null
 
 func display(hero: Dictionary) -> void:
 	SignalManager.event.connect(on_event)
@@ -21,8 +23,12 @@ func display(hero: Dictionary) -> void:
 func setup_vars(hero: Dictionary) -> void:
 	set_process(false)
 	_hero = hero
-	_hero_node = hero["hero_node"]
+	_hero_node = hero["hero_node"] as Hero
 	texture_rect.texture = hero["hero_portrait"]
+	texture_progress_bar.setup(self)
+	texture_progress_bar.texture_under = hero["hero_ability"]
+	texture_progress_bar.texture_progress = hero["hero_ability"]
+	
 	respawn_label.hide()
 	
 	await get_tree().physics_frame
@@ -32,6 +38,14 @@ func setup_vars(hero: Dictionary) -> void:
 					if c.is_in_group("respawn_timer"):
 						respawn_timer_ref = c
 						respawn_timer_ref.timeout.connect(on_respawn)
+			if child is AbilityComponent:
+				for c in child.get_children():
+					for possible_timer in c.get_children():
+						if possible_timer.is_in_group("cooldown_timer"):
+							cooldown_timer_ref = possible_timer
+							texture_progress_bar.late_setup()
+							
+					
 
 func _process(_delta):
 	respawn_label.text = str(int(respawn_timer_ref.time_left))

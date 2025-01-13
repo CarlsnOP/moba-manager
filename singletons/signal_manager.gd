@@ -17,3 +17,7 @@ signal rubberduckies_spent(quantity: int)
 signal on_battle_end(win: bool)
 signal friendly_hero_died(hero: HeroResource, node: Node2D, pos: Vector2)
 signal event(actor: PhysicsBody2D, killer: PhysicsBody2D)
+
+
+#Achievements
+signal update_achievements()

@@ -1,5 +1,6 @@
 extends Control
 
+const WANT_TO_QUIT_POP_UP = preload("res://scenes/utility/want_to_quit_pop_up/want_to_quit_pop_up.tscn")
 
 func _on_home_button_pressed():
 	SignalManager.new_interface.emit(0)
@@ -25,6 +26,12 @@ func _on_rank_button_pressed():
 func _on_settings_button_pressed():
 	SignalManager.new_interface.emit(7)
 
+func _on_achievementsbutton_pressed():
+	SignalManager.new_interface.emit(8)
+
 func _on_quit_button_pressed():
-	get_tree().call_group("saver_loader", "save_game")
-	get_tree().quit()
+	var temp = get_tree().get_first_node_in_group("want_to_quit_pop_up")
+	if temp:
+		temp.queue_free()
+	else:
+		ObjectMakerManager.instantiate_scene(WANT_TO_QUIT_POP_UP)

@@ -4,14 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://ddos0lkmuvosx" path="res://assets/art/map/attack_progress_bar_full.png" id="2_6uyxg"]
 [ext_resource type="Script" path="res://battlesim/components/attack_progress_bar_component.gd" id="3_ilghe"]
 
-[node name="AttackProgressBarComponent" type="TextureProgressBar" node_paths=PackedStringArray("attack_component")]
+[node name="AttackProgressBarComponent" type="TextureProgressBar"]
 offset_right = 256.0
 offset_bottom = 256.0
 scale = Vector2(0.1, 0.1)
-step = 0.5
+step = 0.05
 value = 50.0
 fill_mode = 3
 texture_under = ExtResource("1_h2qvy")
 texture_progress = ExtResource("2_6uyxg")
 script = ExtResource("3_ilghe")
-attack_component = NodePath("")

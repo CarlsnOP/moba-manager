@@ -65,5 +65,6 @@ func allow_movement() -> void:
 		movement_component.immovable = false
 
 func on_enemy_hit() -> void:
-	current_target_hurtbox.take_damage(stats_component.damage, actor)
+	if is_instance_valid(current_target_hurtbox):
+		current_target_hurtbox.take_damage(stats_component.damage, actor)
 	

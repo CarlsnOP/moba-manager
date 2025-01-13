@@ -17,6 +17,8 @@ const NEXUS = preload("res://battlesim/nexus/nexus.tscn")
 @onready var respawn_enemy_minion_bot = %RespawnEnemyMinionBot
 @onready var respawn_team_minion_top = %RespawnTeamMinionTop
 @onready var respawn_team_minion_bot = %RespawnTeamMinionBot
+@onready var stage_manager = %StageManager
+
 
 var game_launced := false
 var old_enemy_modifier := 1.0

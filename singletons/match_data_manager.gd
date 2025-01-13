@@ -46,17 +46,25 @@ func setup_hero_nodes() -> void:
 		if hero.is_in_group("team"):
 			if team_hero1["hero_node"] == null:
 				team_hero1["hero_node"] = hero
-				team_hero1["hero_portrait"] = hero.get_hero_resource().hero_portrait
+				team_hero1["hero_portrait"] = hero._hero.hero_portrait
+				if hero._hero.skill != null:
+					team_hero1["hero_ability"] = hero._hero.skill.portrait
 			else:
 				team_hero2["hero_node"] = hero
-				team_hero2["hero_portrait"] = hero.get_hero_resource().hero_portrait
+				team_hero2["hero_portrait"] = hero._hero.hero_portrait
+				if hero._hero.skill != null:
+					team_hero2["hero_ability"] = hero._hero.skill.portrait
 		else:
 			if enemy_hero1["hero_node"] == null:
 				enemy_hero1["hero_node"] = hero
-				enemy_hero1["hero_portrait"] = hero.get_hero_resource().hero_portrait
+				enemy_hero1["hero_portrait"] = hero._hero.hero_portrait
+				if hero._hero.skill != null:
+					enemy_hero1["hero_ability"] = hero._hero.skill.portrait
 			else:
 				enemy_hero2["hero_node"] = hero
-				enemy_hero2["hero_portrait"] = hero.get_hero_resource().hero_portrait
+				enemy_hero2["hero_portrait"] = hero._hero.hero_portrait
+				if hero._hero.skill != null:
+					enemy_hero2["hero_ability"] = hero._hero.skill.portrait
 
 func on_event(actor: PhysicsBody2D, killer: PhysicsBody2D) -> void:
 	handle_death(actor)

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4ipaxr61k83x"]
+[gd_scene load_steps=5 format=3 uid="uid://b4ipaxr61k83x"]
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interfaces/interface_base.tscn" id="1_hh7ly"]
 [ext_resource type="Script" path="res://scenes/interfaces/settings/settings.gd" id="2_vw8er"]
+[ext_resource type="Texture2D" uid="uid://o314w0uqjy5j" path="res://assets/art/ui/audio_muted.png" id="3_o6des"]
+[ext_resource type="Texture2D" uid="uid://chak1vatwn2nj" path="res://assets/art/ui/audio_full_volume.png" id="4_buevo"]
 
 [node name="Settings" groups=["game_events"] instance=ExtResource("1_hh7ly")]
 script = ExtResource("2_vw8er")
@@ -16,66 +18,125 @@ text = "Settings"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VB" type="VBoxContainer" parent="PC/MC/VB/PanelContainer" index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="PC/MC/VB/PanelContainer" index="0"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VB" type="VBoxContainer" parent="PC/MC/VB/PanelContainer/MarginContainer" index="0"]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="DisplaySettings" type="VBoxContainer" parent="PC/MC/VB/PanelContainer/VB" index="0"]
-layout_mode = 2
-
-[node name="DisplaySettingsLabel" type="Label" parent="PC/MC/VB/PanelContainer/VB/DisplaySettings" index="0"]
+[node name="DisplaySettingsLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB" index="0"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Display Settings"
 
-[node name="HB" type="HBoxContainer" parent="PC/MC/VB/PanelContainer/VB/DisplaySettings" index="1"]
+[node name="DisplaySettings" type="VBoxContainer" parent="PC/MC/VB/PanelContainer/MarginContainer/VB" index="1"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HB" type="HBoxContainer" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/DisplaySettings" index="0"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="FullscreenLabel" type="Label" parent="PC/MC/VB/PanelContainer/VB/DisplaySettings/HB" index="0"]
+[node name="WindowModeLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/DisplaySettings/HB" index="0"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
-text = "Fullscreen"
+text = "Window Mode"
 
-[node name="FullscreenButton" type="CheckButton" parent="PC/MC/VB/PanelContainer/VB/DisplaySettings/HB" index="1"]
+[node name="ModeButton" type="OptionButton" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/DisplaySettings/HB" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-button_pressed = true
+selected = 0
+item_count = 3
+popup/item_0/text = "Fullscreen"
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless"
+popup/item_2/id = 2
 
-[node name="AudioSettingsLabel" type="Label" parent="PC/MC/VB/PanelContainer/VB" index="1"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/DisplaySettings" index="1"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ResolutionLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/DisplaySettings/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Resolution"
+
+[node name="ResolutionButton" type="OptionButton" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/DisplaySettings/HBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "1920x1080"
+popup/item_1/text = "1600x900"
+popup/item_1/id = 2
+popup/item_2/text = "1280x720"
+popup/item_2/id = 1
+
+[node name="AudioSettingsLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB" index="2"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Audio Settings"
 
-[node name="GridContainer" type="GridContainer" parent="PC/MC/VB/PanelContainer/VB" index="2"]
+[node name="GridContainer" type="GridContainer" parent="PC/MC/VB/PanelContainer/MarginContainer/VB" index="3"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/h_separation = 30
+theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 10
-columns = 2
+columns = 4
 
-[node name="MasterLabel" type="Label" parent="PC/MC/VB/PanelContainer/VB/GridContainer" index="0"]
+[node name="MasterLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="0"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Master"
 
-[node name="MasterSlider" type="HSlider" parent="PC/MC/VB/PanelContainer/VB/GridContainer" index="1"]
+[node name="MuteMasterButton" type="CheckButton" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_icons/checked = ExtResource("3_o6des")
+theme_override_icons/unchecked = ExtResource("4_buevo")
+
+[node name="MasterSlider" type="HSlider" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="MusicLabel" type="Label" parent="PC/MC/VB/PanelContainer/VB/GridContainer" index="2"]
+[node name="PanelContainer" type="PanelContainer" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="3"]
+layout_mode = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/PanelContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "0"
+
+[node name="MusicLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="4"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Music"
 
-[node name="MusicSlider" type="HSlider" parent="PC/MC/VB/PanelContainer/VB/GridContainer" index="3"]
+[node name="MuteMusicButton" type="CheckButton" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="5"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_icons/checked = ExtResource("3_o6des")
+theme_override_icons/unchecked = ExtResource("4_buevo")
+
+[node name="MusicSlider" type="HSlider" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="6"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -84,12 +145,58 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="SFXLabel" type="Label" parent="PC/MC/VB/PanelContainer/VB/GridContainer" index="4"]
+[node name="PanelContainer2" type="PanelContainer" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="7"]
+layout_mode = 2
+
+[node name="MusicVolumeLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/PanelContainer2" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+text = "0"
+
+[node name="AmbienceLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="8"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Ambience"
+
+[node name="MuteAmbienceButton" type="CheckButton" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="9"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_icons/checked = ExtResource("3_o6des")
+theme_override_icons/unchecked = ExtResource("4_buevo")
+
+[node name="AmbienceSlider" type="HSlider" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="10"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="PanelContainer3" type="PanelContainer" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="11"]
+layout_mode = 2
+
+[node name="AmbienceVolumeLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/PanelContainer3" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+text = "0"
+
+[node name="SFXLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="12"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "SFX"
 
-[node name="SFXSlider" type="HSlider" parent="PC/MC/VB/PanelContainer/VB/GridContainer" index="5"]
+[node name="MuteSFXButton" type="CheckButton" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="13"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_icons/checked = ExtResource("3_o6des")
+theme_override_icons/unchecked = ExtResource("4_buevo")
+
+[node name="SFXSlider" type="HSlider" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="14"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -98,7 +205,55 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
-[connection signal="toggled" from="PC/MC/VB/PanelContainer/VB/DisplaySettings/HB/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
-[connection signal="value_changed" from="PC/MC/VB/PanelContainer/VB/GridContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
-[connection signal="value_changed" from="PC/MC/VB/PanelContainer/VB/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="PC/MC/VB/PanelContainer/VB/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[node name="PanelContainer4" type="PanelContainer" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="15"]
+layout_mode = 2
+
+[node name="SFXVolumeLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/PanelContainer4" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+text = "0"
+
+[node name="UILabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="16"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "UI
+"
+
+[node name="MuteUIButton" type="CheckButton" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="17"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_icons/checked = ExtResource("3_o6des")
+theme_override_icons/unchecked = ExtResource("4_buevo")
+
+[node name="UISlider" type="HSlider" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="18"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="PanelContainer5" type="PanelContainer" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="19"]
+layout_mode = 2
+
+[node name="UIVolumeLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/PanelContainer5" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+text = "0"
+
+[connection signal="item_selected" from="PC/MC/VB/PanelContainer/MarginContainer/VB/DisplaySettings/HB/ModeButton" to="." method="_on_mode_button_item_selected"]
+[connection signal="item_selected" from="PC/MC/VB/PanelContainer/MarginContainer/VB/DisplaySettings/HBoxContainer/ResolutionButton" to="." method="_on_resolution_button_item_selected"]
+[connection signal="toggled" from="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/MuteMasterButton" to="." method="_on_mute_master_button_toggled"]
+[connection signal="value_changed" from="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="toggled" from="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/MuteMusicButton" to="." method="_on_mute_music_button_toggled"]
+[connection signal="value_changed" from="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="toggled" from="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/MuteAmbienceButton" to="." method="_on_mute_ambience_button_toggled"]
+[connection signal="value_changed" from="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/AmbienceSlider" to="." method="_on_ambience_slider_value_changed"]
+[connection signal="toggled" from="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/MuteSFXButton" to="." method="_on_mute_sfx_button_toggled"]
+[connection signal="value_changed" from="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/MuteUIButton" to="." method="_on_mute_ui_button_toggled"]
+[connection signal="value_changed" from="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/UISlider" to="." method="_on_ui_slider_value_changed"]
