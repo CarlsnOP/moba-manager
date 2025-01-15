@@ -19,6 +19,7 @@ func save_game():
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 
 func save_vars(saved_game: SavedGame) -> void:
+	var stage_ref = get_tree().get_first_node_in_group("stage_manager") as StageManager
 	saved_game.rubber_duckies = InventoryManager.get_rubberduckies()
 	saved_game.collected_equipment = InventoryManager.get_equipment_quantity()
 	saved_game.collected_loot = InventoryManager.get_loot_quantity()
@@ -26,6 +27,10 @@ func save_vars(saved_game: SavedGame) -> void:
 	saved_game.equipped_equipment = TeamManager.get_equipped_equipment()
 	saved_game.top = TeamManager.top
 	saved_game.bot = TeamManager.bot
+	saved_game.current_stage = stage_ref.current_stage
+	saved_game.highest_stage = stage_ref.highest_stage
+	saved_game.ach_master_dict = AchievementManager.the_almighty_storage_dictionary
+
 
 #loading functionality
 func load_game():
@@ -55,10 +60,17 @@ func load_game():
 				restored_node.on_load_game(item)
 
 func load_vars(saved_game: SavedGame) -> void:
+	var stage_ref = get_tree().get_first_node_in_group("stage_manager") as StageManager
 	InventoryManager._rubberduckies = saved_game.rubber_duckies
 	TeamManager.top = saved_game.top
 	TeamManager.bot = saved_game.bot
-	#TeamManager.jungle = saved_game.jungle
+	stage_ref.current_stage = saved_game.current_stage
+	stage_ref.highest_stage = saved_game.highest_stage
+	
+	#Do it like this, so we can add more achievements in the furture
+	for key in saved_game.ach_master_dict:
+		if key in AchievementManager.the_almighty_storage_dictionary:
+			AchievementManager.the_almighty_storage_dictionary[key] = saved_game.ach_master_dict[key]
 
 func _on_save_timer_timeout():
 	#print("game has been saved")

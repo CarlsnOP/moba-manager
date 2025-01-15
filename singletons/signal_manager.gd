@@ -20,4 +20,5 @@ signal event(actor: PhysicsBody2D, killer: PhysicsBody2D)
 
 
 #Achievements
-signal update_achievements()
+signal achievements_updated()
+signal on_equipment_crafted(equipment: EquipmentResource)

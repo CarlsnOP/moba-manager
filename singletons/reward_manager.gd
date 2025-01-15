@@ -1,9 +1,10 @@
 extends Node
 
-const BASE_LOOT_REWARD := 50
+const BASE_LOOT_REWARD := 30
 const BASE_EXP_REWARD := 50
 const BASE_RUBBERDUCK_REWARD := 100
 const WIN_MODIFIER := 2.0
+const STAGE_MODIFIER_ADJUSTMENT = 1.0
 
 var _mod_rank := 1.0
 var _mod_luck := 1.0
@@ -11,11 +12,11 @@ var _loot_gained: Array[LootResource] = []
 var _exp_gained: int
 var _rubberduckies_gained: int
 
-func on_battle_end(win: bool, enemy_modifier: float) -> void:
+func on_battle_end(win: bool, stage_modifier: float) -> void:
 	_loot_gained.clear()
-	var loot_reward = round((BASE_LOOT_REWARD * (enemy_modifier + _mod_rank)) * _mod_luck)
-	var exp_reward = round(BASE_EXP_REWARD * (enemy_modifier + _mod_rank))
-	var rubberduckies_reward = round(BASE_RUBBERDUCK_REWARD * (enemy_modifier + _mod_rank))
+	var loot_reward = round((BASE_LOOT_REWARD * ((stage_modifier + STAGE_MODIFIER_ADJUSTMENT) + _mod_rank)) * _mod_luck)
+	var exp_reward = round(BASE_EXP_REWARD * ((stage_modifier + STAGE_MODIFIER_ADJUSTMENT) + _mod_rank))
+	var rubberduckies_reward = round(BASE_RUBBERDUCK_REWARD * ((stage_modifier + STAGE_MODIFIER_ADJUSTMENT) + _mod_rank))
 	var eligible_loot = []
 	var total_weight = 0
 	
@@ -57,6 +58,7 @@ func create_rubberduckies(quantity: int) -> void:
 		return
 	
 	InventoryManager._rubberduckies += quantity
+	AchievementManager.the_almighty_storage_dictionary["total_rubber_duckies_earned"] += quantity
 	
 	SignalManager.rubberduckies_created.emit(quantity)
 	SignalManager.rubberduckies_updated.emit()

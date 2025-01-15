@@ -87,6 +87,7 @@ bot_jungle_team=""
 restart_map=""
 update_post_match=""
 sound_button="Buttons you want to emit sound"
+stage_manager=""
 
 [godot_resource_groups]
 

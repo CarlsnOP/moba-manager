@@ -10,8 +10,13 @@ const MINION = preload("res://battlesim/minions/minion.tscn")
 @onready var spawn_timer = %SpawnTimer
 @onready var new_game_manager: Node = %NewGameManager
 
+
 var lanes := []
 var enemy: bool
+var stage_manager_ref: StageManager
+
+func _ready():
+	stage_manager_ref = get_tree().get_first_node_in_group("stage_manager")
 
 func new_game() -> void:
 	spawn_minions()
@@ -32,7 +37,7 @@ func spawn_enemies() -> void:
 		new_minion.global_position = spawn_point.to_local(spawn_point.global_position)
 		spawn_point.add_child(new_minion)
 		new_minion.setup(enemy, top_lane)
-		new_minion.apply_match_modifier(new_game_manager.get_match_modifier())
+		new_minion.apply_match_modifier(stage_manager_ref.get_stage_modifer())
 		new_minion.add_to_group("enemy")
 		new_minion.add_to_group("minion")
 		

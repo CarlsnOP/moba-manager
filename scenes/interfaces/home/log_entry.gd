@@ -10,7 +10,7 @@ var saved_amount: int
 var elapsed_time := 0
 
 func _ready() -> void:
-	elapsed_time = MatchDataManager.elapsed_time
+	elapsed_time = MatchDataManager.MATCH_TIME_LIMIT - MatchDataManager.time_left
 
 func update_match_clock() -> void:
 	var minutes = elapsed_time / 60

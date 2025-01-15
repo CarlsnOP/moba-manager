@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="AchievementResource" load_steps=2 format=3 uid="uid://b60b8kd4jndv8"]
+[gd_resource type="Resource" script_class="AchievementResource" load_steps=3 format=3 uid="uid://b60b8kd4jndv8"]
 
 [ext_resource type="Script" path="res://resources/achievements/achievement_resource.gd" id="1_brptb"]
+[ext_resource type="Script" path="res://resources/achievements/achievement_scripts/heroic_dedication_script.gd" id="1_w6ujq"]
 
 [resource]
 script = ExtResource("1_brptb")
@@ -8,9 +9,12 @@ ach_index = 0
 ach_title = "Heroic Dedication"
 ach_1st_description = "Level up a hero to lvl"
 ach_2nd_description = ""
+ach_progress = 0
 ach_current_step = 0
+ach_completed = false
 ach_requirement = Array[int]([10, 50, 99, 100])
 ach_completion_step = 0
 ach_reward_description = "Increase your experience gain by"
 ach_reward_base = 5
 ach_reward_growth = 5
+ach_script = ExtResource("1_w6ujq")

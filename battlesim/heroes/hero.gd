@@ -13,9 +13,10 @@ extends CharacterBody2D
 
 var _hero: HeroResource
 var actor_name := "hero"
+var stage_modifier := 1.0
 
 
-func setup(hero: HeroResource, enemy: bool, top: bool) -> void:
+func setup(hero: HeroResource, enemy: bool, top: bool, stage_mod: float) -> void:
 	_hero = hero
 	actor_name = hero.hero_name
 	lane_manager_component.top_lane = top
@@ -24,7 +25,7 @@ func setup(hero: HeroResource, enemy: bool, top: bool) -> void:
 	
 	if enemy:
 		stats_component.enemy = enemy
-		
+		stage_modifier = stage_mod
 		sprite_2d.texture = hero.hero_icon
 		hurtbox_component.set_collision_layer_value(2, true)
 		hitbox_component.set_collision_mask_value(1, true)
@@ -49,10 +50,10 @@ func setup_hero_stats() -> void:
 	health_bar_component.update_max_health()
 
 func apply_stats() -> void:
-	stats_component.max_health = (_hero.health + (_hero.lvl * _hero.extra_hp))
-	stats_component.health = (_hero.health + (_hero.lvl * _hero.extra_hp))
+	stats_component.max_health = (_hero.health + (_hero.lvl * _hero.extra_hp)) * stage_modifier
+	stats_component.health = (_hero.health + (_hero.lvl * _hero.extra_hp)) * stage_modifier
 	stats_component.health_regen = (_hero.health_regen)
-	stats_component.damage = (_hero.attack_damage + (_hero.lvl * _hero.extra_ad))
+	stats_component.damage = (_hero.attack_damage + (_hero.lvl * _hero.extra_ad)) * stage_modifier
 	stats_component.ability_power = (_hero.ability_power + (_hero.lvl * _hero.extra_ap))
 	stats_component.dodge = _hero.dodge
 	stats_component.block = _hero.block
@@ -67,12 +68,6 @@ func apply_equipment_bonus() -> void:
 	stats_component.dodge += _hero.equipped_item.item_dodge
 	stats_component.block += _hero.equipped_item.item_block
 	stats_component.crit += _hero.equipped_item.item_crit
-
-func apply_match_modifier(modifier: float) -> void:
-	stats_component.max_health *= modifier
-	stats_component.health *= modifier
-	stats_component.damage *= modifier
-	health_bar_component.update_max_health()
 
 func get_hurtbox() -> HurtboxComponent:
 	return hurtbox_component

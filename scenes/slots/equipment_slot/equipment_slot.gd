@@ -7,11 +7,15 @@ extends PanelContainer
 
 var _equipment: EquipmentResource = null
 var _original_quantity := 1
+var _rarity: int
+var _name: String
 
 func display(equipment: EquipmentResource):
 	texture_rect.texture = equipment.icon
 	stack_label.text = "%s" % equipment.quantity
 	_equipment = equipment
+	_rarity = equipment.rarity
+	_name  = equipment.name
 	
 	
 	match equipment.rarity:

@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="AchievementResource" load_steps=2 format=3 uid="uid://p4ebuntci4wy"]
+[gd_resource type="Resource" script_class="AchievementResource" load_steps=3 format=3 uid="uid://p4ebuntci4wy"]
 
+[ext_resource type="Script" path="res://resources/achievements/achievement_scripts/crafting_connoisseur_script.gd" id="1_860h1"]
 [ext_resource type="Script" path="res://resources/achievements/achievement_resource.gd" id="1_map7m"]
 
 [resource]
@@ -8,9 +9,12 @@ ach_index = 0
 ach_title = "Crafting Connoisseur"
 ach_1st_description = "Craft"
 ach_2nd_description = "different items."
+ach_progress = 0
 ach_current_step = 0
+ach_completed = false
 ach_requirement = Array[int]([5, 10, 13, 15])
 ach_completion_step = 0
 ach_reward_description = "Increase your loot gain by "
 ach_reward_base = 5
 ach_reward_growth = 3
+ach_script = ExtResource("1_860h1")

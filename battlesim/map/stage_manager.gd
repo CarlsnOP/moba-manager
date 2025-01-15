@@ -1,9 +1,7 @@
 class_name StageManager
 extends Control
 
-const BASE_HP_BOOST := 10
-const BASE_AD_BOOST := 5
-const BASE_AP_BOOST := 5
+const BASE_STAGE_MODIFIER := 0.1
 
 @onready var stage_label = %StageLabel
 
@@ -13,18 +11,27 @@ var highest_stage := 1
 
 func _ready():
 	SignalManager.on_battle_end.connect(on_battle_end)
+	await get_tree().physics_frame
+	update_stage_label()
+	stage_label.show()
 	
 func on_battle_end(win: bool) -> void:
 	if !win:
 		if current_stage > 1:
 			current_stage -= 1
+			update_stage_label()
 			return
 		return
 	
 	current_stage += 1
-	
+
 	if current_stage > highest_stage:
 		highest_stage = current_stage
+		
+	update_stage_label()
 
 func update_stage_label() -> void:
 	stage_label.text = "Stage: " + str(current_stage)
+
+func get_stage_modifer() -> float:
+	return BASE_STAGE_MODIFIER * current_stage

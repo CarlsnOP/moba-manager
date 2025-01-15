@@ -13,7 +13,9 @@ extends Resource
 @export var bot: HeroResource
 @export var jungle: HeroResource
 
-#Settings
-@export var master_volume: float
-@export var music_volume: float
-@export var sfx_volume: float
+#Stage
+@export var current_stage: int
+@export var highest_stage: int
+
+#Achievements
+@export var ach_master_dict: Dictionary

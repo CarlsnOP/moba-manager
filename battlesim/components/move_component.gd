@@ -8,6 +8,7 @@ extends Node
 var immovable := false
 var standing_still := true
 
+
 func _physics_process(delta):
 	if !immovable:
 		var next_path_position: Vector2 = navigation_agent.get_next_path_position()

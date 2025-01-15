@@ -42,7 +42,8 @@ func _on_craft_button_pressed():
 		_inventory.remove_loot(loot, required_amount)
 		
 	for equipment in _results:
-		_inventory.add_item(equipment, 1)
+		_inventory.add_equipment(equipment, 1)
+		SignalManager.on_equipment_crafted.emit(equipment)
 		
 	update_displays()
 

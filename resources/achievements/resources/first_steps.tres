@@ -1,15 +1,20 @@
-[gd_resource type="Resource" script_class="AchievementResource" load_steps=2 format=3 uid="uid://c7w30332l45th"]
+[gd_resource type="Resource" script_class="AchievementResource" load_steps=3 format=3 uid="uid://c7w30332l45th"]
 
+[ext_resource type="Script" path="res://resources/achievements/achievement_scripts/first_steps_script.gd" id="1_nohs6"]
 [ext_resource type="Script" path="res://resources/achievements/achievement_resource.gd" id="1_u77ug"]
 
 [resource]
 script = ExtResource("1_u77ug")
 ach_index = 0
 ach_title = "First Steps"
-ach_1st_description = "Win"
-ach_2nd_description = "battles."
-ach_requirement = Array[int]([3, 100, 1000, 10000])
+ach_1st_description = "Win your first battle."
+ach_2nd_description = ""
+ach_progress = 0
+ach_current_step = 0
+ach_completed = false
+ach_requirement = Array[int]([1, 100, 1000, 10000])
 ach_completion_step = 0
 ach_reward_description = "Increase your experience gain by"
 ach_reward_base = 5
 ach_reward_growth = 5
+ach_script = ExtResource("1_nohs6")

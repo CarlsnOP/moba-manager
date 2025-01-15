@@ -45,7 +45,7 @@ func create_event_log(win: bool) -> void:
 	event_log_entries.add_child(new_eventlog)
 	event_log_entries.move_child(new_eventlog, 0)
 	new_eventlog.setup(xp, currency, loot)
-	new_eventlog.set_match_time(MatchDataManager.previous_game_length)
+	new_eventlog.set_match_time(MatchDataManager.previous_game_elapsed_time)
 	new_eventlog.set_result_label(win)
 	new_eventlog.instantiate_friendly_top(top_hero)
 	new_eventlog.instantiate_friendly_bot(bot_hero)

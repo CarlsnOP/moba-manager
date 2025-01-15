@@ -15,12 +15,20 @@ func setup(ach: AchievementResource) -> void:
 	achievement = ach
 	setup_label()
 	setup_ducks()
+
+func update() -> void:
+	setup_label()
+	setup_ducks()
 	
 func setup_label() -> void:
 	achievement_name_label.text = achievement.ach_title
-	description_label.text = " - " + achievement.ach_1st_description + " "
-	description_label.text += str(achievement.ach_requirement[achievement.ach_current_step])
-	description_label.text += " " + achievement.ach_2nd_description
+	if !achievement.ach_completed:
+		description_label.text = " - " + achievement.ach_1st_description + " "
+		description_label.text += str(achievement.ach_progress) + "/"
+		description_label.text += str(achievement.ach_requirement[achievement.ach_current_step])
+		description_label.text += " " + achievement.ach_2nd_description
+	else:
+		description_label.text = " - COMPLETED!"
 	reward_label.text = achievement.ach_reward_description
 	reward_amount_label.text = str(achievement.ach_reward_base + (achievement.ach_current_step * achievement.ach_reward_growth)) + " %"
 
@@ -31,5 +39,5 @@ func setup_ducks() -> void:
 		achieved_icon_2.texture = DataStorage.ACHIEVED_DUCK
 	if achievement.ach_current_step > 2:
 		achieved_icon_3.texture = DataStorage.ACHIEVED_DUCK
-	if achievement.ach_current_step > 3:
+	if achievement.ach_completed:
 		achieved_icon_4.texture = DataStorage.ACHIEVED_DUCK

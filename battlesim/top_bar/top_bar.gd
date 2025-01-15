@@ -40,10 +40,13 @@ func setup_top_bar_slots() -> void:
 		
 
 func _on_match_timer_timeout() -> void:
+	MatchDataManager.time_left -= 1
 	MatchDataManager.elapsed_time += 1
 	update_match_clock()
+	if MatchDataManager.time_left < 1:
+		SignalManager.on_battle_end.emit(false)
 
 func update_match_clock() -> void:
-	var minutes = floor(MatchDataManager.elapsed_time / 60)
-	var seconds = int(MatchDataManager.elapsed_time) % 60
+	var minutes = floor(MatchDataManager.time_left / 60)
+	var seconds = int(MatchDataManager.time_left) % 60
 	match_timer_label.text = "%02d:%02d" % [minutes, seconds]

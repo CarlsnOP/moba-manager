@@ -72,8 +72,14 @@ text = "Retreat to Nexus"
 
 [node name="FastForwardButton" type="Button" parent="MarginContainer/VB"]
 layout_mode = 2
-size_flags_vertical = 10
+size_flags_vertical = 0
 text = "Speed up X4"
+flat = true
+
+[node name="EndBattleButton" type="Button" parent="MarginContainer/VB"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "End battle"
 flat = true
 
 [connection signal="pressed" from="MarginContainer/VB/HeroesHB/TopHeroButton" to="." method="_on_top_hero_button_pressed"]
@@ -82,3 +88,4 @@ flat = true
 [connection signal="pressed" from="MarginContainer/VB/LaneHB/BotButton" to="." method="_on_bot_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VB/RetreatButton" to="." method="_on_retreat_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VB/FastForwardButton" to="." method="_on_fast_forward_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VB/EndBattleButton" to="." method="_on_end_battle_button_pressed"]

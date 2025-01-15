@@ -70,3 +70,7 @@ func _on_fast_forward_button_pressed() -> void:
 	var homepage = get_tree().get_first_node_in_group("homepage") as Homepage
 	if homepage.has_method("set_fast_forward"):
 		homepage.set_fast_forward()
+
+
+func _on_end_battle_button_pressed():
+	SignalManager.on_battle_end.emit(true)

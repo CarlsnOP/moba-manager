@@ -54,22 +54,29 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Map" parent="GameCanvas/GameLayoutHB" instance=ExtResource("7_e6ve5")]
-layout_mode = 2
-size_flags_horizontal = 1
-size_flags_vertical = 0
-
-[node name="TopBar" parent="GameCanvas/GameLayoutHB" instance=ExtResource("3_5v617")]
+[node name="Control" type="Control" parent="GameCanvas/GameLayoutHB"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="TopBar" parent="GameCanvas/GameLayoutHB/Control" instance=ExtResource("3_5v617")]
+layout_mode = 1
+
+[node name="Map" parent="GameCanvas/GameLayoutHB/Control" instance=ExtResource("7_e6ve5")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 4.0
+offset_right = 1112.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="StageManager" parent="GameCanvas/GameLayoutHB/Control" groups=["stage_manager"] instance=ExtResource("5_m1afa")]
+layout_mode = 1
 
 [node name="BattleManager" parent="GameCanvas/GameLayoutHB" instance=ExtResource("6_88w18")]
 layout_mode = 2
 size_flags_horizontal = 8
-
-[node name="StageManager" parent="GameCanvas/GameLayoutHB/BattleManager" groups=["game_events", "stage_manager"] instance=ExtResource("5_m1afa")]
-layout_mode = 2
-size_flags_horizontal = 1
 
 [node name="InterfaceMC" type="MarginContainer" parent="GameCanvas"]
 anchors_preset = 15
@@ -120,6 +127,6 @@ bus = &"Ambience"
 
 [connection signal="timeout" from="Utilities/SaverLoader/SaveTimer" to="Utilities/SaverLoader" method="_on_save_timer_timeout"]
 
-[editable path="GameCanvas/GameLayoutHB/Map"]
+[editable path="GameCanvas/GameLayoutHB/Control/Map"]
 [editable path="GameCanvas/InterfaceMC/HB/Interface"]
 [editable path="GameCanvas/InterfaceMC/HB/Interface/Heroes"]

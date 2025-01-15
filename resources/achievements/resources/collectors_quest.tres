@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="AchievementResource" load_steps=2 format=3 uid="uid://bd6s42dr70rtf"]
+[gd_resource type="Resource" script_class="AchievementResource" load_steps=3 format=3 uid="uid://bd6s42dr70rtf"]
 
+[ext_resource type="Script" path="res://resources/achievements/achievement_scripts/collectors_quest_script.gd" id="1_f1gvm"]
 [ext_resource type="Script" path="res://resources/achievements/achievement_resource.gd" id="1_fk4x6"]
 
 [resource]
@@ -8,8 +9,11 @@ ach_index = 0
 ach_title = "Collector's Quest"
 ach_1st_description = "Collect"
 ach_2nd_description = "different loot items."
+ach_progress = 0
+ach_current_step = 0
 ach_requirement = Array[int]([20, 25, 28, 30])
 ach_completion_step = 0
 ach_reward_description = "Increase your loot gain by "
 ach_reward_base = 3
 ach_reward_growth = 2
+ach_script = ExtResource("1_f1gvm")
