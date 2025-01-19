@@ -4,19 +4,18 @@ const BASE_LOOT_REWARD := 30
 const BASE_EXP_REWARD := 50
 const BASE_RUBBERDUCK_REWARD := 100
 const WIN_MODIFIER := 2.0
-const STAGE_MODIFIER_ADJUSTMENT = 1.0
 
-var _mod_rank := 1.0
+
 var _mod_luck := 1.0
 var _loot_gained: Array[LootResource] = []
 var _exp_gained: int
 var _rubberduckies_gained: int
 
-func on_battle_end(win: bool, stage_modifier: float) -> void:
+func on_battle_end(win: bool) -> void:
 	_loot_gained.clear()
-	var loot_reward = round((BASE_LOOT_REWARD * ((stage_modifier + STAGE_MODIFIER_ADJUSTMENT) + _mod_rank)) * _mod_luck)
-	var exp_reward = round(BASE_EXP_REWARD * ((stage_modifier + STAGE_MODIFIER_ADJUSTMENT) + _mod_rank))
-	var rubberduckies_reward = round(BASE_RUBBERDUCK_REWARD * ((stage_modifier + STAGE_MODIFIER_ADJUSTMENT) + _mod_rank))
+	var loot_reward = round((BASE_LOOT_REWARD * (1 + StatsManager.all_stats_multipliers["loot_multiplier"]) * _mod_luck))
+	var exp_reward = round(BASE_EXP_REWARD * (1 + StatsManager.all_stats_multipliers["loot_multiplier"]))
+	var rubberduckies_reward = round(BASE_RUBBERDUCK_REWARD * (1 + StatsManager.all_stats_multipliers["loot_multiplier"]))
 	var eligible_loot = []
 	var total_weight = 0
 	

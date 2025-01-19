@@ -55,10 +55,20 @@ text = "Rubberduckies: 0"
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="ProfileButton" type="Button" parent="PC/MC/VB" groups=["sound_button"]]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PC/MC/VB"]
+layout_mode = 2
+
+[node name="ProfileButton" type="Button" parent="PC/MC/VB/HBoxContainer2" groups=["sound_button"]]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Profile"
+alignment = 0
+
+[node name="HomeButton" type="Button" parent="PC/MC/VB/HBoxContainer2" groups=["sound_button"]]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_type_variation = &"HeaderMedium"
+text = "#"
 alignment = 0
 
 [node name="HSeparator3" type="HSeparator" parent="PC/MC/VB"]
@@ -70,12 +80,6 @@ theme_override_constants/separation = 30
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Battle Sim"
-alignment = 0
-
-[node name="HomeButton" type="Button" parent="PC/MC/VB" groups=["sound_button"]]
-layout_mode = 2
-theme_type_variation = &"HeaderMedium"
-text = "Home"
 alignment = 0
 
 [node name="HeroesButton" type="Button" parent="PC/MC/VB" groups=["sound_button"]]
@@ -151,6 +155,13 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
+[node name="CreditsButton" type="Button" parent="PC/MC/VB" groups=["sound_button"]]
+layout_mode = 2
+size_flags_vertical = 10
+theme_type_variation = &"HeaderMedium"
+text = "Credits"
+alignment = 0
+
 [node name="SettingsButton" type="Button" parent="PC/MC/VB" groups=["sound_button"]]
 layout_mode = 2
 size_flags_vertical = 10
@@ -167,14 +178,15 @@ text = "Quit game
 "
 alignment = 0
 
-[connection signal="pressed" from="PC/MC/VB/ProfileButton" to="." method="_on_profile_button_pressed"]
+[connection signal="pressed" from="PC/MC/VB/HBoxContainer2/ProfileButton" to="." method="_on_profile_button_pressed"]
+[connection signal="pressed" from="PC/MC/VB/HBoxContainer2/HomeButton" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/BattleSimButton" to="." method="_on_battle_sim_button_pressed"]
-[connection signal="pressed" from="PC/MC/VB/HomeButton" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/HeroesButton" to="." method="_on_heroes_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/BattleSetupButton" to="." method="_on_battle_setup_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/HBoxContainer/Achievementsbutton" to="." method="_on_achievementsbutton_pressed"]
 [connection signal="pressed" from="PC/MC/VB/Inventorybutton" to="." method="_on_inventorybutton_pressed"]
 [connection signal="pressed" from="PC/MC/VB/CraftingButton" to="." method="_on_crafting_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/RankButton" to="." method="_on_rank_button_pressed"]
+[connection signal="pressed" from="PC/MC/VB/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/QuitButton" to="." method="_on_quit_button_pressed"]

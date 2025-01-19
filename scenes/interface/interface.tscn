@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://brfdff1sxe1as"]
+[gd_scene load_steps=13 format=3 uid="uid://brfdff1sxe1as"]
 
 [ext_resource type="Script" path="res://scenes/interface/interface.gd" id="1_7qvry"]
 [ext_resource type="PackedScene" uid="uid://673smdjoegvd" path="res://scenes/interfaces/heroes/heroes.tscn" id="2_31ohs"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cfm0ihkpiqfpg" path="res://scenes/interfaces/rank/rank.tscn" id="7_ieocr"]
 [ext_resource type="PackedScene" uid="uid://b4ipaxr61k83x" path="res://scenes/interfaces/settings/settings.tscn" id="8_5pgio"]
 [ext_resource type="PackedScene" uid="uid://bhix3y2kgctle" path="res://scenes/interfaces/achievements/achievements.tscn" id="10_4wq4u"]
+[ext_resource type="PackedScene" uid="uid://c02lhun3lsts3" path="res://scenes/interfaces/credits/credits.tscn" id="10_y12fh"]
 
 [node name="Interface" type="Control" groups=["game_events"]]
 layout_mode = 3
@@ -59,6 +60,11 @@ visible = false
 layout_mode = 1
 
 [node name="Highscore" parent="." instance=ExtResource("7_cx26x")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="Credits" parent="." instance=ExtResource("10_y12fh")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1

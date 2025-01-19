@@ -24,11 +24,9 @@ var enemy: bool
 var enemy1: HeroResource
 var enemy2: HeroResource
 var top_lane: bool
-var stage_manager_ref: StageManager
 
 func _ready():
 	SignalManager.on_battle_end.connect(on_battle_end)
-	stage_manager_ref = get_tree().get_first_node_in_group("stage_manager")
 	await get_tree().physics_frame
 	on_battle_end(false)
 	game_launced = true
@@ -46,7 +44,7 @@ func on_battle_end(win: bool) -> void:
 	spawn_friendly_team()
 	
 	if game_launced:
-		RewardManager.on_battle_end(win, stage_manager_ref.get_stage_modifer())
+		RewardManager.on_battle_end(win)
 		
 		if win:
 			SoundManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.GAME_WIN)
@@ -101,7 +99,7 @@ func spawn_enemy_heroes() -> void:
 	var enemy_hero1 = HERO.instantiate()
 	enemy_hero1.global_position = respawn_enemy_hero.to_local(respawn_enemy_hero.global_position)
 	respawn_enemy_hero.add_child(enemy_hero1)
-	enemy_hero1.setup(enemy1, enemy, top_lane, stage_manager_ref.get_stage_modifer())
+	enemy_hero1.setup(enemy1, enemy, top_lane, StatsManager.enemy_hero_specific_stats)
 	enemy_hero1.add_to_group("enemy")
 	enemy_hero1.add_to_group("hero")
 	
@@ -110,7 +108,7 @@ func spawn_enemy_heroes() -> void:
 	var enemy_hero2 = HERO.instantiate()
 	enemy_hero2.global_position = respawn_enemy_hero.to_local(respawn_enemy_hero.global_position)
 	respawn_enemy_hero.add_child(enemy_hero2)
-	enemy_hero2.setup(enemy2, enemy, top_lane, stage_manager_ref.get_stage_modifer())
+	enemy_hero2.setup(enemy2, enemy, top_lane, StatsManager.enemy_hero_specific_stats)
 	enemy_hero2.add_to_group("enemy")
 	enemy_hero2.add_to_group("hero")
 	
@@ -156,7 +154,7 @@ func spawn_friendly_heroes() -> void:
 	var top_hero = HERO.instantiate()
 	top_hero.global_position = respawn_team_hero.to_local(respawn_team_hero.global_position)
 	respawn_team_hero.add_child(top_hero)
-	top_hero.setup(TeamManager.top, enemy, top_lane, stage_manager_ref.BASE_STAGE_MODIFIER)
+	top_hero.setup(TeamManager.top, enemy, top_lane, StatsManager.hero_specific_stats)
 	top_hero.add_to_group("team")
 	top_hero.add_to_group("hero")
 	
@@ -165,6 +163,6 @@ func spawn_friendly_heroes() -> void:
 	var bot_hero = HERO.instantiate()
 	bot_hero.global_position = respawn_team_hero.to_local(respawn_team_hero.global_position)
 	respawn_team_hero.add_child(bot_hero)
-	bot_hero.setup(TeamManager.bot, enemy, top_lane, stage_manager_ref.BASE_STAGE_MODIFIER)
+	bot_hero.setup(TeamManager.bot, enemy, top_lane, StatsManager.hero_specific_stats)
 	bot_hero.add_to_group("team")
 	bot_hero.add_to_group("hero")

@@ -43,6 +43,9 @@ func _on_settings_button_pressed():
 func _on_achievementsbutton_pressed():
 	SignalManager.new_interface.emit(8)
 
+func _on_credits_button_pressed() -> void:
+	SignalManager.new_interface.emit(10)
+
 func _on_quit_button_pressed():
 	var temp = get_tree().get_first_node_in_group("want_to_quit_pop_up")
 	if temp:

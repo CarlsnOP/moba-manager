@@ -1,7 +1,7 @@
 class_name StageManager
 extends Control
 
-const BASE_STAGE_MODIFIER := 0.1
+const STAGE_INCREMENT := 0.01
 
 @onready var stage_label = %StageLabel
 
@@ -34,4 +34,4 @@ func update_stage_label() -> void:
 	stage_label.text = "Stage: " + str(current_stage)
 
 func get_stage_modifer() -> float:
-	return BASE_STAGE_MODIFIER * current_stage
+	return current_stage * STAGE_INCREMENT

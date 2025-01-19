@@ -14,6 +14,7 @@ class_name HeroResource
 @export var block: float = 0.05
 @export var crit: float = 0.05
 @export var in_team: bool
+@export var unlocked: bool = false
 @export var skill: SkillResource
 @export var equipped_equipment: EquipmentResource
 @export var hero_autoattack_sfx: SoundEffectSettings.SOUND_EFFECT_TYPE

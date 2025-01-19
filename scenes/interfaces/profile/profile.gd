@@ -26,9 +26,9 @@ func stats_updated() -> void:
 
 func setup_global_labels() -> void:
 	#Generic Overall label
-	global_stats_label.text = "Rubber Duck Multiplier: " + str(StatsManager.all_stats_multipliers["rubberduck_multiplier"]) + "% \n"
-	global_stats_label.text += "XP multiplier: " + str(StatsManager.all_stats_multipliers["xp_multiplier"]) + "% \n"
-	global_stats_label.text += "Loot multiplier: " + str(StatsManager.all_stats_multipliers["loot_multiplier"]) + "% \n"
+	global_stats_label.text = "Rubber Duck Multiplier: " + str(StatsManager.all_stats_multipliers["rubberduck_multiplier"] * 100) + "% \n"
+	global_stats_label.text += "XP multiplier: " + str(StatsManager.all_stats_multipliers["xp_multiplier"] * 100) + "% \n"
+	global_stats_label.text += "Loot multiplier: " + str(StatsManager.all_stats_multipliers["loot_multiplier"] * 100) + "% \n"
 	
 	#Generic Hero Stats Label
 	global_hero_stats_label.text = "Max health multiplier: " + str(StatsManager.all_stats_multipliers["hp_multiplier"]) + "% \n"
@@ -49,7 +49,7 @@ func setup_hero_specific_stats_label(hero: HeroResource) -> void:
 			hero_stats_label.text += "Health regeneration: " + str(h["health_reg"]) + "\n"
 			hero_stats_label.text += "Damage: " + str(h["damage"]) + "\n"
 			hero_stats_label.text += "Ability power: " + str(h["ability_power"]) + "\n"
-			hero_stats_label.text += "Block change: " + str(h["block"]) + "%\n"
-			hero_stats_label.text += "Dodge chance: " + str(h["dodge"]) + "%\n"
-			hero_stats_label.text += "Critical chance: " + str(h["crit"]) + "%\n"
+			hero_stats_label.text += "Block change: " + str(h["block"] * 100) + "%\n"
+			hero_stats_label.text += "Dodge chance: " + str(h["dodge"] * 100) + "%\n"
+			hero_stats_label.text += "Critical chance: " + str(h["crit"] * 100) + "%\n"
 			
