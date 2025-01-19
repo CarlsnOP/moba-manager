@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=7 format=3 uid="uid://dy3dpnuxbuuq3"]
+[gd_resource type="Resource" script_class="EquipmentResource" load_steps=7 format=3 uid="uid://dy3dpnuxbuuq3"]
 
 [ext_resource type="Texture2D" uid="uid://cylhc7apfog0r" path="res://assets/art/items/phantom-duster.webp" id="1_ho0xk"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_uy2g1"]
@@ -14,14 +14,14 @@ name = "Phantom Duster"
 icon = ExtResource("1_ho0xk")
 description = "A duster made from ghostly fabric."
 rarity = 4
-effect = "+10% AD and Luck"
+effect = "+10% AD and Crit"
 quantity = 0
 ingredients = Array[ExtResource("2_uy2g1")]([ExtResource("3_ow83o"), ExtResource("4_3ixys"), ExtResource("5_pd52m")])
 amounts = Array[int]([50, 200, 150])
-item_hp = 1.0
-item_hp_regen = 1.0
-item_ad = 1.1
-item_ap = 1.0
-item_dodge = 0.0
-item_block = 0.0
-item_crit = 0.1
+equipment_hp = 1.0
+equipment_hp_regen = 1.0
+equipment_ad = 1.1
+equipment_ap = 1.0
+equipment_dodge = 0.0
+equipment_block = 0.0
+equipment_crit = 10.0

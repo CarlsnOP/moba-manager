@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=7 format=3 uid="uid://xvhs8efmp8io"]
+[gd_resource type="Resource" script_class="EquipmentResource" load_steps=7 format=3 uid="uid://xvhs8efmp8io"]
 
 [ext_resource type="Texture2D" uid="uid://bqo360ntp3syn" path="res://assets/art/items/magic-mushroom-medallion.webp" id="1_43mbs"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_txb8f"]
@@ -18,10 +18,10 @@ effect = "+40% Health Regen"
 quantity = 0
 ingredients = Array[ExtResource("2_txb8f")]([ExtResource("3_msvfc"), ExtResource("4_22tlb"), ExtResource("5_uhxpm")])
 amounts = Array[int]([100, 200, 150])
-item_hp = 1.0
-item_hp_regen = 1.4
-item_ad = 1.0
-item_ap = 1.0
-item_dodge = 0.0
-item_block = 0.0
-item_crit = 0.0
+equipment_hp = 1.0
+equipment_hp_regen = 1.4
+equipment_ad = 1.0
+equipment_ap = 1.0
+equipment_dodge = 0.0
+equipment_block = 0.0
+equipment_crit = 0.0

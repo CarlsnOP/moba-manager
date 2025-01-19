@@ -1,6 +1,6 @@
 extends Control
 
-enum INTERFACE_STATE { HOME, HEROES, BATTLESETUP, BATTLESIM, INVENTORY, CRAFTING, RANK, SETTINGS, ACHIEVEMENTS }
+enum INTERFACE_STATE { HOME, HEROES, BATTLESETUP, BATTLESIM, INVENTORY, CRAFTING, RANK, SETTINGS, ACHIEVEMENTS, PROFILE }
 
 @onready var heroes = %Heroes
 @onready var battle_setup = %BattleSetup
@@ -10,6 +10,7 @@ enum INTERFACE_STATE { HOME, HEROES, BATTLESETUP, BATTLESIM, INVENTORY, CRAFTING
 @onready var rank = %Rank
 @onready var settings: Control = %Settings
 @onready var achievements = %Achievements
+@onready var profile = %Profile
 
 
 var _state: INTERFACE_STATE = INTERFACE_STATE.RANK
@@ -76,7 +77,11 @@ func set_state(new_state: INTERFACE_STATE) -> void:
 		INTERFACE_STATE.ACHIEVEMENTS:
 			achievements.show()
 			achievements.open()
-
+			
+		INTERFACE_STATE.PROFILE:
+			profile.show()
+			profile.stats_updated()
+			
 func reassign_home(saved_home: Control) -> void:
 	move_child(saved_home, 0)
 	home = saved_home

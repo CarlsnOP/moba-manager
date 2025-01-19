@@ -15,11 +15,9 @@ func on_before_load_game():
 	bot_button.icon = TeamManager.bot.hero_portrait
 #	jungle_button.icon = TeamManager.jungle.hero_portrait
 
-func _ready():
-	SignalManager.on_portrait_selected.connect(on_portrait_selected)
-
 func add_heroes():
-	get_tree().call_group("hero_buttons", "picked")
+	for child in grid_container.get_children():
+		child.queue_free()
 	
 	for hero in TeamManager._all_heroes:
 		if !hero.in_team:
@@ -27,6 +25,7 @@ func add_heroes():
 			grid_container.add_child(slot)
 			slot.add_to_group("hero_buttons")
 			slot.display(hero)
+			slot.hero_selected.connect(on_portrait_selected)
 
 func on_portrait_selected(hero: HeroResource) -> void:
 	hero_menu.hide()

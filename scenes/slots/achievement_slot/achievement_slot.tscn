@@ -55,14 +55,19 @@ layout_mode = 2
 [node name="RewardLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Win your first battle"
+text = "Gain "
 
 [node name="RewardAmountLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_87eeb")
-text = "3"
+text = "3 %"
+
+[node name="NextRewardLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "(next level: 5)"
 
 [node name="AchievedIcon" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -95,3 +100,39 @@ size_flags_horizontal = 8
 texture = ExtResource("1_62dxe")
 expand_mode = 2
 stretch_mode = 4
+
+[node name="CompleteAchievement" type="PanelContainer" parent="PanelContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_type_variation = &"AlphaPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CompleteAchievement"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GetRewardButton" type="Button" parent="PanelContainer/CompleteAchievement/MarginContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Get reward"
+
+[node name="GetRewardLabel" type="Label" parent="PanelContainer/CompleteAchievement/MarginContainer/GetRewardButton"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "ddd"
+
+[connection signal="pressed" from="PanelContainer/CompleteAchievement/MarginContainer/GetRewardButton" to="." method="_on_get_reward_button_pressed"]

@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bpnlghx13iay"]
+[gd_scene load_steps=13 format=3 uid="uid://bpnlghx13iay"]
 
 [ext_resource type="Script" path="res://scenes/homepage/homepage.gd" id="1_i64r6"]
 [ext_resource type="PackedScene" uid="uid://bacpg17x5vs5i" path="res://battlesim/top_bar/top_bar.tscn" id="3_5v617"]
 [ext_resource type="PackedScene" uid="uid://d1srca4b5kfs6" path="res://scenes/nav_menu/nav_menu.tscn" id="3_tjgve"]
-[ext_resource type="PackedScene" uid="uid://dfgru6ciat4rq" path="res://battlesim/utility/stage_manager/stage_manager.tscn" id="5_m1afa"]
 [ext_resource type="PackedScene" uid="uid://brfdff1sxe1as" path="res://scenes/interface/interface.tscn" id="5_upecu"]
 [ext_resource type="PackedScene" uid="uid://fgfie74mjqjs" path="res://scenes/interfaces/battle_manager/battle_manager.tscn" id="6_88w18"]
 [ext_resource type="Script" path="res://utility/scripts/saving_and_loading/saver_loader.gd" id="6_ydpd0"]
@@ -66,10 +65,6 @@ size_flags_horizontal = 3
 [node name="BattleManager" parent="GameCanvas/GameLayoutHB" instance=ExtResource("6_88w18")]
 layout_mode = 2
 size_flags_horizontal = 8
-
-[node name="StageManager" parent="GameCanvas/GameLayoutHB/BattleManager" groups=["game_events", "stage_manager"] instance=ExtResource("5_m1afa")]
-layout_mode = 2
-size_flags_horizontal = 1
 
 [node name="InterfaceMC" type="MarginContainer" parent="GameCanvas"]
 anchors_preset = 15

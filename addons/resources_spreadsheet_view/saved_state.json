@@ -8,6 +8,10 @@
       "resource_local_to_scene": true,
       "resource_name": true
     },
+    "res://resources/items/equipment/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    },
     "res://resources/items/hero_items/items/": {
       "resource_local_to_scene": true,
       "resource_name": true
@@ -26,7 +30,8 @@
     "res://resources/items/loot/items/",
     "res://resources/heroes/resources/",
     "res://resources/skills/resources/",
-    "res://resources/heroes/resources/hero_list/"
+    "res://resources/heroes/resources/hero_list/",
+    "res://resources/items/equipment/"
   ],
   "table_functions": {
     "filter": [

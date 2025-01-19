@@ -2,6 +2,20 @@ extends Control
 
 const WANT_TO_QUIT_POP_UP = preload("res://scenes/utility/want_to_quit_pop_up/want_to_quit_pop_up.tscn")
 
+@onready var notification_rect = %NotificationRect
+
+func _ready():
+	SignalManager.achievements_updated.connect(achievements_updated)
+
+func achievements_updated() -> void:
+	if AchievementManager.check_if_unclaimed_rewards():
+		notification_rect.show()
+	else:
+		notification_rect.hide()
+
+func _on_profile_button_pressed():
+	SignalManager.new_interface.emit(9)
+
 func _on_home_button_pressed():
 	SignalManager.new_interface.emit(0)
 

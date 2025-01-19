@@ -1,11 +1,12 @@
 extends PanelContainer
 
+signal hero_selected(HeroResource)
+
 @export var icon: bool
 
 @onready var texture_rect = %TextureRect
 @onready var name_label = %NameLabel
 @onready var xp_progress_bar: ProgressBar = %XpProgressBar
-
 
 var _hero: HeroResource
 
@@ -14,6 +15,7 @@ func display(hero: HeroResource) -> void:
 		texture_rect.texture = hero.hero_icon
 	else:
 		texture_rect.texture = hero.hero_portrait
+		name_label.hide()
 	name_label.text = "%s - lvl: %s" % [hero.hero_name, hero.lvl]
 	_hero = hero
 
@@ -37,10 +39,6 @@ func update_xp_progressbar() -> void:
 	xp_progress_bar.max_value = next_threshold
 	xp_progress_bar.value = current_xp
 
-func picked() -> void:
-	if !icon:
-		queue_free()
-
 func scale_slot(scale_size: Vector2) -> void:
 	scale = scale_size
 
@@ -48,4 +46,4 @@ func _on_button_pressed():
 	if icon:
 		SignalManager.on_hero_selected.emit(_hero)
 	else:
-		SignalManager.on_portrait_selected.emit(_hero)
+		hero_selected.emit(_hero)

@@ -4,6 +4,8 @@ extends GridContainer
 @export var slot_scene:PackedScene
 @export var loot_reward := false
 
+var total_loot_slots: int
+
 func display(loot: Array[LootResource]):
 	for child in get_children():
 		child.queue_free()
@@ -48,3 +50,4 @@ func check_for_duplicates() -> void:
 				child.queue_free()
 			else:
 				seen_loot[loot_resource] = child
+	total_loot_slots = seen_loot.size()

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=7 format=3 uid="uid://b1uyicpkejc85"]
+[gd_resource type="Resource" script_class="EquipmentResource" load_steps=7 format=3 uid="uid://b1uyicpkejc85"]
 
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="1_cafpw"]
 [ext_resource type="Texture2D" uid="uid://di312a7ek66kw" path="res://assets/art/items/spoon-of-destiny.webp" id="1_t58yd"]
@@ -18,10 +18,10 @@ effect = "+50% AD"
 quantity = 0
 ingredients = Array[ExtResource("1_cafpw")]([ExtResource("3_bxkmu"), ExtResource("4_1sq3v"), ExtResource("5_fn7rh")])
 amounts = Array[int]([200, 100, 50])
-item_hp = 1.0
-item_hp_regen = 1.0
-item_ad = 1.5
-item_ap = 1.0
-item_dodge = 0.0
-item_block = 0.0
-item_crit = 0.0
+equipment_hp = 1.0
+equipment_hp_regen = 1.0
+equipment_ad = 1.5
+equipment_ap = 1.0
+equipment_dodge = 0.0
+equipment_block = 0.0
+equipment_crit = 0.0

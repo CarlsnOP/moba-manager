@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://brfdff1sxe1as"]
+[gd_scene load_steps=12 format=3 uid="uid://brfdff1sxe1as"]
 
 [ext_resource type="Script" path="res://scenes/interface/interface.gd" id="1_7qvry"]
 [ext_resource type="PackedScene" uid="uid://673smdjoegvd" path="res://scenes/interfaces/heroes/heroes.tscn" id="2_31ohs"]
+[ext_resource type="PackedScene" uid="uid://cpknkhss4be6i" path="res://scenes/interfaces/profile/profile.tscn" id="2_x5im1"]
 [ext_resource type="PackedScene" uid="uid://dkdc3lgikvhio" path="res://scenes/interfaces/battlesetup/battle_setup.tscn" id="3_2watf"]
 [ext_resource type="PackedScene" uid="uid://b24kcv61gsemj" path="res://scenes/interfaces/home/home.tscn" id="4_v3ki7"]
 [ext_resource type="PackedScene" uid="uid://631q0hu1m73l" path="res://scenes/interfaces/inventory/inventory.tscn" id="5_ow4ya"]
@@ -21,6 +22,11 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_7qvry")
+
+[node name="Profile" parent="." instance=ExtResource("2_x5im1")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
 
 [node name="Home" parent="." instance=ExtResource("4_v3ki7")]
 unique_name_in_owner = true

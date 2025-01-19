@@ -20,6 +20,9 @@ var the_almighty_storage_dictionary: Dictionary = {
 	
 	#Economy specific
 	"total_rubber_duckies_earned": 0,
+	
+	#Achievement Specific
+	"achievement_stats": [],
 }
 
 var all_achievements: Array[AchievementResource] = []
@@ -38,14 +41,31 @@ func _ready():
 	SignalManager.on_equipment_crafted.connect(on_equipment_crafted)
 	SignalManager.on_battle_end.connect(on_battle_end)
 	
+	check_and_add_achievement_stats()
+	check_if_new_heroes()
+	
 	await get_tree().physics_frame
+
 	update_achievements()
 	
-func update_achievements() -> void:
-	for achievement_res in all_achievements:
-		if achievement_res.ach_script != null:
-			achievement_res.ach_script.update_achievement(achievement_res)
+func update_achievement_stats(achievement: AchievementResource) -> void:
+	for achievement_stat in the_almighty_storage_dictionary["achievement_stats"]:
+		if achievement_stat["res"] == achievement:
+			achievement_stat["accepted_rewards"] += 1
+			update_achievements()
 
+
+func update_achievements() -> void:
+	for achievement in all_achievements:
+		if achievement.ach_script != null:
+			achievement.ach_script.update_achievement(achievement)
+			
+		for achievement_stat in the_almighty_storage_dictionary["achievement_stats"]:
+			if achievement_stat["res"] == achievement:
+				achievement.ach_accepted_rewards = achievement_stat["accepted_rewards"]
+	
+	SignalManager.achievements_updated.emit()
+			
 func on_equipment_crafted(equipment: EquipmentResource) -> void:
 	the_almighty_storage_dictionary["equipment_crafted"] += 1
 	
@@ -53,10 +73,8 @@ func on_equipment_crafted(equipment: EquipmentResource) -> void:
 		return
 	
 	the_almighty_storage_dictionary["unique_equipment_crafted"].append(equipment)
-	update_achievements()
 
 func on_battle_end(win: bool) -> void:
-	check_if_new_heroes()
 	if win:
 		on_win()
 			
@@ -86,15 +104,18 @@ func on_battle_end(win: bool) -> void:
 	
 	update_achievements()
 	
-	SignalManager.achievements_updated.emit()
-	
 func on_win() -> void:
 	the_almighty_storage_dictionary["wins"] += 1
 	update_hero_stats_win_losses("hero_stats", "enemy_hero_stats")
 	
 	if MatchDataManager.team_hero1["deaths"] <= 0 and MatchDataManager.team_hero2["deaths"] <= 0:
 		the_almighty_storage_dictionary["wins_without_deaths"] += 1
-	
+
+func check_if_unclaimed_rewards() -> bool:
+	for achievement in all_achievements:
+		if achievement.ach_current_step > achievement.ach_accepted_rewards:
+			return true
+	return false
 
 func on_loss() -> void:
 	the_almighty_storage_dictionary["losses"] += 1
@@ -141,3 +162,13 @@ func check_and_add_heroes(key: String, heroes: Array) -> void:
 			"deaths": 0,
 			}
 			the_almighty_storage_dictionary[key].append(hero_stats_entry)
+
+func check_and_add_achievement_stats() -> void:
+	if all_achievements.size() > the_almighty_storage_dictionary["achievement_stats"].size():
+		for achievement in all_achievements:
+			var achievement_save_data: Dictionary = {
+			"res": achievement,
+			"index": achievement.ach_index,
+			"accepted_rewards": 0,
+			}
+			the_almighty_storage_dictionary["achievement_stats"].append(achievement_save_data)

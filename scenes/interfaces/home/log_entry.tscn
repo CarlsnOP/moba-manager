@@ -44,10 +44,3 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Tower"
-
-[node name="MatchTimeLabel" type="Label" parent="Background/MC/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 10
-theme_type_variation = &"HeaderSmall"
-text = "Time"

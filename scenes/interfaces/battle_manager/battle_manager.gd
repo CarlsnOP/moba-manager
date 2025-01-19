@@ -1,8 +1,11 @@
 extends Control
 
+@export var log_scene: PackedScene
+
 @onready var top_hero_button = %TopHeroButton
 @onready var bot_hero_button = %BotHeroButton
 @onready var fast_forward_button: Button = $MarginContainer/VB/FastForwardButton
+@onready var battle_log_entries = %BattleLogEntries
 
 var selected_hero: Hero
 var selected_lane_manager_component: LaneManagerComponent
@@ -16,6 +19,26 @@ var bot_lane := false
 
 func _ready():
 	call_deferred("update")
+	SignalManager.event.connect(event_happend)
+	SignalManager.on_battle_end.connect(on_battle_end)
+
+
+func on_battle_end(_win: bool) -> void:
+	for child in battle_log_entries.get_children():
+		child.queue_free()
+	
+func event_happend(actor: PhysicsBody2D, killer: PhysicsBody2D) -> void:
+	var new_battlelog = log_scene.instantiate()
+	battle_log_entries.add_child(new_battlelog)
+	battle_log_entries.move_child(new_battlelog, 0)
+	new_battlelog.new_log(actor.actor_name, killer.actor_name)
+	
+	for child in actor.get_children():
+		if child is StatsComponent:
+			if child.enemy:
+				new_battlelog.set_colors_bully_dead()
+			else:
+				new_battlelog.set_colors_buddy_dead()
 
 func update() -> void:
 	top_hero_res = TeamManager.top

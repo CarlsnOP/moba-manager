@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=7 format=3 uid="uid://cvdigjqj0sxb6"]
+[gd_resource type="Resource" script_class="EquipmentResource" load_steps=7 format=3 uid="uid://cvdigjqj0sxb6"]
 
 [ext_resource type="Texture2D" uid="uid://diser732wulb0" path="res://assets/art/items/golden-toothpick-of-doom.webp" id="1_ka076"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_fpwun"]
@@ -18,10 +18,10 @@ effect = "+70% AD"
 quantity = 0
 ingredients = Array[ExtResource("2_fpwun")]([ExtResource("3_oqinx"), ExtResource("4_k1tp1"), ExtResource("5_hf88h")])
 amounts = Array[int]([250, 200, 300])
-item_hp = 1.0
-item_hp_regen = 1.0
-item_ad = 1.7
-item_ap = 1.0
-item_dodge = 0.0
-item_block = 0.0
-item_crit = 0.0
+equipment_hp = 1.0
+equipment_hp_regen = 1.0
+equipment_ad = 1.7
+equipment_ap = 1.0
+equipment_dodge = 0.0
+equipment_block = 0.0
+equipment_crit = 0.0

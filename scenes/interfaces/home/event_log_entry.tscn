@@ -5,19 +5,20 @@
 [ext_resource type="PackedScene" uid="uid://crp36l631uhwm" path="res://scenes/interfaces/crafting/loot_grid.tscn" id="2_l02s0"]
 
 [node name="EventLogEntry" type="Control" groups=["game_events"]]
-custom_minimum_size = Vector2(0, 1000)
+custom_minimum_size = Vector2(0, 700)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_hbj76")
 hero_slot_scene = ExtResource("2_2x5n3")
 
 [node name="Background" type="PanelContainer" parent="."]
-clip_contents = true
-custom_minimum_size = Vector2(0, 500)
+layout_direction = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,45 +27,44 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MC" type="MarginContainer" parent="Background"]
+layout_direction = 1
 layout_mode = 2
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
+theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 20
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Background/MC"]
-layout_mode = 2
-
-[node name="VB" type="VBoxContainer" parent="Background/MC/ScrollContainer"]
+[node name="VB" type="VBoxContainer" parent="Background/MC"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
 
-[node name="HB" type="HBoxContainer" parent="Background/MC/ScrollContainer/VB"]
+[node name="HB" type="HBoxContainer" parent="Background/MC/VB"]
 layout_mode = 2
 
-[node name="TitleLabel" type="Label" parent="Background/MC/ScrollContainer/VB/HB"]
+[node name="TitleLabel" type="Label" parent="Background/MC/VB/HB"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Match over - "
 
-[node name="ResultLabel" type="Label" parent="Background/MC/ScrollContainer/VB/HB"]
+[node name="ResultLabel" type="Label" parent="Background/MC/VB/HB"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"HeaderMedium"
 text = "Win"
 
-[node name="MatchLengthLabel" type="Label" parent="Background/MC/ScrollContainer/VB/HB"]
+[node name="MatchLengthLabel" type="Label" parent="Background/MC/VB/HB"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 10
 theme_type_variation = &"HeaderMedium"
 text = "0:00"
 
-[node name="HB3" type="HBoxContainer" parent="Background/MC/ScrollContainer/VB"]
+[node name="HB3" type="HBoxContainer" parent="Background/MC/VB"]
 layout_mode = 2
 
-[node name="ExpLabel" type="Label" parent="Background/MC/ScrollContainer/VB/HB3"]
+[node name="ExpLabel" type="Label" parent="Background/MC/VB/HB3"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 0, 1)
 layout_mode = 2
@@ -72,32 +72,37 @@ size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Experience gained: "
 
-[node name="CurrencyLabel" type="Label" parent="Background/MC/ScrollContainer/VB/HB3"]
+[node name="CurrencyLabel" type="Label" parent="Background/MC/VB/HB3"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 0, 1)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 theme_type_variation = &"HeaderSmall"
 text = "Rubber Duckies gained: "
 
-[node name="HB2" type="HBoxContainer" parent="Background/MC/ScrollContainer/VB"]
+[node name="HB2" type="HBoxContainer" parent="Background/MC/VB"]
 layout_mode = 2
 
-[node name="FriendlyTeamVB" type="VBoxContainer" parent="Background/MC/ScrollContainer/VB/HB2"]
+[node name="FriendlyTeamVB" type="VBoxContainer" parent="Background/MC/VB/HB2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FriendlyTeamLabel" type="Label" parent="Background/MC/ScrollContainer/VB/HB2/FriendlyTeamVB"]
+[node name="FriendlyTeamLabel" type="Label" parent="Background/MC/VB/HB2/FriendlyTeamVB"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Buddy Team:"
 
-[node name="TeamHB" type="HBoxContainer" parent="Background/MC/ScrollContainer/VB/HB2/FriendlyTeamVB"]
+[node name="TeamHB" type="HBoxContainer" parent="Background/MC/VB/HB2/FriendlyTeamVB"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="LootGrid" parent="Background/MC/ScrollContainer/VB" instance=ExtResource("2_l02s0")]
+[node name="LootGrid" parent="Background/MC/VB" instance=ExtResource("2_l02s0")]
 unique_name_in_owner = true
 layout_mode = 2
+columns = 9
 loot_reward = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/MC/VB"]
+layout_mode = 2
+horizontal_scroll_mode = 0

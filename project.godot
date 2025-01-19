@@ -42,6 +42,7 @@ Popups="*res://utility/popups/popups.tscn"
 MatchDataManager="*res://singletons/match_data_manager.gd"
 ObjectMakerManager="*res://singletons/object_maker_manager.gd"
 AchievementManager="*res://singletons/achievement_manager.gd"
+StatsManager="*res://singletons/stats_manager.gd"
 
 [debug]
 

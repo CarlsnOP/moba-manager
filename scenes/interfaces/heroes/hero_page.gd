@@ -36,14 +36,16 @@ func setup(hero: HeroResource):
 	#Labels
 	name_label.text = hero.hero_name
 	name_2_label.text = "Name: %s" % hero.hero_name
-	health_label.text = "Health: %s" % str(hero.health + (hero.lvl * hero.extra_hp))
-	damage_label.text = "Attack Damage: %s" % str(hero.attack_damage + (hero.lvl * hero.extra_ad))
-	ability_power_label.text = "Ability Power: %s" % str(hero.ability_power + (hero.lvl * hero.extra_ap))
-	dodge_label.text = "Dodge chance: %d%%" % int(hero.dodge * 100)
-	block_label.text = "Block chance: %d%%" % int(hero.block * 100)
-	crit_label.text = "Crit chance: %d%%" % int(hero.crit * 100)
+	for h in StatsManager.hero_specific_stats:
+		if h["hero"] == hero:
+			health_label.text = "Health: %s" % str(h["health"])
+			damage_label.text = "Attack Damage: %s" % str(h["damage"])
+			ability_power_label.text = "Ability Power: %s" % str(h["health_reg"])
+			dodge_label.text = "Dodge chance: " +  str(h["dodge"]) + "%"
+			block_label.text = "Block chance: " +  str(h["block"]) + "%"
+			crit_label.text = "Crit chance: " +  str(h["crit"]) + "%"
 	type_label.text = "Type: %s" % hero.type
-	lore_label.text = "Lore: %s" % hero.lore
+	lore_label.text = str(hero.lore)
 	texture_rect.texture = hero.hero_icon
 	#setup skill popup
 	skill_slot.set_skill(hero.skill)

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=7 format=3 uid="uid://cyq8tq4a4ss45"]
+[gd_resource type="Resource" script_class="EquipmentResource" load_steps=7 format=3 uid="uid://cyq8tq4a4ss45"]
 
 [ext_resource type="Texture2D" uid="uid://dlfh8tcu3lbrs" path="res://assets/art/items/melty-candle-charm.webp" id="1_ukaqa"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_f5etk"]
@@ -18,10 +18,10 @@ effect = "+30% Health Regen"
 quantity = 0
 ingredients = Array[ExtResource("2_f5etk")]([ExtResource("3_ld0kl"), ExtResource("4_lhnuv"), ExtResource("5_qptv0")])
 amounts = Array[int]([500, 100, 300])
-item_hp = 1.0
-item_hp_regen = 1.3
-item_ad = 1.0
-item_ap = 1.0
-item_dodge = 0.0
-item_block = 0.0
-item_crit = 0.0
+equipment_hp = 1.0
+equipment_hp_regen = 1.3
+equipment_ad = 1.0
+equipment_ap = 1.0
+equipment_dodge = 0.0
+equipment_block = 0.0
+equipment_crit = 0.0

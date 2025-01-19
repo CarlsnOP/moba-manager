@@ -28,7 +28,12 @@ func setup(xp: String, currency: String, loot: Array[LootResource]) -> void:
 	currency_label.text += currency
 	
 	_loot_received = loot
+	
+	
 	loot_grid.display(loot)
+	if loot_grid.total_loot_slots < 19:
+		custom_minimum_size.y = 500
+
 
 func set_match_time(time: int) -> void:
 	elapsed_time = time

@@ -22,7 +22,9 @@ func on_hero_selected(hero: HeroResource):
 	current_hero = hero
 	if hero.equipped_equipment != null:
 		unequip_button.show()
-		equipment_1_button.icon = hero.equipped_item.icon
+		equipment_1_button.icon = hero.equipped_equipment.icon
+	else:
+		equipment_1_button.icon = ADD_EQUIPMENT
 		
 	hero_page.show()
 	hero_page.setup(hero)
@@ -37,7 +39,7 @@ func add_heroes():
 func _on_exit_button_pressed():
 	hero_page.hide()
 
-func _on_item_1_button_pressed():
+func _on_equipment_1_button_pressed():
 	for child in control.get_children():
 		child.queue_free()
 	
@@ -67,16 +69,18 @@ func _on_pressed(event: InputEvent, equipment):
 			unequip_button.show()
 			
 		equipment_container.hide()
+		StatsManager.update_multipliers()
 
 func _on_close_items_button_pressed():
 	equipment_container.hide()
 
 func _on_unequip_button_pressed():
-	for possible_item in InventoryManager._all_items:
-		if possible_item == current_hero.equipped_item:
-			current_hero.equipped_item = null
+	for possible_item in InventoryManager._all_equipment:
+		if possible_item == current_hero.equipped_equipment:
+			current_hero.equipped_equipment = null
 			possible_item.quantity += 1
 	
 	equipment_1_button.icon = ADD_EQUIPMENT
 	unequip_button.hide()
 	equipment_container.hide()
+	StatsManager.update_multipliers()
