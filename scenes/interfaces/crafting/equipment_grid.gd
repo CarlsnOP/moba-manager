@@ -7,19 +7,26 @@ extends GridContainer
 
 func display(items: Array[EquipmentResource]):
 	for child in get_children():
+		remove_child(child)
 		child.queue_free()
 	
+	var seen_equipment: Dictionary = {}
+	
 	for equipment in items:
-		if equipment != null:
-			if equipment.quantity >= 1:
+		if equipment != null and (equipment.quantity >= 1 or equipped_items):
+			if equipped_items and equipment in seen_equipment:
+				var original_child = seen_equipment[equipment]
+				if original_child.has_method("add_item"):
+					original_child.add_item()
+			
+			else:
 				var slot = slot_scene.instantiate()
 				add_child(slot)
 				if equipped_items:
-					slot.equipped_item()
+					slot.equipped_equipment()
 				slot.display(equipment)
-	
-	if equipped_items:
-		check_for_duplicates()
+				seen_equipment[equipment] = slot
+
 
 func display_result(items: Array[EquipmentResource]):
 	for child in get_children():
@@ -29,22 +36,3 @@ func display_result(items: Array[EquipmentResource]):
 		var slot = slot_scene.instantiate()
 		add_child(slot)
 		slot.display(equipment)
-
-func check_for_duplicates() -> void:
-	var seen_equipment: Dictionary = {}
-	
-	for child in get_children():
-		if child.has_method("get_item"):
-			var equipment_resource = child.get_item()
-			
-			if seen_equipment.has(equipment_resource):
-				var original_child = seen_equipment[equipment_resource]
-				if original_child.has_method("add_item"):
-					original_child.add_item()
-				child.queue_free()
-			else:
-				seen_equipment[equipment_resource] = child
-	
-		
-		
-		

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckooocc8ghpgl"]
+[gd_scene load_steps=4 format=3 uid="uid://ckooocc8ghpgl"]
 
 [ext_resource type="Script" path="res://scenes/slots/hero_slot/hero_slot.gd" id="1_8m23x"]
 [ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/Eddy the Jungler.png" id="2_j414c"]
+[ext_resource type="Texture2D" uid="uid://cujocbh7lh504" path="res://assets/art/ui/locked.png" id="3_c0th8"]
 
 [node name="HeroSlot" type="PanelContainer" groups=["update_post_match"]]
 custom_minimum_size = Vector2(200, 200)
@@ -28,6 +29,24 @@ mouse_filter = 2
 texture = ExtResource("2_j414c")
 expand_mode = 4
 stretch_mode = 5
+
+[node name="LockedTextureRect" type="TextureRect" parent="MarginContainer/TextureRect"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_c0th8")
 
 [node name="VB" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2

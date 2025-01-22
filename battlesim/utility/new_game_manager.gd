@@ -27,10 +27,18 @@ var top_lane: bool
 
 func _ready():
 	SignalManager.on_battle_end.connect(on_battle_end)
+	SignalManager.tutorial_finished.connect(start_battle_sim)
+	
 	await get_tree().physics_frame
+	
+	if TeamManager.bot != null and TeamManager.top != null:
+		start_battle_sim()
+
+func start_battle_sim() -> void:
+	SignalManager.new_interface.emit(3)
 	on_battle_end(false)
 	game_launced = true
-
+	
 func on_battle_end(win: bool) -> void:
 	var objects_to_be_cleared = get_tree().get_nodes_in_group("restart_map")
 	var nodes_to_update = get_tree().get_nodes_in_group("update_post_match")
@@ -51,9 +59,9 @@ func on_battle_end(win: bool) -> void:
 		else:
 			SoundManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.GAME_LOSE)
 		
-		for node in nodes_to_update:
-			if node.has_method("update"):
-				node.update()
+	for node in nodes_to_update:
+		if node.has_method("update"):
+			node.update()
 	
 func spawn_enemy_team() -> void:
 	spawn_enemy_structures()

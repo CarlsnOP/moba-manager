@@ -41,9 +41,9 @@ func setup(hero: HeroResource):
 			health_label.text = "Health: %s" % str(h["health"])
 			damage_label.text = "Attack Damage: %s" % str(h["damage"])
 			ability_power_label.text = "Ability Power: %s" % str(h["health_reg"])
-			dodge_label.text = "Dodge chance: " +  str(h["dodge"]) + "%"
-			block_label.text = "Block chance: " +  str(h["block"]) + "%"
-			crit_label.text = "Crit chance: " +  str(h["crit"]) + "%"
+			dodge_label.text = "Dodge chance: " +  str(h["dodge"] * 100) + "%"
+			block_label.text = "Block chance: " +  str(h["block"] * 100) + "%"
+			crit_label.text = "Crit chance: " +  str(h["crit"] * 100) + "%"
 	type_label.text = "Type: %s" % hero.type
 	lore_label.text = str(hero.lore)
 	texture_rect.texture = hero.hero_icon

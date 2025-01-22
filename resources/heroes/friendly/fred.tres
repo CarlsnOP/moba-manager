@@ -18,6 +18,7 @@ dodge = 0.01
 block = 0.05
 crit = 0.05
 in_team = false
+unlocked = false
 skill = ExtResource("4_668ki")
 hero_autoattack_sfx = 7
 lvl = 0

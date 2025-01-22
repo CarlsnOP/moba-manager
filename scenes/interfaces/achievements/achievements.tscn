@@ -20,3 +20,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("2_evcf3")
+
+[connection signal="pressed" from="PC/MC/QuitButton" to="." method="_on_quit_button_pressed"]

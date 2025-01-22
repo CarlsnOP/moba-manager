@@ -17,3 +17,7 @@ func instantiate_scene(scene: PackedScene) -> void:
 	var new_scene = scene.instantiate()
 	get_tree().get_first_node_in_group("canvas").add_child(new_scene)
 	
+
+func instantiate_scene_with_parent(scene: PackedScene, parent) -> void:
+	var new_scene = scene.instantiate()
+	parent.add_child(new_scene)

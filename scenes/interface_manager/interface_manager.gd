@@ -1,12 +1,14 @@
+class_name InterfaceManager
 extends Control
 
-enum INTERFACE_STATE { HOME, HEROES, BATTLESETUP, BATTLESIM, INVENTORY, CRAFTING, RANK, SETTINGS, ACHIEVEMENTS, PROFILE, CREDITS }
+enum INTERFACE_STATE { HOME, HEROES, BATTLESETUP, BATTLESIM, INVENTORY, CRAFTING, RUBBERDUCKY, SETTINGS, ACHIEVEMENTS, PROFILE, CREDITS }
 
 @onready var heroes = %Heroes
 @onready var battle_setup = %BattleSetup
 @onready var home = %Home
 @onready var inventory = %Inventory
 @onready var crafting = %Crafting
+@onready var rubber_ducky_page = %RubberDuckyPage
 @onready var rank = %Rank
 @onready var settings: Control = %Settings
 @onready var achievements = %Achievements
@@ -14,7 +16,7 @@ enum INTERFACE_STATE { HOME, HEROES, BATTLESETUP, BATTLESIM, INVENTORY, CRAFTING
 @onready var credits: Control = %Credits
 
 
-var _state: INTERFACE_STATE = INTERFACE_STATE.RANK
+var _state: INTERFACE_STATE
 
 func _ready():
 	SignalManager.new_interface.connect(new_interface)
@@ -58,6 +60,7 @@ func set_state(new_state: INTERFACE_STATE) -> void:
 					button.update()
 					
 			heroes.show()
+			
 		INTERFACE_STATE.BATTLESETUP:
 			battle_setup.show()
 			
@@ -69,8 +72,9 @@ func set_state(new_state: INTERFACE_STATE) -> void:
 			crafting.show()
 			crafting.open()
 			
-		INTERFACE_STATE.RANK:
-			rank.show()
+		INTERFACE_STATE.RUBBERDUCKY:
+			rubber_ducky_page.update()
+			rubber_ducky_page.show()
 			
 		INTERFACE_STATE.SETTINGS:
 			settings.show()
@@ -80,6 +84,12 @@ func set_state(new_state: INTERFACE_STATE) -> void:
 			achievements.open()
 			
 		INTERFACE_STATE.PROFILE:
+			var hero_buttons = get_tree().get_nodes_in_group("hero_buttons")
+			
+			for button in hero_buttons:
+				if button.has_method("update"):
+					button.update()
+					
 			profile.show()
 			profile.stats_updated()
 			

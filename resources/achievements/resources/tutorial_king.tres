@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="AchievementResource" load_steps=3 format=3 uid="uid://ijt7hv4jpiro"]
+
+[ext_resource type="Script" path="res://resources/achievements/achievement_resource.gd" id="1_ckf2n"]
+[ext_resource type="Script" path="res://resources/achievements/achievement_scripts/tutorial_king_script.gd" id="1_k51kc"]
+
+[resource]
+script = ExtResource("1_ckf2n")
+ach_index = 0
+ach_title = "Tutorial King"
+ach_1st_description = "Complete the Tutorial"
+ach_2nd_description = ""
+ach_progress = 0
+ach_current_step = 0
+ach_completed = false
+ach_requirement = Array[int]([1])
+ach_completion_step = 0
+ach_accepted_rewards = 0
+ach_reward_description = "Gain a Hero Rubber Duck"
+ach_reward_growth = 0
+ach_reward_type = 10
+ach_reward_in_percentage = false
+ach_reward_show_amount = false
+ach_script = ExtResource("1_k51kc")

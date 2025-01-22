@@ -122,7 +122,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "0"
+text = "100%"
 
 [node name="MusicLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="4"]
 layout_mode = 2
@@ -152,7 +152,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
-text = "0"
+text = "100%"
 
 [node name="AmbienceLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="8"]
 layout_mode = 2
@@ -182,7 +182,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
-text = "0"
+text = "100%"
 
 [node name="SFXLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="12"]
 layout_mode = 2
@@ -212,7 +212,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
-text = "0"
+text = "100%"
 
 [node name="UILabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer" index="16"]
 layout_mode = 2
@@ -243,7 +243,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
-text = "0"
+text = "100%"
 
 [connection signal="item_selected" from="PC/MC/VB/PanelContainer/MarginContainer/VB/DisplaySettings/HB/ModeButton" to="." method="_on_mode_button_item_selected"]
 [connection signal="item_selected" from="PC/MC/VB/PanelContainer/MarginContainer/VB/DisplaySettings/HBoxContainer/ResolutionButton" to="." method="_on_resolution_button_item_selected"]
@@ -257,3 +257,4 @@ text = "0"
 [connection signal="value_changed" from="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="toggled" from="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/MuteUIButton" to="." method="_on_mute_ui_button_toggled"]
 [connection signal="value_changed" from="PC/MC/VB/PanelContainer/MarginContainer/VB/GridContainer/UISlider" to="." method="_on_ui_slider_value_changed"]
+[connection signal="pressed" from="PC/MC/QuitButton" to="." method="_on_quit_button_pressed"]

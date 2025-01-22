@@ -43,16 +43,16 @@ func set_value(res: Resource):
 	
 	if res is EquipmentResource or res is LootResource:
 		match res.rarity:
-			0:
-				name_label.modulate = Color(1,1,1)
-			1:
-				name_label.modulate = Color(0,1,0)
-			2:
-				name_label.modulate = Color(0,0,1)
-			3:
-				name_label.modulate = Color(1,0,1)
-			4:
-				name_label.modulate = Color(1,1,0)
+			EquipmentResource.RARITY.COMMON:
+				name_label.modulate = DataStorage.COLOR_COMMON
+			EquipmentResource.RARITY.UNCOMMON:
+				name_label.modulate = DataStorage.COLOR_UNCOMMON
+			EquipmentResource.RARITY.RARE:
+				name_label.modulate = DataStorage.COLOR_RARE
+			EquipmentResource.RARITY.EPIC:
+				name_label.modulate = DataStorage.COLOR_EPIC
+			EquipmentResource.RARITY.LEGENDARY:
+				name_label.modulate = DataStorage.COLOR_LEGENDARY
 
 func reset_box() -> void:
 	effect_label.show()

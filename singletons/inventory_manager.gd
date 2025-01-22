@@ -8,6 +8,7 @@ var _all_loot: Array[LootResource] = []
 var _all_equipment: Array[EquipmentResource] = []
 var quantity_of_equipment: Array[int] = []
 var quantity_of_loot: Array[int] = []
+var owned_hero_rubber_ducky := 2
 
 func _ready():
 	for file in DirAccess.get_files_at("res://resources/items/loot/"):
@@ -45,6 +46,14 @@ func spend_rubberduckies(quantity: int) -> Error:
 
 func get_rubberduckies() -> int:
 	return _rubberduckies
+
+func get_loot_ducky(amount: int) -> void:
+	owned_hero_rubber_ducky += amount
+	SignalManager.on_loot_ducky.emit()
+	
+func spend_loot_ducky(amount: int) -> void:
+	owned_hero_rubber_ducky -= amount
+	SignalManager.on_loot_ducky.emit()
 
 #FOR SAVING AND LOADING
 func get_equipment_quantity() -> Array[int]:

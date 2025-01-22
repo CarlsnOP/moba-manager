@@ -2,6 +2,7 @@ extends Node
 
 #load game
 signal on_log_entry(node)
+signal first_time_launch()
 
 #Menus
 signal on_hero_selected(hero: String)
@@ -11,6 +12,7 @@ signal new_interface(state: int)
 signal rubberduckies_updated
 signal rubberduckies_created(quantity: int)
 signal rubberduckies_spent(quantity: int)
+signal on_loot_ducky()
 
 #Battle
 signal on_battle_end(win: bool)
@@ -22,3 +24,8 @@ signal achievements_updated()
 signal on_equipment_crafted(equipment: EquipmentResource)
 signal on_unclaimed_rewards()
 signal on_all_claimed_rewards()
+
+#Tutorial
+signal rubberduck_clicked()
+signal hero_selected()
+signal tutorial_finished()

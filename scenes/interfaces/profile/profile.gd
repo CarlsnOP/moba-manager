@@ -8,7 +8,9 @@ extends Control
 @onready var hero_stats_label = %HeroStatsLabel
 @onready var global_stats_label = %GlobalStatsLabel
 @onready var global_hero_stats_label = %GlobalHeroStatsLabel
+@onready var nickname_label = %NicknameLabel
 
+var nickname: String
 
 func _ready():	
 	for hero in TeamManager._all_heroes:
@@ -53,3 +55,10 @@ func setup_hero_specific_stats_label(hero: HeroResource) -> void:
 			hero_stats_label.text += "Dodge chance: " + str(h["dodge"] * 100) + "%\n"
 			hero_stats_label.text += "Critical chance: " + str(h["crit"] * 100) + "%\n"
 			
+func set_nickname(nick: String) -> void:
+	nickname = nick
+	nickname_label.text = nick
+
+
+func _on_quit_button_pressed():
+	SignalManager.new_interface.emit(InterfaceManager.INTERFACE_STATE.BATTLESIM)

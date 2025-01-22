@@ -11,14 +11,14 @@ script = ExtResource("1_dsxow")
 
 [node name="ResourcePopup" type="PopupPanel" parent="UI"]
 unique_name_in_owner = true
-size = Vector2i(198, 210)
+size = Vector2i(198, 212)
 visible = true
 
 [node name="PanelContainer" type="PanelContainer" parent="UI/ResourcePopup"]
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 194.0
-offset_bottom = 206.0
+offset_bottom = 208.0
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/ResourcePopup/PanelContainer"]
 layout_mode = 2

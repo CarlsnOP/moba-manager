@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scenes/interfaces/profile/profile.gd" id="2_phrpf"]
 [ext_resource type="PackedScene" uid="uid://lt08ltq12ss6" path="res://scenes/slots/hero_slot/hero_portrait_slot.tscn" id="3_6qvjh"]
 
-[node name="Profile" instance=ExtResource("1_tkj53")]
+[node name="Profile" groups=["profile_page"] instance=ExtResource("1_tkj53")]
 script = ExtResource("2_phrpf")
 hero_slot_scene = ExtResource("3_6qvjh")
 
@@ -23,6 +23,7 @@ expand_mode = 2
 stretch_mode = 4
 
 [node name="NicknameLabel" type="Label" parent="PC/MC/VB/HBoxContainer" index="1"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_type_variation = &"HeaderMedium"
@@ -112,3 +113,5 @@ text = "Pew"
 unique_name_in_owner = true
 layout_mode = 2
 text = "All stats"
+
+[connection signal="pressed" from="PC/MC/QuitButton" to="." method="_on_quit_button_pressed"]

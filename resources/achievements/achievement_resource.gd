@@ -2,7 +2,7 @@ extends Resource
 
 class_name AchievementResource
 
-enum REWARD_TYPE { XP, RUBBERDUCKS, LOOT, HP, HPREG, AD, AP, BLOCK, DODGE, CRIT}
+enum REWARD_TYPE { XP, RUBBERDUCKS, LOOT, HP, HPREG, AD, AP, BLOCK, DODGE, CRIT, HERORUBBERDUCK}
 
 @export_category("Settings")
 @export var ach_index: int
@@ -18,4 +18,6 @@ enum REWARD_TYPE { XP, RUBBERDUCKS, LOOT, HP, HPREG, AD, AP, BLOCK, DODGE, CRIT}
 @export var ach_reward_description: String
 @export var ach_reward_growth: int
 @export var ach_reward_type: REWARD_TYPE
+@export var ach_reward_in_percentage: bool = true
+@export var ach_reward_show_amount: bool = true
 @export var ach_script: Script

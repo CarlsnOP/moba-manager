@@ -22,19 +22,15 @@ func display(loot: Array[LootResource]):
 	if loot_reward:
 		check_for_duplicates()
 
-func display_recipe(loot: Array[LootResource], cost: int):
+func display_recipe(loot: Array[LootResource], cost: Array[int]):
 	for child in get_children():
 		child.queue_free()
 	
-	for item in loot:
+	for i in range(loot.size()):
 		var slot = slot_scene.instantiate()
 		add_child(slot)
-		slot.display(item)
-		slot.update_cost(cost)
-
-func update_quanities() -> void:
-	for loot in get_children():
-		loot.update_quantity()
+		slot.display(loot[i])
+		slot.update_cost(cost[i])
 
 func check_for_duplicates() -> void:
 	var seen_loot: Dictionary = {}

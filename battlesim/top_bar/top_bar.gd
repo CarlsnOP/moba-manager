@@ -8,16 +8,10 @@ extends Control
 @onready var match_timer_label: Label = %MatchTimerLabel
 @onready var match_timer: Timer = %MatchTimer
 
-
-func _ready() -> void:
-	match_timer.start() 
-
-	#wait for match to have been setup
-	await get_tree().create_timer(0.2).timeout
-	setup_top_bar_slots()
-
 #called when new game starts
 func update() -> void:
+	if match_timer.is_stopped():
+		match_timer.start() 
 	#wait for old game to end
 	await get_tree().create_timer(0.2).timeout
 	MatchDataManager.update()

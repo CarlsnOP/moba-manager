@@ -60,13 +60,14 @@ layout_mode = 2
 
 [node name="ProfileButton" type="Button" parent="PC/MC/VB/HBoxContainer2" groups=["sound_button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"HeaderMedium"
 text = "Profile"
 alignment = 0
 
 [node name="HomeButton" type="Button" parent="PC/MC/VB/HBoxContainer2" groups=["sound_button"]]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 8
 theme_type_variation = &"HeaderMedium"
 text = "#"
 alignment = 0
@@ -134,15 +135,30 @@ text = "Crafting
 "
 alignment = 0
 
-[node name="RankButton" type="Button" parent="PC/MC/VB" groups=["sound_button"]]
-visible = false
+[node name="HBoxContainer3" type="HBoxContainer" parent="PC/MC/VB"]
 layout_mode = 2
+
+[node name="RubberDuckButton" type="Button" parent="PC/MC/VB/HBoxContainer3" groups=["sound_button"]]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"HeaderMedium"
-text = "Rank
+text = "Open Ducky
 "
 alignment = 0
 
+[node name="NotificationRect2" type="TextureRect" parent="PC/MC/VB/HBoxContainer3"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("4_s8mdn")
+expand_mode = 4
+stretch_mode = 4
+
 [node name="Control3" type="Control" parent="PC/MC/VB"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -186,7 +202,7 @@ alignment = 0
 [connection signal="pressed" from="PC/MC/VB/HBoxContainer/Achievementsbutton" to="." method="_on_achievementsbutton_pressed"]
 [connection signal="pressed" from="PC/MC/VB/Inventorybutton" to="." method="_on_inventorybutton_pressed"]
 [connection signal="pressed" from="PC/MC/VB/CraftingButton" to="." method="_on_crafting_button_pressed"]
-[connection signal="pressed" from="PC/MC/VB/RankButton" to="." method="_on_rank_button_pressed"]
+[connection signal="pressed" from="PC/MC/VB/HBoxContainer3/RubberDuckButton" to="." method="_on_rubber_duck_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -19,21 +19,25 @@ func display(equipment: EquipmentResource):
 	
 	
 	match equipment.rarity:
-		0:
-			particles.modulate = Color(0,0,0,0)
-			border.modulate = Color(0,0,0,0)
-		1:
-			particles.modulate = Color(0,1,0)
-			border.modulate = Color(0,1,0)
-		2:
-			particles.modulate = Color(0,0,1)
-			border.modulate = Color(0,0,1)
-		3:
-			particles.modulate = Color(1,0,1)
-			border.modulate = Color(1,0,1)
-		4:
-			particles.modulate = Color(1,1,0)
-			border.modulate = Color(1,1,0)
+		EquipmentResource.RARITY.COMMON:
+			particles.modulate = DataStorage.COLOR_INVISABLE
+			border.modulate = DataStorage.COLOR_INVISABLE
+			
+		EquipmentResource.RARITY.UNCOMMON:
+			particles.modulate = DataStorage.COLOR_UNCOMMON
+			border.modulate = DataStorage.COLOR_UNCOMMON
+			
+		EquipmentResource.RARITY.RARE:
+			particles.modulate = DataStorage.COLOR_RARE
+			border.modulate = DataStorage.COLOR_RARE
+			
+		EquipmentResource.RARITY.EPIC:
+			particles.modulate = DataStorage.COLOR_EPIC
+			border.modulate = DataStorage.COLOR_EPIC
+			
+		EquipmentResource.RARITY.LEGENDARY:
+			particles.modulate = DataStorage.COLOR_LEGENDARY
+			border.modulate = DataStorage.COLOR_LEGENDARY
 
 func equipped_equipment() -> void:
 	stack_label.hide()

@@ -3,15 +3,23 @@ extends Control
 const WANT_TO_QUIT_POP_UP = preload("res://scenes/utility/want_to_quit_pop_up/want_to_quit_pop_up.tscn")
 
 @onready var notification_rect = %NotificationRect
+@onready var notification_rect_2 = %NotificationRect2
 
 func _ready():
 	SignalManager.achievements_updated.connect(achievements_updated)
+	SignalManager.on_loot_ducky.connect(on_loot_ducky)
 
 func achievements_updated() -> void:
 	if AchievementManager.check_if_unclaimed_rewards():
 		notification_rect.show()
 	else:
 		notification_rect.hide()
+
+func on_loot_ducky() -> void:
+	if InventoryManager.owned_hero_rubber_ducky > 0:
+		notification_rect_2.show()
+	else:
+		notification_rect_2.hide()
 
 func _on_profile_button_pressed():
 	SignalManager.new_interface.emit(9)
@@ -34,7 +42,7 @@ func _on_inventorybutton_pressed():
 func _on_crafting_button_pressed():
 	SignalManager.new_interface.emit(5)
 
-func _on_rank_button_pressed():
+func _on_rubber_duck_button_pressed():
 	SignalManager.new_interface.emit(6)
 
 func _on_settings_button_pressed():

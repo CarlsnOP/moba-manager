@@ -98,3 +98,6 @@ func on_load_game(saved_data:SavedData):
 				on_log_entry(new_eventlog)
 	hide()
 		
+
+func _on_quit_button_pressed():
+	SignalManager.new_interface.emit(InterfaceManager.INTERFACE_STATE.BATTLESIM)

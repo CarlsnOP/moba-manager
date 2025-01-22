@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://673smdjoegvd"]
+[gd_scene load_steps=14 format=3 uid="uid://673smdjoegvd"]
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interfaces/interface_base.tscn" id="1_qir55"]
 [ext_resource type="Script" path="res://scenes/interfaces/heroes/heroes.gd" id="2_aktco"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://b5oq78l2e2x6t" path="res://assets/art/stats/mana.png" id="7_4mw7m"]
 [ext_resource type="PackedScene" uid="uid://bh6i5ssmhkhq" path="res://scenes/slots/skill_slot/skill_slot.tscn" id="8_d3csg"]
 [ext_resource type="Texture2D" uid="uid://ug5hh7ljyn0v" path="res://assets/art/ui/add_equipment.png" id="9_w1wtq"]
+[ext_resource type="Texture2D" uid="uid://s5uk58wlq8km" path="res://assets/art/ui/quit_button_normal.png" id="11_geosi"]
+[ext_resource type="Script" path="res://scenes/interfaces/heroes/equipment_container.gd" id="11_o3qgp"]
+[ext_resource type="Texture2D" uid="uid://etsoohdkrjyy" path="res://assets/art/ui/quit_button_hover.png" id="12_ygxs3"]
 
 [node name="Heroes" instance=ExtResource("1_qir55")]
 script = ExtResource("2_aktco")
@@ -254,12 +257,14 @@ layout_mode = 2
 text = "Eddy was once just an ordinary kid with a love for exploring the wildest parts of the neighborhood. But one day, he stumbled upon a mysterious, enchanted scythe deep within a forgotten forest. The moment he touched it, Eddy was transformed into something... well, a bit crazier. Now, with a wicked grin permanently plastered on his face and a scythe that seems to have a mind of its own, Eddy roams the jungle like it’s his playground. He delights in ambushing unsuspecting foes, darting in and out of the shadows with wild laughter echoing behind him. Though his sanity might be questionable, his skills in the jungle are unmatched, and he’s always ready to leap into the fray when his team needs him most."
 autowrap_mode = 3
 
-[node name="ExitButton" type="Button" parent="MarginContainer/HeroPage" index="1"]
+[node name="ExitButton" type="TextureButton" parent="MarginContainer/HeroPage" index="1" groups=["sound_button"]]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 50
-text = "X"
+texture_normal = ExtResource("11_geosi")
+texture_hover = ExtResource("12_ygxs3")
+stretch_mode = 0
 
 [node name="EquipmentContainer" type="PanelContainer" parent="." index="2"]
 unique_name_in_owner = true
@@ -276,6 +281,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("11_o3qgp")
 
 [node name="VB" type="VBoxContainer" parent="EquipmentContainer" index="0"]
 unique_name_in_owner = true
@@ -299,6 +305,7 @@ layout_mode = 2
 text = "UN-EQUIP"
 expand_icon = true
 
+[connection signal="pressed" from="PC/MC/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer3/Equipment1Button" to="." method="_on_equipment_1_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HeroPage/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="EquipmentContainer/VB/CloseItemsButton" to="." method="_on_close_items_button_pressed"]

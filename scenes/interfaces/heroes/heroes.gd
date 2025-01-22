@@ -36,6 +36,11 @@ func add_heroes():
 		slot.add_to_group("hero_buttons")
 		slot.display(hero)
 
+func update_heroes() -> void:
+	for child in grid_container.get_children():
+		if child.has_method("update"):
+			child.display()
+
 func _on_exit_button_pressed():
 	hero_page.hide()
 
@@ -43,6 +48,10 @@ func _on_equipment_1_button_pressed():
 	for child in control.get_children():
 		child.queue_free()
 	
+	if equipment_container.visible:
+		equipment_container.hide()
+		return
+		
 	equipment_container.show()
 	var equipment_grid = EQUIPMENT_GRID.instantiate()
 	control.add_child(equipment_grid)
@@ -84,3 +93,7 @@ func _on_unequip_button_pressed():
 	unequip_button.hide()
 	equipment_container.hide()
 	StatsManager.update_multipliers()
+
+
+func _on_quit_button_pressed():
+	SignalManager.new_interface.emit(InterfaceManager.INTERFACE_STATE.BATTLESIM)

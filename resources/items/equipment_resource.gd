@@ -12,6 +12,7 @@ enum RARITY { COMMON, UNCOMMON, RARE, EPIC, LEGENDARY}
 @export var rarity: RARITY
 @export var effect: String
 @export var quantity: int = 0
+
 @export var ingredients:Array[LootResource] = []
 @export var amounts: Array[int] = [0]
 

@@ -11,6 +11,7 @@ func save_game():
 	var saved_game: SavedGame = SavedGame.new()
 	
 	save_vars(saved_game)
+	save_tutorial_step(saved_game)
 
 	var saved_data: Array[SavedData] = []
 	get_tree().call_group("game_events", "on_save_game", saved_data)
@@ -20,17 +21,35 @@ func save_game():
 
 func save_vars(saved_game: SavedGame) -> void:
 	var stage_ref = get_tree().get_first_node_in_group("stage_manager") as StageManager
+	var profile_ref = get_tree().get_first_node_in_group("profile_page") as ProfilePage
+	saved_game.nickname = profile_ref.nickname
+	saved_game.save_time = int(Time.get_unix_time_from_system())
 	saved_game.rubber_duckies = InventoryManager.get_rubberduckies()
+	saved_game.owned_hero_rubber_ducky = InventoryManager.owned_hero_rubber_ducky
 	saved_game.collected_equipment = InventoryManager.get_equipment_quantity()
 	saved_game.collected_loot = InventoryManager.get_loot_quantity()
 	saved_game.experience_gained = TeamManager.get_hero_xp()
 	saved_game.equipped_equipment = TeamManager.get_equipped_equipment()
+	saved_game.unlocked_heroes = TeamManager.get_unlocked_heroes()
 	saved_game.top = TeamManager.top
 	saved_game.bot = TeamManager.bot
 	saved_game.current_stage = stage_ref.current_stage
 	saved_game.highest_stage = stage_ref.highest_stage
 	saved_game.ach_master_dict = AchievementManager.the_almighty_storage_dictionary
 
+func save_tutorial_step(saved_game: SavedGame) -> void:
+	if get_tree().get_first_node_in_group("tutorial") as TutorialPage != null:
+		var tutorial_ref = get_tree().get_first_node_in_group("tutorial") as TutorialPage
+		saved_game.current_tut_step = tutorial_ref.tutorial_step
+		saved_game.ducks_opened = tutorial_ref.rubberducks_opened
+		
+		if tutorial_ref.tutorial_step == 4 or tutorial_ref.tutorial_step == 6:
+			saved_game.current_tut_step = tutorial_ref.tutorial_step -1
+		
+		if tutorial_ref.tutorial_step == 7:
+			saved_game.current_tut_step = 8
+	else:
+		saved_game.current_tut_step = 8
 
 #loading functionality
 func load_game():
@@ -48,7 +67,9 @@ func load_game():
 	InventoryManager.set_loot_quantity(saved_game.collected_loot)
 	TeamManager.set_hero_xp(saved_game.experience_gained)
 	TeamManager.set_equipped_equipment(saved_game.equipped_equipment)
-	TeamManager.load_team()
+	TeamManager.set_unlocked_heroes(saved_game.unlocked_heroes)
+	if TeamManager.bot and TeamManager.top:
+		TeamManager.load_team()
 	
 	for item in saved_game.saved_data:
 			var scene := load(item.scene_path) as PackedScene
@@ -61,11 +82,19 @@ func load_game():
 
 func load_vars(saved_game: SavedGame) -> void:
 	var stage_ref = get_tree().get_first_node_in_group("stage_manager") as StageManager
+	var tutorial_ref = get_tree().get_first_node_in_group("tutorial") as TutorialPage
+	var profile_ref = get_tree().get_first_node_in_group("profile_page") as ProfilePage
+	tutorial_ref.tutorial_step = saved_game.current_tut_step
+	tutorial_ref.rubberducks_opened = saved_game.ducks_opened
+	tutorial_ref.match_step()
 	InventoryManager._rubberduckies = saved_game.rubber_duckies
+	InventoryManager.owned_hero_rubber_ducky = saved_game.owned_hero_rubber_ducky
 	TeamManager.top = saved_game.top
 	TeamManager.bot = saved_game.bot
 	stage_ref.current_stage = saved_game.current_stage
 	stage_ref.highest_stage = saved_game.highest_stage
+	profile_ref.set_nickname(saved_game.nickname)
+	FunctionWizard.give_offline_reward(saved_game.save_time)
 	
 	#Do it like this, so we can add more achievements in the furture
 	for key in saved_game.ach_master_dict:

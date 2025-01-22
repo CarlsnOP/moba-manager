@@ -28,7 +28,6 @@ var the_almighty_storage_dictionary: Dictionary = {
 var all_achievements: Array[AchievementResource] = []
 var ach_index := 0
 var achievement_node := Node.new()
-var first_time_launch := true
 
 
 func _ready():

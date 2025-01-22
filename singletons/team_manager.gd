@@ -1,11 +1,11 @@
 extends Node
 
-enum LANE_SELECTED { TOP, BOT, JUNGLE}
+enum LANE_SELECTED { TOP, BOT}
 
 var _lane: LANE_SELECTED = LANE_SELECTED.TOP
 
-var top: HeroResource = preload("res://resources/heroes/friendly/egon.tres")
-var bot: HeroResource = preload("res://resources/heroes/friendly/em.tres")
+var top: HeroResource = null
+var bot: HeroResource = null
 var heroes_xp: Array[int] = []
 var _all_heroes: Array[HeroResource] = []
 var _all_enemy_heroes: Array[HeroResource] = []
@@ -31,11 +31,14 @@ func load_team():
 func setup_team(hero: HeroResource) -> void:
 	match _lane:
 		LANE_SELECTED.TOP:
-			top.in_team = false
+			if top != null:
+				top.in_team = false
 			top = hero
 			hero.in_team = true
+			
 		LANE_SELECTED.BOT:
-			bot.in_team = false
+			if bot != null:
+				bot.in_team = false
 			bot = hero
 			hero.in_team = true
 
@@ -78,3 +81,16 @@ func set_equipped_equipment(hero_equipment: Array[EquipmentResource]):
 	
 	for equipment in range(_all_heroes.size()):
 		_all_heroes[equipment].equipped_equipment = hero_equipment[equipment]
+
+func get_unlocked_heroes() -> Array[HeroResource]:
+	var unlocked_heroes: Array[HeroResource]
+	for hero in _all_heroes:
+		if hero.unlocked:
+			unlocked_heroes.append(hero)
+	
+	return unlocked_heroes
+
+func set_unlocked_heroes(heroes: Array[HeroResource]) -> void:
+	for hero in _all_heroes:
+		if hero in heroes:
+			hero.unlocked = true

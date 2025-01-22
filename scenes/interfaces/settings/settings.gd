@@ -23,6 +23,10 @@ extends Control
 @onready var mute_sfx_button = %MuteSFXButton
 @onready var mute_ui_button = %MuteUIButton
 
+func _ready():
+	#Set Master volume to 25 % on first launch... Your welcome
+	master_slider.value = 0.25
+
 #Display Settings		
 func _on_mode_button_item_selected(index):
 	_on_resolution_button_item_selected(resolution_button.selected)
@@ -146,6 +150,9 @@ func on_save_game(saved_data: Array[SavedData]) -> void:
 	my_data.sfx_volume = sfx_slider.value
 	my_data.ui_volume = ui_slider.value
 	saved_data.append(my_data)
+
+func _on_quit_button_pressed():
+	SignalManager.new_interface.emit(InterfaceManager.INTERFACE_STATE.BATTLESIM)
 
 #Load function
 func on_before_load_game():

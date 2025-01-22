@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://scenes/interfaces/battlesetup/battle_setup.gd" id="2_ng1v2"]
 [ext_resource type="Texture2D" uid="uid://0jmm3api8fgm" path="res://assets/art/ui/arena.png" id="3_gu1wc"]
 [ext_resource type="PackedScene" uid="uid://lt08ltq12ss6" path="res://scenes/slots/hero_slot/hero_portrait_slot.tscn" id="3_uuksq"]
-[ext_resource type="Texture2D" uid="uid://c1c26xn47bydm" path="res://assets/art/characters/team_heroes_portraits/egon_circle_portrait.png" id="4_a5huj"]
-[ext_resource type="Texture2D" uid="uid://bov1hs5fvyh28" path="res://assets/art/characters/team_heroes_portraits/eddy_circle_portrait.png" id="4_ymgtx"]
-[ext_resource type="Texture2D" uid="uid://d2x2gfqjxapts" path="res://assets/art/characters/team_heroes_portraits/em_circle_portrait.png" id="5_duoty"]
+[ext_resource type="Texture2D" uid="uid://ug5hh7ljyn0v" path="res://assets/art/ui/add_equipment.png" id="5_v70o4"]
 [ext_resource type="Script" path="res://scenes/interfaces/battlesetup/hero_menu.gd" id="7_j87wi"]
+[ext_resource type="Texture2D" uid="uid://s5uk58wlq8km" path="res://assets/art/ui/quit_button_normal.png" id="7_vi4sk"]
+[ext_resource type="Texture2D" uid="uid://etsoohdkrjyy" path="res://assets/art/ui/quit_button_hover.png" id="8_k4oc3"]
 
 [node name="BattleSetup" groups=["game_events"] instance=ExtResource("1_mn2md")]
 script = ExtResource("2_ng1v2")
@@ -39,7 +39,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 10
-icon = ExtResource("4_a5huj")
+icon = ExtResource("5_v70o4")
 flat = true
 expand_icon = true
 
@@ -62,35 +62,11 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 10
-icon = ExtResource("5_duoty")
+icon = ExtResource("5_v70o4")
 flat = true
 expand_icon = true
 
 [node name="Spacer2" type="Control" parent="PC/MC/VB/HB/VB/Bot" index="2"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Jungle" type="HBoxContainer" parent="PC/MC/VB/HB/VB" index="2"]
-visible = false
-layout_mode = 2
-
-[node name="JungleLabel" type="Label" parent="PC/MC/VB/HB/VB/Jungle" index="0"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"HeaderMedium"
-text = "Jungle:"
-
-[node name="JungleButton" type="Button" parent="PC/MC/VB/HB/VB/Jungle" index="1"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-size_flags_horizontal = 10
-icon = ExtResource("4_ymgtx")
-flat = true
-expand_icon = true
-
-[node name="Spacer3" type="Control" parent="PC/MC/VB/HB/VB/Jungle" index="2"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -132,19 +108,33 @@ theme_override_constants/margin_bottom = 5
 [node name="VB" type="VBoxContainer" parent="HeroMenu/MC" index="0"]
 layout_mode = 2
 
-[node name="ExitButton" type="Button" parent="HeroMenu/MC/VB" index="0"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HeroMenu/MC/VB" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="HeroMenu/MC/VB/HBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderMedium"
+text = "Choose your hero"
+
+[node name="ExitButton" type="TextureButton" parent="HeroMenu/MC/VB/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-text = "X"
-flat = true
+texture_normal = ExtResource("7_vi4sk")
+texture_hover = ExtResource("8_k4oc3")
+stretch_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="HeroMenu/MC/VB" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
 columns = 4
 
 [connection signal="pressed" from="PC/MC/VB/HB/VB/Top/TopButton" to="." method="_on_top_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/HB/VB/Bot/BotButton" to="." method="_on_bot_button_pressed"]
-[connection signal="pressed" from="PC/MC/VB/HB/VB/Jungle/JungleButton" to="." method="_on_jungle_button_pressed"]
-[connection signal="pressed" from="HeroMenu/MC/VB/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="PC/MC/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="HeroMenu/MC/VB/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

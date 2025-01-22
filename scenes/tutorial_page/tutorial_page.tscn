@@ -1,0 +1,397 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwj0640l7livv"]
+
+[ext_resource type="Script" path="res://scenes/tutorial_page/tutorial_page.gd" id="1_oblpi"]
+[ext_resource type="Texture2D" uid="uid://dovp0xy6r5j0u" path="res://assets/art/ui/arrow_right.png" id="1_tuhea"]
+[ext_resource type="Texture2D" uid="uid://c006my5hm6ytn" path="res://assets/art/ui/arrow_left.png" id="3_wkaeu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82djj"]
+bg_color = Color(0.968627, 0.827451, 0, 0.784314)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7740b"]
+load_path = "res://.godot/imported/arrow_left.png-aed88cdfbf290958820e71f12f21986c.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i33bv"]
+bg_color = Color(0.958652, 0.713712, 7.70092e-07, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71uym"]
+bg_color = Color(0.886275, 0.658824, 0, 0.784314)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="Animation" id="Animation_ftvrh"]
+resource_name = "idle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WelcomeTutStep1/Control2/TutorialButton:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1.2, 1.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NicknameTutStep2/VBoxContainer/Control/EnterToContinueLabel:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(0.9, 0.9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OpenRubberDucksStep/OpenDuckPageStep/ArrowLeftTextureRect:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1.2, 1.2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OpenRubberDucksStep/ClickDuckStep/PanelContainer2:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1.1, 1.1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SetupTeamStep/ClickBattleSetupStep/ArrowLeftTextureRect:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.00826378, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vnox7"]
+_data = {
+"idle": SubResource("Animation_ftvrh")
+}
+
+[node name="TutorialPage" type="PanelContainer" groups=["tutorial"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"AlphaPanel"
+script = ExtResource("1_oblpi")
+
+[node name="WelcomeTutStep1" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Control" type="VBoxContainer" parent="WelcomeTutStep1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="WelcomeLabel" type="Label" parent="WelcomeTutStep1/Control"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 150
+text = "WELCOME TO MOBA MANAGER!"
+
+[node name="Label" type="Label" parent="WelcomeTutStep1/Control"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_type_variation = &"HeaderMedium"
+text = "Click arrow or press enter to continue!"
+
+[node name="Control2" type="Control" parent="WelcomeTutStep1"]
+layout_mode = 2
+
+[node name="TutorialButton" type="TextureButton" parent="WelcomeTutStep1/Control2" groups=["sound_button"]]
+layout_mode = 2
+offset_left = 1732.0
+offset_top = 892.0
+offset_right = 1860.0
+offset_bottom = 1020.0
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(64, 64)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource("1_tuhea")
+stretch_mode = 0
+
+[node name="NicknameTutStep2" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NicknameTutStep2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ChooseLabel" type="Label" parent="NicknameTutStep2/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Chose your Nickname:"
+
+[node name="NicknameLineEdit" type="LineEdit" parent="NicknameTutStep2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Atleast 3 charecters"
+alignment = 1
+
+[node name="Spacer" type="Control" parent="NicknameTutStep2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="NicknameTutStep2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="EnterToContinueLabel" type="Label" parent="NicknameTutStep2/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -22.0
+offset_right = 150.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+pivot_offset = Vector2(150, 22)
+theme_type_variation = &"HeaderMedium"
+text = "Enter to continue!"
+horizontal_alignment = 1
+
+[node name="OpenRubberDucksStep" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="OpenDuckPageStep" type="Control" parent="OpenRubberDucksStep"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ArrowLeftTextureRect" type="TextureRect" parent="OpenRubberDucksStep/OpenDuckPageStep"]
+layout_direction = 1
+layout_mode = 1
+offset_left = 293.0
+offset_top = 623.0
+offset_right = 421.0
+offset_bottom = 751.0
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("3_wkaeu")
+stretch_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="OpenRubberDucksStep/OpenDuckPageStep"]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 652.0
+offset_right = 1063.0
+offset_bottom = 741.0
+theme_type_variation = &"AlphaPanel"
+theme_override_styles/panel = SubResource("StyleBoxFlat_82djj")
+
+[node name="MarginContainer" type="MarginContainer" parent="OpenRubberDucksStep/OpenDuckPageStep/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="OpenRubberDucksStep/OpenDuckPageStep/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Let's go get some heroes!"
+
+[node name="ClickDuckStep" type="Control" parent="OpenRubberDucksStep"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="OpenRubberDucksStep/ClickDuckStep"]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 71.0
+offset_right = 1495.0
+offset_bottom = 160.0
+scale = Vector2(1.1, 1.1)
+pivot_offset = Vector2(512.5, 44.5)
+theme_type_variation = &"AlphaPanel"
+theme_override_styles/panel = SubResource("StyleBoxFlat_82djj")
+
+[node name="MarginContainer" type="MarginContainer" parent="OpenRubberDucksStep/ClickDuckStep/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="DuckHeroLabel" type="Label" parent="OpenRubberDucksStep/ClickDuckStep/PanelContainer2/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Click the duck to unlock your first Heroes!"
+
+[node name="SetupTeamStep" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="ClickBattleSetupStep" type="Control" parent="SetupTeamStep"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ArrowLeftTextureRect" type="TextureRect" parent="SetupTeamStep/ClickBattleSetupStep"]
+layout_direction = 1
+layout_mode = 1
+offset_left = 208.727
+offset_top = 390.727
+offset_right = 336.727
+offset_bottom = 518.727
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(64, 64)
+texture = SubResource("CompressedTexture2D_7740b")
+stretch_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="SetupTeamStep/ClickBattleSetupStep"]
+layout_mode = 1
+offset_left = 349.728
+offset_top = 412.727
+offset_right = 838.728
+offset_bottom = 501.727
+theme_type_variation = &"AlphaPanel"
+theme_override_styles/panel = SubResource("StyleBoxFlat_82djj")
+
+[node name="MarginContainer" type="MarginContainer" parent="SetupTeamStep/ClickBattleSetupStep/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="SetupTeamStep/ClickBattleSetupStep/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Lets setup our team!"
+
+[node name="SetupBothHeroesStep" type="Control" parent="SetupTeamStep"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="SetupTeamStep/SetupBothHeroesStep"]
+layout_mode = 1
+offset_left = 515.0
+offset_top = 250.0
+offset_right = 1381.0
+offset_bottom = 339.0
+theme_type_variation = &"AlphaPanel"
+theme_override_styles/panel = SubResource("StyleBoxFlat_82djj")
+
+[node name="MarginContainer" type="MarginContainer" parent="SetupTeamStep/SetupBothHeroesStep/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="SetupTeamStep/SetupBothHeroesStep/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Select your top and bot lane heroes!"
+
+[node name="FinishStep" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_type_variation = &"AlphaPanel"
+
+[node name="ClickBattleSetupStep" type="Control" parent="FinishStep"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="FinishTutorialButton" type="Button" parent="FinishStep/ClickBattleSetupStep"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.5
+offset_top = 167.0
+offset_right = 169.5
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+theme_override_styles/hover = SubResource("StyleBoxFlat_i33bv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_71uym")
+text = "LETS GO!!!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vnox7")
+}
+autoplay = "idle"
+
+[connection signal="pressed" from="WelcomeTutStep1/Control2/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="text_submitted" from="NicknameTutStep2/VBoxContainer/NicknameLineEdit" to="." method="_on_nickname_line_edit_text_submitted"]
+[connection signal="pressed" from="FinishStep/ClickBattleSetupStep/FinishTutorialButton" to="." method="_on_finish_tutorial_button_pressed"]

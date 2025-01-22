@@ -32,9 +32,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_vertical = 3
-item_count = 2
-item_0/text = "Spoon Of Destiny"
-item_1/text = "Worn-Out Wonder Boots"
 
 [node name="VB2" type="VBoxContainer" parent="PC/MC/VB/HB" index="1"]
 layout_mode = 2
@@ -71,3 +68,4 @@ text = "Craft"
 
 [connection signal="item_selected" from="PC/MC/VB/HB/VB/EquipmentList" to="." method="_on_recipe_list_item_selected"]
 [connection signal="pressed" from="PC/MC/VB/HB/VB2/CraftButton" to="." method="_on_craft_button_pressed"]
+[connection signal="pressed" from="PC/MC/QuitButton" to="." method="_on_quit_button_pressed"]

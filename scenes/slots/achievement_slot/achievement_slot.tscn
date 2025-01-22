@@ -55,19 +55,16 @@ layout_mode = 2
 [node name="RewardLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Gain "
 
 [node name="RewardAmountLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_87eeb")
-text = "3 %"
 
 [node name="NextRewardLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "(next level: 5)"
 
 [node name="AchievedIcon" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
