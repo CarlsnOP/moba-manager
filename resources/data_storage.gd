@@ -41,5 +41,6 @@ const UNACHIEVED_DUCK = preload("res://assets/art/achievements/unachieved_duck.p
 const ADD_EQUIPMENT = preload("res://assets/art/ui/add_equipment.png")
 const RUBBERDUCK = preload("res://assets/art/ui/Rubberduck.png")
 
-#Tutorial
+#SCENES
 const TUTORIAL_PAGE = preload("res://scenes/tutorial_page/tutorial_page.tscn")
+const OFFLINE_REWARDS = preload("res://scenes/utility/offline_rewards/offline_rewards.tscn")

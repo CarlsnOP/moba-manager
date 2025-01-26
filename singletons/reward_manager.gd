@@ -10,14 +10,13 @@ var _mod_luck := 1.0
 var _loot_gained: Array[LootResource] = []
 var _exp_gained: int
 var _rubberduckies_gained: int
+var loot_gained_last_game: int
 
 func on_battle_end(win: bool) -> void:
-	_loot_gained.clear()
 	var loot_reward = round((BASE_LOOT_REWARD * (1 + StatsManager.all_stats_multipliers["loot_multiplier"]) * _mod_luck))
 	var exp_reward = round(BASE_EXP_REWARD * (1 + StatsManager.all_stats_multipliers["loot_multiplier"]))
 	var rubberduckies_reward = round(BASE_RUBBERDUCK_REWARD * (1 + StatsManager.all_stats_multipliers["loot_multiplier"]))
-	var eligible_loot = []
-	var total_weight = 0
+	
 	
 	if win:
 		loot_reward = loot_reward * WIN_MODIFIER
@@ -31,27 +30,13 @@ func on_battle_end(win: bool) -> void:
 		_exp_gained = exp_reward
 		_rubberduckies_gained = rubberduckies_reward
 	
+	loot_gained_last_game = loot_reward
 	TeamManager.grant_current_team_exp(exp_reward)
 	
-	for loot in InventoryManager._all_loot:
-		eligible_loot.append(loot)
-		total_weight += loot.weight
+	_loot_gained = FunctionWizard.Create_loot_reward(loot_reward)
 	
-	while loot_reward > 1:
-		var rand_weight = randf() * total_weight
-		var cumulative_weight = 0
-		
-		for loot in eligible_loot:
-			cumulative_weight += loot.weight
-			if rand_weight <= cumulative_weight:
-				if loot_reward >= loot.value:
-					InventoryManager.inventory.add_loot(loot, 1)
-					loot_reward -= loot.value
-					_loot_gained.append(loot)
-				break
-				
 	_mod_luck = 1.0
-	
+
 func create_rubberduckies(quantity: int) -> void:
 	if quantity <= 0:
 		return

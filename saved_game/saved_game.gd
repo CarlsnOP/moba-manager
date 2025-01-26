@@ -9,7 +9,6 @@ extends Resource
 @export var saved_data: Array[SavedData] = []
 
 #Currency and rewards
-@export var save_time: int = -1
 @export var rubber_duckies: int
 @export var owned_hero_rubber_ducky: int
 

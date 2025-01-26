@@ -89,6 +89,7 @@ func _on_get_reward_button_pressed():
 		achievement.ach_script.handle_reward()
 		
 	achievement.ach_accepted_rewards += 1
+	SoundManager.create_ui_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.QUACK_SFX)
 	AchievementManager.update_achievement_stats(achievement)
 	complete_achievement.hide()
 	update()

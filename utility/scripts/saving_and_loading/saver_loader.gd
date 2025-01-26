@@ -23,7 +23,6 @@ func save_vars(saved_game: SavedGame) -> void:
 	var stage_ref = get_tree().get_first_node_in_group("stage_manager") as StageManager
 	var profile_ref = get_tree().get_first_node_in_group("profile_page") as ProfilePage
 	saved_game.nickname = profile_ref.nickname
-	saved_game.save_time = int(Time.get_unix_time_from_system())
 	saved_game.rubber_duckies = InventoryManager.get_rubberduckies()
 	saved_game.owned_hero_rubber_ducky = InventoryManager.owned_hero_rubber_ducky
 	saved_game.collected_equipment = InventoryManager.get_equipment_quantity()
@@ -94,7 +93,6 @@ func load_vars(saved_game: SavedGame) -> void:
 	stage_ref.current_stage = saved_game.current_stage
 	stage_ref.highest_stage = saved_game.highest_stage
 	profile_ref.set_nickname(saved_game.nickname)
-	FunctionWizard.give_offline_reward(saved_game.save_time)
 	
 	#Do it like this, so we can add more achievements in the furture
 	for key in saved_game.ach_master_dict:

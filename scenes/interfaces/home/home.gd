@@ -54,12 +54,16 @@ func remove_entry() -> void:
 	if entry_to_remove != null:
 		entry_to_remove.queue_free()
 
+
 #Saving function
 func on_save_game(saved_data: Array[SavedData]):
 	var my_data = SavedLogData.new()
 	my_data.scene_path = scene_file_path
 	if get_parent():
 		my_data.parent_path = get_parent().get_path()
+	
+	my_data.save_time = int(Time.get_unix_time_from_system())
+	my_data.last_reward_amount = RewardManager.loot_gained_last_game
 	
 	for child in event_log_entries.get_children():
 		var dict = child.save_data()
@@ -96,6 +100,19 @@ func on_load_game(saved_data:SavedData):
 				new_eventlog.instantiate_friendly_top(child["Top"])
 				new_eventlog.instantiate_friendly_bot(child["Bot"])
 				on_log_entry(new_eventlog)
+				
+		var new_time := int(Time.get_unix_time_from_system())
+		RewardManager.loot_gained_last_game = saved_data.last_reward_amount
+		
+		if new_time > saved_data.save_time:
+			var calc_time_difference_in_minutes = (new_time - saved_data.save_time) / 60
+			var amount_of_games = calc_time_difference_in_minutes / 5
+			var offline_rewards = round((amount_of_games * saved_data.last_reward_amount) * 0.2)
+			var offline_loot: Array[LootResource] = FunctionWizard.Create_loot_reward(offline_rewards)
+			
+			if offline_loot.size() > 0:
+				ObjectMakerManager.instantiate_offline_reward_scene(DataStorage.OFFLINE_REWARDS, offline_loot)
+		
 	hide()
 		
 
