@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dov471sd5rue"]
+[gd_scene load_steps=21 format=3 uid="uid://dov471sd5rue"]
 
 [ext_resource type="Script" path="res://battlesim/tower/tower.gd" id="1_5bbri"]
 [ext_resource type="Resource" uid="uid://dx5623hpbda55" path="res://resources/projectiles/cannon_ball_projectile.tres" id="2_ecpqv"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cottssx1s1fc1" path="res://battlesim/components/attack_progress_bar_component.tscn" id="12_rps3j"]
 [ext_resource type="Script" path="res://battlesim/components/health_bar_component.gd" id="13_g6xpu"]
 [ext_resource type="Script" path="res://battlesim/components/new_game_component.gd" id="13_hccly"]
+[ext_resource type="Script" path="res://battlesim/components/outline_component.gd" id="17_a0euh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_80hab"]
 radius = 5.0
@@ -24,7 +25,7 @@ radius = 5.0
 radius = 30.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6x1u6"]
-radius = 100.0
+radius = 130.0
 
 [node name="Tower" type="StaticBody2D"]
 script = ExtResource("1_5bbri")
@@ -37,10 +38,11 @@ shape = SubResource("CircleShape2D_80hab")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_p4cgg")
 
-[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("stats_component", "state_machine_component")]
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("actor", "stats_component", "state_machine_component")]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("3_44xvj")
+actor = NodePath("..")
 stats_component = NodePath("../StatsComponent")
 state_machine_component = NodePath("../StateMachineComponent")
 
@@ -60,6 +62,7 @@ shape = SubResource("CircleShape2D_6x1u6")
 script = ExtResource("2_yktpk")
 actor = NodePath("..")
 damage = 150.0
+att_range = 100
 move_speed = 0.0
 health = 3000.0
 
@@ -79,6 +82,10 @@ script = ExtResource("9_lggq0")
 actor = NodePath("..")
 stats_component = NodePath("../StatsComponent")
 hurtbox_component = NodePath("../HurtboxComponent")
+
+[node name="OutlineComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("17_a0euh")
+sprite = NodePath("../Sprite2D")
 
 [node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox_component", "sprite")]
 script = ExtResource("10_e8kic")

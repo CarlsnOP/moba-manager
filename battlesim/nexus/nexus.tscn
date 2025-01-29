@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b3kdvbeuw4nh5"]
+[gd_scene load_steps=23 format=3 uid="uid://b3kdvbeuw4nh5"]
 
 [ext_resource type="Script" path="res://battlesim/nexus/nexus.gd" id="1_4gx4f"]
 [ext_resource type="Texture2D" uid="uid://cnthng11d3aww" path="res://assets/art/map/enemy_nexus.png" id="1_xheii"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://battlesim/components/state_machine_component.gd" id="9_lwib2"]
 [ext_resource type="Script" path="res://battlesim/states/structure_state.gd" id="10_du3fc"]
 [ext_resource type="Script" path="res://battlesim/components/health_bar_component.gd" id="11_ab8tg"]
+[ext_resource type="Script" path="res://battlesim/components/outline_component.gd" id="11_tjchx"]
 [ext_resource type="Script" path="res://battlesim/components/death_component.gd" id="12_732pu"]
 [ext_resource type="Script" path="res://battlesim/components/juice_component.gd" id="12_m8d28"]
 [ext_resource type="PackedScene" uid="uid://cottssx1s1fc1" path="res://battlesim/components/attack_progress_bar_component.tscn" id="13_tidby"]
@@ -24,7 +25,7 @@
 radius = 50.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gi2bm"]
-radius = 100.0
+radius = 130.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a0luf"]
 radius = 50.0
@@ -40,10 +41,11 @@ shape = SubResource("CircleShape2D_fxgb8")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_xheii")
 
-[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("stats_component", "state_machine_component")]
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("actor", "stats_component", "state_machine_component")]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("2_qmxlh")
+actor = NodePath("..")
 stats_component = NodePath("../StatsComponent")
 state_machine_component = NodePath("../StateMachineComponent")
 
@@ -72,6 +74,7 @@ debug_color = Color(0.363395, 0.608513, 0.295636, 0.42)
 script = ExtResource("5_1xmsr")
 actor = NodePath("..")
 damage = 25.0
+att_range = 100
 move_speed = 0.0
 att_speed = 0.2
 health = 5000.0
@@ -91,6 +94,10 @@ script = ExtResource("8_och41")
 actor = NodePath("..")
 hitbox_component = NodePath("../HitboxComponent")
 stats_component = NodePath("../StatsComponent")
+
+[node name="OutlineComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("11_tjchx")
+sprite = NodePath("../Sprite2D")
 
 [node name="HealthBarComponent" type="ProgressBar" parent="." node_paths=PackedStringArray("stats_component")]
 offset_right = 4.0

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="HeroResource" load_steps=4 format=3 uid="uid://dyht0ixt2r7ug"]
 
-[ext_resource type="Texture2D" uid="uid://bhhhr81gttpug" path="res://assets/art/characters/bullies/Vinny.png" id="1_24esu"]
+[ext_resource type="Texture2D" uid="uid://bhhhr81gttpug" path="res://assets/art/characters/bullies/vinny.png" id="1_24esu"]
 [ext_resource type="Texture2D" uid="uid://y0ro3kmirgt3" path="res://assets/art/characters/enemy_heroes_portraits/vinny_circle_portrait.png" id="2_7bvcc"]
 [ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="3_0bbup"]
 
@@ -16,7 +16,11 @@ ability_power = 100.0
 dodge = 0.01
 block = 0.05
 crit = 0.05
+movement_speed = 5000.0
+attack_speed = 0.9
+attack_range = 50.0
 in_team = false
+unlocked = false
 hero_autoattack_sfx = 7
 lvl = 0
 xp = 0

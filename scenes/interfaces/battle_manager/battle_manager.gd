@@ -10,18 +10,40 @@ extends Control
 var selected_hero: Hero
 var selected_lane_manager_component: LaneManagerComponent
 var selected_state_machine_component: StateMachineComponent
+var selected_heroes_controller_component: ControllerComponent
+var selected_heroes_attack_component: AttackComponent
+var selected_heroes_target_Outline: OutlineComponent
+var selected_outline_component: OutlineComponent
 var top_hero_res: HeroResource
 var bot_hero_res: HeroResource
 var top_hero_node: CharacterBody2D
 var bot_hero_node: CharacterBody2D
 var top_lane := true
 var bot_lane := false
+var current_target_outline_component: OutlineComponent
 
 func _ready():
 	call_deferred("update")
 	SignalManager.event.connect(event_happend)
 	SignalManager.on_battle_end.connect(on_battle_end)
+	SignalManager.tutorial_finished.connect(show_battle_manager)
+	
+	await get_tree().physics_frame
+	if TeamManager.bot == null and TeamManager.top == null:
+		hide()
 
+func _process(_delta):
+	if selected_heroes_attack_component:
+		if selected_heroes_attack_component.current_target_hurtbox:
+			var target_node = selected_heroes_attack_component.current_target_hurtbox.get_parent()
+			if current_target_outline_component != selected_heroes_target_Outline:
+				current_target_outline_component.remove_outline()
+				
+			for child in target_node.get_children():
+				if child is OutlineComponent:
+					current_target_outline_component = child
+					current_target_outline_component.apply_target_outline()
+		
 
 func on_battle_end(_win: bool) -> void:
 	for child in battle_log_entries.get_children():
@@ -60,22 +82,53 @@ func update() -> void:
 func switch_active_button(top: bool) -> void:
 	if top:
 		top_hero_button.flat = false
-		bot_hero_button.flat = true
 	else:
-		top_hero_button.flat = true
 		bot_hero_button.flat = false
 
+func handle_hero_chosen() -> void:
+	selected_lane_manager_component = selected_hero.get_lane_manager_component()
+	selected_state_machine_component = selected_hero.get_state_machine_component()
+	selected_heroes_controller_component = selected_hero.get_controller_component()
+	selected_heroes_controller_component.listen_to_orders = true
+	selected_heroes_attack_component = selected_hero.get_attack_component()
+	selected_outline_component = selected_hero.get_outline_component()
+	selected_outline_component.apply_outline()
+
+func deselect_hero() -> void:
+	if selected_outline_component != null:
+		selected_outline_component.remove_outline()
+		
+	if current_target_outline_component != null:
+		current_target_outline_component.remove_outline()
+	
+	if selected_heroes_controller_component != null:
+		selected_heroes_controller_component.listen_to_orders = false
+	
+	selected_hero = null
+	selected_state_machine_component = null
+	top_hero_button.flat = true
+	bot_hero_button.flat = true
+
+
 func _on_top_hero_button_pressed():
+	if selected_hero == top_hero_node:
+		deselect_hero()
+		return
+	
+	deselect_hero()
 	switch_active_button(top_lane)
 	selected_hero = top_hero_node
-	selected_lane_manager_component = selected_hero.get_lane_manager_component()
-	selected_state_machine_component = selected_hero.get_state_machine_component()
+	handle_hero_chosen()
 
 func _on_bot_hero_button_pressed():
+	if selected_hero == bot_hero_node:
+		deselect_hero()
+		return
+	
+	deselect_hero()
 	switch_active_button(bot_lane)
 	selected_hero = bot_hero_node
-	selected_lane_manager_component = selected_hero.get_lane_manager_component()
-	selected_state_machine_component = selected_hero.get_state_machine_component()
+	handle_hero_chosen()
 	
 func _on_top_button_pressed():
 	if selected_state_machine_component != null:
@@ -89,6 +142,9 @@ func _on_retreat_button_pressed() -> void:
 	if selected_state_machine_component != null:
 		selected_state_machine_component.on_child_transition("RetreatState")
 
+func show_battle_manager() -> void:
+	show()
+
 func _on_fast_forward_button_pressed() -> void:
 	var homepage = get_tree().get_first_node_in_group("homepage") as Homepage
 	if homepage.has_method("set_fast_forward"):
@@ -97,3 +153,8 @@ func _on_fast_forward_button_pressed() -> void:
 
 func _on_end_battle_button_pressed():
 	SignalManager.on_battle_end.emit(true)
+
+
+func _on_shake_button_pressed():
+	var canvas_ref = get_tree().get_first_node_in_group("canvas")
+	canvas_ref.apply_noise_shake()

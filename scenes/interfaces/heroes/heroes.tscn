@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/interfaces/heroes/heroes.gd" id="2_aktco"]
 [ext_resource type="PackedScene" uid="uid://ckooocc8ghpgl" path="res://scenes/slots/hero_slot/hero_slot.tscn" id="3_md810"]
 [ext_resource type="Script" path="res://scenes/interfaces/heroes/hero_page.gd" id="4_iqvvf"]
-[ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/Eddy the Jungler.png" id="5_omhe7"]
+[ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/eddy_the_jungler.png" id="5_omhe7"]
 [ext_resource type="Texture2D" uid="uid://bv2cxijy21p7h" path="res://assets/art/stats/health.png" id="5_wiflx"]
 [ext_resource type="Texture2D" uid="uid://d0gsjwva5fjcf" path="res://assets/art/stats/damage.png" id="6_tmxtq"]
 [ext_resource type="Texture2D" uid="uid://b5oq78l2e2x6t" path="res://assets/art/stats/mana.png" id="7_4mw7m"]

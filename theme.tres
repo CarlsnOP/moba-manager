@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=10 format=3 uid="uid://cfioapweow33c"]
 
-[ext_resource type="FontFile" uid="uid://qtceburuli1a" path="res://assets/fonts/Bangers-Regular.ttf" id="1_1raky"]
-[ext_resource type="FontFile" uid="uid://bcny1bgbhjhmt" path="res://assets/fonts/Fredoka-VariableFont_wdth,wght.ttf" id="1_qajaw"]
+[ext_resource type="FontFile" uid="uid://qtceburuli1a" path="res://assets/fonts/bangers_regular.ttf" id="1_1raky"]
+[ext_resource type="FontFile" uid="uid://bcny1bgbhjhmt" path="res://assets/fonts/fredoka_variablefont.ttf" id="1_qajaw"]
 [ext_resource type="Texture2D" uid="uid://bneiuc2x5jqlc" path="res://assets/art/ui/gui.png" id="3_8uval"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dn7ws"]

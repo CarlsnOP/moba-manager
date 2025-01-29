@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="HeroResource" load_steps=5 format=3 uid="uid://45einw3mtxml"]
 
-[ext_resource type="Texture2D" uid="uid://co6ywrjnv2o62" path="res://assets/art/characters/Em the Marksman.png" id="1_ptukc"]
+[ext_resource type="Texture2D" uid="uid://co6ywrjnv2o62" path="res://assets/art/characters/em_the_marksman.png" id="1_ptukc"]
 [ext_resource type="Texture2D" uid="uid://d2x2gfqjxapts" path="res://assets/art/characters/team_heroes_portraits/em_circle_portrait.png" id="2_42cah"]
 [ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="3_yww1m"]
 [ext_resource type="Resource" uid="uid://benvpqfdnowsj" path="res://resources/skills/resources/explosive_finale.tres" id="4_qkth3"]
@@ -17,6 +17,9 @@ ability_power = 60.0
 dodge = 0.01
 block = 0.05
 crit = 0.05
+movement_speed = 5000.0
+attack_speed = 0.8
+attack_range = 75.0
 in_team = false
 unlocked = false
 skill = ExtResource("4_qkth3")

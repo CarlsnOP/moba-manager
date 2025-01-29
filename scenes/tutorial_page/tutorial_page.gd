@@ -16,6 +16,7 @@ var tutorial_step := 1
 var rubberducks_opened := 0
 
 func _ready():
+	show()
 	SignalManager.new_interface.connect(check_interface)
 	SignalManager.rubberduck_clicked.connect(handle_rubber_duck_clicked)
 	SignalManager.hero_selected.connect(on_hero_selected)

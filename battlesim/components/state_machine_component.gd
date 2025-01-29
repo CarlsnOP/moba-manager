@@ -10,6 +10,7 @@ signal on_lane_change(top: bool)
 @export var health_bar_component: HealthBarComponent
 @export var defensive_threshold := 0.6
 @export var retreat_threshold := 0.15
+@export var hurtbox_component: HurtboxComponent
 
 var current_state: State
 var states: Dictionary = {}
@@ -57,7 +58,7 @@ func on_child_transition(new_state_name: String):
 	current_state = new_state
 
 func update_state(value: float) -> void:
-	if current_state is LaneChangeState:
+	if current_state is LaneChangeState or current_state is FallBackState:
 		return
 	
 	if value >= health_bar_component.max_value * defensive_threshold:

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://crpaha4jcev2l" path="res://assets/art/achievements/unachieved_duck.png" id="1_62dxe"]
 [ext_resource type="Script" path="res://scenes/slots/achievement_slot/achievement_slot.gd" id="1_h5ire"]
-[ext_resource type="FontFile" uid="uid://qtceburuli1a" path="res://assets/fonts/Bangers-Regular.ttf" id="2_87eeb"]
+[ext_resource type="FontFile" uid="uid://qtceburuli1a" path="res://assets/fonts/bangers_regular.ttf" id="2_87eeb"]
 
 [node name="AchievementSlot" type="Control"]
 custom_minimum_size = Vector2(0, 85)

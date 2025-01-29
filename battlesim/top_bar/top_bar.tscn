@@ -10,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_ha24x")
 top_bar_slot = ExtResource("2_qpsyf")
 
@@ -19,10 +20,12 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 201.0
 grow_horizontal = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(1180, 128)
 layout_mode = 2
+mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColorRect"]
@@ -32,6 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -40,11 +44,13 @@ theme_override_constants/margin_bottom = 10
 [node name="TopBarHB" type="HBoxContainer" parent="VBoxContainer/ColorRect/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2
 
 [node name="TeamHB" type="HBoxContainer" parent="VBoxContainer/ColorRect/MarginContainer/TopBarHB"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="VSeperator" type="VSeparator" parent="VBoxContainer/ColorRect/MarginContainer/TopBarHB"]
 layout_mode = 2

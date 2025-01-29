@@ -106,9 +106,11 @@ func on_load_game(saved_data:SavedData):
 		
 		if new_time > saved_data.save_time:
 			var calc_time_difference_in_minutes = (new_time - saved_data.save_time) / 60
+			#Get extra rewards for every 5 minutes spent offline
 			var amount_of_games = calc_time_difference_in_minutes / 5
+			#Get 20 % of what you would normally get
 			var offline_rewards = round((amount_of_games * saved_data.last_reward_amount) * 0.2)
-			var offline_loot: Array[LootResource] = FunctionWizard.Create_loot_reward(offline_rewards)
+			var offline_loot: Array[LootResource] = FunctionWizard.create_loot_reward(offline_rewards)
 			
 			if offline_loot.size() > 0:
 				ObjectMakerManager.instantiate_offline_reward_scene(DataStorage.OFFLINE_REWARDS, offline_loot)

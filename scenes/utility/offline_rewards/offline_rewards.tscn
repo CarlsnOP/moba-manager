@@ -61,5 +61,6 @@ stretch_mode = 0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+loot_reward = true
 
 [connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

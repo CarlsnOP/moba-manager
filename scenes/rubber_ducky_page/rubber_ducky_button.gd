@@ -39,7 +39,6 @@ func pop_the_duck() -> void:
 	
 	hero_unlock_button.texture_normal = unlocked_hero.hero_icon
 	hero_unlock_button.show()
-	hero_shine_cpu_particles_2d.emitting = true
 	
 	texture_disabled = null
 	texture_normal = null
@@ -47,6 +46,7 @@ func pop_the_duck() -> void:
 	
 	animation_player.play("RESET")
 	pop_cpu_particles_2d.emitting = true
+	hero_shine_cpu_particles_2d.emitting = true
 	SoundManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.POP_SFX)
 	
 
@@ -70,7 +70,8 @@ func get_random_hero() -> HeroResource:
 
 func _on_hero_unlock_button_pressed():
 	hero_unlock_button.disabled = true
-
+	
+	SoundManager.create_ui_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.UNLOCK_HERO_SFX)
 	unlocked_label.text = "Congrats!\n" + "You unlocked " + str(unlocked_hero.hero_name) + "!"
 	var tween = get_tree().create_tween()
 	tween.tween_property(hero_unlock_button, "modulate", Color("#FFFFFF"), 1.0).set_ease(tween.EASE_OUT)

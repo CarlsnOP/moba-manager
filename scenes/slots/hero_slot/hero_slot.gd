@@ -62,3 +62,12 @@ func _on_button_pressed():
 		SignalManager.on_hero_selected.emit(_hero)
 	else:
 		hero_selected.emit(_hero)
+
+func _on_mouse_entered() -> void:
+	if _hero == null:
+		return
+		
+	Popups.show_popup(Rect2i( Vector2i(global_position), Vector2i(size)), _hero)
+
+func _on_mouse_exited() -> void:
+	Popups.hide_popup()

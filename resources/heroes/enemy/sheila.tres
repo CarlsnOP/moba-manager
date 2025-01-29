@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="HeroResource" load_steps=4 format=3 uid="uid://tnjmmdiee3ea"]
 
-[ext_resource type="Texture2D" uid="uid://o274k0imgf8n" path="res://assets/art/characters/bullies/Sheila.png" id="1_codvt"]
+[ext_resource type="Texture2D" uid="uid://o274k0imgf8n" path="res://assets/art/characters/bullies/sheila.png" id="1_codvt"]
 [ext_resource type="Texture2D" uid="uid://7d08r3a5erjf" path="res://assets/art/characters/enemy_heroes_portraits/sheila_circle_portrait.png" id="2_7e2uq"]
 [ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="3_fyed5"]
 
@@ -16,7 +16,11 @@ ability_power = 120.0
 dodge = 0.01
 block = 0.05
 crit = 0.05
+movement_speed = 5000.0
+attack_speed = 1.0
+attack_range = 70.0
 in_team = false
+unlocked = false
 hero_autoattack_sfx = 7
 lvl = 0
 xp = 0

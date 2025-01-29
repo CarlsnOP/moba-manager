@@ -33,7 +33,7 @@ func on_battle_end(win: bool) -> void:
 	loot_gained_last_game = loot_reward
 	TeamManager.grant_current_team_exp(exp_reward)
 	
-	_loot_gained = FunctionWizard.Create_loot_reward(loot_reward)
+	_loot_gained = FunctionWizard.create_loot_reward(loot_reward)
 	
 	_mod_luck = 1.0
 

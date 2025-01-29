@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c82akoyw0qcep" path="res://assets/art/ui/Rubberduck.png" id="1_aegs1"]
 [ext_resource type="Script" path="res://scenes/rubber_ducky_page/rubber_ducky_button.gd" id="2_4f77f"]
 [ext_resource type="Texture2D" uid="uid://8i3pj215u3j6" path="res://assets/art/ui/rubberduck_fragment.png" id="3_pyk5f"]
-[ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/Eddy the Jungler.png" id="4_80tm8"]
+[ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/eddy_the_jungler.png" id="4_80tm8"]
 [ext_resource type="Texture2D" uid="uid://i04xwwg61loo" path="res://assets/art/particles/random_selection.png" id="4_ghef2"]
 
 [sub_resource type="Animation" id="Animation_0b2a4"]
@@ -158,6 +158,7 @@ material = SubResource("CanvasItemMaterial_3gavf")
 position = Vector2(250, 250)
 emitting = false
 amount = 4
+local_coords = true
 texture = ExtResource("4_ghef2")
 gravity = Vector2(0, 0)
 angle_max = 360.0

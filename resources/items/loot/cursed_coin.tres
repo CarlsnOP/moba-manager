@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://debq0o71joqnw"]
 
-[ext_resource type="Texture2D" uid="uid://cxsnn01csr02q" path="res://assets/art/loot/cursed-coin.webp" id="1_c2x2f"]
+[ext_resource type="Texture2D" uid="uid://cxsnn01csr02q" path="res://assets/art/loot/cursed_coin.webp" id="1_c2x2f"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_6krse"]
 
 [resource]

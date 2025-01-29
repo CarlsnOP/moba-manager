@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cbeqdlhkmic5y"]
 
 [ext_resource type="Script" path="res://scenes/slots/loot_slot/loot_slot.gd" id="1_83m0i"]
-[ext_resource type="Texture2D" uid="uid://d4dx7mttypx36" path="res://assets/art/loot/rusty-spoon.webp" id="1_q4xk8"]
+[ext_resource type="Texture2D" uid="uid://d4dx7mttypx36" path="res://assets/art/loot/rusty_spoon.webp" id="1_q4xk8"]
 [ext_resource type="PackedScene" uid="uid://dk8d0pnwcee7b" path="res://scenes/particles/particles.tscn" id="3_3qotj"]
 [ext_resource type="Texture2D" uid="uid://dyv71risq3oqo" path="res://assets/art/ui/border.png" id="4_tm5cu"]
 

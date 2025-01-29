@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://cfq7gu1jwyuug"]
 
-[ext_resource type="Texture2D" uid="uid://cdqnecq8hxvex" path="res://assets/art/loot/enchanted-pebble.webp" id="1_586eq"]
+[ext_resource type="Texture2D" uid="uid://cdqnecq8hxvex" path="res://assets/art/loot/enchanted_pebble.webp" id="1_586eq"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_20qb4"]
 
 [resource]

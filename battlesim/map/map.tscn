@@ -20,7 +20,7 @@ script = ExtResource("2_qjnf3")
 [node name="PositionAdjustment" type="Node2D" parent="."]
 position = Vector2(0, 72)
 
-[node name="NavigationMap" parent="PositionAdjustment" instance=ExtResource("3_m4rwa")]
+[node name="NavigationMap" parent="PositionAdjustment" groups=["navigation_map"] instance=ExtResource("3_m4rwa")]
 unique_name_in_owner = true
 position = Vector2(2, -10)
 

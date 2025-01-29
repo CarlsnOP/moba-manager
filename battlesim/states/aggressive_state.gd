@@ -13,6 +13,7 @@ extends State
 @export var attack_component: AttackComponent
 @export var lane_manager_component: LaneManagerComponent
 @export var hitbox_component: HitboxComponent
+@export var detection_component: DetectionComponent
 
 var entity_groups := [ "hero", "minion", "tower", "nexus" ]
 
@@ -62,41 +63,44 @@ func find_closest_ally_to_enemy() -> void:
 					#Checks if we have an ally with us, if not we will not attack
 					if nearest_friendly_distance >= ALLY_TOO_FAR_AWAY:
 						attack_component.current_target_hurtbox = null
+						attack_component.allow_movement()
 					else:
 						#Prioritizes units to attack in this order: Hero > Tower/Nexus > Minion
 						focus_priority_target()
 
 func focus_priority_target() -> void:
-	if hitbox_component.targets_in_range.size() > 0:
-		var priority := 0
+	if detection_component.detected_enemies.size() > 0:
+		var highest_priority := 0
+		var target_to_focus = null
 		
-		for possible_target in hitbox_component.targets_in_range:
+		for possible_target in detection_component.detected_enemies:
 			var parent_node = possible_target.get_parent()
 			var target_groups = parent_node.get_groups()
 			
 			for group in entity_groups:
 				if group in target_groups:
+					var current_priority = get_group_priority(group)
+					
+					if current_priority > highest_priority:
+						target_to_focus = possible_target
+						highest_priority = current_priority
+						
+					if group == "hero" and parent_node.has_method("get_stats_component"):
+						var targets_stats = parent_node.get_stats_component() as StatsComponent
+								
+						if targets_stats.health <= targets_stats.max_health * 0.3 and \
+							stats_component.health >= stats_component.max_health * 0.6:
+							state_machine_component.on_child_transition("ChasingState")
 				
-					match group:
-						"hero":
-							attack_component.current_target_hurtbox = possible_target
-							priority = 3
-							if parent_node.has_method("get_stats_component"):
-								var targets_stats = parent_node.get_stats_component() as StatsComponent
+		if target_to_focus != null and target_to_focus in hitbox_component.targets_in_range:
+			attack_component.current_target_hurtbox = target_to_focus
 								
-								if targets_stats.health <= targets_stats.max_health * 0.3 and \
-								stats_component.health >= stats_component.max_health * 0.6:
-									state_machine_component.on_child_transition("ChasingState")
-								
-						"tower":
-							if priority < 3:
-								attack_component.current_target_hurtbox = possible_target
-								priority = 2
-						"nexus":
-							if priority < 3:
-								attack_component.current_target_hurtbox = possible_target
-								priority = 2
-						"minion":
-							if priority < 2:
-								attack_component.current_target_hurtbox = possible_target
-								priority = 1
+func get_group_priority(group: String) -> int:
+	match group:
+		"hero":
+			return 3
+		"tower", "nexus":
+			return 2
+		"minion":
+			return 1
+	return 0

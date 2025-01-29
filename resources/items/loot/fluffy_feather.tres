@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://c148upheyf4gy"]
 
-[ext_resource type="Texture2D" uid="uid://b0h1dfd0lsavj" path="res://assets/art/loot/fluffy-feather.webp" id="1_8kdi5"]
+[ext_resource type="Texture2D" uid="uid://b0h1dfd0lsavj" path="res://assets/art/loot/fluffy_feather.webp" id="1_8kdi5"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_61lkf"]
 
 [resource]

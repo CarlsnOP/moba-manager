@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://cp4egk4atcvrd"]
 
-[ext_resource type="Texture2D" uid="uid://bqfd43mc1ybhf" path="res://assets/art/loot/glowing-pebble.webp" id="1_mbscx"]
+[ext_resource type="Texture2D" uid="uid://bqfd43mc1ybhf" path="res://assets/art/loot/glowing_pebble.webp" id="1_mbscx"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_baqxj"]
 
 [resource]

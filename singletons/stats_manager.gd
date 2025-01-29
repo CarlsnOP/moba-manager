@@ -104,6 +104,9 @@ func update_hero_stats(heroes: Array) -> void:
 				"block": hero.block + all_stats_multipliers["block_multiplier"],
 				"dodge": hero.dodge + all_stats_multipliers["dodge_multiplier"],
 				"crit": hero.crit + all_stats_multipliers["crit_multiplier"],
+				"move_speed": hero.movement_speed,
+				"att_range": hero.attack_range,
+				"att_speed": hero.attack_speed,
 			}
 			
 			if hero.equipped_equipment != null:
@@ -114,6 +117,7 @@ func update_hero_stats(heroes: Array) -> void:
 					hero_stats_entry["block"] += hero.equipped_equipment.equipment_block
 					hero_stats_entry["dodge"] += hero.equipped_equipment.equipment_dodge
 					hero_stats_entry["crit"] += hero.equipped_equipment.equipment_crit
+					
 			
 			hero_specific_stats.append(hero_stats_entry)
 			
@@ -131,6 +135,9 @@ func update_enemy_hero_stats(heroes: Array) -> void:
 				"block": hero.block,
 				"dodge": hero.dodge,
 				"crit": hero.crit,
+				"move_speed": hero.movement_speed,
+				"att_range": hero.attack_range,
+				"att_speed": hero.attack_speed,
 				}
 				
 			enemy_hero_specific_stats.append(hero_stats_entry)

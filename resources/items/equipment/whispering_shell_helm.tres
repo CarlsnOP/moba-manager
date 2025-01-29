@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EquipmentResource" load_steps=7 format=3 uid="uid://u5l5by84d7wc"]
 
-[ext_resource type="Texture2D" uid="uid://b7f4lc1h50gbe" path="res://assets/art/items/whispering-shell-helm.webp" id="1_d1pe3"]
+[ext_resource type="Texture2D" uid="uid://b7f4lc1h50gbe" path="res://assets/art/items/whispering_shell_helm.webp" id="1_d1pe3"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_rnrtj"]
 [ext_resource type="Resource" uid="uid://dwc7e4ic14vns" path="res://resources/items/loot/whispering_seashell.tres" id="3_yi6mc"]
 [ext_resource type="Script" path="res://resources/items/equipment_resource.gd" id="4_cefbd"]

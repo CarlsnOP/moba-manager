@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://dmsyuj78dhpqq"]
 
-[ext_resource type="Texture2D" uid="uid://bkkysuv8pgud0" path="res://assets/art/loot/sticky-tape.webp" id="1_eel1x"]
+[ext_resource type="Texture2D" uid="uid://bkkysuv8pgud0" path="res://assets/art/loot/sticky_tape.webp" id="1_eel1x"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_11mh1"]
 
 [resource]

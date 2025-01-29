@@ -34,6 +34,7 @@ enum SOUND_EFFECT_TYPE {
 	SQUEAK_SFX,
 	POP_SFX,
 	INFLATE_SFX,
+	UNLOCK_HERO_SFX,
 }
 
 @export_range(0, 10) var limit := 5

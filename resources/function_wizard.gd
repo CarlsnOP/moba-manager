@@ -1,7 +1,8 @@
 class_name FunctionWizard
 extends Node
 
-static func Create_loot_reward(loot_amount: int) -> Array[LootResource]:
+#Used to create loot
+static func create_loot_reward(loot_amount: int) -> Array[LootResource]:
 	if loot_amount <= 0:
 		var empty_array: Array[LootResource] = []
 		return empty_array
@@ -27,3 +28,42 @@ static func Create_loot_reward(loot_amount: int) -> Array[LootResource]:
 					new_loot_gained.append(loot)
 				break
 	return new_loot_gained
+
+#For setting up a string with a heroes stats
+static func setup_stats_string(hero: HeroResource) -> String:
+	var temp_stats: String
+	
+	for h in StatsManager.hero_specific_stats:
+		if h["hero"] == hero:
+			temp_stats = "Max Health: " + str(h["health"]) + "\n"
+			temp_stats += "Health regeneration: " + str(h["health_reg"]) + "\n"
+			temp_stats += "Damage: " + str(h["damage"]) + "\n"
+			temp_stats += "Ability power: " + str(h["ability_power"]) + "\n"
+			temp_stats += "Block change: " + str(h["block"] * 100) + "%\n"
+			temp_stats += "Dodge chance: " + str(h["dodge"] * 100) + "%\n"
+			temp_stats += "Critical chance: " + str(h["crit"] * 100) + "%\n"
+	
+	return temp_stats
+
+
+#Sort items by name and rarity
+static func sort_rarity(inv) -> void:
+	var sorted_nodes = inv.get_children()
+	
+	sorted_nodes.sort_custom(sort_by_rarity_and_name)
+	
+	for node in inv.get_children():
+		inv.remove_child(node)
+	
+	for node in sorted_nodes:
+		inv.add_child(node)
+
+static func sort_by_rarity_and_name(a: Node, b: Node) -> bool:
+	if a["_rarity"] == b["_rarity"]:
+		if a["_name"] < b["_name"]:
+			return true
+			
+	elif a["_rarity"] < b["_rarity"]:
+		return true
+	
+	return false

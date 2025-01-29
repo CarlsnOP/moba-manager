@@ -4,6 +4,8 @@ extends Node
 @export var actor: PhysicsBody2D
 @export var stats_component: StatsComponent
 @export var navigation_agent: NavigationAgent2D
+@export var attack_component: AttackComponent
+@export var hitbox_component: HitboxComponent
 
 var immovable := false
 var standing_still := true

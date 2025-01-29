@@ -13,6 +13,9 @@ class_name HeroResource
 @export var dodge: float = 0.01
 @export var block: float = 0.05
 @export var crit: float = 0.05
+@export var movement_speed: float = 5000
+@export var attack_speed: float = 1.0
+@export var attack_range: float = 50.0
 @export var in_team: bool
 @export var unlocked: bool = false
 @export var skill: SkillResource

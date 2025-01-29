@@ -1,8 +1,8 @@
 class_name DamageNumbersComponent
 extends Node
 
-const FREDOKA_VARIABLE_FONT_WDTH_WGHT = preload("res://assets/fonts/Fredoka-VariableFont_wdth,wght.ttf")
-const BANGERS_REGULAR = preload("res://assets/fonts/Bangers-Regular.ttf")
+const FREDOKA_VARIABLEFONT = preload("res://assets/fonts/fredoka_variablefont.ttf")
+const BANGERS_REGULAR = preload("res://assets/fonts/bangers_regular.ttf")
 
 @export var actor: PhysicsBody2D
 @export var hurtbox_Component: HurtboxComponent
@@ -26,7 +26,7 @@ func display_damage_number(damage: int, blocked: bool, dodged: bool, critted: bo
 	number.label_settings.font_size = 18
 	number.label_settings.outline_color = "#000"
 	number.label_settings.outline_size = 1
-	number.label_settings.font = FREDOKA_VARIABLE_FONT_WDTH_WGHT
+	number.label_settings.font = FREDOKA_VARIABLEFONT
 	
 	#Settings if damage is dodged
 	if dodged:

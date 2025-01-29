@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EquipmentResource" load_steps=7 format=3 uid="uid://ccktctl4aep1m"]
 
-[ext_resource type="Texture2D" uid="uid://bf3vnf2pd6iqy" path="res://assets/art/items/jeweled-goblet-of-power.webp" id="1_0vu7h"]
+[ext_resource type="Texture2D" uid="uid://bf3vnf2pd6iqy" path="res://assets/art/items/jeweled_goblet_of_power.webp" id="1_0vu7h"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_r4lxq"]
 [ext_resource type="Resource" uid="uid://c8sk4ei08viwn" path="res://resources/items/loot/jeweled_goblet.tres" id="3_mgns6"]
 [ext_resource type="Script" path="res://resources/items/equipment_resource.gd" id="4_aps7k"]

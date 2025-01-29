@@ -57,6 +57,7 @@ func find_closest_ally_to_enemy() -> void:
 					#Checks if we have an ally with us, if not we will not attack
 					if nearest_friendly_distance >= ALLY_TOO_FAR_AWAY:
 						attack_component.current_target_hurtbox = null
+						attack_component.allow_movement()
 					else:
 						#Attacks the first target that enters our hitbox
 						priotize_first_target_in_range()

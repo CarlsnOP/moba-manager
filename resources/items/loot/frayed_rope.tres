@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://tfulr0sorjpq"]
 
-[ext_resource type="Texture2D" uid="uid://8kbw4ivlu675" path="res://assets/art/loot/frayed-rope.webp" id="1_03xm0"]
+[ext_resource type="Texture2D" uid="uid://8kbw4ivlu675" path="res://assets/art/loot/frayed_rope.webp" id="1_03xm0"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_sm25u"]
 
 [resource]

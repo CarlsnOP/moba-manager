@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EquipmentResource" load_steps=7 format=3 uid="uid://b4qfc8mcwlout"]
 
-[ext_resource type="Texture2D" uid="uid://bny6gm6r4rma" path="res://assets/art/items/lucky-lasso.webp" id="1_2mfst"]
+[ext_resource type="Texture2D" uid="uid://bny6gm6r4rma" path="res://assets/art/items/lucky_lasso.webp" id="1_2mfst"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_scftg"]
 [ext_resource type="Resource" uid="uid://tfulr0sorjpq" path="res://resources/items/loot/frayed_rope.tres" id="3_q2u7v"]
 [ext_resource type="Script" path="res://resources/items/equipment_resource.gd" id="4_guggp"]

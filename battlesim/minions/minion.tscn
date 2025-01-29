@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://621r0t6hrohn"]
+[gd_scene load_steps=23 format=3 uid="uid://621r0t6hrohn"]
 
 [ext_resource type="Texture2D" uid="uid://b40j4r1cb5sa0" path="res://assets/art/characters/enemy_minion.png" id="1_5aclp"]
 [ext_resource type="Script" path="res://battlesim/minions/minion.gd" id="1_i0ibx"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cottssx1s1fc1" path="res://battlesim/components/attack_progress_bar_component.tscn" id="14_kwh3k"]
 [ext_resource type="Script" path="res://battlesim/components/new_game_component.gd" id="15_5po03"]
 [ext_resource type="Script" path="res://battlesim/components/juice_component.gd" id="16_rnn42"]
+[ext_resource type="Script" path="res://battlesim/components/outline_component.gd" id="19_bveta"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0qf73"]
 radius = 5.0
@@ -46,10 +47,11 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0qf73")
 
-[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("stats_component", "state_machine_component")]
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("actor", "stats_component", "state_machine_component")]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("5_sbblb")
+actor = NodePath("..")
 stats_component = NodePath("../StatsComponent")
 state_machine_component = NodePath("../StateMachineComponent")
 
@@ -91,11 +93,13 @@ script = ExtResource("12_4ag3r")
 actor = NodePath("..")
 stats_component = NodePath("../StatsComponent")
 
-[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "navigation_agent")]
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "navigation_agent", "attack_component", "hitbox_component")]
 script = ExtResource("7_08i6x")
 actor = NodePath("..")
 stats_component = NodePath("../StatsComponent")
 navigation_agent = NodePath("../NavigationAgent2D")
+attack_component = NodePath("../AttackComponent")
+hitbox_component = NodePath("../HitboxComponent")
 
 [node name="NavigationComponent" type="Node" parent="." node_paths=PackedStringArray("navigation_agent")]
 script = ExtResource("8_y8prp")
@@ -105,6 +109,10 @@ navigation_agent = NodePath("../NavigationAgent2D")
 script = ExtResource("10_1rvs2")
 actor = NodePath("..")
 hurtbox_Component = NodePath("../HurtboxComponent")
+
+[node name="OutlineComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("19_bveta")
+sprite = NodePath("../Sprite2D")
 
 [node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox_component", "sprite")]
 script = ExtResource("1_ve54a")

@@ -12,6 +12,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 size_flags_horizontal = 10
 mouse_filter = 2
+theme_type_variation = &"InvisPanel"
 script = ExtResource("1_xnjbi")
 log_scene = ExtResource("2_r54ea")
 
@@ -41,6 +42,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 icon = ExtResource("2_dgssy")
 flat = true
 icon_alignment = 1
@@ -50,6 +52,7 @@ expand_icon = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 icon = ExtResource("2_dgssy")
 flat = true
 icon_alignment = 1
@@ -85,6 +88,12 @@ size_flags_vertical = 2
 text = "End battle"
 flat = true
 
+[node name="ShakeButton" type="Button" parent="MarginContainer/VB"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "Shake Test button"
+flat = true
+
 [node name="StageManager" parent="MarginContainer/VB" groups=["stage_manager"] instance=ExtResource("4_ehwv0")]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -114,3 +123,4 @@ size_flags_vertical = 3
 [connection signal="pressed" from="MarginContainer/VB/RetreatButton" to="." method="_on_retreat_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VB/FastForwardButton" to="." method="_on_fast_forward_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VB/EndBattleButton" to="." method="_on_end_battle_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VB/ShakeButton" to="." method="_on_shake_button_pressed"]

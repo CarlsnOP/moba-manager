@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EquipmentResource" load_steps=7 format=3 uid="uid://dsueeonyfanka"]
 
-[ext_resource type="Texture2D" uid="uid://b5idpasa3o2c5" path="res://assets/art/items/sticky-bandages.webp" id="1_i54ki"]
+[ext_resource type="Texture2D" uid="uid://b5idpasa3o2c5" path="res://assets/art/items/sticky_bandages.webp" id="1_i54ki"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_816g6"]
 [ext_resource type="Resource" uid="uid://dmsyuj78dhpqq" path="res://resources/items/loot/sticky_tape.tres" id="3_gaylc"]
 [ext_resource type="Script" path="res://resources/items/equipment_resource.gd" id="4_klhab"]

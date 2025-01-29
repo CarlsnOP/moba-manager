@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://jyqurawt1ib5"]
 
-[ext_resource type="Texture2D" uid="uid://dm8vkodys65" path="res://assets/art/loot/phantom-cloth.webp" id="1_cpu0h"]
+[ext_resource type="Texture2D" uid="uid://dm8vkodys65" path="res://assets/art/loot/phantom_cloth.webp" id="1_cpu0h"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_5ls30"]
 
 [resource]

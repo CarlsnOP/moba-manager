@@ -37,18 +37,18 @@ layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Name"
 
-[node name="DescriptionLabel" type="Label" parent="UI/ResourcePopup/PanelContainer/MarginContainer/VB"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 10)
-layout_mode = 2
-text = "Description"
-autowrap_mode = 3
-justification_flags = 161
-
 [node name="EffectLabel" type="Label" parent="UI/ResourcePopup/PanelContainer/MarginContainer/VB"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 theme_type_variation = &"ItemQuantity"
 text = "boo"
+justification_flags = 161
+
+[node name="DescriptionLabel" type="Label" parent="UI/ResourcePopup/PanelContainer/MarginContainer/VB"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 10)
+layout_mode = 2
+text = "Description"
+autowrap_mode = 3
 justification_flags = 161

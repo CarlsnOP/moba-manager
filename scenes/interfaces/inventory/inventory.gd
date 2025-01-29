@@ -38,6 +38,8 @@ func open():
 func on_battle_end(_win: bool) -> void:
 	if visible:
 		loot.display(InventoryManager._all_loot)
+		FunctionWizard.sort_rarity(loot)
+		FunctionWizard.sort_rarity(equipped_equipment)
 
 #Statemachine is a bit overkill, but is good for later if implementing more sorting options
 func set_state(new_state: SORT_BY_STATE, inv) -> void:
@@ -45,28 +47,8 @@ func set_state(new_state: SORT_BY_STATE, inv) -> void:
 	
 	match _state:
 		SORT_BY_STATE.RARITY:
-			sort_rarity(inv)
-
-func sort_rarity(inv) -> void:
-	var sorted_nodes = inv.get_children()
-	
-	sorted_nodes.sort_custom(sort_by_rarity_and_name)
-	
-	for node in inv.get_children():
-		inv.remove_child(node)
-	
-	for node in sorted_nodes:
-		inv.add_child(node)
-
-func sort_by_rarity_and_name(a: Node, b: Node):
-	if a["_rarity"] == b["_rarity"]:
-		if a["_name"] < b["_name"]:
-			return true
-			
-	elif a["_rarity"] < b["_rarity"]:
-		return true
-	
-	return false
+			FunctionWizard.sort_rarity(inv)
+			FunctionWizard.sort_rarity(equipped_equipment)
 
 
 func _on_quit_button_pressed():

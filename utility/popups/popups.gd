@@ -26,23 +26,36 @@ func hide_popup():
 
 func set_value(res: Resource):
 	reset_box()
-	name_label.text = res.name
-	description_label.text = res.description
 	
+#Cannot use match, hence ugly elif list
 	if res is LootResource:
+		name_label.text = res.name
+		description_label.text = res.description
 		effect_label.hide()
+		apply_rarity_changes(res)
 		
 	elif res is SkillResource:
+		name_label.text = res.name
+		description_label.text = res.description
 		name_label.modulate = Color(1,1,1)
 		effect_label.text = res.effect
 		effect_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		description_label.custom_minimum_size.x = 500
 		
 	elif res is EquipmentResource:
+		name_label.text = res.name
+		description_label.text = res.description
 		effect_label.text = res.effect
-	
-	if res is EquipmentResource or res is LootResource:
-		match res.rarity:
+		apply_rarity_changes(res)
+		
+	elif res is HeroResource:
+		name_label.text = res.hero_name
+		description_label.text = FunctionWizard.setup_stats_string(res)
+		description_label.custom_minimum_size.x = 300
+		effect_label.text = res.type
+
+func apply_rarity_changes(res: Resource) -> void:
+	match res.rarity:
 			EquipmentResource.RARITY.COMMON:
 				name_label.modulate = DataStorage.COLOR_COMMON
 			EquipmentResource.RARITY.UNCOMMON:
@@ -53,7 +66,7 @@ func set_value(res: Resource):
 				name_label.modulate = DataStorage.COLOR_EPIC
 			EquipmentResource.RARITY.LEGENDARY:
 				name_label.modulate = DataStorage.COLOR_LEGENDARY
-
+				
 func reset_box() -> void:
 	effect_label.show()
 	description_label.custom_minimum_size.x = 0

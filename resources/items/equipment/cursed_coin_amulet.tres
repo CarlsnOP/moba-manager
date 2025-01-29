@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EquipmentResource" load_steps=7 format=3 uid="uid://djlx4reauossi"]
 
-[ext_resource type="Texture2D" uid="uid://1wt3c7uoh1g2" path="res://assets/art/items/cursed-coin-amulet.webp" id="1_4wir1"]
+[ext_resource type="Texture2D" uid="uid://1wt3c7uoh1g2" path="res://assets/art/items/cursed_coin_amulet.webp" id="1_4wir1"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_x256j"]
 [ext_resource type="Resource" uid="uid://debq0o71joqnw" path="res://resources/items/loot/cursed_coin.tres" id="3_ysfk4"]
 [ext_resource type="Script" path="res://resources/items/equipment_resource.gd" id="4_dids6"]

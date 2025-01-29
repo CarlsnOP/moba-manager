@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://df11rwqd2srmf"
-path="res://.godot/imported/Bruce.png-769f8b2ca11e25fc9b12d174cb1cf8be.ctex"
+path="res://.godot/imported/bruce.png-8755e9d603ef29da83296ffa96fd9fff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/characters/bullies/Bruce.png"
-dest_files=["res://.godot/imported/Bruce.png-769f8b2ca11e25fc9b12d174cb1cf8be.ctex"]
+source_file="res://assets/art/characters/bullies/bruce.png"
+dest_files=["res://.godot/imported/bruce.png-8755e9d603ef29da83296ffa96fd9fff.ctex"]
 
 [params]
 

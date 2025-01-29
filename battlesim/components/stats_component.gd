@@ -17,6 +17,7 @@ var buffer := false
 @export var crit := 0.0
 @export var damage_reduction := 1.0
 
+@export var att_range := 70
 @export var move_speed := 5000.0
 @export var att_speed := 1.0
 @export var max_health := 1.0

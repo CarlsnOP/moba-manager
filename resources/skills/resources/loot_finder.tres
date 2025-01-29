@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SkillResource" load_steps=5 format=3 uid="uid://elguuwbw8yoy"]
 
-[ext_resource type="Texture2D" uid="uid://jmroqjumunly" path="res://assets/art/skills/Loot Finder.png" id="1_b24ru"]
+[ext_resource type="Texture2D" uid="uid://jmroqjumunly" path="res://assets/art/skills/loot_finder.png" id="1_b24ru"]
 [ext_resource type="Script" path="res://resources/skills/skill_scripts/loot_finder_script.gd" id="1_lc3ot"]
 [ext_resource type="Script" path="res://resources/skills/skill_resource.gd" id="2_sdru1"]
 [ext_resource type="Texture2D" uid="uid://ccis2ddjg4rly" path="res://assets/art/skills/extra/loot_finder_portrait.png" id="3_dfg76"]

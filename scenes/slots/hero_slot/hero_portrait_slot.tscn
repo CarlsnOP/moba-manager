@@ -8,5 +8,11 @@ offset_right = 100.0
 offset_bottom = 100.0
 icon = false
 
+[node name="Button" parent="." index="0"]
+mouse_filter = 1
+
 [node name="XpProgressBar" parent="MarginContainer/VB" index="2"]
 visible = false
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

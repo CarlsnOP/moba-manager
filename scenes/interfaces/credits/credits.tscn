@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interfaces/interface_base.tscn" id="1_5qndc"]
 [ext_resource type="Script" path="res://scenes/interfaces/credits/credits.gd" id="2_bcw75"]
-[ext_resource type="Texture2D" uid="uid://bw6lofb18tl0j" path="res://assets/art/qr-code.png" id="2_p2lm6"]
+[ext_resource type="Texture2D" uid="uid://bw6lofb18tl0j" path="res://assets/art/qr_code.png" id="2_p2lm6"]
 
 [node name="Credits" instance=ExtResource("1_5qndc")]
 script = ExtResource("2_bcw75")

@@ -3,13 +3,20 @@ extends Area2D
 
 signal hurt(damage: float)
 
+@export var actor: PhysicsBody2D
 @export var stats_component: StatsComponent
 @export var state_machine_component: StateMachineComponent
+
 
 var last_hitter: PhysicsBody2D
 
 func take_damage(damage_taken: float, lh: PhysicsBody2D) -> void:
 	last_hitter = lh
+	
+	if actor is Hero:
+		if lh is Tower or lh is Nexus:
+			state_machine_component.on_child_transition("FallBackState")
+	
 	var actual_damage_taken = damage_taken * stats_component.damage_reduction
 	
 	#If dodged we take 0 damage

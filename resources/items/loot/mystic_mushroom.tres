@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://b8kq6guwjldkf"]
 
-[ext_resource type="Texture2D" uid="uid://ibuousebfoha" path="res://assets/art/loot/mystic-mushroom.webp" id="1_gm35a"]
+[ext_resource type="Texture2D" uid="uid://ibuousebfoha" path="res://assets/art/loot/mystic_mushroom.webp" id="1_gm35a"]
 [ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_1hpkk"]
 
 [resource]

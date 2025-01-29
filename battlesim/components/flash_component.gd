@@ -17,9 +17,10 @@ func _ready() -> void:
 	hurtbox_component.hurt.connect(flash.unbind(4))
 
 func flash():
-	sprite.material = FLASH_MATERIAL
-	timer.start(flash_duration)
-	
-	await timer.timeout
-	
-	sprite.material = original_sprite_material
+	if sprite.material == null:
+		sprite.material = FLASH_MATERIAL
+		timer.start(flash_duration)
+		
+		await timer.timeout
+		
+		sprite.material = original_sprite_material
