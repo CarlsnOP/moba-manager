@@ -3,8 +3,6 @@ extends Node
 
 const DEAD_VALUE := 0
 
-signal on_lane_change(top: bool)
-
 @export var actor: PhysicsBody2D
 @export var initial_state: State
 @export var health_bar_component: HealthBarComponent
@@ -41,9 +39,13 @@ func _physics_process(delta):
 		if current_state.has_method("physics_update"):
 			current_state.physics_update(delta)
 
+func respawn() -> void:
+	current_state.exit()
+	current_state = states.get("TransitionState".to_lower())
+
 func on_child_transition(new_state_name: String):
-	#if state != current_state:
-		#return
+	if current_state is DeadState:
+		return
 		
 	var new_state = states.get(new_state_name.to_lower())
 	if !new_state:
@@ -57,18 +59,18 @@ func on_child_transition(new_state_name: String):
 	
 	current_state = new_state
 
-func update_state(value: float) -> void:
-	if current_state is LaneChangeState or current_state is FallBackState:
+func update_state(_v: float) -> void:
+	if current_state is LaneChangeState or current_state is FallBackState or current_state is ManualState or current_state is GettingHealedState or current_state is DeadState:
 		return
-	
+		
+	var value = health_bar_component.value
+
 	if value >= health_bar_component.max_value * defensive_threshold:
 		on_child_transition("AggressiveState")
 	elif value >= health_bar_component.max_value * retreat_threshold:
 		on_child_transition("DefensiveState")
 	elif value > DEAD_VALUE:
 		on_child_transition("RetreatState")
-	else:
-		on_child_transition("DeadState")
 
 func get_state() -> State:
 	return current_state

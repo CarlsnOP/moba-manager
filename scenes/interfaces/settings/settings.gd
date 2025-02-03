@@ -24,8 +24,9 @@ extends Control
 @onready var mute_ui_button = %MuteUIButton
 
 func _ready():
-	#Set Master volume to 25 % on first launch... Your welcome
+	#Set Master volume to 25 % and music at 50 % on first launch... Your welcome
 	master_slider.value = 0.25
+	music_slider.value = 0.5
 
 #Display Settings		
 func _on_mode_button_item_selected(index):

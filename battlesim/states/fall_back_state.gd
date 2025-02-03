@@ -8,7 +8,6 @@ extends State
 @export var actor: Hero
 @export var navigation_agent: NavigationAgent2D
 @export var state_machine_component: StateMachineComponent
-@export var health_bar_component: HealthBarComponent
 @export var attack_component: AttackComponent
 @export var hurtbox_component: HurtboxComponent
 
@@ -19,8 +18,9 @@ func enter() -> void:
 	
 	var enemy_node = hurtbox_component.last_hitter
 	
-	if !enemy_node:
-		state_machine_component.update_state(health_bar_component.value)
+	if enemy_node == null:
+		state_machine_component.update_state.unbind(1)
+		return
 		
 	var enemy_radius: float = 0.0
 	var enemy_position: Vector2 = enemy_node.position
@@ -40,7 +40,8 @@ func enter() -> void:
 		navigation_agent.set_target_position(escape_target_position)
 			
 
-func _process(_delta):
+func update(_delta) -> void:
 	if enemy_hitbox != null:
 		if !hurtbox_component in enemy_hitbox.targets_in_range:
-			state_machine_component.on_child_transition("DefensiveState")
+			if !state_machine_component.current_state is DeadState:
+				state_machine_component.on_child_transition("TransitionState")

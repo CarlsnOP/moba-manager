@@ -7,6 +7,7 @@ const GREY_SCALE_MATERIAL = preload("res://effects/grey_scale_material.tres")
 @onready var deaths_label = %DeathsLabel
 @onready var respawn_label = %RespawnLabel
 @onready var texture_progress_bar = %TextureProgressBar
+@onready var cs_label = %CSLabel
 
 var _hero: Dictionary
 var _hero_node: PhysicsBody2D
@@ -60,18 +61,16 @@ func update_labels() -> void:
 		if hero == _hero:
 			kills_label.text = "Kills: %s" % str(hero["kills"])
 			deaths_label.text = "Deaths: %s" % str(hero["deaths"])
+			cs_label.text = "CS: %s" % str(hero["cs"])
+			
 
-func on_event(actor: PhysicsBody2D, killer: PhysicsBody2D) -> void:
-	if killer == _hero_node:
-		update_labels()
-	elif actor == _hero_node:
-		update_labels()
+func on_event(actor: PhysicsBody2D, _killer: PhysicsBody2D) -> void:
+	update_labels()
+	
+	if actor == _hero_node:
 		texture_rect.material = GREY_SCALE_MATERIAL
 		respawn_label.show()
 		set_process(true)
-		
-	else:
-		return
 
 func new_game() -> void:
 	queue_free()

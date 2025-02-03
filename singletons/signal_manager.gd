@@ -18,6 +18,10 @@ signal on_loot_ducky()
 signal on_battle_end(win: bool)
 signal friendly_hero_died(hero: HeroResource, node: Node2D, pos: Vector2)
 signal event(actor: PhysicsBody2D, killer: PhysicsBody2D)
+signal on_minions_spawn()
+
+#Battle Manager
+signal manual_wait_time_changed(value: float)
 
 #Achievements
 signal achievements_updated()

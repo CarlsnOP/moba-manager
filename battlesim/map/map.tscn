@@ -92,7 +92,7 @@ position = Vector2(151, 822)
 
 [node name="SpawnTimer" type="Timer" parent="PositionAdjustment/Utility"]
 unique_name_in_owner = true
-wait_time = 15.0
+wait_time = 10.0
 
 [node name="WaveManager" type="Node" parent="PositionAdjustment/Utility" groups=["restart_map"]]
 unique_name_in_owner = true
@@ -104,4 +104,8 @@ script = ExtResource("27_12da5")
 
 [node name="TempSceneHolder" type="Node" parent="PositionAdjustment/Utility" groups=["temp_scene_holder"]]
 
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="timeout" from="PositionAdjustment/Utility/SpawnTimer" to="PositionAdjustment/Utility/WaveManager" method="_on_spawn_timer_timeout"]

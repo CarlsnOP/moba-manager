@@ -8,6 +8,7 @@ const FRIENDLY_TOWER = preload("res://assets/art/map/friendly_tower.png")
 @onready var sprite_2d = $Sprite2D
 @onready var hurtbox_component = $HurtboxComponent
 @onready var hitbox_component = $HitboxComponent
+@onready var clickable_component = %ClickableComponent
 
 @export var actor_projectile: ProjectileResource
 
@@ -21,6 +22,7 @@ func setup(enemy: bool) -> void:
 		sprite_2d.texture = ENEMY_TOWER
 		hurtbox_component.set_collision_layer_value(2, true)
 		hitbox_component.set_collision_mask_value(1, true)
+		
 	
 	#Apply to firendly towers
 	else:
@@ -28,6 +30,8 @@ func setup(enemy: bool) -> void:
 		sprite_2d.scale = scale_adjustment
 		hurtbox_component.set_collision_layer_value(1, true)
 		hitbox_component.set_collision_mask_value(2, true)
+		
+	clickable_component.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 func get_hurtbox() -> HurtboxComponent:
 	return hurtbox_component

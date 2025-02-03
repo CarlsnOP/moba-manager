@@ -16,15 +16,18 @@ func _ready():
 	setup_timer()
 
 func _process(_delta):
+	if current_target_hurtbox == null or !current_target_hurtbox in hitbox_component.targets_in_range:
+		attack_timer.stop()
+	
 	if current_target_hurtbox != null and attack_timer.is_stopped():
 		if current_target_hurtbox in hitbox_component.targets_in_range:
 			attack_timer.start()
-			if actor is Minion or actor is Hero:
-				movement_component.immovable = true
-				return
+			current_target_hurtbox = current_target_hurtbox
+
 	
 	#The following logic is to make sure the units move as soon as no targets is in range
-	check_if_we_can_move()
+	if actor is Minion or actor is Hero:
+		allow_movement()
 	
 
 func deal_damage() -> void:
@@ -42,26 +45,19 @@ func deal_damage() -> void:
 							
 			else:
 				on_enemy_hit()
-		
-		else:
-			attack_timer.stop()
 
-	else:
-		attack_timer.stop()
-
-#The following logic is to make sure the units move as soon as no targets is in range
-func check_if_we_can_move() -> void:
-	if !current_target_hurtbox in hitbox_component.targets_in_range and !attack_timer.is_stopped():
-		attack_timer.stop()
-		return
-	
-	if attack_timer.is_stopped():
-		if actor is Minion or actor is Hero:
-			allow_movement()
+	attack_timer.stop()
 
 #State also calls this function, for example when closest ally dies
 func allow_movement() -> void:
-	if state_machine_component.current_state != DeadState:
+	if !attack_timer.is_stopped():
+		movement_component.immovable = true
+		return
+
+	elif state_machine_component.current_state == DeadState:
+		return
+		
+	else:
 		movement_component.immovable = false
 
 func on_enemy_hit() -> void:

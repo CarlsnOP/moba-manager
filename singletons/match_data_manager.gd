@@ -7,7 +7,8 @@ const DEFAULT_HERO_DATA: Dictionary = {
 	"hero_portrait": null,
 	"hero_ability": null,
 	"kills": 0,
-	"deaths": 0
+	"deaths": 0,
+	"cs": 0,
 }
 
 var array_of_hero_dics: Array = []
@@ -80,8 +81,18 @@ func setup_hero_nodes() -> void:
 					enemy_hero2["hero_ability"] = hero._hero.skill.portrait
 
 func on_event(actor: PhysicsBody2D, killer: PhysicsBody2D) -> void:
-	handle_death(actor)
-	handle_killer(killer)
+	if actor is Minion and killer is Hero:
+		handle_cs(killer)
+		return
+		
+	if killer is Hero:
+		handle_death(actor)
+		handle_killer(killer)
+
+func handle_cs(killer: PhysicsBody2D) -> void:
+	for hero in array_of_hero_dics:
+		if hero["hero_node"] == killer:
+			hero["cs"] += 1
 
 func handle_death(actor: PhysicsBody2D) -> void:
 	for hero in array_of_hero_dics:

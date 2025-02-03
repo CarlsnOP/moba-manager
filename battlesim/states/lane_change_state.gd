@@ -3,11 +3,14 @@ extends State
 
 @export var stats_component: StatsComponent
 @export var navigation_agent: NavigationAgent2D
+@export var navigation_component: NavigationComponent
 @export var lane_manager_component: LaneManagerComponent
 @export var state_machine_component: StateMachineComponent
-@export var health_bar_component: HealthBarComponent
+
 
 func enter() -> void:
+	navigation_component.enable_navigation_whole_map()
+	
 	if stats_component.enemy:
 		navigation_agent.target_position = lane_manager_component.enemy_nexus.global_position
 	else:
@@ -15,9 +18,9 @@ func enter() -> void:
 
 func update(_Delta) -> void:
 	if navigation_agent.is_target_reached():
-		#Temp state to allow state change
-		state_machine_component.current_state = state_machine_component.on_child_transition("DefensiveState")
-		state_machine_component.update_state(health_bar_component.value)
+		if !state_machine_component.current_state is DeadState:
+			state_machine_component.on_child_transition("TransitionState")
+		
 
 func exit() -> void:
-	lane_manager_component.nexus_reached()
+	navigation_component.set_lane(navigation_component.last_assigned_lane)

@@ -5,6 +5,10 @@ extends Control
 @onready var event_log_entries: VBoxContainer = %EventLogEntries
 
 var log_entries: Array = []
+var top_hero: HeroResource
+var bot_hero: HeroResource
+var enemy_top_hero: HeroResource
+var enemy_bot_hero: HeroResource
 
 func _ready():
 	SignalManager.on_battle_end.connect(on_battle_end)
@@ -15,24 +19,37 @@ func on_battle_end(win: bool) -> void:
 	
 	
 func create_event_log(win: bool) -> void:
-	var xp = str(RewardManager._exp_gained)
-	var currency = str(RewardManager._rubberduckies_gained)
-	var loot = RewardManager._loot_gained
-	var top_hero = TeamManager.top
-	var bot_hero = TeamManager.bot
+	var dict = setup_dictionary()
+	var hero_res: Array[HeroResource]
 	
+	for hero in MatchDataManager.array_of_hero_dics:
+		hero_res.append(hero["hero_res"])
 
-		
 	var new_eventlog = event_log_scene.instantiate()
 	event_log_entries.add_child(new_eventlog)
 	event_log_entries.move_child(new_eventlog, 0)
-	new_eventlog.setup(xp, currency, loot)
+	new_eventlog.setup(dict)
 	new_eventlog.set_match_time(MatchDataManager.previous_game_elapsed_time)
 	new_eventlog.set_result_label(win)
-	new_eventlog.instantiate_friendly_top(top_hero)
-	new_eventlog.instantiate_friendly_bot(bot_hero)
+	new_eventlog.instantiate_heroes(hero_res)
 	on_log_entry(new_eventlog)
 	
+func setup_dictionary() -> Dictionary:
+	var temp_dict = { 
+		"xp": str(RewardManager._exp_gained),
+		"currency": str(RewardManager._rubberduckies_gained),
+		"loot": RewardManager._loot_gained,
+		"kills": [],
+		"deaths": [],
+		"cs": [],
+	}
+	for hero in MatchDataManager.array_of_hero_dics:
+		temp_dict["kills"].append(hero["kills"])
+		temp_dict["deaths"].append(hero["deaths"])
+		temp_dict["cs"].append(hero["cs"])
+		
+	return temp_dict
+
 func on_log_entry(node) -> void:
 	log_entries.append(node)
 	remove_entry()
@@ -68,7 +85,6 @@ func on_save_game(saved_data: Array[SavedData]):
 	for child in event_log_entries.get_children():
 		var dict = child.save_data()
 		my_data.log_data.append(dict)
-		#remove_old_entry(my_data.log_data)
 		
 	saved_data.append(my_data)
 
@@ -90,15 +106,10 @@ func on_load_game(saved_data:SavedData):
 			for child in saved_data.log_data:
 				var new_eventlog = event_log_scene.instantiate()
 				event_log_entries.add_child(new_eventlog)
-				#event_log_entries.move_child(new_eventlog, 0)
-				new_eventlog.set_result_label(child["Win"])
-				new_eventlog.set_match_time(child["Match_time"])
-				new_eventlog.setup(
-					child["Exp"],
-					child["Currency"],
-					child["Loot"],)
-				new_eventlog.instantiate_friendly_top(child["Top"])
-				new_eventlog.instantiate_friendly_bot(child["Bot"])
+				new_eventlog.set_result_label(child["win"])
+				new_eventlog.set_match_time(child["match_time"])
+				new_eventlog.setup(child)
+				new_eventlog.instantiate_heroes(child["heroes"])
 				on_log_entry(new_eventlog)
 				
 		var new_time := int(Time.get_unix_time_from_system())

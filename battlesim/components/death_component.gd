@@ -10,6 +10,7 @@ const MINIMUM_RESPAWN_TIME := 20.0
 @export var lane_manager_component: LaneManagerComponent
 @export var hurtbox_component: HurtboxComponent
 @export var original_position: Vector2
+@export var state_machine_component: StateMachineComponent
 
 var dead_pos = Vector2(-50, -50)
 var respawn_timer: Timer = Timer.new()
@@ -26,8 +27,7 @@ func _ready():
 func process_death() -> void:
 	on_death.emit()
 	
-	if !actor is Minion:
-		SignalManager.event.emit(actor, hurtbox_component.last_hitter)
+	SignalManager.event.emit(actor, hurtbox_component.last_hitter)
 		
 	if actor is Nexus:
 		SignalManager.on_battle_end.emit(stats_component.enemy)
@@ -39,6 +39,7 @@ func process_death() -> void:
 		original_position = actor.global_position
 		actor.global_position = dead_pos
 		var match_elapsed_time = MatchDataManager.elapsed_time
+		state_machine_component.on_child_transition("DeadState")
 		respawn_timer.wait_time = MINIMUM_RESPAWN_TIME + (match_elapsed_time * 0.1)
 		respawn_timer.start()
 
@@ -49,4 +50,4 @@ func respawn() -> void:
 		actor.global_position = lane_manager_component.friendly_nexus.global_position
 		
 	stats_component.health = stats_component.max_health
-	#state_machine.on_respawn()
+	state_machine_component.respawn()

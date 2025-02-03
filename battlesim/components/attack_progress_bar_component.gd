@@ -6,6 +6,7 @@ extends TextureProgressBar
 
 func _ready():
 	await get_tree().physics_frame
+	mouse_filter = MOUSE_FILTER_IGNORE
 	max_value = attack_component.attack_timer.wait_time
 
 func _process(_delta):

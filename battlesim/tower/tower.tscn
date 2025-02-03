@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dov471sd5rue"]
+[gd_scene load_steps=22 format=3 uid="uid://dov471sd5rue"]
 
 [ext_resource type="Script" path="res://battlesim/tower/tower.gd" id="1_5bbri"]
 [ext_resource type="Resource" uid="uid://dx5623hpbda55" path="res://resources/projectiles/cannon_ball_projectile.tres" id="2_ecpqv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://battlesim/components/stats_component.gd" id="2_yktpk"]
 [ext_resource type="Script" path="res://battlesim/components/hurt_box_component.gd" id="3_44xvj"]
 [ext_resource type="Script" path="res://battlesim/components/hitbox_component.gd" id="4_653by"]
+[ext_resource type="Script" path="res://battlesim/components/clickable_component.gd" id="4_dw66j"]
 [ext_resource type="Script" path="res://battlesim/components/attack_component.gd" id="7_artcp"]
 [ext_resource type="Script" path="res://battlesim/components/damage_numbers_component.gd" id="8_d6oqv"]
 [ext_resource type="Script" path="res://battlesim/components/death_component.gd" id="9_lggq0"]
@@ -37,6 +38,16 @@ shape = SubResource("CircleShape2D_80hab")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_p4cgg")
+
+[node name="ClickableComponent" type="Button" parent="Sprite2D" node_paths=PackedStringArray("actor")]
+unique_name_in_owner = true
+offset_left = -271.5
+offset_top = -446.0
+offset_right = -263.5
+offset_bottom = -438.0
+flat = true
+script = ExtResource("4_dw66j")
+actor = NodePath("../..")
 
 [node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("actor", "stats_component", "state_machine_component")]
 collision_layer = 0

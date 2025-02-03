@@ -17,6 +17,8 @@ func clear_lanes() -> void:
 	navigation_agent.set_navigation_layer_value(BOT_LANE_NAV_LAYER, DISABLED)
 
 func set_lane(top: bool) -> void:
+	clear_lanes()
+	
 	if top:
 		last_assigned_lane = top
 		navigation_agent.set_navigation_layer_value(TOP_LANE_NAV_LAYER, ENABLED)

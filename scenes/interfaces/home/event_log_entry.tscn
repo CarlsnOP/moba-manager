@@ -97,6 +97,20 @@ text = "Buddy Team:"
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="BullyTeamVB" type="VBoxContainer" parent="Background/MC/VB/HB2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EnemyTeamLabel" type="Label" parent="Background/MC/VB/HB2/BullyTeamVB"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "Bully Team:"
+
+[node name="EnemyHB" type="HBoxContainer" parent="Background/MC/VB/HB2/BullyTeamVB"]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="LootGrid" parent="Background/MC/VB" instance=ExtResource("2_l02s0")]
 unique_name_in_owner = true
 layout_mode = 2

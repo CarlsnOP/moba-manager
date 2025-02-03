@@ -49,6 +49,8 @@ func pop_the_duck() -> void:
 	hero_shine_cpu_particles_2d.emitting = true
 	SoundManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.POP_SFX)
 	
+	await get_tree().create_timer(0.5).timeout
+	automatic_unlock_hero()
 
 func _on_timer_timeout():
 	if duck_hitpoints < 5:
@@ -68,6 +70,24 @@ func get_random_hero() -> HeroResource:
 	
 	return unlocked_hero
 
+func automatic_unlock_hero() -> void:
+	hero_unlock_button.disabled = true
+	
+	SoundManager.create_ui_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.UNLOCK_HERO_SFX)
+	unlocked_label.text = "Congrats!\n" + "You unlocked " + str(unlocked_hero.hero_name) + "!"
+	var tween = get_tree().create_tween()
+	tween.tween_property(hero_unlock_button, "modulate", Color("#FFFFFF"), 1.0).set_ease(tween.EASE_OUT)
+	
+	var tween2 = get_tree().create_tween()
+	tween2.tween_property(unlocked_label, "modulate", Color("#FFFFFF"), 1.0).set_ease(tween.EASE_OUT)
+	
+	await get_tree().create_timer(2).timeout
+	
+	SignalManager.rubberduck_clicked.emit()
+	
+	get_tree().get_first_node_in_group("rubber_ducky_page").update()
+	queue_free()
+	
 func _on_hero_unlock_button_pressed():
 	hero_unlock_button.disabled = true
 	
@@ -79,7 +99,7 @@ func _on_hero_unlock_button_pressed():
 	var tween2 = get_tree().create_tween()
 	tween2.tween_property(unlocked_label, "modulate", Color("#FFFFFF"), 1.0).set_ease(tween.EASE_OUT)
 	
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(2).timeout
 	
 	SignalManager.rubberduck_clicked.emit()
 	

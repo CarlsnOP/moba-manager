@@ -24,4 +24,4 @@ equipment_ad = 1.25
 equipment_ap = 1.0
 equipment_dodge = 0.0
 equipment_block = 0.0
-equipment_crit = 25.0
+equipment_crit = 0.25

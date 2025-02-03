@@ -28,22 +28,20 @@ func setup(hero: HeroResource, enemy: bool, top: bool, hero_stats: Array) -> voi
 	navigation_component.set_lane(top)
 	hitbox_collision_shape.shape = CircleShape2D.new()
 	detection_collision_shape.shape = CircleShape2D.new()
-	
+	sprite_2d.texture = hero.hero_icon
+	ability_component.setup_ability(hero.skill)
 	
 	if enemy:
 		stats_component.enemy = enemy
-		sprite_2d.texture = hero.hero_icon
 		hurtbox_component.set_collision_layer_value(2, true)
 		hitbox_component.set_collision_mask_value(1, true)
 		detection_component.set_collision_mask_value(1, true)
-		ability_component.setup_ability(hero.skill)
 		
 	else:
-		sprite_2d.texture = hero.hero_icon
 		hurtbox_component.set_collision_layer_value(1, true)
 		hitbox_component.set_collision_mask_value(2, true)
 		detection_component.set_collision_mask_value(2, true)
-		ability_component.setup_ability(hero.skill)
+
 		
 	setup_hero_stats(hero_stats)
 

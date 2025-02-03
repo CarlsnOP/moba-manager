@@ -7,7 +7,6 @@ extends State
 @export var navigation_agent: NavigationAgent2D
 @export var state_machine_component: StateMachineComponent
 @export var hitbox_component: HitboxComponent
-@export var health_bar_component: HealthBarComponent
 
 func update(_delta) -> void:
 	if stats_component.health >= stats_component.max_health * 0.5 and \
@@ -16,7 +15,7 @@ func update(_delta) -> void:
 			if target == attack_component.current_target_hurtbox:
 				navigation_agent.set_target_position(attack_component.current_target_hurtbox.global_position)
 			else:
-				state_machine_component.update_state(health_bar_component.value)
+				state_machine_component.update_state(1)
 			
 	else:
-		state_machine_component.update_state(health_bar_component.value)
+		state_machine_component.update_state(1)

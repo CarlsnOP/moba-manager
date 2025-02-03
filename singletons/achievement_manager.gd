@@ -145,6 +145,7 @@ func check_and_update_hero_stats(key: String) -> void:
 			if hero_stats["hero"] == match_hero_stats["hero_res"]:
 				hero_stats["kills"] += match_hero_stats["kills"] 
 				hero_stats["deaths"] += match_hero_stats["deaths"] 
+				hero_stats["cs"] += match_hero_stats["cs"]
 
 func check_if_new_heroes() -> void:
 	check_and_add_heroes("hero_stats", TeamManager._all_heroes)
@@ -159,6 +160,7 @@ func check_and_add_heroes(key: String, heroes: Array) -> void:
 			"losses": 0,
 			"kills": 0,
 			"deaths": 0,
+			"cs": 0,
 			}
 			the_almighty_storage_dictionary[key].append(hero_stats_entry)
 

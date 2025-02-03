@@ -11,8 +11,6 @@ var friendly_nexus: Nexus
 var top_lane: bool
 
 func _ready():
-	state_machine_component.on_lane_change.connect(on_lane_change)
-	
 	for nexus in get_tree().get_nodes_in_group("nexus"):
 		if nexus.is_in_group("team"):
 			friendly_nexus = nexus
@@ -23,11 +21,7 @@ func _ready():
 func on_lane_change(top: bool) -> void:
 	if top_lane == top:
 		return
-		
+	
 	top_lane = top
+	navigation_component.last_assigned_lane = top
 	state_machine_component.on_child_transition("LaneChangeState")
-	navigation_component.set_lane(top_lane)
-
-func nexus_reached() -> void:
-	navigation_component.clear_lanes()
-	navigation_component.set_lane(top_lane)

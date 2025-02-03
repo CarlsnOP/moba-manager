@@ -41,6 +41,8 @@ func on_death() -> void:
 	
 	elif actor is Tower or actor is Nexus:
 		SoundManager.create_2d_audio_at_location(actor.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.BUILDING_DESTOYED_SFX)
+		var canvas_ref = get_tree().get_first_node_in_group("canvas")
+		canvas_ref.apply_noise_shake()
 
 func on_heal(pos: Vector2) -> void:
 	SoundManager.create_2d_audio_at_location(pos, SoundEffectSettings.SOUND_EFFECT_TYPE.NEXUS_HEAL_SFX)

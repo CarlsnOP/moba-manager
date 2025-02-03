@@ -6,6 +6,8 @@ extends Control
 @onready var bot_hero_button = %BotHeroButton
 @onready var fast_forward_button: Button = $MarginContainer/VB/FastForwardButton
 @onready var battle_log_entries = %BattleLogEntries
+@onready var wait_time_slider = %WaitTimeSlider
+@onready var wait_time_label = %WaitTimeLabel
 
 var selected_hero: Hero
 var selected_lane_manager_component: LaneManagerComponent
@@ -33,16 +35,17 @@ func _ready():
 		hide()
 
 func _process(_delta):
-	if selected_heroes_attack_component:
-		if selected_heroes_attack_component.current_target_hurtbox:
-			var target_node = selected_heroes_attack_component.current_target_hurtbox.get_parent()
-			if current_target_outline_component != selected_heroes_target_Outline:
-				current_target_outline_component.remove_outline()
-				
-			for child in target_node.get_children():
-				if child is OutlineComponent:
-					current_target_outline_component = child
-					current_target_outline_component.apply_target_outline()
+	if is_instance_valid(selected_hero):
+		if selected_heroes_attack_component != null:
+			if selected_heroes_attack_component.current_target_hurtbox != null:
+				var target_node = selected_heroes_attack_component.current_target_hurtbox.get_parent()
+				if current_target_outline_component != selected_heroes_target_Outline:
+					current_target_outline_component.remove_outline()
+					
+				for child in target_node.get_children():
+					if child is OutlineComponent:
+						current_target_outline_component = child
+						current_target_outline_component.apply_target_outline()
 		
 
 func on_battle_end(_win: bool) -> void:
@@ -50,6 +53,10 @@ func on_battle_end(_win: bool) -> void:
 		child.queue_free()
 	
 func event_happend(actor: PhysicsBody2D, killer: PhysicsBody2D) -> void:
+	#to show minion kill in log, # below
+	if actor is Minion:
+		return
+		
 	var new_battlelog = log_scene.instantiate()
 	battle_log_entries.add_child(new_battlelog)
 	battle_log_entries.move_child(new_battlelog, 0)
@@ -158,3 +165,15 @@ func _on_end_battle_button_pressed():
 func _on_shake_button_pressed():
 	var canvas_ref = get_tree().get_first_node_in_group("canvas")
 	canvas_ref.apply_noise_shake()
+
+
+func _on_wait_time_slider_value_changed(value):
+	if value == 5:
+		wait_time_label.text = "∞"
+	else:
+		wait_time_label.text = str(value) + " seconds"
+		
+	SignalManager.manual_wait_time_changed.emit(value)
+
+func _on_leave_manual_button_pressed():
+	selected_state_machine_component.on_child_transition("TransitionState")

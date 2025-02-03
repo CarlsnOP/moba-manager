@@ -6,13 +6,11 @@ extends State
 
 func enter() -> void:
 	move_component.immovable = true
-	attack_component.attack_timer.paused = true
-	
-	
+	attack_component.current_target_hurtbox = null
+
 func update(_delta) -> void:
 	move_component.immovable = true
-	attack_component.attack_timer.paused = true
 
 func exit() -> void:
 	move_component.immovable = false
-	attack_component.attack_timer.paused = false
+	

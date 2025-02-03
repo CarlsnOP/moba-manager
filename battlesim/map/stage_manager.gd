@@ -1,7 +1,7 @@
 class_name StageManager
 extends Control
 
-const STAGE_INCREMENT := 0.01
+const STAGE_INCREMENT := 0.03
 
 @onready var stage_label = %StageLabel
 

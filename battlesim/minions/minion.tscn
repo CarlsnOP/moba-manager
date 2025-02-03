@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://621r0t6hrohn"]
+[gd_scene load_steps=24 format=3 uid="uid://621r0t6hrohn"]
 
 [ext_resource type="Texture2D" uid="uid://b40j4r1cb5sa0" path="res://assets/art/characters/enemy_minion.png" id="1_5aclp"]
 [ext_resource type="Script" path="res://battlesim/minions/minion.gd" id="1_i0ibx"]
 [ext_resource type="Script" path="res://battlesim/components/flash_component.gd" id="1_ve54a"]
+[ext_resource type="Script" path="res://battlesim/components/clickable_component.gd" id="3_gsqnr"]
 [ext_resource type="Script" path="res://battlesim/components/stats_component.gd" id="3_qqmyu"]
 [ext_resource type="Script" path="res://battlesim/components/hurt_box_component.gd" id="5_sbblb"]
 [ext_resource type="Script" path="res://battlesim/components/hitbox_component.gd" id="6_y2u26"]
@@ -38,6 +39,20 @@ script = ExtResource("1_i0ibx")
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_5aclp")
 
+[node name="ClickableComponent" type="Button" parent="Sprite2D" node_paths=PackedStringArray("actor")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -231.0
+offset_top = -231.0
+offset_right = -231.0
+offset_bottom = -231.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+script = ExtResource("3_gsqnr")
+actor = NodePath("../..")
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 navigation_layers = 0
 path_postprocessing = 1
@@ -71,6 +86,8 @@ debug_color = Color(0, 0.6, 0.701961, 0.203922)
 [node name="StatsComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("3_qqmyu")
 actor = NodePath("..")
+damage = 50.0
+max_health = 500.0
 health = 500.0
 
 [node name="HealthBarComponent" type="ProgressBar" parent="." node_paths=PackedStringArray("stats_component")]
@@ -88,10 +105,11 @@ stats_component = NodePath("../StatsComponent")
 movement_component = NodePath("../MoveComponent")
 state_machine_component = NodePath("../StateMachineComponent")
 
-[node name="DeathComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component")]
+[node name="DeathComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "hurtbox_component")]
 script = ExtResource("12_4ag3r")
 actor = NodePath("..")
 stats_component = NodePath("../StatsComponent")
+hurtbox_component = NodePath("../HurtboxComponent")
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "navigation_agent", "attack_component", "hitbox_component")]
 script = ExtResource("7_08i6x")

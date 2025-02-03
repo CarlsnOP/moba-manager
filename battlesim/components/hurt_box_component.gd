@@ -15,7 +15,8 @@ func take_damage(damage_taken: float, lh: PhysicsBody2D) -> void:
 	
 	if actor is Hero:
 		if lh is Tower or lh is Nexus:
-			state_machine_component.on_child_transition("FallBackState")
+			if !state_machine_component.current_state is ManualState:
+				state_machine_component.on_child_transition("FallBackState")
 	
 	var actual_damage_taken = damage_taken * stats_component.damage_reduction
 	
@@ -44,9 +45,10 @@ func take_damage(damage_taken: float, lh: PhysicsBody2D) -> void:
 func get_healed(heal: float) -> void:
 	if stats_component.health < stats_component.max_health:
 		stats_component.health += heal
-		state_machine_component.on_child_transition("GettingHealedState")
+		if !state_machine_component.current_state is GettingHealedState:
+			state_machine_component.on_child_transition("GettingHealedState")
 		if stats_component.health >= stats_component.max_health:
 			stats_component.health = stats_component.max_health
-			state_machine_component.on_child_transition("AggressiveState")
+			state_machine_component.on_child_transition("TransitionState")
 	else:
-		state_machine_component.on_child_transition("AggressiveState")
+		state_machine_component.on_child_transition("TransitionState")

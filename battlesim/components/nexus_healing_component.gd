@@ -4,7 +4,6 @@ extends Area2D
 signal on_heal(friend_pos: Vector2)
 
 const HEAL_WAIT_TIME := 0.3
-const HEAL_AMOUNT := 100.0
 
 var friend_in_range: Array = []
 var heal_timer: Timer = Timer.new()
@@ -29,7 +28,7 @@ func heal_friend() -> void:
 			if child is StatsComponent:
 				if child.health < child.max_health:
 					if friend.has_method("get_healed"):
-						friend.get_healed(HEAL_AMOUNT)
+						friend.get_healed(child.max_health / 10)
 						on_heal.emit(friend.global_position)
 				else:
 					heal_timer.stop()

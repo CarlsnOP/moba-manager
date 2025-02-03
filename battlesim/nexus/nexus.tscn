@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://b3kdvbeuw4nh5"]
+[gd_scene load_steps=24 format=3 uid="uid://b3kdvbeuw4nh5"]
 
 [ext_resource type="Script" path="res://battlesim/nexus/nexus.gd" id="1_4gx4f"]
 [ext_resource type="Texture2D" uid="uid://cnthng11d3aww" path="res://assets/art/map/enemy_nexus.png" id="1_xheii"]
 [ext_resource type="Resource" uid="uid://cv47v3cpcwq0q" path="res://resources/projectiles/nexus_projectile.tres" id="2_nibyx"]
 [ext_resource type="Script" path="res://battlesim/components/hurt_box_component.gd" id="2_qmxlh"]
 [ext_resource type="Script" path="res://battlesim/components/hitbox_component.gd" id="3_lx534"]
+[ext_resource type="Script" path="res://battlesim/components/clickable_component.gd" id="4_5iwj6"]
 [ext_resource type="Script" path="res://battlesim/components/stats_component.gd" id="5_1xmsr"]
 [ext_resource type="Script" path="res://battlesim/components/nexus_healing_component.gd" id="5_s53iw"]
 [ext_resource type="Script" path="res://battlesim/components/damage_numbers_component.gd" id="6_vfdnc"]
@@ -40,6 +41,20 @@ shape = SubResource("CircleShape2D_fxgb8")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_xheii")
+
+[node name="ClickableComponent" type="Button" parent="Sprite2D" node_paths=PackedStringArray("actor")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -281.5
+offset_top = -281.5
+offset_right = -281.5
+offset_bottom = -281.5
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+script = ExtResource("4_5iwj6")
+actor = NodePath("../..")
 
 [node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("actor", "stats_component", "state_machine_component")]
 collision_layer = 0

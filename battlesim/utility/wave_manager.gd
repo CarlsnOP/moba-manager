@@ -70,3 +70,4 @@ func spawn_friendlies() -> void:
 
 func _on_spawn_timer_timeout():
 	spawn_minions()
+	SignalManager.on_minions_spawn.emit()

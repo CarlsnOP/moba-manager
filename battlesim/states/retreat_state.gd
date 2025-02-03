@@ -5,6 +5,9 @@ extends State
 @export var stats_component: StatsComponent
 @export var navigation_agent: NavigationAgent2D
 @export var attack_component: AttackComponent
+@export var state_machine_component: StateMachineComponent
+
+var nexus_position: Vector2
 
 func enter() -> void:
 	attack_component.current_target_hurtbox = null
@@ -12,8 +15,14 @@ func enter() -> void:
 	for nexus in get_tree().get_nodes_in_group("nexus"):
 		if stats_component.enemy:
 			if nexus.is_in_group("enemy"):
-				navigation_agent.set_target_position(nexus.global_position)
+				nexus_position = nexus.global_position
+				navigation_agent.set_target_position(nexus_position)
 	
 		elif !stats_component.enemy:
 				if nexus.is_in_group("team"):
-					navigation_agent.set_target_position(nexus.global_position)
+					nexus_position = nexus.global_position
+					navigation_agent.set_target_position(nexus_position)
+					
+func update(_delta) -> void:
+	if actor.global_position.distance_to(nexus_position) < 50.0:
+		state_machine_component.on_child_transition("TransitionState")
