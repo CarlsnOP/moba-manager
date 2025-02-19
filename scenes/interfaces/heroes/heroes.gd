@@ -23,8 +23,20 @@ func on_hero_selected(hero: HeroResource):
 	if hero.equipped_equipment != null:
 		unequip_button.show()
 		equipment_1_button.icon = hero.equipped_equipment.icon
+		equipment_1_button.disabled = false
 	else:
 		equipment_1_button.icon = ADD_EQUIPMENT
+		
+		for equipment in InventoryManager.get_equipment_quantity():
+			if equipment <= 0:
+				equipment_1_button.disabled = true
+			else:
+				equipment_1_button.disabled = false
+				break
+	
+	if !hero.unlocked:
+		equipment_1_button.disabled = true
+	
 		
 	hero_page.show()
 	hero_page.setup(hero)

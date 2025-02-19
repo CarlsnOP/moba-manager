@@ -11,7 +11,9 @@ extends PanelContainer
 @onready var click_battle_setup_step = %ClickBattleSetupStep
 @onready var setup_both_heroes_step = %SetupBothHeroesStep
 @onready var finish_step = %FinishStep
+@onready var enter_to_continue_label = %EnterToContinueLabel
 
+#Set to 1 for start of tutorial
 var tutorial_step := 1
 var rubberducks_opened := 0
 
@@ -111,12 +113,21 @@ func _unhandled_input(event):
 func _on_tutorial_button_pressed():
 	handle_next_step()
 	
-func _on_nickname_line_edit_text_submitted(new_text):
+func _on_nickname_line_edit_text_submitted(_new_text):
+	name_entered()
+
+func _on_nickname_button_pressed():
+	name_entered()
+
+
+func name_entered() -> void:
 	if nickname_line_edit.text.length() > 2:
 		var profile = get_tree().get_first_node_in_group("profile_page")
-		profile.set_nickname(new_text)
+		profile.set_nickname(nickname_line_edit.text)
 		handle_next_step()
-
+	else:
+		enter_to_continue_label.text = "Name has to be atleast 3 charecters!"
+		enter_to_continue_label.modulate = DataStorage.COLOR_RED
 
 func _on_finish_tutorial_button_pressed():
 	SignalManager.tutorial_finished.emit()

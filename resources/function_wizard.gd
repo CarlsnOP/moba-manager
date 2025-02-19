@@ -67,3 +67,17 @@ static func sort_by_rarity_and_name(a: Node, b: Node) -> bool:
 		return true
 	
 	return false
+
+static func apply_rarity_changes(res: Resource) -> Color:
+	match res.rarity:
+			EquipmentResource.RARITY.COMMON:
+				return DataStorage.COLOR_COMMON
+			EquipmentResource.RARITY.UNCOMMON:
+				return DataStorage.COLOR_UNCOMMON
+			EquipmentResource.RARITY.RARE:
+				return DataStorage.COLOR_RARE
+			EquipmentResource.RARITY.EPIC:
+				return DataStorage.COLOR_EPIC
+			EquipmentResource.RARITY.LEGENDARY:
+				return DataStorage.COLOR_LEGENDARY
+	return DataStorage.COLOR_COMMON

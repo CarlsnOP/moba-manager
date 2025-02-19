@@ -13,6 +13,7 @@ func setup(pos: Vector2, target: PhysicsBody2D, proj_res: ProjectileResource) ->
 	look_at(target.global_position)
 	sprite_2d.texture = proj_res.sprite
 	sprite_2d.scale = proj_res.scale
+	sprite_2d.rotation = proj_res.rotation
 	_target = target
 	_direction = pos.direction_to(_target.global_position)
 	_speed = proj_res.speed
@@ -21,6 +22,8 @@ func setup(pos: Vector2, target: PhysicsBody2D, proj_res: ProjectileResource) ->
 
 func _process(_delta):
 	if is_instance_valid(_target):
+		look_at(_target.global_position)
+		
 		for child in _target.get_children():
 			if child is StateMachineComponent:
 				if child.current_state is DeadState:

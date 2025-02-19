@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpnlghx13iay"]
+[gd_scene load_steps=17 format=3 uid="uid://bpnlghx13iay"]
 
 [ext_resource type="Script" path="res://scenes/homepage/homepage.gd" id="1_i64r6"]
 [ext_resource type="Script" path="res://scenes/utility/game_canvas/game_canvas.gd" id="2_5k54r"]
@@ -13,6 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://deflmyqw7x3wv" path="res://singletons/sound_manager.tscn" id="8_qnl7l"]
 [ext_resource type="AudioStream" uid="uid://7irdu1cd5ubh" path="res://assets/sounds/music/bouncy_adventure.mp3" id="9_7tj1g"]
 [ext_resource type="AudioStream" uid="uid://4hp51cewv1an" path="res://assets/sounds/music/happy_adventure.mp3" id="10_6io05"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_as2jp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8r01q"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_p3n3p"]
 shuffle = true
@@ -94,6 +98,11 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 mouse_filter = 2
+
+[node name="QuitButton" parent="GameCanvas/InterfaceMC/HB/Interface/Heroes/PC/MC" index="1"]
+texture_normal = SubResource("CompressedTexture2D_as2jp")
+texture_hover = SubResource("CompressedTexture2D_8r01q")
+ignore_texture_size = false
 
 [node name="TutorialPage" parent="GameCanvas" instance=ExtResource("7_802f6")]
 visible = false

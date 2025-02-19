@@ -41,11 +41,23 @@ func _process(_delta):
 				var target_node = selected_heroes_attack_component.current_target_hurtbox.get_parent()
 				if current_target_outline_component != selected_heroes_target_Outline:
 					current_target_outline_component.remove_outline()
+				
+				var target_enemy
+				
+				for child in target_node.get_children():
+					if child is StatsComponent:
+						target_enemy = child.enemy
 					
 				for child in target_node.get_children():
 					if child is OutlineComponent:
+						if child == selected_outline_component:
+							return
+							
 						current_target_outline_component = child
-						current_target_outline_component.apply_target_outline()
+						if target_enemy:
+							child.apply_outline(child.OUTLINE_TYPE.TARGET)
+						else:
+							child.apply_outline(child.OUTLINE_TYPE.FRIENDLY)
 		
 
 func on_battle_end(_win: bool) -> void:
@@ -99,7 +111,7 @@ func handle_hero_chosen() -> void:
 	selected_heroes_controller_component.listen_to_orders = true
 	selected_heroes_attack_component = selected_hero.get_attack_component()
 	selected_outline_component = selected_hero.get_outline_component()
-	selected_outline_component.apply_outline()
+	selected_outline_component.apply_outline(selected_outline_component.OUTLINE_TYPE.SELF)
 
 func deselect_hero() -> void:
 	if selected_outline_component != null:

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/utility/offline_rewards/offline_rewards.gd" id="1_hpg0e"]
 [ext_resource type="PackedScene" uid="uid://crp36l631uhwm" path="res://scenes/interfaces/crafting/loot_grid.tscn" id="1_njxxe"]
-[ext_resource type="Texture2D" uid="uid://s5uk58wlq8km" path="res://assets/art/ui/quit_button_normal.png" id="2_hkv1v"]
-[ext_resource type="Texture2D" uid="uid://etsoohdkrjyy" path="res://assets/art/ui/quit_button_hover.png" id="3_lka8f"]
+[ext_resource type="Texture2D" uid="uid://bhkgo38s51mvv" path="res://assets/art/ui/close.png" id="2_6vjf4"]
+[ext_resource type="Texture2D" uid="uid://dgopnap7cyd83" path="res://assets/art/ui/close_hover.png" id="3_ipl11"]
 
 [node name="OfflineRewards" type="Control" node_paths=PackedStringArray("loot_grid")]
 layout_mode = 3
@@ -49,12 +49,13 @@ layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "You gained this loot while offline"
 
-[node name="TextureButton" type="TextureButton" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CloseButton" type="TextureButton" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 8
-texture_normal = ExtResource("2_hkv1v")
-texture_pressed = ExtResource("3_lka8f")
+texture_normal = ExtResource("2_6vjf4")
+texture_pressed = ExtResource("3_ipl11")
+ignore_texture_size = true
 stretch_mode = 0
 
 [node name="LootGrid" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_njxxe")]
@@ -63,4 +64,4 @@ layout_mode = 2
 size_flags_vertical = 3
 loot_reward = true
 
-[connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_texture_button_pressed"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bd7y8koo1w71"]
 
-[ext_resource type="Texture2D" uid="uid://s5uk58wlq8km" path="res://assets/art/ui/quit_button_normal.png" id="1_8b31u"]
-[ext_resource type="Texture2D" uid="uid://etsoohdkrjyy" path="res://assets/art/ui/quit_button_hover.png" id="2_64dnj"]
+[ext_resource type="Texture2D" uid="uid://bhkgo38s51mvv" path="res://assets/art/ui/close.png" id="1_86lgl"]
+[ext_resource type="Texture2D" uid="uid://dgopnap7cyd83" path="res://assets/art/ui/close_hover.png" id="2_68xx2"]
 
 [node name="InterfaceBase" type="Control"]
 layout_mode = 3
@@ -44,6 +44,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-texture_normal = ExtResource("1_8b31u")
-texture_hover = ExtResource("2_64dnj")
+texture_normal = ExtResource("1_86lgl")
+texture_hover = ExtResource("2_68xx2")
+ignore_texture_size = true
 stretch_mode = 0

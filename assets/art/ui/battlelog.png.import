@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s5uk58wlq8km"
-path="res://.godot/imported/quit_button_normal.png-6d7053be5c7bcecf58caac719f0481f2.ctex"
+uid="uid://cpt81u8q3ch15"
+path="res://.godot/imported/battlelog.png-4242769304701a18af3ff9b1151bb5ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/ui/quit_button_normal.png"
-dest_files=["res://.godot/imported/quit_button_normal.png-6d7053be5c7bcecf58caac719f0481f2.ctex"]
+source_file="res://assets/art/ui/battlelog.png"
+dest_files=["res://.godot/imported/battlelog.png-4242769304701a18af3ff9b1151bb5ca.ctex"]
 
 [params]
 

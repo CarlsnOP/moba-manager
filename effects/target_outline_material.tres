@@ -4,7 +4,7 @@
 
 [resource]
 shader = ExtResource("1_d1ecu")
-shader_parameter/color = Color(0.929412, 0.537255, 0.470588, 1)
+shader_parameter/color = Color(0.643137, 0.321569, 0.34902, 1)
 shader_parameter/width = 30.0
 shader_parameter/pattern = 1
 shader_parameter/inside = false

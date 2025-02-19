@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bfwqeq68wq1g2"]
 
 [ext_resource type="Script" path="res://scenes/rubber_ducky_page/rubber_ducky_page.gd" id="1_uplay"]
-[ext_resource type="Texture2D" uid="uid://s5uk58wlq8km" path="res://assets/art/ui/quit_button_normal.png" id="2_ycoiv"]
-[ext_resource type="Texture2D" uid="uid://etsoohdkrjyy" path="res://assets/art/ui/quit_button_hover.png" id="3_lp48a"]
+[ext_resource type="Texture2D" uid="uid://bhkgo38s51mvv" path="res://assets/art/ui/close.png" id="2_0dn5e"]
+[ext_resource type="Texture2D" uid="uid://dgopnap7cyd83" path="res://assets/art/ui/close_hover.png" id="3_f3cab"]
 
 [node name="RubberDuckyPage" type="Control" groups=["rubber_ducky_page"]]
 layout_mode = 3
@@ -76,8 +76,9 @@ text = "YOU HAVE NO MORE DUCKIES TO OPEN :("
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 8
-texture_normal = ExtResource("2_ycoiv")
-texture_hover = ExtResource("3_lp48a")
+texture_normal = ExtResource("2_0dn5e")
+texture_hover = ExtResource("3_f3cab")
+ignore_texture_size = true
 stretch_mode = 4
 
 [node name="OutOfDuckiesLabel2" type="Label" parent="OutOfLootRubberDucks/MarginContainer/OutOfDuckiesVB"]

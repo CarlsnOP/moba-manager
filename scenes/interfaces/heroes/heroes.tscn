@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://673smdjoegvd"]
+[gd_scene load_steps=17 format=3 uid="uid://673smdjoegvd"]
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interfaces/interface_base.tscn" id="1_qir55"]
 [ext_resource type="Script" path="res://scenes/interfaces/heroes/heroes.gd" id="2_aktco"]
@@ -6,13 +6,16 @@
 [ext_resource type="Script" path="res://scenes/interfaces/heroes/hero_page.gd" id="4_iqvvf"]
 [ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/eddy_the_jungler.png" id="5_omhe7"]
 [ext_resource type="Texture2D" uid="uid://bv2cxijy21p7h" path="res://assets/art/stats/health.png" id="5_wiflx"]
+[ext_resource type="Texture2D" uid="uid://unb6f6nrf3" path="res://assets/art/ui/questionmark.png" id="6_bd04n"]
 [ext_resource type="Texture2D" uid="uid://d0gsjwva5fjcf" path="res://assets/art/stats/damage.png" id="6_tmxtq"]
 [ext_resource type="Texture2D" uid="uid://b5oq78l2e2x6t" path="res://assets/art/stats/mana.png" id="7_4mw7m"]
+[ext_resource type="Texture2D" uid="uid://ci42gw3pduu1b" path="res://assets/art/stats/block.png" id="7_xldar"]
 [ext_resource type="PackedScene" uid="uid://bh6i5ssmhkhq" path="res://scenes/slots/skill_slot/skill_slot.tscn" id="8_d3csg"]
+[ext_resource type="Texture2D" uid="uid://iidkyr42hhqt" path="res://assets/art/stats/crit.png" id="9_vqa2x"]
 [ext_resource type="Texture2D" uid="uid://ug5hh7ljyn0v" path="res://assets/art/ui/add_equipment.png" id="9_w1wtq"]
-[ext_resource type="Texture2D" uid="uid://s5uk58wlq8km" path="res://assets/art/ui/quit_button_normal.png" id="11_geosi"]
 [ext_resource type="Script" path="res://scenes/interfaces/heroes/equipment_container.gd" id="11_o3qgp"]
-[ext_resource type="Texture2D" uid="uid://etsoohdkrjyy" path="res://assets/art/ui/quit_button_hover.png" id="12_ygxs3"]
+[ext_resource type="Texture2D" uid="uid://bhkgo38s51mvv" path="res://assets/art/ui/close.png" id="11_sacu1"]
+[ext_resource type="Texture2D" uid="uid://dgopnap7cyd83" path="res://assets/art/ui/close_hover.png" id="12_v640a"]
 
 [node name="Heroes" instance=ExtResource("1_qir55")]
 script = ExtResource("2_aktco")
@@ -39,6 +42,7 @@ theme_override_constants/margin_bottom = 50
 
 [node name="HeroPage" type="PanelContainer" parent="MarginContainer" index="0" groups=["update_post_match"]]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_type_variation = &"PanelWithBorder"
 script = ExtResource("4_iqvvf")
@@ -119,7 +123,12 @@ size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Health: "
 
-[node name="DodgeLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB" index="2"]
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB" index="2"]
+layout_mode = 2
+texture = ExtResource("6_bd04n")
+expand_mode = 2
+
+[node name="DodgeLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB" index="3"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -141,7 +150,12 @@ size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Attack Damage: "
 
-[node name="blockLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB2" index="2"]
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB2" index="2"]
+layout_mode = 2
+texture = ExtResource("7_xldar")
+expand_mode = 2
+
+[node name="blockLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB2" index="3"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -163,7 +177,12 @@ size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Ability Power: "
 
-[node name="CritLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB5" index="2"]
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB5" index="2"]
+layout_mode = 2
+texture = ExtResource("9_vqa2x")
+expand_mode = 2
+
+[node name="CritLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB5" index="3"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -262,8 +281,9 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-texture_normal = ExtResource("11_geosi")
-texture_hover = ExtResource("12_ygxs3")
+texture_normal = ExtResource("11_sacu1")
+texture_hover = ExtResource("12_v640a")
+ignore_texture_size = true
 stretch_mode = 0
 
 [node name="EquipmentContainer" type="PanelContainer" parent="." index="2"]
@@ -287,11 +307,24 @@ script = ExtResource("11_o3qgp")
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="CloseItemsButton" type="Button" parent="EquipmentContainer/VB" index="0"]
+[node name="HBoxContainer" type="HBoxContainer" parent="EquipmentContainer/VB" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Label" type="Label" parent="EquipmentContainer/VB/HBoxContainer" index="0"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Select equipment"
+
+[node name="CloseItemsButton" type="TextureButton" parent="EquipmentContainer/VB/HBoxContainer" index="1" groups=["sound_button"]]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-text = "X"
+texture_normal = ExtResource("11_sacu1")
+texture_hover = ExtResource("12_v640a")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Control" type="PanelContainer" parent="EquipmentContainer/VB" index="1"]
 unique_name_in_owner = true
@@ -308,5 +341,5 @@ expand_icon = true
 [connection signal="pressed" from="PC/MC/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer3/Equipment1Button" to="." method="_on_equipment_1_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HeroPage/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="EquipmentContainer/VB/CloseItemsButton" to="." method="_on_close_items_button_pressed"]
+[connection signal="pressed" from="EquipmentContainer/VB/HBoxContainer/CloseItemsButton" to="." method="_on_close_items_button_pressed"]
 [connection signal="pressed" from="EquipmentContainer/VB/UnequipButton" to="." method="_on_unequip_button_pressed"]

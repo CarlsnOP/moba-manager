@@ -6,11 +6,12 @@ extends Resource
 #Misc
 const COLOR_INVISABLE := Color(0,0,0,0)
 const COLOR_WHITE := Color("f1efdf")
+const COLOR_RED := Color("#a45259")
 
 #Rarities
 const COLOR_COMMON := Color("#e7e3c7")
 const COLOR_UNCOMMON := Color("#469852")
-const COLOR_RARE := Color("#0a4684")
+const COLOR_RARE := Color("#7e94db")
 const COLOR_EPIC := Color("#b967ad")
 const COLOR_LEGENDARY := Color("#f5b97b")
 

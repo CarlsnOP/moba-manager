@@ -8,6 +8,10 @@ extends Control
 @onready var loot_grid = %LootGrid
 @onready var equipment_list = %EquipmentList
 @onready var craft_button = %CraftButton
+@onready var equipment_desc_label = %EquipmentDescLabel
+@onready var equipment_title_label = %EquipmentTitleLabel
+@onready var equipment_effect_label = %EquipmentEffectLabel
+
 
 var _results: Array[EquipmentResource] = []
 var _inventory: Inventory
@@ -36,6 +40,10 @@ func _on_recipe_list_item_selected(index):
 	
 	_selected_equipment = equipment_list.get_item_metadata(index)
 	_results.append(_selected_equipment)
+	equipment_title_label.text = str(_selected_equipment.name)
+	equipment_title_label.modulate = FunctionWizard.apply_rarity_changes(_selected_equipment)
+	equipment_effect_label.text = "Effect:\n" + str(_selected_equipment.effect)
+	equipment_desc_label.text = str(_selected_equipment.description)
 	update_displays()
 
 func _on_craft_button_pressed():

@@ -197,6 +197,24 @@ text = "Congrats!
 You unlocked FRED!"
 horizontal_alignment = 1
 
+[node name="UnlockNextHeroButton" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "Unlock another hero!"
+
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="HeroUnlockButton" to="." method="_on_hero_unlock_button_pressed"]
+[connection signal="pressed" from="UnlockNextHeroButton" to="." method="_on_unlock_next_hero_button_pressed"]

@@ -10,7 +10,7 @@ func _ready():
 	max_value = attack_component.attack_timer.wait_time
 
 func _process(_delta):
-	if attack_component.attack_timer.is_stopped() or hitbox_component.targets_in_range.size() <= 0:
+	if attack_component.attack_timer.is_stopped():
 		hide()
 	else:
 		show()

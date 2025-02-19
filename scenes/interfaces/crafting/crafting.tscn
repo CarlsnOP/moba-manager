@@ -36,6 +36,7 @@ size_flags_vertical = 3
 [node name="VB2" type="VBoxContainer" parent="PC/MC/VB/HB" index="1"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 5
 
 [node name="IngredientsLabel" type="Label" parent="PC/MC/VB/HB/VB2" index="0"]
 layout_mode = 2
@@ -46,20 +47,50 @@ text = "Ingredients"
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ResultsLabel" type="Label" parent="PC/MC/VB/HB/VB2" index="2"]
+[node name="Spacer2" type="Control" parent="PC/MC/VB/HB/VB2" index="2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ResultsLabel" type="Label" parent="PC/MC/VB/HB/VB2" index="3"]
+visible = false
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Results"
 
-[node name="EquipmentGrid" parent="PC/MC/VB/HB/VB2" index="3" instance=ExtResource("4_c2wys")]
+[node name="HSeparator" type="HSeparator" parent="PC/MC/VB/HB/VB2" index="4"]
+layout_mode = 2
+
+[node name="EquipmentTitleLabel" type="Label" parent="PC/MC/VB/HB/VB2" index="5"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Item name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC/MC/VB/HB/VB2" index="6"]
+layout_mode = 2
+
+[node name="EquipmentGrid" parent="PC/MC/VB/HB/VB2/HBoxContainer" index="0" instance=ExtResource("4_c2wys")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Spacer" type="Control" parent="PC/MC/VB/HB/VB2" index="4"]
+[node name="EquipmentEffectLabel" type="Label" parent="PC/MC/VB/HB/VB2/HBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Item effect"
+
+[node name="EquipmentDescLabel" type="Label" parent="PC/MC/VB/HB/VB2" index="7"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ItemQuantity"
+text = "Description
+"
+
+[node name="Spacer" type="Control" parent="PC/MC/VB/HB/VB2" index="8"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CraftButton" type="Button" parent="PC/MC/VB/HB/VB2" index="5"]
+[node name="CraftButton" type="Button" parent="PC/MC/VB/HB/VB2" index="9"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3

@@ -8,3 +8,4 @@ script = ExtResource("1_3rlv3")
 sprite = ExtResource("2_wmih8")
 speed = 500.0
 scale = Vector2(0.1, 0.1)
+rotation = 0

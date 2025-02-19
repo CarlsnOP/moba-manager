@@ -114,13 +114,14 @@ stats_component = NodePath("../StatsComponent")
 script = ExtResource("10_ehblq")
 actor = NodePath("..")
 
-[node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "hitbox_component", "stats_component", "movement_component", "state_machine_component")]
+[node name="AttackComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "hitbox_component", "stats_component", "movement_component", "state_machine_component", "detection_component")]
 script = ExtResource("2_pd6d5")
 actor = NodePath("..")
 hitbox_component = NodePath("../HitboxComponent")
 stats_component = NodePath("../StatsComponent")
 movement_component = NodePath("../MoveComponent")
 state_machine_component = NodePath("../StateMachineComponent")
+detection_component = NodePath("../DetectionComponent")
 
 [node name="OutlineComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("10_7fy51")

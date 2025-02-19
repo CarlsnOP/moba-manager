@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://0jmm3api8fgm" path="res://assets/art/ui/arena.png" id="3_gu1wc"]
 [ext_resource type="PackedScene" uid="uid://lt08ltq12ss6" path="res://scenes/slots/hero_slot/hero_portrait_slot.tscn" id="3_uuksq"]
 [ext_resource type="Texture2D" uid="uid://ug5hh7ljyn0v" path="res://assets/art/ui/add_equipment.png" id="5_v70o4"]
+[ext_resource type="Texture2D" uid="uid://bhkgo38s51mvv" path="res://assets/art/ui/close.png" id="7_evjhb"]
 [ext_resource type="Script" path="res://scenes/interfaces/battlesetup/hero_menu.gd" id="7_j87wi"]
-[ext_resource type="Texture2D" uid="uid://s5uk58wlq8km" path="res://assets/art/ui/quit_button_normal.png" id="7_vi4sk"]
-[ext_resource type="Texture2D" uid="uid://etsoohdkrjyy" path="res://assets/art/ui/quit_button_hover.png" id="8_k4oc3"]
+[ext_resource type="Texture2D" uid="uid://dgopnap7cyd83" path="res://assets/art/ui/close_hover.png" id="8_xxtc8"]
 
 [node name="BattleSetup" groups=["game_events"] instance=ExtResource("1_mn2md")]
 script = ExtResource("2_ng1v2")
@@ -123,9 +123,10 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-texture_normal = ExtResource("7_vi4sk")
-texture_hover = ExtResource("8_k4oc3")
-stretch_mode = 0
+texture_normal = ExtResource("7_evjhb")
+texture_hover = ExtResource("8_xxtc8")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="GridContainer" type="GridContainer" parent="HeroMenu/MC/VB" index="1"]
 unique_name_in_owner = true
