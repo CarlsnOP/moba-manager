@@ -26,3 +26,8 @@ func instantiate_offline_reward_scene(scene: PackedScene, offline_reward: Array[
 	var new_scene = scene.instantiate()
 	get_tree().get_first_node_in_group("canvas").add_child(new_scene)
 	new_scene.setup(offline_reward)
+
+func instantiate_sell_scene(scene: PackedScene, a: int, p: int, l: LootResource) -> void:
+	var new_scene = scene.instantiate()
+	get_tree().get_first_node_in_group("canvas").add_child(new_scene)
+	new_scene.display(a, p, l)

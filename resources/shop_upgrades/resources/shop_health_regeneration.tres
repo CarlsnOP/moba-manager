@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShopUpgradeResource" load_steps=2 format=3 uid="uid://c3pon3y52ktgm"]
+
+[ext_resource type="Script" path="res://resources/shop_upgrades/shop_upgrades_resource.gd" id="1_4htua"]
+
+[resource]
+script = ExtResource("1_4htua")
+name = "Health Regeneration"
+type = 1
+reward_type = 4
+description = "Increase your heroes health regeneration"
+base_cost = 100
+level = 0
+multiplier = 1.0

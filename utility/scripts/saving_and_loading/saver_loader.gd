@@ -6,6 +6,7 @@ extends Node
 @onready var nav_menu = %NavMenu
 @onready var interface = %Interface
 
+
 #Save functionality
 func save_game():
 	var saved_game: SavedGame = SavedGame.new()
@@ -21,6 +22,7 @@ func save_game():
 
 func save_vars(saved_game: SavedGame) -> void:
 	var stage_ref = get_tree().get_first_node_in_group("stage_manager") as StageManager
+	var shop_ref = get_tree().get_first_node_in_group("shop") as Shop
 	var profile_ref = get_tree().get_first_node_in_group("profile_page") as ProfilePage
 	saved_game.nickname = profile_ref.nickname
 	saved_game.rubber_duckies = InventoryManager.get_rubberduckies()
@@ -30,6 +32,7 @@ func save_vars(saved_game: SavedGame) -> void:
 	saved_game.experience_gained = TeamManager.get_hero_xp()
 	saved_game.equipped_equipment = TeamManager.get_equipped_equipment()
 	saved_game.unlocked_heroes = TeamManager.get_unlocked_heroes()
+	saved_game.shop_upgrade_levels = shop_ref.get_upgrade_levels()
 	saved_game.top = TeamManager.top
 	saved_game.bot = TeamManager.bot
 	saved_game.current_stage = stage_ref.current_stage
@@ -67,6 +70,7 @@ func load_game():
 	TeamManager.set_hero_xp(saved_game.experience_gained)
 	TeamManager.set_equipped_equipment(saved_game.equipped_equipment)
 	TeamManager.set_unlocked_heroes(saved_game.unlocked_heroes)
+	
 	if TeamManager.bot and TeamManager.top:
 		TeamManager.load_team()
 	
@@ -83,9 +87,12 @@ func load_vars(saved_game: SavedGame) -> void:
 	var stage_ref = get_tree().get_first_node_in_group("stage_manager") as StageManager
 	var tutorial_ref = get_tree().get_first_node_in_group("tutorial") as TutorialPage
 	var profile_ref = get_tree().get_first_node_in_group("profile_page") as ProfilePage
+	var shop_ref = get_tree().get_first_node_in_group("shop") as Shop
+	
 	tutorial_ref.tutorial_step = saved_game.current_tut_step
 	tutorial_ref.rubberducks_opened = saved_game.ducks_opened
 	tutorial_ref.match_step()
+	shop_ref.set_upgrade_levels(saved_game.shop_upgrade_levels)
 	InventoryManager._rubberduckies = saved_game.rubber_duckies
 	InventoryManager.owned_hero_rubber_ducky = saved_game.owned_hero_rubber_ducky
 	TeamManager.top = saved_game.top

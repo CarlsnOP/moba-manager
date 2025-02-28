@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7xk801hs8b3"]
+
+[ext_resource type="Texture2D" uid="uid://unb6f6nrf3" path="res://assets/art/ui/questionmark.png" id="1_j6hmk"]
+[ext_resource type="Script" path="res://scenes/slots/incremental_upgrade_slot/incremental_upgrade_slot.gd" id="1_ombfr"]
+
+[node name="IncrementalUpgradeSlot" type="PanelContainer"]
+offset_right = 1396.0
+offset_bottom = 164.0
+size_flags_horizontal = 3
+theme_type_variation = &"PanelWithBorder"
+script = ExtResource("1_ombfr")
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HB" type="HBoxContainer" parent="MC"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MC/HB"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+texture = ExtResource("1_j6hmk")
+expand_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="MC/HB"]
+layout_mode = 2
+
+[node name="VB" type="VBoxContainer" parent="MC/HB"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MC/HB/VB"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Name"
+
+[node name="HSeparator" type="HSeparator" parent="MC/HB/VB"]
+layout_mode = 2
+
+[node name="DescLabel" type="Label" parent="MC/HB/VB"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Description"
+
+[node name="CostLabel" type="Label" parent="MC/HB/VB"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Cost"
+
+[node name="BuyButton" type="Button" parent="MC/HB"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "BUY"
+
+[connection signal="pressed" from="MC/HB/BuyButton" to="." method="_on_buy_button_pressed"]

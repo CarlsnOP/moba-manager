@@ -86,14 +86,11 @@ func unlock_hero() -> void:
 	
 	await get_tree().create_timer(2).timeout
 	
-	if InventoryManager.owned_hero_rubber_ducky > 0:
-		unlock_next_hero_button.show()
-	else:
-		SignalManager.rubberduck_clicked.emit()
-		
-		get_tree().get_first_node_in_group("rubber_ducky_page").update()
-		queue_free()
+	if InventoryManager.owned_hero_rubber_ducky <= 0:
+		unlock_next_hero_button.text = "Awesome!"
 	
+	unlock_next_hero_button.show()
+		
 func _on_hero_unlock_button_pressed():
 	unlock_hero()
 

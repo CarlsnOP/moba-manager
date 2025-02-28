@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://6ajppifq35c5"]
+
+[ext_resource type="Script" path="res://scenes/slots/SellSlot/sell_slot.gd" id="1_all3d"]
+[ext_resource type="PackedScene" uid="uid://cbeqdlhkmic5y" path="res://scenes/slots/loot_slot/loot_slot.tscn" id="1_cqlt7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6boai"]
+bg_color = Color(0.607843, 0.807843, 0.65098, 1)
+
+[node name="SellSlot" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_6boai")
+script = ExtResource("1_all3d")
+loot_slot_scene = ExtResource("1_cqlt7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HB" type="HBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HB"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LootNameLabel" type="Label" parent="MarginContainer/HB/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Loot name"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HB/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HB/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Sell for:"
+
+[node name="PriceLabel" type="Label" parent="MarginContainer/HB/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_type_variation = &"HeaderSmall"
+text = "0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HB/VBoxContainer"]
+layout_mode = 2
+
+[node name="AmountSlider" type="HSlider" parent="MarginContainer/HB/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="AmountLabel" type="Label" parent="MarginContainer/HB/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "0
+"
+horizontal_alignment = 2
+
+[node name="SellButton" type="Button" parent="MarginContainer/HB/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "Sell!"
+
+[connection signal="value_changed" from="MarginContainer/HB/VBoxContainer/HBoxContainer/AmountSlider" to="." method="_on_amount_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/HB/VBoxContainer/SellButton" to="." method="_on_sell_button_pressed"]

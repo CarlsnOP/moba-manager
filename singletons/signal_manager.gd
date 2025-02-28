@@ -13,6 +13,7 @@ signal rubberduckies_updated
 signal rubberduckies_created(quantity: int)
 signal rubberduckies_spent(quantity: int)
 signal on_loot_ducky()
+signal update_stats()
 
 #Battle
 signal on_battle_end(win: bool)

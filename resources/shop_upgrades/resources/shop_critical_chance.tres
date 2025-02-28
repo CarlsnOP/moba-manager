@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShopUpgradeResource" load_steps=2 format=3 uid="uid://cl4rl4vys77ns"]
+
+[ext_resource type="Script" path="res://resources/shop_upgrades/shop_upgrades_resource.gd" id="1_plsxb"]
+
+[resource]
+script = ExtResource("1_plsxb")
+name = "Critical chance"
+type = 0
+reward_type = 9
+description = "Increase your heroes critical chance"
+base_cost = 100
+level = 0
+multiplier = 1.0

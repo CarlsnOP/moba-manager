@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy236s1d03tuk"]
+
+[ext_resource type="Script" path="res://scenes/interfaces/shop/buy_hero_rubber_ducky.gd" id="1_8uvjp"]
+[ext_resource type="Texture2D" uid="uid://c82akoyw0qcep" path="res://assets/art/ui/Rubberduck.png" id="1_2181l"]
+
+[node name="BuyHeroRubberDucky" type="PanelContainer"]
+theme_type_variation = &"PanelWithBorder"
+script = ExtResource("1_8uvjp")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_2181l")
+expand_mode = 3
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HeroLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Hero Rubber Ducky!"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HeroLabel2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_type_variation = &"HeaderSmall"
+text = "Cost: 10000 Rubber Duckies!"
+
+[node name="BuyButton" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Buy!"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/BuyButton" to="." method="_on_buy_button_pressed"]

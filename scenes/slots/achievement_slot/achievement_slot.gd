@@ -30,9 +30,9 @@ func setup_label() -> void:
 	description_label.text = " - " + achievement.ach_1st_description + " "
 	
 	if achievement.ach_reward_show_amount:
-		get_reward_label.text += " " + str(achievement.ach_reward_growth)
+		get_reward_label.text += " " + str(achievement.multiplier)
 	
-	if achievement.ach_current_step > achievement.ach_accepted_rewards or achievement.ach_completed and achievement.ach_accepted_rewards < achievement.ach_requirement.size():
+	if achievement.ach_current_step > achievement.level or achievement.ach_completed and achievement.level < achievement.ach_requirement.size():
 		complete_achievement.show()
 		var parent_node = get_parent()
 		parent_node.move_child(self, 0)
@@ -44,8 +44,8 @@ func setup_label() -> void:
 		description_label.text += str(achievement.ach_requirement[achievement.ach_current_step])
 		description_label.text += " " + achievement.ach_2nd_description
 		if achievement.ach_reward_show_amount:
-			reward_amount_label.text = str(achievement.ach_accepted_rewards * achievement.ach_reward_growth)
-			next_reward_label.text = " - Next: " + str((achievement.ach_current_step + 1) * achievement.ach_reward_growth)
+			reward_amount_label.text = str(achievement.level * achievement.multiplier)
+			next_reward_label.text = " - Next: " + str((achievement.ach_current_step + 1) * achievement.multiplier)
 		
 		if achievement.ach_reward_in_percentage:
 			reward_amount_label.text +=  " %"
@@ -53,7 +53,7 @@ func setup_label() -> void:
 	else:
 		description_label.text = " - COMPLETED!"
 		if achievement.ach_reward_show_amount:
-			reward_amount_label.text = str(achievement.ach_accepted_rewards * achievement.ach_reward_growth)
+			reward_amount_label.text = str(achievement.level * achievement.multiplier)
 		
 		if achievement.ach_reward_in_percentage:
 			reward_amount_label.text +=  " %"
@@ -74,13 +74,13 @@ func setup_ducks() -> void:
 			achieved_icon_4.hide()
 		
 		
-	if achievement.ach_accepted_rewards > 0:
+	if achievement.level > 0:
 		achieved_icon.texture = DataStorage.ACHIEVED_DUCK
-	if achievement.ach_accepted_rewards > 1:
+	if achievement.level > 1:
 		achieved_icon_2.texture = DataStorage.ACHIEVED_DUCK
-	if achievement.ach_accepted_rewards > 2:
+	if achievement.level > 2:
 		achieved_icon_3.texture = DataStorage.ACHIEVED_DUCK
-	if achievement.ach_accepted_rewards > 3:
+	if achievement.level > 3:
 		achieved_icon_4.texture = DataStorage.ACHIEVED_DUCK
 
 
@@ -88,7 +88,7 @@ func _on_get_reward_button_pressed():
 	if achievement.ach_script.has_method("handle_reward"):
 		achievement.ach_script.handle_reward()
 		
-	achievement.ach_accepted_rewards += 1
+	achievement.level += 1
 	SoundManager.create_ui_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.QUACK_SFX)
 	AchievementManager.update_achievement_stats(achievement)
 	complete_achievement.hide()

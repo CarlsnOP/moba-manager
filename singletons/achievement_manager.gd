@@ -37,6 +37,7 @@ func _ready():
 		achievement.ach_index += ach_index
 		ach_index += 1
 		all_achievements.append(achievement)
+		
 	SignalManager.on_equipment_crafted.connect(on_equipment_crafted)
 	SignalManager.on_battle_end.connect(on_battle_end)
 	
@@ -61,7 +62,7 @@ func update_achievements() -> void:
 			
 		for achievement_stat in the_almighty_storage_dictionary["achievement_stats"]:
 			if achievement_stat["res"] == achievement:
-				achievement.ach_accepted_rewards = achievement_stat["accepted_rewards"]
+				achievement.level = achievement_stat["accepted_rewards"]
 	
 	SignalManager.achievements_updated.emit()
 			
@@ -112,7 +113,7 @@ func on_win() -> void:
 
 func check_if_unclaimed_rewards() -> bool:
 	for achievement in all_achievements:
-		if achievement.ach_current_step > achievement.ach_accepted_rewards:
+		if achievement.ach_current_step > achievement.level:
 			return true
 	return false
 

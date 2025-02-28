@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShopUpgradeResource" load_steps=2 format=3 uid="uid://bks27o4kqxeha"]
+
+[ext_resource type="Script" path="res://resources/shop_upgrades/shop_upgrades_resource.gd" id="1_w7shg"]
+
+[resource]
+script = ExtResource("1_w7shg")
+name = "Health"
+type = 1
+reward_type = 3
+description = "Increase your heroes health"
+base_cost = 100
+level = 0
+multiplier = 1.0

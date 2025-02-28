@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShopUpgradeResource" load_steps=2 format=3 uid="uid://cqegwu0iw3p7l"]
+
+[ext_resource type="Script" path="res://resources/shop_upgrades/shop_upgrades_resource.gd" id="1_ism4q"]
+
+[resource]
+script = ExtResource("1_ism4q")
+name = "Ability power"
+type = 0
+reward_type = 6
+description = "Increase your heroes ability power"
+base_cost = 100
+level = 0
+multiplier = 1.0

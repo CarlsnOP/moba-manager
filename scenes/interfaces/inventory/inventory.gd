@@ -1,55 +1,40 @@
-class_name InventoryDialog
-extends Control
+class_name Inventory
 
+var _loot_content:Array[LootResource] = []
+var _equipment_content: Array[EquipmentResource] = []
 
-enum SORT_BY_STATE { RARITY, NAME, QUANTITY }
+#LOOT FUNCTIONS
+func add_loot(loot: LootResource, amount: int):
+	loot.quantity += amount
 
+func remove_loot(loot: LootResource, amount: int):
+	loot.quantity -= amount
 
-@export var loot_slot_scene:PackedScene
+func get_loot() -> Array[LootResource]:
+	return _loot_content
 
-@onready var loot = %Loot
-@onready var equipped_equipment = %EquippedEquipment
-@onready var equipment = %Equipment
-@onready var equipped_equipment_label = %EquippedEquipmentLabel
-@onready var equipment_label = %EquipmentLabel
-@onready var such_empty_label = %SuchEmptyLabel
-
-
-var _state: SORT_BY_STATE = SORT_BY_STATE.NAME
-
-func _ready():
-	SignalManager.on_battle_end.connect(on_battle_end)
-
-func open():
-	loot.display(InventoryManager._all_loot)
-	equipment.display(InventoryManager._all_equipment)
-	equipped_equipment.display(TeamManager.get_equipped_equipment())
-	
-	set_state(SORT_BY_STATE.RARITY, loot)
-	set_state(SORT_BY_STATE.RARITY, equipment)
-	
-	equipped_equipment_label.visible = equipped_equipment.get_children().size() > 0
-	equipment_label.visible = equipment.get_children().size() > 0
-	if equipped_equipment_label.visible or equipment_label.visible:
-		such_empty_label.hide()
+func check_loot_contents(loot: LootResource) -> bool:
+	if _loot_content.has(loot):
+		return true
 	else:
-		such_empty_label.show()
+		return false
+		
 
-func on_battle_end(_win: bool) -> void:
-	if visible:
-		loot.display(InventoryManager._all_loot)
-		FunctionWizard.sort_rarity(loot)
-		FunctionWizard.sort_rarity(equipped_equipment)
+#EQUIPMENT FUNCTIONS
+func add_equipment(equipment: EquipmentResource, amount: int):
+	equipment.quantity += amount
 
-#Statemachine is a bit overkill, but is good for later if implementing more sorting options
-func set_state(new_state: SORT_BY_STATE, inv) -> void:
-	_state = new_state
+func remove_equipment(equipment: EquipmentResource, amount: int):
+	equipment.quantity -= amount
+
+func get_equipment() -> Array[EquipmentResource]:
+	return _equipment_content
+
+#
+func has_all(loot: Array[LootResource]) -> bool:
+	var needed: Array[LootResource] = loot.duplicate()
 	
-	match _state:
-		SORT_BY_STATE.RARITY:
-			FunctionWizard.sort_rarity(inv)
-			FunctionWizard.sort_rarity(equipped_equipment)
-
-
-func _on_quit_button_pressed():
-	SignalManager.new_interface.emit(InterfaceManager.INTERFACE_STATE.BATTLESIM)
+	for available in _loot_content:
+		needed.erase(available)
+	
+	return needed.is_empty()

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShopUpgradeResource" load_steps=2 format=3 uid="uid://c6xu71scsc4to"]
+
+[ext_resource type="Script" path="res://resources/shop_upgrades/shop_upgrades_resource.gd" id="1_xp3rn"]
+
+[resource]
+script = ExtResource("1_xp3rn")
+name = "Block chance"
+type = 1
+reward_type = 7
+description = "Increase your heroes block chance"
+base_cost = 100
+level = 0
+multiplier = 1.0

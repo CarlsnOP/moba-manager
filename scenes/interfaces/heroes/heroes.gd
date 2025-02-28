@@ -3,6 +3,8 @@ extends Control
 
 const EQUIPMENT_GRID = preload("res://scenes/interfaces/crafting/equipment_grid.tscn")
 const ADD_EQUIPMENT = preload("res://assets/art/ui/add_equipment.png")
+const CLOSE = preload("res://assets/art/ui/close.png")
+const CLOSE_HOVER = preload("res://assets/art/ui/close_hover.png")
 
 @export var slot_scene: PackedScene
 
@@ -12,12 +14,20 @@ const ADD_EQUIPMENT = preload("res://assets/art/ui/add_equipment.png")
 @onready var control = %Control
 @onready var equipment_1_button = %Equipment1Button
 @onready var unequip_button = %UnequipButton
+@onready var quit_button = %QuitButton
 
 var current_hero: HeroResource = null
 
 func _ready():
 	SignalManager.on_hero_selected.connect(on_hero_selected)
-	
+	setup_quit_button()
+
+#No idea why this is needed.... But it is invisible if not run
+func setup_quit_button() -> void:
+	quit_button.texture_normal = CLOSE
+	quit_button.texture_hover = CLOSE_HOVER
+	quit_button.ignore_texture_size = true
+
 func on_hero_selected(hero: HeroResource):
 	current_hero = hero
 	if hero.equipped_equipment != null:

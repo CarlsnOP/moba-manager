@@ -24,6 +24,9 @@ extends Resource
 #Achievements
 @export var ach_master_dict: Dictionary
 
+#Store upgrades
+@export var shop_upgrade_levels: Array
+
 #Tutorial
 @export var current_tut_step: int
 @export var ducks_opened: int

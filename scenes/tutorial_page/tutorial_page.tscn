@@ -234,10 +234,10 @@ mouse_filter = 2
 [node name="ArrowLeftTextureRect" type="TextureRect" parent="OpenRubberDucksStep/OpenDuckPageStep"]
 layout_direction = 1
 layout_mode = 1
-offset_left = 293.0
-offset_top = 623.0
-offset_right = 421.0
-offset_bottom = 751.0
+offset_left = 389.0
+offset_top = 668.0
+offset_right = 517.0
+offset_bottom = 796.0
 scale = Vector2(1.2, 1.2)
 pivot_offset = Vector2(64, 64)
 texture = ExtResource("3_wkaeu")
@@ -245,10 +245,10 @@ stretch_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="OpenRubberDucksStep/OpenDuckPageStep"]
 layout_mode = 0
-offset_left = 451.0
-offset_top = 652.0
-offset_right = 1063.0
-offset_bottom = 741.0
+offset_left = 547.0
+offset_top = 697.0
+offset_right = 1159.0
+offset_bottom = 786.0
 theme_type_variation = &"AlphaPanel"
 theme_override_styles/panel = SubResource("StyleBoxFlat_82djj")
 
@@ -312,10 +312,10 @@ mouse_filter = 2
 [node name="ArrowLeftTextureRect" type="TextureRect" parent="SetupTeamStep/ClickBattleSetupStep"]
 layout_direction = 1
 layout_mode = 1
-offset_left = 208.727
-offset_top = 390.727
-offset_right = 336.727
-offset_bottom = 518.727
+offset_left = 185.727
+offset_top = 419.727
+offset_right = 313.727
+offset_bottom = 547.727
 scale = Vector2(1.2, 1.2)
 pivot_offset = Vector2(64, 64)
 texture = SubResource("CompressedTexture2D_7740b")
@@ -323,10 +323,10 @@ stretch_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="SetupTeamStep/ClickBattleSetupStep"]
 layout_mode = 1
-offset_left = 349.728
-offset_top = 412.727
-offset_right = 838.728
-offset_bottom = 501.727
+offset_left = 326.728
+offset_top = 441.727
+offset_right = 815.728
+offset_bottom = 530.727
 theme_type_variation = &"AlphaPanel"
 theme_override_styles/panel = SubResource("StyleBoxFlat_82djj")
 

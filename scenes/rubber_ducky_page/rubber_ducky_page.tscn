@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfwqeq68wq1g2"]
+[gd_scene load_steps=2 format=3 uid="uid://bfwqeq68wq1g2"]
 
 [ext_resource type="Script" path="res://scenes/rubber_ducky_page/rubber_ducky_page.gd" id="1_uplay"]
-[ext_resource type="Texture2D" uid="uid://bhkgo38s51mvv" path="res://assets/art/ui/close.png" id="2_0dn5e"]
-[ext_resource type="Texture2D" uid="uid://dgopnap7cyd83" path="res://assets/art/ui/close_hover.png" id="3_f3cab"]
 
 [node name="RubberDuckyPage" type="Control" groups=["rubber_ducky_page"]]
 layout_mode = 3
@@ -32,72 +30,3 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[node name="OutOfLootRubberDucks" type="PanelContainer" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -409.5
-offset_top = -102.0
-offset_right = 409.5
-offset_bottom = 102.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_type_variation = &"PanelWithBorder"
-
-[node name="MarginContainer" type="MarginContainer" parent="OutOfLootRubberDucks"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="OutOfDuckiesVB" type="VBoxContainer" parent="OutOfLootRubberDucks/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="OutOfLootRubberDucks/MarginContainer/OutOfDuckiesVB"]
-layout_mode = 2
-theme_override_constants/separation = 50
-
-[node name="OutOfDuckiesLabel" type="Label" parent="OutOfLootRubberDucks/MarginContainer/OutOfDuckiesVB/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_type_variation = &"HeaderLarge"
-text = "YOU HAVE NO MORE DUCKIES TO OPEN :("
-
-[node name="QuitButton" type="TextureButton" parent="OutOfLootRubberDucks/MarginContainer/OutOfDuckiesVB/HBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 8
-texture_normal = ExtResource("2_0dn5e")
-texture_hover = ExtResource("3_f3cab")
-ignore_texture_size = true
-stretch_mode = 4
-
-[node name="OutOfDuckiesLabel2" type="Label" parent="OutOfLootRubberDucks/MarginContainer/OutOfDuckiesVB"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_type_variation = &"HeaderSmall"
-text = "But do not worry, you can buy another for just 10.000 Rubber duckies!"
-
-[node name="BuyButton" type="Button" parent="OutOfLootRubberDucks/MarginContainer/OutOfDuckiesVB" groups=["sound_button"]]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 50
-text = "Buy a Hero Rubber Ducky!
-"
-
-[connection signal="pressed" from="OutOfLootRubberDucks/MarginContainer/OutOfDuckiesVB/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="OutOfLootRubberDucks/MarginContainer/OutOfDuckiesVB/BuyButton" to="." method="_on_buy_button_pressed"]

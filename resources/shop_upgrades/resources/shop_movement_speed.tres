@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShopUpgradeResource" load_steps=2 format=3 uid="uid://c54padbxh1q62"]
+
+[ext_resource type="Script" path="res://resources/shop_upgrades/shop_upgrades_resource.gd" id="1_fdj2f"]
+
+[resource]
+script = ExtResource("1_fdj2f")
+name = "Movement Speed"
+type = 2
+reward_type = 11
+description = "Increase your heroes movement speed"
+base_cost = 100
+level = 0
+multiplier = 1.0

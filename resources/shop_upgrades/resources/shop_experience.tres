@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShopUpgradeResource" load_steps=2 format=3 uid="uid://b5w0lu0lf0f77"]
+
+[ext_resource type="Script" path="res://resources/shop_upgrades/shop_upgrades_resource.gd" id="1_xgokf"]
+
+[resource]
+script = ExtResource("1_xgokf")
+name = "Experience gain"
+type = 3
+reward_type = 0
+description = "Increase your experience gain per match"
+base_cost = 100
+level = 0
+multiplier = 1.0

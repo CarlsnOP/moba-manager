@@ -81,3 +81,17 @@ static func apply_rarity_changes(res: Resource) -> Color:
 			EquipmentResource.RARITY.LEGENDARY:
 				return DataStorage.COLOR_LEGENDARY
 	return DataStorage.COLOR_COMMON
+
+static func price_by_rarity(res: Resource) -> int:
+	match res.rarity:
+			EquipmentResource.RARITY.COMMON:
+				return DataStorage.COMMON_PRICE
+			EquipmentResource.RARITY.UNCOMMON:
+				return DataStorage.UNCOMMON_PRICE
+			EquipmentResource.RARITY.RARE:
+				return DataStorage.RARE_PRICE
+			EquipmentResource.RARITY.EPIC:
+				return DataStorage.EPIC_PRICE
+			EquipmentResource.RARITY.LEGENDARY:
+				return DataStorage.LEGENDARY_PRICE
+	return 0

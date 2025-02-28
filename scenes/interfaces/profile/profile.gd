@@ -13,6 +13,8 @@ extends Control
 var nickname: String
 
 func _ready():	
+	SignalManager.update_stats.connect(stats_updated)
+	
 	for hero in TeamManager._all_heroes:
 		var slot = hero_slot_scene.instantiate()
 		hero_hb.add_child(slot)
@@ -33,13 +35,13 @@ func setup_global_labels() -> void:
 	global_stats_label.text += "Loot multiplier: " + str(StatsManager.all_stats_multipliers["loot_multiplier"] * 100) + "% \n"
 	
 	#Generic Hero Stats Label
-	global_hero_stats_label.text = "Max health multiplier: " + str(StatsManager.all_stats_multipliers["hp_multiplier"]) + "% \n"
-	global_hero_stats_label.text += "Health Regen multiplier: " + str(StatsManager.all_stats_multipliers["hp_reg_multiplier"]) + "% \n"
-	global_hero_stats_label.text += "Damage multiplier: " + str(StatsManager.all_stats_multipliers["damage_multiplier"]) + "% \n"
-	global_hero_stats_label.text += "Ability Power multiplier: " + str(StatsManager.all_stats_multipliers["ap_multiplier"]) + "% \n"
-	global_hero_stats_label.text += "Block multiplier: " + str(StatsManager.all_stats_multipliers["block_multiplier"]) + "% \n"
-	global_hero_stats_label.text += "Dodge multiplier: " + str(StatsManager.all_stats_multipliers["dodge_multiplier"]) + "% \n"
-	global_hero_stats_label.text += "Critical multiplier: " + str(StatsManager.all_stats_multipliers["crit_multiplier"]) + "% \n"
+	global_hero_stats_label.text = "Max health multiplier: " + str(StatsManager.all_stats_multipliers["hp_multiplier"] * 100) + "% \n"
+	global_hero_stats_label.text += "Health Regen multiplier: " + str(StatsManager.all_stats_multipliers["hp_reg_multiplier"] * 100) + "% \n"
+	global_hero_stats_label.text += "Damage multiplier: " + str(StatsManager.all_stats_multipliers["damage_multiplier"] * 100) + "% \n"
+	global_hero_stats_label.text += "Ability Power multiplier: " + str(StatsManager.all_stats_multipliers["ap_multiplier"] * 100) + "% \n"
+	global_hero_stats_label.text += "Block multiplier: " + str(StatsManager.all_stats_multipliers["block_multiplier"] * 100) + "% \n"
+	global_hero_stats_label.text += "Dodge multiplier: " + str(StatsManager.all_stats_multipliers["dodge_multiplier"] * 100) + "% \n"
+	global_hero_stats_label.text += "Critical multiplier: " + str(StatsManager.all_stats_multipliers["crit_multiplier"] * 100) + "% \n"
 	
 	
 func setup_hero_specific_stats_label(hero: HeroResource) -> void:

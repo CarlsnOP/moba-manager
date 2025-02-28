@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShopUpgradeResource" load_steps=2 format=3 uid="uid://d4j265ek7p1rv"]
+
+[ext_resource type="Script" path="res://resources/shop_upgrades/shop_upgrades_resource.gd" id="1_1q2ws"]
+
+[resource]
+script = ExtResource("1_1q2ws")
+name = "Attack speed"
+type = 0
+reward_type = 5
+description = "Increase your heroes attack speed"
+base_cost = 100
+level = 0
+multiplier = 1.0

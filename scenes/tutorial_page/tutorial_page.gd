@@ -88,6 +88,11 @@ func handle_rubberduck_step() -> void:
 	open_rubber_ducks_step.show()
 	open_duck_page_step.show()
 	click_duck_step.hide()
+	
+	await get_tree().physics_frame
+	if check_for_heroes():
+		tutorial_step += 1
+		handle_next_step()
 
 func handle_setup_team_step() -> void:
 	setup_both_heroes_step.hide()
@@ -101,8 +106,20 @@ func on_hero_selected() -> void:
 
 func handle_rubber_duck_clicked() -> void:
 	rubberducks_opened += 1
-	if rubberducks_opened >= 2:
+	if rubberducks_opened >= 2 or check_for_heroes():
 		handle_next_step()
+
+func check_for_heroes() -> bool:
+	var count := 0
+	
+	for hero in TeamManager._all_heroes:
+		if hero.unlocked:
+			count += 1
+			
+	if count >= 2:
+		return true
+		
+	return false
 
 func _unhandled_input(event):
 	if event is InputEventKey:

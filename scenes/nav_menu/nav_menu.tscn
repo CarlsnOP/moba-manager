@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1srca4b5kfs6"]
+[gd_scene load_steps=8 format=3 uid="uid://d1srca4b5kfs6"]
 
 [ext_resource type="PackedScene" uid="uid://g374ax7ka8ax" path="res://scenes/utility/rubber_duckies_label/rubber_duckies_label.tscn" id="1_1hn6o"]
 [ext_resource type="Texture2D" uid="uid://cgr2kbja4eqpu" path="res://assets/art/logo.png" id="1_7ujfs"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cpt81u8q3ch15" path="res://assets/art/ui/battlelog.png" id="4_b04gj"]
 [ext_resource type="Texture2D" uid="uid://d3xd5f0ri0lxb" path="res://assets/art/ui/notification.png" id="4_s8mdn"]
 [ext_resource type="Texture2D" uid="uid://4xu0tyub4y4y" path="res://assets/art/ui/battlelog_hover.png" id="5_87qbx"]
+[ext_resource type="Texture2D" uid="uid://c82akoyw0qcep" path="res://assets/art/ui/Rubberduck.png" id="7_a8ais"]
 
 [node name="NavMenu" type="Control"]
 layout_mode = 3
@@ -68,9 +69,22 @@ theme_type_variation = &"HeaderMedium"
 text = "Profile"
 alignment = 0
 
-[node name="HomeButton" type="TextureButton" parent="PC/MC/VB/HBoxContainer2" groups=["sound_button"]]
-custom_minimum_size = Vector2(70, 70)
+[node name="Control" type="Control" parent="PC/MC/VB/HBoxContainer2"]
 layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HomeButton" type="TextureButton" parent="PC/MC/VB/HBoxContainer2/Control" groups=["sound_button"]]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -70.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_type_variation = &"HeaderMedium"
 texture_normal = ExtResource("4_b04gj")
 texture_hover = ExtResource("5_87qbx")
@@ -143,13 +157,37 @@ alignment = 0
 [node name="HBoxContainer3" type="HBoxContainer" parent="PC/MC/VB"]
 layout_mode = 2
 
-[node name="RubberDuckButton" type="Button" parent="PC/MC/VB/HBoxContainer3" groups=["sound_button"]]
+[node name="ShopButton" type="Button" parent="PC/MC/VB/HBoxContainer3" groups=["sound_button"]]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_vertical = 4
 theme_type_variation = &"HeaderMedium"
-text = "Open Ducky
-"
+text = "Shop"
 alignment = 0
+
+[node name="Control" type="Control" parent="PC/MC/VB/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="RubberDuckButton" type="TextureButton" parent="PC/MC/VB/HBoxContainer3/Control" groups=["sound_button"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -75.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 10
+size_flags_vertical = 8
+theme_type_variation = &"HeaderMedium"
+texture_normal = ExtResource("7_a8ais")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="NotificationRect2" type="TextureRect" parent="PC/MC/VB/HBoxContainer3"]
 unique_name_in_owner = true
@@ -200,14 +238,15 @@ text = "Quit game
 alignment = 0
 
 [connection signal="pressed" from="PC/MC/VB/HBoxContainer2/ProfileButton" to="." method="_on_profile_button_pressed"]
-[connection signal="pressed" from="PC/MC/VB/HBoxContainer2/HomeButton" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="PC/MC/VB/HBoxContainer2/Control/HomeButton" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/BattleSimButton" to="." method="_on_battle_sim_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/HeroesButton" to="." method="_on_heroes_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/BattleSetupButton" to="." method="_on_battle_setup_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/HBoxContainer/Achievementsbutton" to="." method="_on_achievementsbutton_pressed"]
 [connection signal="pressed" from="PC/MC/VB/Inventorybutton" to="." method="_on_inventorybutton_pressed"]
 [connection signal="pressed" from="PC/MC/VB/CraftingButton" to="." method="_on_crafting_button_pressed"]
-[connection signal="pressed" from="PC/MC/VB/HBoxContainer3/RubberDuckButton" to="." method="_on_rubber_duck_button_pressed"]
+[connection signal="pressed" from="PC/MC/VB/HBoxContainer3/ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="PC/MC/VB/HBoxContainer3/Control/RubberDuckButton" to="." method="_on_rubber_duck_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="PC/MC/VB/QuitButton" to="." method="_on_quit_button_pressed"]

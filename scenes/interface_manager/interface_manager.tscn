@@ -1,14 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://brfdff1sxe1as"]
+[gd_scene load_steps=15 format=3 uid="uid://brfdff1sxe1as"]
 
 [ext_resource type="Script" path="res://scenes/interface_manager/interface_manager.gd" id="1_7qvry"]
 [ext_resource type="PackedScene" uid="uid://673smdjoegvd" path="res://scenes/interfaces/heroes/heroes.tscn" id="2_31ohs"]
 [ext_resource type="PackedScene" uid="uid://cpknkhss4be6i" path="res://scenes/interfaces/profile/profile.tscn" id="2_x5im1"]
 [ext_resource type="PackedScene" uid="uid://dkdc3lgikvhio" path="res://scenes/interfaces/battlesetup/battle_setup.tscn" id="3_2watf"]
 [ext_resource type="PackedScene" uid="uid://b24kcv61gsemj" path="res://scenes/interfaces/home/home.tscn" id="4_v3ki7"]
-[ext_resource type="PackedScene" uid="uid://631q0hu1m73l" path="res://scenes/interfaces/inventory/inventory.tscn" id="5_ow4ya"]
+[ext_resource type="PackedScene" uid="uid://631q0hu1m73l" path="res://scenes/interfaces/inventory/inventory_dialog.tscn" id="5_ow4ya"]
 [ext_resource type="PackedScene" uid="uid://enf2gme6mkyw" path="res://scenes/interfaces/crafting/crafting.tscn" id="6_rc5cu"]
 [ext_resource type="PackedScene" uid="uid://cm5h6ii3ncb4b" path="res://scenes/interfaces/highscore/highscore.tscn" id="7_cx26x"]
 [ext_resource type="PackedScene" uid="uid://cfm0ihkpiqfpg" path="res://scenes/interfaces/rank/rank.tscn" id="7_ieocr"]
+[ext_resource type="PackedScene" uid="uid://dohoeyh7ryecs" path="res://scenes/interfaces/shop/shop.tscn" id="8_0g50p"]
 [ext_resource type="PackedScene" uid="uid://bfwqeq68wq1g2" path="res://scenes/rubber_ducky_page/rubber_ducky_page.tscn" id="8_0su42"]
 [ext_resource type="PackedScene" uid="uid://b4ipaxr61k83x" path="res://scenes/interfaces/settings/settings.tscn" id="8_5pgio"]
 [ext_resource type="PackedScene" uid="uid://bhix3y2kgctle" path="res://scenes/interfaces/achievements/achievements.tscn" id="10_4wq4u"]
@@ -51,6 +52,11 @@ visible = false
 layout_mode = 1
 
 [node name="Crafting" parent="." instance=ExtResource("6_rc5cu")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="Shop" parent="." instance=ExtResource("8_0g50p")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1

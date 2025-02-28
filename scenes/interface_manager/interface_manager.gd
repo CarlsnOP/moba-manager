@@ -1,7 +1,7 @@
 class_name InterfaceManager
 extends Control
 
-enum INTERFACE_STATE { HOME, HEROES, BATTLESETUP, BATTLESIM, INVENTORY, CRAFTING, RUBBERDUCKY, SETTINGS, ACHIEVEMENTS, PROFILE, CREDITS }
+enum INTERFACE_STATE { HOME, HEROES, BATTLESETUP, BATTLESIM, INVENTORY, CRAFTING, RUBBERDUCKY, SETTINGS, ACHIEVEMENTS, PROFILE, CREDITS, SHOP }
 
 @onready var heroes = %Heroes
 @onready var battle_setup = %BattleSetup
@@ -14,6 +14,7 @@ enum INTERFACE_STATE { HOME, HEROES, BATTLESETUP, BATTLESIM, INVENTORY, CRAFTING
 @onready var achievements = %Achievements
 @onready var profile = %Profile
 @onready var credits: Control = %Credits
+@onready var shop = %Shop
 
 
 var _state: INTERFACE_STATE
@@ -95,6 +96,9 @@ func set_state(new_state: INTERFACE_STATE) -> void:
 			
 		INTERFACE_STATE.CREDITS:
 			credits.show()
+		
+		INTERFACE_STATE.SHOP:
+			shop.show()
 		
 func reassign_home(saved_home: Control) -> void:
 	move_child(saved_home, 0)

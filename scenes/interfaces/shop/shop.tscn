@@ -1,0 +1,123 @@
+[gd_scene load_steps=10 format=3 uid="uid://dohoeyh7ryecs"]
+
+[ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interfaces/interface_base.tscn" id="1_xn5ee"]
+[ext_resource type="Script" path="res://scenes/interfaces/shop/shop.gd" id="2_2sld0"]
+[ext_resource type="Script" path="res://scenes/interfaces/shop/tab_container.gd" id="2_nt871"]
+[ext_resource type="Script" path="res://scenes/interfaces/shop/grid_container.gd" id="3_68gb3"]
+[ext_resource type="PackedScene" uid="uid://6ajppifq35c5" path="res://scenes/slots/SellSlot/sell_slot.tscn" id="4_0gocv"]
+[ext_resource type="PackedScene" uid="uid://cy236s1d03tuk" path="res://scenes/interfaces/shop/buy_hero_rubber_ducky.tscn" id="4_020wa"]
+[ext_resource type="Script" path="res://scenes/interfaces/shop/goods_list_vb.gd" id="4_chtoj"]
+[ext_resource type="PackedScene" uid="uid://b7xk801hs8b3" path="res://scenes/slots/incremental_upgrade_slot/incremental_upgrade_slot.tscn" id="5_pg13w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ijh1"]
+
+[node name="Shop" groups=["shop"] instance=ExtResource("1_xn5ee")]
+script = ExtResource("2_2sld0")
+
+[node name="Label" parent="PC/MC/VB" index="0"]
+text = "Shop"
+
+[node name="TabContainer" type="TabContainer" parent="PC/MC/VB" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+script = ExtResource("2_nt871")
+
+[node name="Buy" type="MarginContainer" parent="PC/MC/VB/TabContainer" index="1"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_tab_index = 0
+
+[node name="GoodsListVB" type="VBoxContainer" parent="PC/MC/VB/TabContainer/Buy" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("4_chtoj")
+slot_scene = ExtResource("5_pg13w")
+
+[node name="BuyHeroRubberDucky" parent="PC/MC/VB/TabContainer/Buy/GoodsListVB" index="0" instance=ExtResource("4_020wa")]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="PC/MC/VB/TabContainer/Buy/GoodsListVB" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1ijh1")
+current_tab = 0
+
+[node name="Offensive" type="MarginContainer" parent="PC/MC/VB/TabContainer/Buy/GoodsListVB/TabContainer" index="1"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PC/MC/VB/TabContainer/Buy/GoodsListVB/TabContainer/Offensive" index="0"]
+layout_mode = 2
+
+[node name="OffensiveVB" type="VBoxContainer" parent="PC/MC/VB/TabContainer/Buy/GoodsListVB/TabContainer/Offensive/ScrollContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Defensive" type="MarginContainer" parent="PC/MC/VB/TabContainer/Buy/GoodsListVB/TabContainer" index="2"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PC/MC/VB/TabContainer/Buy/GoodsListVB/TabContainer/Defensive" index="0"]
+layout_mode = 2
+
+[node name="DefensiveVB" type="VBoxContainer" parent="PC/MC/VB/TabContainer/Buy/GoodsListVB/TabContainer/Defensive/ScrollContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Utility" type="MarginContainer" parent="PC/MC/VB/TabContainer/Buy/GoodsListVB/TabContainer" index="3"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PC/MC/VB/TabContainer/Buy/GoodsListVB/TabContainer/Utility" index="0"]
+layout_mode = 2
+
+[node name="UtilityVB" type="VBoxContainer" parent="PC/MC/VB/TabContainer/Buy/GoodsListVB/TabContainer/Utility/ScrollContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Economy" type="MarginContainer" parent="PC/MC/VB/TabContainer/Buy/GoodsListVB/TabContainer" index="4"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PC/MC/VB/TabContainer/Buy/GoodsListVB/TabContainer/Economy" index="0"]
+layout_mode = 2
+
+[node name="EconomyVB" type="VBoxContainer" parent="PC/MC/VB/TabContainer/Buy/GoodsListVB/TabContainer/Economy/ScrollContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sell" type="MarginContainer" parent="PC/MC/VB/TabContainer" index="2"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PC/MC/VB/TabContainer/Sell" index="0"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="PC/MC/VB/TabContainer/Sell/ScrollContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 10
+columns = 3
+script = ExtResource("3_68gb3")
+slot_scene = ExtResource("4_0gocv")
+
+[connection signal="tab_button_pressed" from="PC/MC/VB/TabContainer" to="PC/MC/VB/TabContainer" method="_on_tab_button_pressed"]
+[connection signal="tab_clicked" from="PC/MC/VB/TabContainer" to="PC/MC/VB/TabContainer" method="_on_tab_clicked"]
+[connection signal="pressed" from="PC/MC/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -8,12 +8,19 @@ const COLOR_INVISABLE := Color(0,0,0,0)
 const COLOR_WHITE := Color("f1efdf")
 const COLOR_RED := Color("#a45259")
 
-#Rarities
+#Rarities color
 const COLOR_COMMON := Color("#e7e3c7")
 const COLOR_UNCOMMON := Color("#469852")
 const COLOR_RARE := Color("#7e94db")
 const COLOR_EPIC := Color("#b967ad")
 const COLOR_LEGENDARY := Color("#f5b97b")
+
+#Rarities price
+const COMMON_PRICE := 10
+const UNCOMMON_PRICE := 25
+const RARE_PRICE := 50
+const EPIC_PRICE := 100
+const LEGENDARY_PRICE := 250
 
 #PNG FILES
 #Status effects

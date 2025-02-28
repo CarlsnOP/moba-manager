@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cfioapweow33c"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://cfioapweow33c"]
 
 [ext_resource type="FontFile" uid="uid://qtceburuli1a" path="res://assets/fonts/bangers_regular.ttf" id="1_1raky"]
 [ext_resource type="FontFile" uid="uid://bcny1bgbhjhmt" path="res://assets/fonts/fredoka_variablefont.ttf" id="1_qajaw"]
@@ -27,9 +27,31 @@ region_rect = Rect2(151, 6.8481, 34, 34.1519)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aewll"]
 bg_color = Color(0.47451, 0.662745, 0.411765, 0.784314)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_401ko"]
+content_margin_left = 50.0
+content_margin_top = 5.0
+content_margin_right = 50.0
+content_margin_bottom = 5.0
+bg_color = Color(0.0861097, 0.531044, 0.60657, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ovgs0"]
+content_margin_left = 50.0
+content_margin_top = 5.0
+content_margin_right = 50.0
+content_margin_bottom = 5.0
+bg_color = Color(0.356863, 0.678431, 0.65098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5o343"]
+content_margin_left = 50.0
+content_margin_top = 5.0
+content_margin_right = 50.0
+content_margin_bottom = 5.0
+bg_color = Color(0.0705882, 0.462745, 0.529412, 1)
+
 [resource]
 AlphaPanel/base_type = &"PanelContainer"
 AlphaPanel/styles/panel = SubResource("StyleBoxFlat_dn7ws")
+Button/font_sizes/font_size = 30
 HeaderLarge/colors/font_shadow_color = Color(0.129558, 0.129558, 0.129558, 1)
 HeaderLarge/constants/shadow_offset_x = 1
 HeaderLarge/constants/shadow_offset_y = 1
@@ -53,12 +75,14 @@ HeroPage/styles/panel = SubResource("StyleBoxFlat_e66cw")
 InvisPanel/base_type = &"PanelContainer"
 InvisPanel/styles/panel = SubResource("StyleBoxFlat_08rc2")
 ItemQuantity/base_type = &"Label"
-ItemQuantity/colors/font_color = Color(0.998379, 0.963455, 0.215508, 1)
+ItemQuantity/colors/font_color = Color(0.905882, 0.890196, 0.780392, 1)
+ItemQuantity/colors/font_outline_color = Color(0.0941176, 0.109804, 0.219608, 1)
 ItemQuantity/colors/font_shadow_color = Color(0.099986, 0.099986, 0.099986, 1)
+ItemQuantity/constants/outline_size = 1
 ItemQuantity/constants/shadow_offset_x = 1
 ItemQuantity/constants/shadow_offset_y = 1
 ItemQuantity/constants/shadow_outline_size = 3
-ItemQuantity/font_sizes/font_size = 32
+ItemQuantity/font_sizes/font_size = 24
 Label/colors/font_color = Color(0.94652, 0.937591, 0.872726, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0.392157)
@@ -72,3 +96,6 @@ PanelWithBorder/base_type = &"PanelContainer"
 PanelWithBorder/styles/panel = SubResource("StyleBoxTexture_scl3x")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_aewll")
 TabContainer/font_sizes/font_size = 32
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_401ko")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_ovgs0")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_5o343")

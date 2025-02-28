@@ -1,5 +1,6 @@
 extends PanelContainer
 
+
 #labels
 @onready var name_label = %NameLabel
 @onready var lvl_label = %LvlLabel
