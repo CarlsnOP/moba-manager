@@ -3,7 +3,7 @@ extends Node
 
 static func update_achievement(achievement: AchievementResource):
 	if !achievement.ach_completed:
-		if TeamManager.bot != null and TeamManager.top != null:
+		if AchievementManager.tutorial_completed:
 			achievement.ach_current_step += 1
 			achievement.ach_completed = true
 

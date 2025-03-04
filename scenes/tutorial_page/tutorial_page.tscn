@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwj0640l7livv"]
+[gd_scene load_steps=10 format=3 uid="uid://dwj0640l7livv"]
 
 [ext_resource type="Script" path="res://scenes/tutorial_page/tutorial_page.gd" id="1_oblpi"]
 [ext_resource type="Texture2D" uid="uid://dovp0xy6r5j0u" path="res://assets/art/ui/arrow_right.png" id="1_tuhea"]
@@ -6,9 +6,6 @@
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f56x3"]
 load_path = "res://.godot/imported/arrow_right.png-e9ab6c4389af5e7e432086a680300432.ctex"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82djj"]
-bg_color = Color(0.968627, 0.827451, 0, 0.784314)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7740b"]
 load_path = "res://.godot/imported/arrow_left.png-aed88cdfbf290958820e71f12f21986c.ctex"
@@ -68,7 +65,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("OpenRubberDucksStep/ClickDuckStep/PanelContainer2:scale")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
@@ -143,7 +140,7 @@ offset_left = 1732.0
 offset_top = 892.0
 offset_right = 1860.0
 offset_bottom = 1020.0
-scale = Vector2(1.2, 1.2)
+scale = Vector2(0.9, 0.9)
 pivot_offset = Vector2(64, 64)
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -202,7 +199,7 @@ offset_right = 150.0
 offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.8, 0.8)
 pivot_offset = Vector2(150, 22)
 theme_type_variation = &"HeaderMedium"
 text = "Enter to continue!"
@@ -233,24 +230,23 @@ mouse_filter = 2
 
 [node name="ArrowLeftTextureRect" type="TextureRect" parent="OpenRubberDucksStep/OpenDuckPageStep"]
 layout_direction = 1
-layout_mode = 1
-offset_left = 389.0
-offset_top = 668.0
-offset_right = 517.0
-offset_bottom = 796.0
-scale = Vector2(1.2, 1.2)
+layout_mode = 0
+offset_left = 376.0
+offset_top = 608.0
+offset_right = 504.0
+offset_bottom = 736.0
+scale = Vector2(0.9, 0.9)
 pivot_offset = Vector2(64, 64)
 texture = ExtResource("3_wkaeu")
 stretch_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="OpenRubberDucksStep/OpenDuckPageStep"]
 layout_mode = 0
-offset_left = 547.0
-offset_top = 697.0
-offset_right = 1159.0
-offset_bottom = 786.0
-theme_type_variation = &"AlphaPanel"
-theme_override_styles/panel = SubResource("StyleBoxFlat_82djj")
+offset_left = 508.0
+offset_top = 608.0
+offset_right = 1120.0
+offset_bottom = 736.0
+theme_type_variation = &"PanelWithBorder"
 
 [node name="MarginContainer" type="MarginContainer" parent="OpenRubberDucksStep/OpenDuckPageStep/PanelContainer"]
 layout_mode = 2
@@ -276,10 +272,9 @@ offset_left = 470.0
 offset_top = 71.0
 offset_right = 1495.0
 offset_bottom = 160.0
-scale = Vector2(1.1, 1.1)
+scale = Vector2(0.9, 0.9)
 pivot_offset = Vector2(512.5, 44.5)
-theme_type_variation = &"AlphaPanel"
-theme_override_styles/panel = SubResource("StyleBoxFlat_82djj")
+theme_type_variation = &"PanelWithBorder"
 
 [node name="MarginContainer" type="MarginContainer" parent="OpenRubberDucksStep/ClickDuckStep/PanelContainer2"]
 layout_mode = 2
@@ -295,7 +290,6 @@ text = "Click the duck to unlock your first Heroes!"
 
 [node name="SetupTeamStep" type="MarginContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 30
@@ -312,23 +306,22 @@ mouse_filter = 2
 [node name="ArrowLeftTextureRect" type="TextureRect" parent="SetupTeamStep/ClickBattleSetupStep"]
 layout_direction = 1
 layout_mode = 1
-offset_left = 185.727
-offset_top = 419.727
-offset_right = 313.727
-offset_bottom = 547.727
-scale = Vector2(1.2, 1.2)
+offset_left = 171.599
+offset_top = 394.599
+offset_right = 299.599
+offset_bottom = 522.599
+scale = Vector2(0.899979, 0.899979)
 pivot_offset = Vector2(64, 64)
 texture = SubResource("CompressedTexture2D_7740b")
 stretch_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="SetupTeamStep/ClickBattleSetupStep"]
 layout_mode = 1
-offset_left = 326.728
-offset_top = 441.727
-offset_right = 815.728
-offset_bottom = 530.727
-theme_type_variation = &"AlphaPanel"
-theme_override_styles/panel = SubResource("StyleBoxFlat_82djj")
+offset_left = 312.6
+offset_top = 408.599
+offset_right = 831.6
+offset_bottom = 527.599
+theme_type_variation = &"PanelWithBorder"
 
 [node name="MarginContainer" type="MarginContainer" parent="SetupTeamStep/ClickBattleSetupStep/PanelContainer"]
 layout_mode = 2
@@ -354,8 +347,7 @@ offset_left = 515.0
 offset_top = 250.0
 offset_right = 1381.0
 offset_bottom = 339.0
-theme_type_variation = &"AlphaPanel"
-theme_override_styles/panel = SubResource("StyleBoxFlat_82djj")
+theme_type_variation = &"PanelWithBorder"
 
 [node name="MarginContainer" type="MarginContainer" parent="SetupTeamStep/SetupBothHeroesStep/PanelContainer"]
 layout_mode = 2
@@ -369,33 +361,210 @@ layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Select your top and bot lane heroes!"
 
-[node name="FinishStep" type="PanelContainer" parent="."]
+[node name="FinishFirstStep" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_type_variation = &"AlphaPanel"
 
-[node name="ClickBattleSetupStep" type="Control" parent="FinishStep"]
+[node name="ClickBattleSetupStep" type="Control" parent="FinishFirstStep"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="FinishTutorialButton" type="Button" parent="FinishStep/ClickBattleSetupStep"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -169.5
-offset_top = 167.0
-offset_right = 169.5
-offset_bottom = 275.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PanelContainer" type="PanelContainer" parent="FinishFirstStep/ClickBattleSetupStep"]
+layout_mode = 2
+offset_left = 734.0
+offset_top = 723.0
+offset_right = 1103.0
+offset_bottom = 861.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"PanelWithBorder"
+
+[node name="MarginContainer" type="MarginContainer" parent="FinishFirstStep/ClickBattleSetupStep/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="FinishFirstTutorialButton" type="Button" parent="FinishFirstStep/ClickBattleSetupStep/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.890196, 0.780392, 1)
+theme_override_colors/font_outline_color = Color(0.407843, 0.415686, 0.411765, 1)
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 100
 theme_override_styles/hover = SubResource("StyleBoxFlat_i33bv")
 theme_override_styles/normal = SubResource("StyleBoxFlat_71uym")
-text = "LETS GO!!!"
+text = "Start playing!"
+flat = true
+
+[node name="BattleSimTutorial" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"AlphaPanel"
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 100
+
+[node name="FirstStep" type="PanelContainer" parent="BattleSimTutorial"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"PanelWithBorder"
+
+[node name="MarginContainer" type="MarginContainer" parent="BattleSimTutorial/FirstStep"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleSimTutorial/FirstStep/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BattleSimTutorial/FirstStep/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "A match will now be played!"
+
+[node name="Button" type="Button" parent="BattleSimTutorial/FirstStep/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Next step"
+
+[node name="SecondStep" type="Control" parent="BattleSimTutorial"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="BattleSimTutorial/SecondStep"]
+layout_mode = 0
+offset_left = -837.0
+offset_top = -25.0
+offset_right = -201.0
+offset_bottom = 151.0
+theme_type_variation = &"PanelWithBorder"
+
+[node name="MarginContainer" type="MarginContainer" parent="BattleSimTutorial/SecondStep/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleSimTutorial/SecondStep/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BattleSimTutorial/SecondStep/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Here we have the battle manager
+You can use this to control your heroes!"
+
+[node name="Button" type="Button" parent="BattleSimTutorial/SecondStep/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Next step"
+
+[node name="ThirdStep" type="Control" parent="BattleSimTutorial"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="BattleSimTutorial/ThirdStep"]
+layout_mode = 0
+offset_left = -407.0
+offset_top = 228.0
+offset_right = 190.0
+offset_bottom = 342.0
+theme_type_variation = &"PanelWithBorder"
+
+[node name="MarginContainer" type="MarginContainer" parent="BattleSimTutorial/ThirdStep/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleSimTutorial/ThirdStep/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BattleSimTutorial/ThirdStep/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Select the hero you want to control"
+
+[node name="FourthStep" type="PanelContainer" parent="BattleSimTutorial"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"PanelWithBorder"
+
+[node name="MarginContainer" type="MarginContainer" parent="BattleSimTutorial/FourthStep"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleSimTutorial/FourthStep/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BattleSimTutorial/FourthStep/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"HeaderMedium"
+text = "You can click where you want the hero to go, or what you want them to attack
+When ready:"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="BattleSimTutorial/FourthStep/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Next step"
+
+[node name="FifthStep" type="PanelContainer" parent="BattleSimTutorial"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"PanelWithBorder"
+
+[node name="MarginContainer" type="MarginContainer" parent="BattleSimTutorial/FifthStep"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleSimTutorial/FifthStep/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BattleSimTutorial/FifthStep/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"HeaderMedium"
+text = "In the menu under the heroes you can give the heroes commands!
+Try it out!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinishTutButton" type="Button" parent="BattleSimTutorial/FifthStep/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Finish Tutorial!"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -406,4 +575,8 @@ autoplay = "idle"
 [connection signal="pressed" from="WelcomeTutStep1/Control2/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="text_submitted" from="NicknameTutStep2/VBoxContainer/NicknameLineEdit" to="." method="_on_nickname_line_edit_text_submitted"]
 [connection signal="pressed" from="NicknameTutStep2/NicknameButton" to="." method="_on_nickname_button_pressed"]
-[connection signal="pressed" from="FinishStep/ClickBattleSetupStep/FinishTutorialButton" to="." method="_on_finish_tutorial_button_pressed"]
+[connection signal="pressed" from="FinishFirstStep/ClickBattleSetupStep/PanelContainer/MarginContainer/FinishFirstTutorialButton" to="." method="_on_finish_first_tutorial_button_pressed"]
+[connection signal="pressed" from="BattleSimTutorial/FirstStep/MarginContainer/VBoxContainer/Button" to="." method="handle_next_step"]
+[connection signal="pressed" from="BattleSimTutorial/SecondStep/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="handle_next_step"]
+[connection signal="pressed" from="BattleSimTutorial/FourthStep/MarginContainer/VBoxContainer/Button" to="." method="handle_next_step"]
+[connection signal="pressed" from="BattleSimTutorial/FifthStep/MarginContainer/VBoxContainer/FinishTutButton" to="." method="_on_finish_tut_button_pressed"]

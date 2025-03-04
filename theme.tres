@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://cfioapweow33c"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://cfioapweow33c"]
 
 [ext_resource type="FontFile" uid="uid://qtceburuli1a" path="res://assets/fonts/bangers_regular.ttf" id="1_1raky"]
 [ext_resource type="FontFile" uid="uid://bcny1bgbhjhmt" path="res://assets/fonts/fredoka_variablefont.ttf" id="1_qajaw"]
@@ -47,6 +47,23 @@ content_margin_top = 5.0
 content_margin_right = 50.0
 content_margin_bottom = 5.0
 bg_color = Color(0.0705882, 0.462745, 0.529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6njs"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 50.0
+expand_margin_top = 50.0
 
 [resource]
 AlphaPanel/base_type = &"PanelContainer"
@@ -99,3 +116,4 @@ TabContainer/font_sizes/font_size = 32
 TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_401ko")
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_ovgs0")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_5o343")
+TooltipLabel/styles/normal = SubResource("StyleBoxFlat_p6njs")

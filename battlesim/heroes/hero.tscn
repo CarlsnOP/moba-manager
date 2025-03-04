@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b8drdvlieafiq"]
+[gd_scene load_steps=38 format=3 uid="uid://b8drdvlieafiq"]
 
 [ext_resource type="Script" path="res://battlesim/heroes/hero.gd" id="1_2aodq"]
 [ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/eddy_the_jungler.png" id="1_qj134"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://battlesim/components/flash_component.gd" id="5_uul06"]
 [ext_resource type="Script" path="res://battlesim/components/hitbox_component.gd" id="6_rsfbi"]
 [ext_resource type="Script" path="res://battlesim/components/hurt_box_component.gd" id="7_bpwuo"]
+[ext_resource type="Script" path="res://battlesim/components/hp_reg_component.gd" id="8_7yxxi"]
 [ext_resource type="Script" path="res://battlesim/components/move_component.gd" id="8_qj5y5"]
 [ext_resource type="Script" path="res://battlesim/components/navigation_component.gd" id="9_f2gqn"]
 [ext_resource type="Script" path="res://battlesim/components/outline_component.gd" id="10_7fy51"]
@@ -108,6 +109,10 @@ debug_color = Color(0.305882, 0.976471, 0.376471, 0.121569)
 offset_right = 4.0
 offset_bottom = 22.0
 script = ExtResource("14_uvgsd")
+stats_component = NodePath("../StatsComponent")
+
+[node name="HpRegComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component")]
+script = ExtResource("8_7yxxi")
 stats_component = NodePath("../StatsComponent")
 
 [node name="StatsComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]

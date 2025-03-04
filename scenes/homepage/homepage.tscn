@@ -104,17 +104,6 @@ texture_normal = SubResource("CompressedTexture2D_as2jp")
 texture_hover = SubResource("CompressedTexture2D_8r01q")
 ignore_texture_size = false
 
-[node name="MarginContainer" parent="GameCanvas/InterfaceMC/HB/Interface/Heroes" index="1"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
-
 [node name="TutorialPage" parent="GameCanvas" instance=ExtResource("7_802f6")]
 
 [node name="Utilities" type="Node" parent="."]

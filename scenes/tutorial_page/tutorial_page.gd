@@ -10,8 +10,14 @@ extends PanelContainer
 @onready var setup_team_step = %SetupTeamStep
 @onready var click_battle_setup_step = %ClickBattleSetupStep
 @onready var setup_both_heroes_step = %SetupBothHeroesStep
-@onready var finish_step = %FinishStep
+@onready var finish_first_step = %FinishFirstStep
 @onready var enter_to_continue_label = %EnterToContinueLabel
+@onready var first_step = %FirstStep
+@onready var second_step = %SecondStep
+@onready var third_step = %ThirdStep
+@onready var fourth_step = %FourthStep
+@onready var fifth_step = %FifthStep
+
 
 #Set to 1 for start of tutorial
 var tutorial_step := 1
@@ -19,12 +25,18 @@ var rubberducks_opened := 0
 
 func _ready():
 	show()
+	connect_signals()
+	match_step()
+
+func connect_signals() -> void:
 	SignalManager.new_interface.connect(check_interface)
 	SignalManager.rubberduck_clicked.connect(handle_rubber_duck_clicked)
 	SignalManager.hero_selected.connect(on_hero_selected)
+	var temp_button = get_tree().get_first_node_in_group("battle_manager_top_hero_button") as Button
+	var temp_button2 = get_tree().get_first_node_in_group("battle_manager_bot_hero_button") as Button
+	temp_button.pressed.connect(check_step)
+	temp_button2.pressed.connect(check_step)
 	
-	match_step()
-
 func match_step() -> void:
 	welcome_tut_step_1.hide()
 	
@@ -58,9 +70,29 @@ func match_step() -> void:
 		
 		7:
 			setup_team_step.hide()
-			finish_step.show()
+			finish_first_step.show()
 		
 		8:
+			finish_first_step.hide()
+			first_step.show()
+		
+		9:
+			first_step.hide()
+			second_step.show()
+		
+		10:
+			second_step.hide()
+			third_step.show()
+		
+		11:
+			third_step.hide()
+			fourth_step.show()
+		
+		12:
+			fourth_step.hide()
+			fifth_step.show()
+		
+		13:
 			queue_free()
 
 func check_interface(interface: int) -> void:
@@ -77,7 +109,10 @@ func check_interface(interface: int) -> void:
 	elif interface and tutorial_step == 6:
 		tutorial_step = 5
 		match_step()
-		
+
+func check_step() -> void:
+	if tutorial_step == 10:
+		handle_next_step()
 
 func handle_next_step() -> void:
 	tutorial_step += 1
@@ -146,7 +181,11 @@ func name_entered() -> void:
 		enter_to_continue_label.text = "Name has to be atleast 3 charecters!"
 		enter_to_continue_label.modulate = DataStorage.COLOR_RED
 
-func _on_finish_tutorial_button_pressed():
+func _on_finish_first_tutorial_button_pressed():
 	SignalManager.tutorial_finished.emit()
+	handle_next_step()
+
+func _on_finish_tut_button_pressed():
+	AchievementManager.tutorial_completed = true
 	AchievementManager.update_achievements()
 	handle_next_step()

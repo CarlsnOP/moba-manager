@@ -39,7 +39,7 @@ horizontal_alignment = 1
 [node name="HeroesHB" type="HBoxContainer" parent="MarginContainer/VB"]
 layout_mode = 2
 
-[node name="TopHeroButton" type="Button" parent="MarginContainer/VB/HeroesHB"]
+[node name="TopHeroButton" type="Button" parent="MarginContainer/VB/HeroesHB" groups=["battle_manager_top_hero_button"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -50,7 +50,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="BotHeroButton" type="Button" parent="MarginContainer/VB/HeroesHB"]
+[node name="BotHeroButton" type="Button" parent="MarginContainer/VB/HeroesHB" groups=["battle_manager_bot_hero_button"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

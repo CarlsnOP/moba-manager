@@ -91,6 +91,7 @@ func _on_pressed(event: InputEvent, equipment):
 			for possible_equipment in InventoryManager._all_equipment:
 				if possible_equipment == current_hero.equipped_equipment:
 					possible_equipment.quantity += 1
+					
 			
 		current_hero.equipped_equipment = new_equipment
 		new_equipment.quantity -= 1
@@ -101,6 +102,8 @@ func _on_pressed(event: InputEvent, equipment):
 			
 		equipment_container.hide()
 		StatsManager.update_multipliers()
+		
+		hero_page.update()
 
 func _on_close_items_button_pressed():
 	equipment_container.hide()
@@ -110,12 +113,13 @@ func _on_unequip_button_pressed():
 		if possible_item == current_hero.equipped_equipment:
 			current_hero.equipped_equipment = null
 			possible_item.quantity += 1
-	
+			
 	equipment_1_button.icon = ADD_EQUIPMENT
 	unequip_button.hide()
 	equipment_container.hide()
 	StatsManager.update_multipliers()
-
+	
+	hero_page.update()
 
 func _on_quit_button_pressed():
 	SignalManager.new_interface.emit(InterfaceManager.INTERFACE_STATE.BATTLESIM)

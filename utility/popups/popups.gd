@@ -21,6 +21,27 @@ func show_popup(slot: Rect2i, res: Resource):
 
 	resource_popup.popup(Rect2i(slot.position + correction, resource_popup.size))
 
+func show_specific_popup(slot: Rect2i, text: String) -> void:
+	
+	resource_popup.size = Vector2i.ZERO
+	
+	var mouse_pos = get_viewport().get_mouse_position()
+	var correction: Vector2i
+	var padding := 4
+	
+	if mouse_pos.x <= get_viewport_rect().size.x/2:
+		correction = Vector2i(slot.size.x + padding, 0)
+	else:
+		correction = -Vector2i(resource_popup.size.x + padding, 0)
+
+	resource_popup.popup(Rect2i(slot.position + correction, resource_popup.size))
+	
+	name_label.hide()
+	effect_label.hide()
+	description_label.text = text
+	description_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	description_label.custom_minimum_size.x = 600
+
 func hide_popup():
 	resource_popup.hide()
 
@@ -57,6 +78,7 @@ func set_value(res: Resource):
 
 				
 func reset_box() -> void:
+	name_label.show()
 	effect_label.show()
 	description_label.custom_minimum_size.x = 0
 	effect_label.autowrap_mode = TextServer.AUTOWRAP_OFF

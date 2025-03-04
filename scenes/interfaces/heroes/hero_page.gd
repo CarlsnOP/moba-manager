@@ -12,9 +12,11 @@ extends PanelContainer
 @onready var dodge_label: Label = %DodgeLabel
 @onready var block_label: Label = %blockLabel
 @onready var crit_label: Label = %CritLabel
-@onready var name_2_label = %Name2Label
-@onready var type_label = %TypeLabel
-@onready var lore_label = %LoreLabel
+@onready var attack_speed_label = %AttackSpeedLabel
+@onready var movement_speed_label = %MovementSpeedLabel
+@onready var attack_range_label = %AttackRangeLabel
+@onready var hp_reg_label = %HpRegLabel
+@onready var lore_pc = %LorePC
 @onready var texture_rect = %TextureRect
 @onready var skill_slot: PanelContainer = %SkillSlot
 
@@ -36,18 +38,8 @@ func setup(hero: HeroResource):
 	update()
 	#Labels
 	name_label.text = hero.hero_name
-	name_2_label.text = "Name: %s" % hero.hero_name
-	for h in StatsManager.hero_specific_stats:
-		if h["hero"] == hero:
-			health_label.text = "Health: %s" % str(h["health"])
-			damage_label.text = "Attack Damage: %s" % str(h["damage"])
-			ability_power_label.text = "Ability Power: %s" % str(h["health_reg"])
-			dodge_label.text = "Dodge chance: " +  str(h["dodge"] * 100) + "%"
-			block_label.text = "Block chance: " +  str(h["block"] * 100) + "%"
-			crit_label.text = "Crit chance: " +  str(h["crit"] * 100) + "%"
-	type_label.text = "Type: %s" % hero.type
-	lore_label.text = str(hero.lore)
 	texture_rect.texture = hero.hero_icon
+	
 	#setup skill popup
 	skill_slot.set_skill(hero.skill)
 
@@ -65,3 +57,26 @@ func update() -> void:
 		xp_progress_bar.min_value = current_threshold
 		xp_progress_bar.max_value = next_threshold
 		xp_progress_bar.value = current_xp
+		
+		setup_labels()
+
+func setup_labels() -> void:
+	for h in StatsManager.hero_specific_stats:
+			if h["hero"] == _hero:
+				health_label.text = "Health: %s" % str(h["health"])
+				hp_reg_label.text = "Health Regeneration: %s" % str(h["health_reg"])
+				damage_label.text = "Attack Damage: %s" % str(h["damage"])
+				ability_power_label.text = "Ability Power: %s" % str(h["ability_power"])
+				dodge_label.text = "Dodge chance: " +  str(h["dodge"] * 100) + "%"
+				block_label.text = "Block chance: " +  str(h["block"] * 100) + "%"
+				crit_label.text = "Crit chance: " +  str(h["crit"] * 100) + "%"
+				movement_speed_label.text = "Movement speed: " + str(h["move_speed"])
+				attack_speed_label.text = "Attack speed: " + str(h["att_speed"])
+				attack_range_label.text = "Attack range: " + str(h["att_range"])
+
+func _on_lore_pc_mouse_entered():
+	Popups.show_specific_popup(Rect2i( Vector2i(lore_pc.global_position), Vector2i(lore_pc.size)), _hero.lore)
+
+
+func _on_lore_pc_mouse_exited():
+		Popups.hide_popup()

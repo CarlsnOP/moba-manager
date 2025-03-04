@@ -169,7 +169,7 @@ alignment = 0
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="RubberDuckButton" type="TextureButton" parent="PC/MC/VB/HBoxContainer3/Control" groups=["sound_button"]]
+[node name="RubberDuckButton" type="TextureButton" parent="PC/MC/VB/HBoxContainer3/Control" groups=["sound_button", "tut_open_duck"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 1

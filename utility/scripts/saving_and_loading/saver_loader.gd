@@ -51,7 +51,7 @@ func save_tutorial_step(saved_game: SavedGame) -> void:
 		if tutorial_ref.tutorial_step == 7:
 			saved_game.current_tut_step = 8
 	else:
-		saved_game.current_tut_step = 8
+		saved_game.current_tut_step = 13
 
 #loading functionality
 func load_game():
@@ -90,6 +90,8 @@ func load_vars(saved_game: SavedGame) -> void:
 	var shop_ref = get_tree().get_first_node_in_group("shop") as Shop
 	
 	tutorial_ref.tutorial_step = saved_game.current_tut_step
+	if tutorial_ref.tutorial_step == 13:
+		AchievementManager.tutorial_completed = true
 	tutorial_ref.rubberducks_opened = saved_game.ducks_opened
 	tutorial_ref.match_step()
 	shop_ref.set_upgrade_levels(saved_game.shop_upgrade_levels)

@@ -64,7 +64,25 @@ func on_battle_end(_win: bool) -> void:
 func update_displays() -> void:
 	loot_grid.display_recipe(_selected_equipment.ingredients, _selected_equipment.amounts)
 	equipment_grid.display_result(_results)
+	
+	for i in range(equipment_list.get_item_count()):
+		var equipment = equipment_list.get_item_metadata(i)
+		if check_can_craft_for_equipment(equipment):
+			equipment_list.set_item_custom_bg_color(i, Color("#a5bcbd"))
+		else:
+			equipment_list.set_item_custom_bg_color(i, Color("#a45259"))
+	
 	check_can_craft()
+
+func check_can_craft_for_equipment(equipment: EquipmentResource) -> bool:
+	for i in equipment.ingredients.size():
+		var ingredient = equipment.ingredients[i]
+		var required_amount = equipment.amounts[i]
+
+		if ingredient.quantity < required_amount:
+			return false
+	
+	return true
 
 func check_can_craft() -> bool:
 	craft_button.disabled = true

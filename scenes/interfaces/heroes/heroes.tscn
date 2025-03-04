@@ -32,254 +32,295 @@ columns = 4
 [node name="QuitButton" parent="PC/MC" index="1"]
 unique_name_in_owner = true
 
-[node name="MarginContainer" type="MarginContainer" parent="." index="1"]
-layout_mode = 2
-offset_left = 15.0
-offset_top = 15.0
-offset_right = 1905.0
-offset_bottom = 1065.0
+[node name="MarginContainer1" type="MarginContainer" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="HeroPage" type="PanelContainer" parent="MarginContainer" index="0" groups=["update_post_match"]]
+[node name="HeroPage" type="PanelContainer" parent="MarginContainer1" index="0" groups=["update_post_match"]]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"PanelWithBorder"
 script = ExtResource("4_iqvvf")
 
-[node name="MC" type="MarginContainer" parent="MarginContainer/HeroPage" index="0"]
+[node name="MC" type="MarginContainer" parent="MarginContainer1/HeroPage" index="0"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HeroPage/MC" index="0"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer1/HeroPage/MC" index="0"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HeroPage/MC/HBoxContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer1/HeroPage/MC/HBoxContainer" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer" index="0"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer" index="0"]
 layout_mode = 2
 
-[node name="VB" type="VBoxContainer" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer" index="0"]
+[node name="VB" type="VBoxContainer" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 theme_override_constants/separation = 10
 
-[node name="NameLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="0"]
+[node name="NameLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Hej"
 
-[node name="LvlLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="1"]
+[node name="LvlLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "lvl"
 
-[node name="HB6" type="HBoxContainer" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="2"]
+[node name="HB6" type="HBoxContainer" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="2"]
 layout_mode = 2
 
-[node name="XPLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB6" index="0"]
+[node name="XPLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB6" index="0"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "XP"
 
-[node name="XpProgressBar" type="ProgressBar" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB6" index="1"]
+[node name="XpProgressBar" type="ProgressBar" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB6" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="Control" type="Control" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB6" index="2"]
+[node name="Control" type="Control" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB6" index="2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="StatsPointsLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="3"]
+[node name="StatsPointsLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="3"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Stats"
 
-[node name="HB" type="HBoxContainer" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="4"]
+[node name="HB" type="HBoxContainer" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="4"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB" index="0"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB" index="0"]
 layout_mode = 2
 texture = ExtResource("5_wiflx")
 expand_mode = 2
 
-[node name="HealthLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB" index="1"]
+[node name="HealthLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Health: "
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB" index="2"]
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB" index="2"]
 layout_mode = 2
 texture = ExtResource("6_bd04n")
 expand_mode = 2
 
-[node name="DodgeLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB" index="3"]
+[node name="HpRegLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB" index="3"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
-text = "Dodge chance:"
+text = "Health Regeneration:"
 
-[node name="HB2" type="HBoxContainer" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="5"]
+[node name="HB2" type="HBoxContainer" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="5"]
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB2" index="0"]
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB2" index="0"]
 layout_mode = 2
 texture = ExtResource("6_tmxtq")
 expand_mode = 2
 
-[node name="DamageLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB2" index="1"]
+[node name="DamageLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB2" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Attack Damage: "
 
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB2" index="2"]
-layout_mode = 2
-texture = ExtResource("7_xldar")
-expand_mode = 2
-
-[node name="blockLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB2" index="3"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"HeaderSmall"
-text = "Block chance:"
-
-[node name="HB5" type="HBoxContainer" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="6"]
-layout_mode = 2
-
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB5" index="0"]
-layout_mode = 2
-texture = ExtResource("7_4mw7m")
-expand_mode = 2
-
-[node name="AbilityPowerLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB5" index="1"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"HeaderSmall"
-text = "Ability Power: "
-
-[node name="TextureRect4" type="TextureRect" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB5" index="2"]
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB2" index="2"]
 layout_mode = 2
 texture = ExtResource("9_vqa2x")
 expand_mode = 2
 
-[node name="CritLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB5" index="3"]
+[node name="CritLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB2" index="3"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Crit chance:"
 
-[node name="VB2" type="VBoxContainer" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer" index="1"]
+[node name="HB5" type="HBoxContainer" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="6"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB5" index="0"]
+layout_mode = 2
+texture = ExtResource("7_4mw7m")
+expand_mode = 2
+
+[node name="AbilityPowerLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB5" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "Ability Power: "
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB5" index="2"]
+layout_mode = 2
+texture = ExtResource("6_bd04n")
+expand_mode = 2
+
+[node name="DodgeLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB5" index="3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "Dodge chance:"
+
+[node name="HB7" type="HBoxContainer" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="7"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB7" index="0"]
+layout_mode = 2
+texture = ExtResource("6_bd04n")
+expand_mode = 2
+
+[node name="AttackSpeedLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB7" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "Attack speed:"
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB7" index="2"]
+layout_mode = 2
+texture = ExtResource("7_xldar")
+expand_mode = 2
+
+[node name="blockLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB7" index="3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "Block chance:"
+
+[node name="HB8" type="HBoxContainer" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="8"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB8" index="0"]
+layout_mode = 2
+texture = ExtResource("6_bd04n")
+expand_mode = 2
+
+[node name="AttackRangeLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB8" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "Attack range:"
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB8" index="2"]
+layout_mode = 2
+texture = ExtResource("6_bd04n")
+expand_mode = 2
+
+[node name="MovementSpeedLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/HB8" index="3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "Movement speed:"
+
+[node name="LorePC" type="PanelContainer" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB" index="9"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+tooltip_text = "Eddy was once just an ordinary kid with a love for exploring the wildest parts of the neighborhood. But one day, he stumbled upon a mysterious, enchanted scythe deep within a forgotten forest. The moment he touched it, Eddy was transformed into something... well, a bit crazier. Now, with a wicked grin permanently plastered on his face and a scythe that seems to have a mind of its own, Eddy roams the jungle like it’s his playground. He delights in ambushing unsuspecting foes, darting in and out of the shadows with wild laughter echoing behind him. Though his sanity might be questionable, his skills in the jungle are unmatched, and he’s always ready to leap into the fray when his team needs him most."
+theme_type_variation = &"PanelWithBorder"
+
+[node name="LoreLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/LorePC" index="0"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Lore"
+
+[node name="VB2" type="VBoxContainer" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer" index="1"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Spacer2" type="Control" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB2" index="0"]
+[node name="Spacer2" type="Control" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB2" index="0"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB2" index="1"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB2" index="1"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB2/MarginContainer" index="0"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB2/MarginContainer" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("5_omhe7")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="Name2Label" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB2" index="2"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-theme_type_variation = &"HeaderMedium"
-text = "Name"
-
-[node name="TypeLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB2" index="3"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-theme_type_variation = &"HeaderSmall"
-text = "Type"
-
-[node name="Spacer" type="Control" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB2" index="4"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer" index="1"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer" index="1"]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer" index="0"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer" index="0"]
 layout_mode = 2
 
-[node name="SkillsLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer2" index="0"]
+[node name="SkillsLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer2" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderMedium"
 text = "Skill:"
 
-[node name="ItemsLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer2" index="1"]
+[node name="ItemsLabel" type="Label" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer2" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderMedium"
 text = "Equipped Items"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer" index="1"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer" index="1"]
 layout_mode = 2
 
-[node name="SkillSlot" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer3" index="0" instance=ExtResource("8_d3csg")]
+[node name="SkillSlot" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer3" index="0" instance=ExtResource("8_d3csg")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Spacer" type="Control" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer3" index="1"]
+[node name="Spacer" type="Control" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer3" index="1"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Equipment1Button" type="Button" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer3" index="2"]
+[node name="Equipment1Button" type="Button" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer3" index="2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 icon = ExtResource("9_w1wtq")
 expand_icon = true
 
-[node name="Spacer2" type="Control" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer3" index="3"]
+[node name="Spacer2" type="Control" parent="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer3" index="3"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LoreLabel" type="Label" parent="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer" index="2"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Eddy was once just an ordinary kid with a love for exploring the wildest parts of the neighborhood. But one day, he stumbled upon a mysterious, enchanted scythe deep within a forgotten forest. The moment he touched it, Eddy was transformed into something... well, a bit crazier. Now, with a wicked grin permanently plastered on his face and a scythe that seems to have a mind of its own, Eddy roams the jungle like it’s his playground. He delights in ambushing unsuspecting foes, darting in and out of the shadows with wild laughter echoing behind him. Though his sanity might be questionable, his skills in the jungle are unmatched, and he’s always ready to leap into the fray when his team needs him most."
-autowrap_mode = 3
-
-[node name="ExitButton" type="TextureButton" parent="MarginContainer/HeroPage" index="1" groups=["sound_button"]]
+[node name="ExitButton" type="TextureButton" parent="MarginContainer1/HeroPage" index="1" groups=["sound_button"]]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -341,7 +382,9 @@ text = "UN-EQUIP"
 expand_icon = true
 
 [connection signal="pressed" from="PC/MC/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer3/Equipment1Button" to="." method="_on_equipment_1_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HeroPage/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/LorePC" to="MarginContainer1/HeroPage" method="_on_lore_pc_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/HBoxContainer/VB/LorePC" to="MarginContainer1/HeroPage" method="_on_lore_pc_mouse_exited"]
+[connection signal="pressed" from="MarginContainer1/HeroPage/MC/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer3/Equipment1Button" to="." method="_on_equipment_1_button_pressed"]
+[connection signal="pressed" from="MarginContainer1/HeroPage/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="EquipmentContainer/VB/HBoxContainer/CloseItemsButton" to="." method="_on_close_items_button_pressed"]
 [connection signal="pressed" from="EquipmentContainer/VB/UnequipButton" to="." method="_on_unequip_button_pressed"]
