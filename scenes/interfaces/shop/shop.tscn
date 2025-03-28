@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://dohoeyh7ryecs"]
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interfaces/interface_base.tscn" id="1_xn5ee"]
-[ext_resource type="Script" path="res://scenes/interfaces/shop/shop.gd" id="2_2sld0"]
-[ext_resource type="Script" path="res://scenes/interfaces/shop/tab_container.gd" id="2_nt871"]
-[ext_resource type="Script" path="res://scenes/interfaces/shop/grid_container.gd" id="3_68gb3"]
+[ext_resource type="Script" uid="uid://cvsaokh8vcqw2" path="res://scenes/interfaces/shop/shop.gd" id="2_2sld0"]
+[ext_resource type="Script" uid="uid://bt3m3t6lj76xh" path="res://scenes/interfaces/shop/tab_container.gd" id="2_nt871"]
+[ext_resource type="Script" uid="uid://csm7k64i6smgn" path="res://scenes/interfaces/shop/grid_container.gd" id="3_68gb3"]
 [ext_resource type="PackedScene" uid="uid://6ajppifq35c5" path="res://scenes/slots/SellSlot/sell_slot.tscn" id="4_0gocv"]
 [ext_resource type="PackedScene" uid="uid://cy236s1d03tuk" path="res://scenes/interfaces/shop/buy_hero_rubber_ducky.tscn" id="4_020wa"]
-[ext_resource type="Script" path="res://scenes/interfaces/shop/goods_list_vb.gd" id="4_chtoj"]
+[ext_resource type="Script" uid="uid://djayik5b4oglu" path="res://scenes/interfaces/shop/goods_list_vb.gd" id="4_chtoj"]
 [ext_resource type="PackedScene" uid="uid://b7xk801hs8b3" path="res://scenes/slots/incremental_upgrade_slot/incremental_upgrade_slot.tscn" id="5_pg13w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ijh1"]

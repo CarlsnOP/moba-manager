@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dfgru6ciat4rq"]
 
-[ext_resource type="Script" path="res://battlesim/map/stage_manager.gd" id="1_hti5a"]
+[ext_resource type="Script" uid="uid://s2bda6seugpr" path="res://battlesim/map/stage_manager.gd" id="1_hti5a"]
 
 [node name="StageManager" type="Control"]
 layout_mode = 3

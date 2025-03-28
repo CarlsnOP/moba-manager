@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bfwqeq68wq1g2"]
 
-[ext_resource type="Script" path="res://scenes/rubber_ducky_page/rubber_ducky_page.gd" id="1_uplay"]
+[ext_resource type="Script" uid="uid://ry0wy7hp3jp4" path="res://scenes/rubber_ducky_page/rubber_ducky_page.gd" id="1_uplay"]
 
 [node name="RubberDuckyPage" type="Control" groups=["rubber_ducky_page"]]
 layout_mode = 3

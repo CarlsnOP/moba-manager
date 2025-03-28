@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://df11rwqd2srmf" path="res://assets/art/characters/bullies/bruce.png" id="1_3v36q"]
 [ext_resource type="Texture2D" uid="uid://crr23ptdcw80o" path="res://assets/art/characters/enemy_heroes_portraits/bruce_circle_portrait.png" id="2_p5eu5"]
-[ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="3_umgo2"]
+[ext_resource type="Script" uid="uid://b6gm75a04utyu" path="res://resources/heroes/hero_resource.gd" id="3_umgo2"]
 
 [resource]
 script = ExtResource("3_umgo2")

@@ -97,6 +97,9 @@ func _on_pressed(event: InputEvent, equipment):
 		new_equipment.quantity -= 1
 		equipment_1_button.icon = new_equipment.icon
 		
+		if current_hero.in_team:
+			SignalManager.show_change_warning.emit()
+		
 		if !unequip_button.visible:
 			unequip_button.show()
 			
@@ -120,6 +123,9 @@ func _on_unequip_button_pressed():
 	StatsManager.update_multipliers()
 	
 	hero_page.update()
+	
+	if current_hero.in_team:
+		SignalManager.show_change_warning.emit()
 
 func _on_quit_button_pressed():
 	SignalManager.new_interface.emit(InterfaceManager.INTERFACE_STATE.BATTLESIM)

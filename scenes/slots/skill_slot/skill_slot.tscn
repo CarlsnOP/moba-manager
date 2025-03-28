@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bh6i5ssmhkhq"]
 
-[ext_resource type="Script" path="res://scenes/slots/skill_slot/skill_slot.gd" id="1_nx1ay"]
+[ext_resource type="Script" uid="uid://bgj5sisde234x" path="res://scenes/slots/skill_slot/skill_slot.gd" id="1_nx1ay"]
 
 [node name="SkillSlot" type="PanelContainer"]
 offset_right = 150.0

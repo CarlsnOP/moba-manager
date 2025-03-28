@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AchievementResource" load_steps=3 format=3 uid="uid://b60b8kd4jndv8"]
 
-[ext_resource type="Script" path="res://resources/achievements/achievement_resource.gd" id="1_brptb"]
-[ext_resource type="Script" path="res://resources/achievements/achievement_scripts/heroic_dedication_script.gd" id="1_w6ujq"]
+[ext_resource type="Script" uid="uid://chd5hri3yagig" path="res://resources/achievements/achievement_resource.gd" id="1_brptb"]
+[ext_resource type="Script" uid="uid://d0shnfv57r74o" path="res://resources/achievements/achievement_scripts/heroic_dedication_script.gd" id="1_w6ujq"]
 
 [resource]
 script = ExtResource("1_brptb")

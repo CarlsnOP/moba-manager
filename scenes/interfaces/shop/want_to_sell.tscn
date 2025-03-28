@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://wplmcs5gbc4e"]
 
 [ext_resource type="Texture2D" uid="uid://d4dx7mttypx36" path="res://assets/art/loot/rusty_spoon.webp" id="1_gommm"]
-[ext_resource type="Script" path="res://scenes/interfaces/shop/want_to_sell.gd" id="1_xf1vv"]
+[ext_resource type="Script" uid="uid://cupahrxi3d1xg" path="res://scenes/interfaces/shop/want_to_sell.gd" id="1_xf1vv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q06qu"]
 content_margin_top = 10.0

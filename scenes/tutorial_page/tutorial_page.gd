@@ -182,7 +182,7 @@ func name_entered() -> void:
 		enter_to_continue_label.modulate = DataStorage.COLOR_RED
 
 func _on_finish_first_tutorial_button_pressed():
-	SignalManager.tutorial_finished.emit()
+	SignalManager.restart_match.emit()
 	handle_next_step()
 
 func _on_finish_tut_button_pressed():

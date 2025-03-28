@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SkillResource" load_steps=6 format=3 uid="uid://benvpqfdnowsj"]
 
-[ext_resource type="Script" path="res://resources/skills/skill_scripts/explosive_finale_script.gd" id="1_oao7l"]
-[ext_resource type="Script" path="res://resources/skills/skill_resource.gd" id="2_q7bs1"]
+[ext_resource type="Script" uid="uid://df0usukx4ndki" path="res://resources/skills/skill_scripts/explosive_finale_script.gd" id="1_oao7l"]
+[ext_resource type="Script" uid="uid://dx6hdjfmjki2d" path="res://resources/skills/skill_resource.gd" id="2_q7bs1"]
 [ext_resource type="Texture2D" uid="uid://cb6f1n4ho42k" path="res://assets/art/skills/explosive_finale.png" id="2_tr5vx"]
 [ext_resource type="Resource" uid="uid://dutotoraaeema" path="res://resources/projectiles/explosive_finale_projectile.tres" id="3_1otls"]
 [ext_resource type="Texture2D" uid="uid://dy4mws0m5m1v0" path="res://assets/art/skills/extra/explosive_finale_portrait.png" id="3_3bgmk"]

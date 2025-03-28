@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://cb1cfmmoj3max"]
 
 [ext_resource type="Texture2D" uid="uid://csadibmdcna53" path="res://assets/art/loot/lucky_horseshoe.webp" id="1_l3tg0"]
-[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_cxi6g"]
+[ext_resource type="Script" uid="uid://de2sohbirm5h7" path="res://resources/items/loot_resource.gd" id="2_cxi6g"]
 
 [resource]
 script = ExtResource("2_cxi6g")

@@ -14,7 +14,7 @@ offsets = PackedFloat32Array(0, 0.125683, 0.868852, 1)
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Curve" id="Curve_rtf6b"]
-max_value = 200.0
+_limits = [0.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0663507, 37.3626), 0.0, 0.0, 0, 0, Vector2(0.322275, 61.5385), 0.0, 0.0, 0, 0, Vector2(0.729858, 76.9231), 0.0, 0.0, 0, 0, Vector2(1, 118.681), 0.0, 0.0, 0, 0]
 point_count = 5
 

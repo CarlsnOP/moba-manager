@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AchievementResource" load_steps=3 format=3 uid="uid://ijt7hv4jpiro"]
 
-[ext_resource type="Script" path="res://resources/achievements/achievement_resource.gd" id="1_ckf2n"]
-[ext_resource type="Script" path="res://resources/achievements/achievement_scripts/tutorial_king_script.gd" id="1_k51kc"]
+[ext_resource type="Script" uid="uid://chd5hri3yagig" path="res://resources/achievements/achievement_resource.gd" id="1_ckf2n"]
+[ext_resource type="Script" uid="uid://dd1v6nrubjooq" path="res://resources/achievements/achievement_scripts/tutorial_king_script.gd" id="1_k51kc"]
 
 [resource]
 script = ExtResource("1_ckf2n")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7xk801hs8b3"]
 
 [ext_resource type="Texture2D" uid="uid://unb6f6nrf3" path="res://assets/art/ui/questionmark.png" id="1_j6hmk"]
-[ext_resource type="Script" path="res://scenes/slots/incremental_upgrade_slot/incremental_upgrade_slot.gd" id="1_ombfr"]
+[ext_resource type="Script" uid="uid://dwgreigd0csgb" path="res://scenes/slots/incremental_upgrade_slot/incremental_upgrade_slot.gd" id="1_ombfr"]
 
 [node name="IncrementalUpgradeSlot" type="PanelContainer"]
 offset_right = 1396.0

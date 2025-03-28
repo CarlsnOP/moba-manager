@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ProjectileResource" load_steps=3 format=3 uid="uid://cfbor82sneoiy"]
 
-[ext_resource type="Script" path="res://resources/projectiles/projectile_resource.gd" id="1_7vlt2"]
+[ext_resource type="Script" uid="uid://dp2aypwdmrlg" path="res://resources/projectiles/projectile_resource.gd" id="1_7vlt2"]
 [ext_resource type="Texture2D" uid="uid://48tl8ktjt0qb" path="res://assets/art/skills/extra/mystic_overflow_projectile.png" id="2_gdkty"]
 
 [resource]

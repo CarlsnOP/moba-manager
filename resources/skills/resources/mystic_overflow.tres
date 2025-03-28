@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="SkillResource" load_steps=6 format=3 uid="uid://b3qrlq02niuy7"]
 
-[ext_resource type="Script" path="res://resources/skills/skill_scripts/mystic_overflow_script.gd" id="1_17n77"]
+[ext_resource type="Script" uid="uid://cu3gtykbhrodc" path="res://resources/skills/skill_scripts/mystic_overflow_script.gd" id="1_17n77"]
 [ext_resource type="Texture2D" uid="uid://dd7lbeebw4mxm" path="res://assets/art/skills/mystic_overflow.png" id="1_ddyx7"]
-[ext_resource type="Script" path="res://resources/skills/skill_resource.gd" id="2_g4lrl"]
+[ext_resource type="Script" uid="uid://dx6hdjfmjki2d" path="res://resources/skills/skill_resource.gd" id="2_g4lrl"]
 [ext_resource type="Texture2D" uid="uid://bujxyvo6mne0a" path="res://assets/art/skills/extra/mystic_overflow_portrait.png" id="3_a08ix"]
 [ext_resource type="Resource" uid="uid://cfbor82sneoiy" path="res://resources/projectiles/mystic_overflow_projectile.tres" id="3_qw38k"]
 

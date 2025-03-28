@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dwj0640l7livv"]
 
-[ext_resource type="Script" path="res://scenes/tutorial_page/tutorial_page.gd" id="1_oblpi"]
+[ext_resource type="Script" uid="uid://k1wo2f3xhtg1" path="res://scenes/tutorial_page/tutorial_page.gd" id="1_oblpi"]
 [ext_resource type="Texture2D" uid="uid://dovp0xy6r5j0u" path="res://assets/art/ui/arrow_right.png" id="1_tuhea"]
 [ext_resource type="Texture2D" uid="uid://c006my5hm6ytn" path="res://assets/art/ui/arrow_left.png" id="3_wkaeu"]
 
@@ -90,7 +90,7 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vnox7"]
 _data = {
-"idle": SubResource("Animation_ftvrh")
+&"idle": SubResource("Animation_ftvrh")
 }
 
 [node name="TutorialPage" type="PanelContainer" groups=["tutorial"]]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b42lmw1fswytk"]
 
-[ext_resource type="Script" path="res://battlesim/effects/basic_particles.gd" id="1_cnfyd"]
+[ext_resource type="Script" uid="uid://bomwa6cck66no" path="res://battlesim/effects/basic_particles.gd" id="1_cnfyd"]
 [ext_resource type="Texture2D" uid="uid://c53exnova0opj" path="res://assets/art/skills/extra/crushing_blow_particles.png" id="2_w1aj6"]
 
 [sub_resource type="Gradient" id="Gradient_drao8"]

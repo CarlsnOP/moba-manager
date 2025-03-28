@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://dig15c1l3ivch"]
 
 [ext_resource type="Texture2D" uid="uid://d4dx7mttypx36" path="res://assets/art/loot/rusty_spoon.webp" id="1_8q53f"]
-[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_tl0gj"]
+[ext_resource type="Script" uid="uid://de2sohbirm5h7" path="res://resources/items/loot_resource.gd" id="2_tl0gj"]
 
 [resource]
 script = ExtResource("2_tl0gj")

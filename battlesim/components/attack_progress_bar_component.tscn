@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bbcg6kuci8owu" path="res://assets/art/map/attack_progress_bar_empty.png" id="1_h2qvy"]
 [ext_resource type="Texture2D" uid="uid://ddos0lkmuvosx" path="res://assets/art/map/attack_progress_bar_full.png" id="2_6uyxg"]
-[ext_resource type="Script" path="res://battlesim/components/attack_progress_bar_component.gd" id="3_ilghe"]
+[ext_resource type="Script" uid="uid://bvbej85o771vp" path="res://battlesim/components/attack_progress_bar_component.gd" id="3_ilghe"]
 
 [node name="AttackProgressBarComponent" type="TextureProgressBar"]
 offset_right = 256.0

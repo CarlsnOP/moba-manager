@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://fgfie74mjqjs"]
 
-[ext_resource type="Script" path="res://scenes/interfaces/battle_manager/battle_manager.gd" id="1_xnjbi"]
+[ext_resource type="Script" uid="uid://culwjeie83edl" path="res://scenes/interfaces/battle_manager/battle_manager.gd" id="1_xnjbi"]
 [ext_resource type="Texture2D" uid="uid://bov1hs5fvyh28" path="res://assets/art/characters/team_heroes_portraits/eddy_circle_portrait.png" id="2_dgssy"]
 [ext_resource type="PackedScene" uid="uid://cjyqwudsqgmsu" path="res://scenes/interfaces/home/log_entry.tscn" id="2_r54ea"]
 [ext_resource type="PackedScene" uid="uid://dfgru6ciat4rq" path="res://battlesim/utility/stage_manager/stage_manager.tscn" id="4_ehwv0"]
@@ -130,12 +130,14 @@ layout_mode = 2
 text = "Retreat to Nexus"
 
 [node name="EndBattleButton" type="Button" parent="MarginContainer/VB"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 10
 text = "End battle"
 flat = true
 
 [node name="FastForwardButton" type="Button" parent="MarginContainer/VB"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 8
 text = "Speed up X4"

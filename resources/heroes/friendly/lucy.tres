@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bo5ya82c5uqv6" path="res://assets/art/characters/lucy_the_healer.png" id="1_gd0g0"]
 [ext_resource type="Texture2D" uid="uid://cefylok17tfun" path="res://assets/art/characters/team_heroes_portraits/lucy_circle_portrait.png" id="2_ckiow"]
-[ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="3_xcq87"]
+[ext_resource type="Script" uid="uid://b6gm75a04utyu" path="res://resources/heroes/hero_resource.gd" id="3_xcq87"]
 [ext_resource type="Resource" uid="uid://cjpdx85iqtob4" path="res://resources/skills/resources/second_chance.tres" id="4_pfe44"]
 
 [resource]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://b5mep53bqhlrk"]
 
 [ext_resource type="Texture2D" uid="uid://c82akoyw0qcep" path="res://assets/art/ui/Rubberduck.png" id="1_aegs1"]
-[ext_resource type="Script" path="res://scenes/rubber_ducky_page/rubber_ducky_button.gd" id="2_4f77f"]
+[ext_resource type="Script" uid="uid://2djgb1buuinf" path="res://scenes/rubber_ducky_page/rubber_ducky_button.gd" id="2_4f77f"]
 [ext_resource type="Texture2D" uid="uid://8i3pj215u3j6" path="res://assets/art/ui/rubberduck_fragment.png" id="3_pyk5f"]
 [ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/eddy_the_jungler.png" id="4_80tm8"]
 [ext_resource type="Texture2D" uid="uid://i04xwwg61loo" path="res://assets/art/particles/random_selection.png" id="4_ghef2"]
@@ -68,9 +68,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qv6m6"]
 _data = {
-"RESET": SubResource("Animation_0b2a4"),
-"pop": SubResource("Animation_fg7pc"),
-"tapped": SubResource("Animation_f4vid")
+&"RESET": SubResource("Animation_0b2a4"),
+&"pop": SubResource("Animation_fg7pc"),
+&"tapped": SubResource("Animation_f4vid")
 }
 
 [sub_resource type="Gradient" id="Gradient_gufg5"]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="SkillResource" load_steps=5 format=3 uid="uid://di7wcfodht8h7"]
 
-[ext_resource type="Script" path="res://resources/skills/skill_scripts/crushing_blow_script.gd" id="1_1waha"]
+[ext_resource type="Script" uid="uid://bjijnjn30rgrj" path="res://resources/skills/skill_scripts/crushing_blow_script.gd" id="1_1waha"]
 [ext_resource type="Texture2D" uid="uid://djynu0f5rncvi" path="res://assets/art/skills/crushing_blow.png" id="1_i08cv"]
-[ext_resource type="Script" path="res://resources/skills/skill_resource.gd" id="2_jsdjc"]
+[ext_resource type="Script" uid="uid://dx6hdjfmjki2d" path="res://resources/skills/skill_resource.gd" id="2_jsdjc"]
 [ext_resource type="Texture2D" uid="uid://01nxb5weomiu" path="res://assets/art/skills/extra/crushing_blow_portrait.png" id="3_tgm3n"]
 
 [resource]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b8fkla5rkmdyu"]
 
-[ext_resource type="Script" path="res://singletons/team_manager.gd" id="1_mrlwf"]
+[ext_resource type="Script" uid="uid://bvu3tjyjjise" path="res://singletons/team_manager.gd" id="1_mrlwf"]
 
 [node name="TeamManager" type="Node" groups=["game_events"]]
 script = ExtResource("1_mrlwf")

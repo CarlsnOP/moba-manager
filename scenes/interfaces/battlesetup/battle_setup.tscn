@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://dkdc3lgikvhio"]
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interfaces/interface_base.tscn" id="1_mn2md"]
-[ext_resource type="Script" path="res://scenes/interfaces/battlesetup/battle_setup.gd" id="2_ng1v2"]
+[ext_resource type="Script" uid="uid://dn6flytj2i140" path="res://scenes/interfaces/battlesetup/battle_setup.gd" id="2_ng1v2"]
 [ext_resource type="Texture2D" uid="uid://0jmm3api8fgm" path="res://assets/art/ui/arena.png" id="3_gu1wc"]
 [ext_resource type="PackedScene" uid="uid://lt08ltq12ss6" path="res://scenes/slots/hero_slot/hero_portrait_slot.tscn" id="3_uuksq"]
 [ext_resource type="Texture2D" uid="uid://ug5hh7ljyn0v" path="res://assets/art/ui/add_equipment.png" id="5_v70o4"]
 [ext_resource type="Texture2D" uid="uid://bhkgo38s51mvv" path="res://assets/art/ui/close.png" id="7_evjhb"]
-[ext_resource type="Script" path="res://scenes/interfaces/battlesetup/hero_menu.gd" id="7_j87wi"]
+[ext_resource type="Script" uid="uid://lc8hvmde22mg" path="res://scenes/interfaces/battlesetup/hero_menu.gd" id="7_j87wi"]
 [ext_resource type="Texture2D" uid="uid://dgopnap7cyd83" path="res://assets/art/ui/close_hover.png" id="8_xxtc8"]
 
 [node name="BattleSetup" groups=["game_events"] instance=ExtResource("1_mn2md")]

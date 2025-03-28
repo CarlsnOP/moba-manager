@@ -27,7 +27,7 @@ var top_lane: bool
 
 func _ready():
 	SignalManager.on_battle_end.connect(on_battle_end)
-	SignalManager.tutorial_finished.connect(start_battle_sim)
+	SignalManager.restart_match.connect(start_battle_sim)
 	
 	await get_tree().physics_frame
 	
@@ -35,6 +35,7 @@ func _ready():
 		start_battle_sim()
 
 func start_battle_sim() -> void:
+	game_launced = false
 	SignalManager.new_interface.emit(3)
 	on_battle_end(false)
 	game_launced = true

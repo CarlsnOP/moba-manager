@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AchievementResource" load_steps=3 format=3 uid="uid://o628jtiqjg5w"]
 
-[ext_resource type="Script" path="res://resources/achievements/achievement_scripts/perfect_strategist_script.gd" id="1_4l4bt"]
-[ext_resource type="Script" path="res://resources/achievements/achievement_resource.gd" id="1_t1rsv"]
+[ext_resource type="Script" uid="uid://coe3utdn42k56" path="res://resources/achievements/achievement_scripts/perfect_strategist_script.gd" id="1_4l4bt"]
+[ext_resource type="Script" uid="uid://chd5hri3yagig" path="res://resources/achievements/achievement_resource.gd" id="1_t1rsv"]
 
 [resource]
 script = ExtResource("1_t1rsv")

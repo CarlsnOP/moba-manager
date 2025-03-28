@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://b2uitoevl42b3"]
 
 [ext_resource type="Texture2D" uid="uid://0jmm3api8fgm" path="res://assets/art/ui/arena.png" id="1_ifuak"]
-[ext_resource type="Script" path="res://battlesim/map/map.gd" id="2_qjnf3"]
+[ext_resource type="Script" uid="uid://c1tcj2cpfi1iv" path="res://battlesim/map/map.gd" id="2_qjnf3"]
 [ext_resource type="PackedScene" uid="uid://cpkmpqcwgpdlu" path="res://battlesim/navigation_map/navigation_map.tscn" id="3_m4rwa"]
-[ext_resource type="Script" path="res://battlesim/utility/wave_manager.gd" id="4_mnbnl"]
-[ext_resource type="Script" path="res://battlesim/utility/new_game_manager.gd" id="27_12da5"]
+[ext_resource type="Script" uid="uid://bwnxymr5r5jhn" path="res://battlesim/utility/wave_manager.gd" id="4_mnbnl"]
+[ext_resource type="Script" uid="uid://n1dprki2gf6y" path="res://battlesim/utility/new_game_manager.gd" id="27_12da5"]
 
 [node name="Map" type="Control" groups=["map"]]
 layout_mode = 3

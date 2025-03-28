@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://737gunlnv56j"]
 
 [ext_resource type="Texture2D" uid="uid://cmb6wgkxqq8vg" path="res://assets/art/loot/worn_out_shoe.webp" id="1_sk5uv"]
-[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_juoet"]
+[ext_resource type="Script" uid="uid://de2sohbirm5h7" path="res://resources/items/loot_resource.gd" id="2_juoet"]
 
 [resource]
 script = ExtResource("2_juoet")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ci8xosvaxat7m"]
 
-[ext_resource type="Script" path="res://scenes/utility/offline_rewards/offline_rewards.gd" id="1_hpg0e"]
+[ext_resource type="Script" uid="uid://cb503rcjoqq2a" path="res://scenes/utility/offline_rewards/offline_rewards.gd" id="1_hpg0e"]
 [ext_resource type="PackedScene" uid="uid://crp36l631uhwm" path="res://scenes/interfaces/crafting/loot_grid.tscn" id="1_njxxe"]
 [ext_resource type="Texture2D" uid="uid://bhkgo38s51mvv" path="res://assets/art/ui/close.png" id="2_6vjf4"]
 [ext_resource type="Texture2D" uid="uid://dgopnap7cyd83" path="res://assets/art/ui/close_hover.png" id="3_ipl11"]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ProjectileResource" load_steps=3 format=3 uid="uid://cv47v3cpcwq0q"]
 
-[ext_resource type="Script" path="res://resources/projectiles/projectile_resource.gd" id="1_3rlv3"]
+[ext_resource type="Script" uid="uid://dp2aypwdmrlg" path="res://resources/projectiles/projectile_resource.gd" id="1_3rlv3"]
 [ext_resource type="Texture2D" uid="uid://584d6at6y3el" path="res://assets/art/map/nexus_projectile.png" id="2_wmih8"]
 
 [resource]

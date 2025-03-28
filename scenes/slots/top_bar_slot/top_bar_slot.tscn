@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://usdcupwtb8vt"]
 
-[ext_resource type="Script" path="res://scenes/slots/top_bar_slot/top_bar_slot.gd" id="1_akj1m"]
+[ext_resource type="Script" uid="uid://lay0vh00wreh" path="res://scenes/slots/top_bar_slot/top_bar_slot.gd" id="1_akj1m"]
 [ext_resource type="Texture2D" uid="uid://bov1hs5fvyh28" path="res://assets/art/characters/team_heroes_portraits/eddy_circle_portrait.png" id="1_o47tj"]
 [ext_resource type="Texture2D" uid="uid://01nxb5weomiu" path="res://assets/art/skills/extra/crushing_blow_portrait.png" id="3_ntr7q"]
-[ext_resource type="Script" path="res://scenes/slots/top_bar_slot/texture_progress_bar.gd" id="4_r1yar"]
+[ext_resource type="Script" uid="uid://ytyg20isbspm" path="res://scenes/slots/top_bar_slot/texture_progress_bar.gd" id="4_r1yar"]
 
 [node name="TopBarSlot" type="Control"]
 layout_mode = 3

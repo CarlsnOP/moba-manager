@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bacpg17x5vs5i"]
 
-[ext_resource type="Script" path="res://battlesim/top_bar/top_bar.gd" id="1_ha24x"]
+[ext_resource type="Script" uid="uid://bvsqw2jei35g" path="res://battlesim/top_bar/top_bar.gd" id="1_ha24x"]
 [ext_resource type="PackedScene" uid="uid://usdcupwtb8vt" path="res://scenes/slots/top_bar_slot/top_bar_slot.tscn" id="2_qpsyf"]
 
 [node name="TopBar" type="Control" groups=["top_bar", "update_post_match"]]

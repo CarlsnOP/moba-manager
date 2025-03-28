@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interfaces/interface_base.tscn" id="1_tkj53"]
 [ext_resource type="Texture2D" uid="uid://bdwsuf57xvc83" path="res://assets/art/characters/team_heroes_portraits/fred_circle_portrait.png" id="2_dmwn7"]
-[ext_resource type="Script" path="res://scenes/interfaces/profile/profile.gd" id="2_phrpf"]
+[ext_resource type="Script" uid="uid://bil5ov5wfyl07" path="res://scenes/interfaces/profile/profile.gd" id="2_phrpf"]
 [ext_resource type="PackedScene" uid="uid://lt08ltq12ss6" path="res://scenes/slots/hero_slot/hero_portrait_slot.tscn" id="3_6qvjh"]
 
 [node name="Profile" groups=["profile_page"] instance=ExtResource("1_tkj53")]
@@ -34,7 +34,45 @@ layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Stats"
 
-[node name="StatsTabContainer" type="TabContainer" parent="PC/MC/VB" index="3"]
+[node name="PanelContainer" type="PanelContainer" parent="PC/MC/VB" index="3"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PC/MC/VB/PanelContainer" index="0"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PC/MC/VB/PanelContainer/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="GlobalLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Global:"
+
+[node name="GlobalStatsLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "All stats"
+
+[node name="HSeparator2" type="HSeparator" parent="PC/MC/VB/PanelContainer/MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="GlobalHeroLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VBoxContainer" index="3"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Global Hero stats multipliers:"
+
+[node name="GlobalHeroStatsLabel" type="Label" parent="PC/MC/VB/PanelContainer/MarginContainer/VBoxContainer" index="4"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "All stats"
+
+[node name="StatsTabContainer" type="TabContainer" parent="PC/MC/VB" index="4"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 current_tab = 0
@@ -49,33 +87,6 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PC/MC/VB/StatsTabContainer/Global Modifiers/MarginContainer" index="0"]
-layout_mode = 2
-
-[node name="GlobalLabel" type="Label" parent="PC/MC/VB/StatsTabContainer/Global Modifiers/MarginContainer/VBoxContainer" index="0"]
-layout_mode = 2
-theme_type_variation = &"HeaderSmall"
-text = "Global:"
-
-[node name="GlobalStatsLabel" type="Label" parent="PC/MC/VB/StatsTabContainer/Global Modifiers/MarginContainer/VBoxContainer" index="1"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "All stats"
-
-[node name="HSeparator2" type="HSeparator" parent="PC/MC/VB/StatsTabContainer/Global Modifiers/MarginContainer/VBoxContainer" index="2"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="GlobalHeroLabel" type="Label" parent="PC/MC/VB/StatsTabContainer/Global Modifiers/MarginContainer/VBoxContainer" index="3"]
-layout_mode = 2
-theme_type_variation = &"HeaderSmall"
-text = "Global Hero stats multipliers:"
-
-[node name="GlobalHeroStatsLabel" type="Label" parent="PC/MC/VB/StatsTabContainer/Global Modifiers/MarginContainer/VBoxContainer" index="4"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "All stats"
 
 [node name="Hero Specific" type="ScrollContainer" parent="PC/MC/VB/StatsTabContainer" index="2"]
 visible = false

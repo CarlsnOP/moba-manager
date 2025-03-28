@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="EquipmentResource" load_steps=7 format=3 uid="uid://cppd3cdtu8agp"]
 
 [ext_resource type="Texture2D" uid="uid://cpwyttwbvkuws" path="res://assets/art/items/squeaky_gauntlets.webp" id="1_2xsev"]
-[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_sfs5c"]
+[ext_resource type="Script" uid="uid://de2sohbirm5h7" path="res://resources/items/loot_resource.gd" id="2_sfs5c"]
 [ext_resource type="Resource" uid="uid://bh5gut5hvjxuu" path="res://resources/items/loot/squeaky_toy.tres" id="3_6xm28"]
 [ext_resource type="Resource" uid="uid://bmkwkkrkcnw3o" path="res://resources/items/loot/bent_fork.tres" id="3_t5xnx"]
-[ext_resource type="Script" path="res://resources/items/equipment_resource.gd" id="4_4ajoy"]
+[ext_resource type="Script" uid="uid://oig7gdqamlqb" path="res://resources/items/equipment_resource.gd" id="4_4ajoy"]
 [ext_resource type="Resource" uid="uid://ddbr76ucm1ivp" path="res://resources/items/loot/mini_anvil.tres" id="4_cmfsg"]
 
 [resource]

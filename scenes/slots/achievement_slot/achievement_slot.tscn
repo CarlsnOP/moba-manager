@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddst1sy55by4u"]
 
 [ext_resource type="Texture2D" uid="uid://crpaha4jcev2l" path="res://assets/art/achievements/unachieved_duck.png" id="1_62dxe"]
-[ext_resource type="Script" path="res://scenes/slots/achievement_slot/achievement_slot.gd" id="1_h5ire"]
+[ext_resource type="Script" uid="uid://clsorkskw13tp" path="res://scenes/slots/achievement_slot/achievement_slot.gd" id="1_h5ire"]
 [ext_resource type="FontFile" uid="uid://qtceburuli1a" path="res://assets/fonts/bangers_regular.ttf" id="2_87eeb"]
 
 [node name="AchievementSlot" type="Control"]

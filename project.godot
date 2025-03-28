@@ -23,10 +23,10 @@ resources_spreadsheet_view/fold_docks=false
 
 config/name="Moba Manager"
 run/main_scene="res://scenes/homepage/homepage.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0.0452479, 0.108256, 1)
-boot_splash/image="res://logo.png"
 boot_splash/fullsize=false
+boot_splash/image="res://logo.png"
 config/icon="res://logo.png"
 
 [autoload]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dx56a1oocjjlu"]
 
 [ext_resource type="Texture2D" uid="uid://cab67gkxsw6kv" path="res://assets/art/particles/blood_particle.png" id="1_rywuo"]
-[ext_resource type="Script" path="res://battlesim/effects/basic_particles.gd" id="1_uypxg"]
+[ext_resource type="Script" uid="uid://bomwa6cck66no" path="res://battlesim/effects/basic_particles.gd" id="1_uypxg"]
 
 [sub_resource type="Gradient" id="Gradient_h5df5"]
 offsets = PackedFloat32Array(0, 0.154047, 0.830287, 0.986945)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d3yo0f5qh8g0t" path="res://assets/art/characters/egon_the_fighter.png" id="1_i1jsh"]
 [ext_resource type="Texture2D" uid="uid://c1c26xn47bydm" path="res://assets/art/characters/team_heroes_portraits/egon_circle_portrait.png" id="2_dm13p"]
-[ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="3_gtqqi"]
+[ext_resource type="Script" uid="uid://b6gm75a04utyu" path="res://resources/heroes/hero_resource.gd" id="3_gtqqi"]
 [ext_resource type="Resource" uid="uid://di7wcfodht8h7" path="res://resources/skills/resources/crushing_blow.tres" id="4_33oc4"]
 
 [resource]

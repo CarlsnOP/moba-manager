@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://diecoj7eambr2"]
 
-[ext_resource type="Script" path="res://battlesim/effects/explosion/base_explosion.gd" id="1_snf42"]
+[ext_resource type="Script" uid="uid://cirrivosfsarl" path="res://battlesim/effects/explosion/base_explosion.gd" id="1_snf42"]
 [ext_resource type="Texture2D" uid="uid://dy5yiky7op1ka" path="res://assets/art/particles/smoke_particle.png" id="2_gfxh2"]
 
 [sub_resource type="Gradient" id="Gradient_qkpnp"]

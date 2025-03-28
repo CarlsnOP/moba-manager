@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="EquipmentResource" load_steps=7 format=3 uid="uid://dy3dpnuxbuuq3"]
 
 [ext_resource type="Texture2D" uid="uid://cylhc7apfog0r" path="res://assets/art/items/phantom_duster.webp" id="1_ho0xk"]
-[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_uy2g1"]
+[ext_resource type="Script" uid="uid://de2sohbirm5h7" path="res://resources/items/loot_resource.gd" id="2_uy2g1"]
 [ext_resource type="Resource" uid="uid://jyqurawt1ib5" path="res://resources/items/loot/phantom_cloth.tres" id="3_ow83o"]
 [ext_resource type="Resource" uid="uid://b8hcv4cjg36sr" path="res://resources/items/loot/soggy_sock.tres" id="4_3ixys"]
-[ext_resource type="Script" path="res://resources/items/equipment_resource.gd" id="4_5hian"]
+[ext_resource type="Script" uid="uid://oig7gdqamlqb" path="res://resources/items/equipment_resource.gd" id="4_5hian"]
 [ext_resource type="Resource" uid="uid://bo2jhqgexto4v" path="res://resources/items/loot/ancient_scroll.tres" id="5_pd52m"]
 
 [resource]

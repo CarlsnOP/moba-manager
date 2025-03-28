@@ -28,7 +28,7 @@ func _ready():
 	call_deferred("update")
 	SignalManager.event.connect(event_happend)
 	SignalManager.on_battle_end.connect(on_battle_end)
-	SignalManager.tutorial_finished.connect(show_battle_manager)
+	SignalManager.restart_match.connect(show_battle_manager)
 	
 	await get_tree().physics_frame
 	if TeamManager.bot == null and TeamManager.top == null:

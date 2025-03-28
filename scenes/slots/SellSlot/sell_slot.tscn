@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://6ajppifq35c5"]
 
-[ext_resource type="Script" path="res://scenes/slots/SellSlot/sell_slot.gd" id="1_all3d"]
+[ext_resource type="Script" uid="uid://tnvficd1d1nu" path="res://scenes/slots/SellSlot/sell_slot.gd" id="1_all3d"]
 [ext_resource type="PackedScene" uid="uid://cbeqdlhkmic5y" path="res://scenes/slots/loot_slot/loot_slot.tscn" id="1_cqlt7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6boai"]

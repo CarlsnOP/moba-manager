@@ -1,16 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://bpnlghx13iay"]
+[gd_scene load_steps=18 format=3 uid="uid://bpnlghx13iay"]
 
-[ext_resource type="Script" path="res://scenes/homepage/homepage.gd" id="1_i64r6"]
-[ext_resource type="Script" path="res://scenes/utility/game_canvas/game_canvas.gd" id="2_5k54r"]
+[ext_resource type="Script" uid="uid://sva42pxbydd6" path="res://scenes/homepage/homepage.gd" id="1_i64r6"]
+[ext_resource type="Script" uid="uid://byucqv1428a2s" path="res://scenes/utility/game_canvas/game_canvas.gd" id="2_5k54r"]
 [ext_resource type="PackedScene" uid="uid://bacpg17x5vs5i" path="res://battlesim/top_bar/top_bar.tscn" id="3_5v617"]
 [ext_resource type="PackedScene" uid="uid://d1srca4b5kfs6" path="res://scenes/nav_menu/nav_menu.tscn" id="3_tjgve"]
 [ext_resource type="PackedScene" uid="uid://brfdff1sxe1as" path="res://scenes/interface_manager/interface_manager.tscn" id="5_upecu"]
 [ext_resource type="PackedScene" uid="uid://fgfie74mjqjs" path="res://scenes/interfaces/battle_manager/battle_manager.tscn" id="6_88w18"]
-[ext_resource type="Script" path="res://utility/scripts/saving_and_loading/saver_loader.gd" id="6_ydpd0"]
+[ext_resource type="Script" uid="uid://b3na7ewf5fqca" path="res://utility/scripts/saving_and_loading/saver_loader.gd" id="6_ydpd0"]
 [ext_resource type="PackedScene" uid="uid://b8fkla5rkmdyu" path="res://scenes/utility/team_manager/team_manager.tscn" id="7_4dhdb"]
 [ext_resource type="PackedScene" uid="uid://dwj0640l7livv" path="res://scenes/tutorial_page/tutorial_page.tscn" id="7_802f6"]
 [ext_resource type="PackedScene" uid="uid://b2uitoevl42b3" path="res://battlesim/map/map.tscn" id="7_e6ve5"]
 [ext_resource type="PackedScene" uid="uid://deflmyqw7x3wv" path="res://singletons/sound_manager.tscn" id="8_qnl7l"]
+[ext_resource type="Script" uid="uid://cenxxrvppetro" path="res://scenes/homepage/restart_match_warning.gd" id="9_0lp1r"]
 [ext_resource type="AudioStream" uid="uid://7irdu1cd5ubh" path="res://assets/sounds/music/bouncy_adventure.mp3" id="9_7tj1g"]
 [ext_resource type="AudioStream" uid="uid://4hp51cewv1an" path="res://assets/sounds/music/happy_adventure.mp3" id="10_6io05"]
 
@@ -106,6 +107,43 @@ ignore_texture_size = false
 
 [node name="TutorialPage" parent="GameCanvas" instance=ExtResource("7_802f6")]
 
+[node name="RestartMatchWarning" type="PanelContainer" parent="GameCanvas"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -95.0
+offset_right = 300.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"PanelWithBorder"
+script = ExtResource("9_0lp1r")
+
+[node name="MC" type="MarginContainer" parent="GameCanvas/RestartMatchWarning"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="HB" type="HBoxContainer" parent="GameCanvas/RestartMatchWarning/MC"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="GameCanvas/RestartMatchWarning/MC/HB"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Changes will take effect when match finish.
+Or match is restarted."
+horizontal_alignment = 1
+
+[node name="RestartMatchButton" type="Button" parent="GameCanvas/RestartMatchWarning/MC/HB"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+text = "Restart match"
+
 [node name="Utilities" type="Node" parent="."]
 
 [node name="SaverLoader" type="Node" parent="Utilities" groups=["saver_loader"]]
@@ -129,6 +167,7 @@ unique_name_in_owner = true
 volume_db = -10.0
 bus = &"Ambience"
 
+[connection signal="pressed" from="GameCanvas/RestartMatchWarning/MC/HB/RestartMatchButton" to="GameCanvas/RestartMatchWarning" method="_on_restart_match_button_pressed"]
 [connection signal="timeout" from="Utilities/SaverLoader/SaveTimer" to="Utilities/SaverLoader" method="_on_save_timer_timeout"]
 
 [editable path="GameCanvas/GameLayoutHB/Map"]

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="EquipmentResource" load_steps=7 format=3 uid="uid://ccktctl4aep1m"]
 
 [ext_resource type="Texture2D" uid="uid://bf3vnf2pd6iqy" path="res://assets/art/items/jeweled_goblet_of_power.webp" id="1_0vu7h"]
-[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_r4lxq"]
+[ext_resource type="Script" uid="uid://de2sohbirm5h7" path="res://resources/items/loot_resource.gd" id="2_r4lxq"]
 [ext_resource type="Resource" uid="uid://c8sk4ei08viwn" path="res://resources/items/loot/jeweled_goblet.tres" id="3_mgns6"]
-[ext_resource type="Script" path="res://resources/items/equipment_resource.gd" id="4_aps7k"]
+[ext_resource type="Script" uid="uid://oig7gdqamlqb" path="res://resources/items/equipment_resource.gd" id="4_aps7k"]
 [ext_resource type="Resource" uid="uid://bwacakjwo6wbi" path="res://resources/items/loot/plastic_gem.tres" id="4_lnedw"]
 [ext_resource type="Resource" uid="uid://cb1cfmmoj3max" path="res://resources/items/loot/lucky_horseshoe.tres" id="5_d6t3d"]
 

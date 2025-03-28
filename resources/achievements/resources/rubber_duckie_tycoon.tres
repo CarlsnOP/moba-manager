@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AchievementResource" load_steps=3 format=3 uid="uid://0ba5vvrwifkv"]
 
-[ext_resource type="Script" path="res://resources/achievements/achievement_resource.gd" id="1_qjgn4"]
-[ext_resource type="Script" path="res://resources/achievements/achievement_scripts/rubber_duckie_tycoon_script.gd" id="1_v7hbi"]
+[ext_resource type="Script" uid="uid://chd5hri3yagig" path="res://resources/achievements/achievement_resource.gd" id="1_qjgn4"]
+[ext_resource type="Script" uid="uid://x6s43tl2lf05" path="res://resources/achievements/achievement_scripts/rubber_duckie_tycoon_script.gd" id="1_v7hbi"]
 
 [resource]
 script = ExtResource("1_qjgn4")

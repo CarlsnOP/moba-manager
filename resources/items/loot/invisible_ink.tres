@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LootResource" load_steps=3 format=3 uid="uid://bb6s5ovu3pcl4"]
 
 [ext_resource type="Texture2D" uid="uid://coyb04p1te5qy" path="res://assets/art/loot/invisible_ink.webp" id="1_k7xov"]
-[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_rt0oq"]
+[ext_resource type="Script" uid="uid://de2sohbirm5h7" path="res://resources/items/loot_resource.gd" id="2_rt0oq"]
 
 [resource]
 script = ExtResource("2_rt0oq")

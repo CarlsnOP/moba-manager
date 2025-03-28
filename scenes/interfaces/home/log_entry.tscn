@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cjyqwudsqgmsu"]
 
-[ext_resource type="Script" path="res://scenes/interfaces/home/log_entry.gd" id="1_8gng6"]
+[ext_resource type="Script" uid="uid://bqcndw6n6yxq" path="res://scenes/interfaces/home/log_entry.gd" id="1_8gng6"]
 
 [node name="LogEntry" type="Control" groups=["game_events"]]
 custom_minimum_size = Vector2(0, 50)

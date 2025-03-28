@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://baysqvxlvsnfk" path="res://assets/art/characters/fred_the_tank.png" id="1_tla1a"]
 [ext_resource type="Texture2D" uid="uid://bdwsuf57xvc83" path="res://assets/art/characters/team_heroes_portraits/fred_circle_portrait.png" id="2_ft3xm"]
-[ext_resource type="Script" path="res://resources/heroes/hero_resource.gd" id="3_nkov1"]
+[ext_resource type="Script" uid="uid://b6gm75a04utyu" path="res://resources/heroes/hero_resource.gd" id="3_nkov1"]
 [ext_resource type="Resource" uid="uid://phrbnga4icum" path="res://resources/skills/resources/ironclad_aura.tres" id="4_668ki"]
 
 [resource]

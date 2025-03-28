@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://673smdjoegvd"]
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interfaces/interface_base.tscn" id="1_qir55"]
-[ext_resource type="Script" path="res://scenes/interfaces/heroes/heroes.gd" id="2_aktco"]
+[ext_resource type="Script" uid="uid://ds6q4o5ypy1kn" path="res://scenes/interfaces/heroes/heroes.gd" id="2_aktco"]
 [ext_resource type="PackedScene" uid="uid://ckooocc8ghpgl" path="res://scenes/slots/hero_slot/hero_slot.tscn" id="3_md810"]
-[ext_resource type="Script" path="res://scenes/interfaces/heroes/hero_page.gd" id="4_iqvvf"]
+[ext_resource type="Script" uid="uid://c61bko5t8ehy5" path="res://scenes/interfaces/heroes/hero_page.gd" id="4_iqvvf"]
 [ext_resource type="Texture2D" uid="uid://dov0tkj3njqct" path="res://assets/art/characters/eddy_the_jungler.png" id="5_omhe7"]
 [ext_resource type="Texture2D" uid="uid://bv2cxijy21p7h" path="res://assets/art/stats/health.png" id="5_wiflx"]
 [ext_resource type="Texture2D" uid="uid://unb6f6nrf3" path="res://assets/art/ui/questionmark.png" id="6_bd04n"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bh6i5ssmhkhq" path="res://scenes/slots/skill_slot/skill_slot.tscn" id="8_d3csg"]
 [ext_resource type="Texture2D" uid="uid://iidkyr42hhqt" path="res://assets/art/stats/crit.png" id="9_vqa2x"]
 [ext_resource type="Texture2D" uid="uid://ug5hh7ljyn0v" path="res://assets/art/ui/add_equipment.png" id="9_w1wtq"]
-[ext_resource type="Script" path="res://scenes/interfaces/heroes/equipment_container.gd" id="11_o3qgp"]
+[ext_resource type="Script" uid="uid://dxcinan7y4gca" path="res://scenes/interfaces/heroes/equipment_container.gd" id="11_o3qgp"]
 [ext_resource type="Texture2D" uid="uid://bhkgo38s51mvv" path="res://assets/art/ui/close.png" id="11_sacu1"]
 [ext_resource type="Texture2D" uid="uid://dgopnap7cyd83" path="res://assets/art/ui/close_hover.png" id="12_v640a"]
 

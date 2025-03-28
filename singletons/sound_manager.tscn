@@ -1,7 +1,7 @@
 [gd_scene load_steps=61 format=3 uid="uid://deflmyqw7x3wv"]
 
-[ext_resource type="Script" path="res://singletons/sound_manager.gd" id="1_rmpyl"]
-[ext_resource type="Script" path="res://utility/scripts/sound_effect_settings/sound_effect_settings.gd" id="2_rnnka"]
+[ext_resource type="Script" uid="uid://cjxtdeqj6r1b3" path="res://singletons/sound_manager.gd" id="1_rmpyl"]
+[ext_resource type="Script" uid="uid://cn4kp6pl481v2" path="res://utility/scripts/sound_effect_settings/sound_effect_settings.gd" id="2_rnnka"]
 [ext_resource type="AudioStream" uid="uid://byxx7veg4s8yg" path="res://assets/sounds/sfx/skills/crushing_blow/crushing_blow_hit.wav" id="3_lham7"]
 [ext_resource type="AudioStream" uid="uid://0em8swi20fq8" path="res://assets/sounds/sfx/skills/explosive_finale/explosive_finale_explosion.wav" id="4_qxopu"]
 [ext_resource type="AudioStream" uid="uid://3v2y5qiur3oo" path="res://assets/sounds/sfx/battlesim/game_over/win_game.wav" id="5_6to17"]

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="EquipmentResource" load_steps=7 format=3 uid="uid://cvdigjqj0sxb6"]
 
 [ext_resource type="Texture2D" uid="uid://diser732wulb0" path="res://assets/art/items/golden_toothpick_of_doom.webp" id="1_ka076"]
-[ext_resource type="Script" path="res://resources/items/loot_resource.gd" id="2_fpwun"]
+[ext_resource type="Script" uid="uid://de2sohbirm5h7" path="res://resources/items/loot_resource.gd" id="2_fpwun"]
 [ext_resource type="Resource" uid="uid://hb1kmaeo2ga1" path="res://resources/items/loot/golden_toothpick.tres" id="3_oqinx"]
-[ext_resource type="Script" path="res://resources/items/equipment_resource.gd" id="4_3a0cv"]
+[ext_resource type="Script" uid="uid://oig7gdqamlqb" path="res://resources/items/equipment_resource.gd" id="4_3a0cv"]
 [ext_resource type="Resource" uid="uid://c148upheyf4gy" path="res://resources/items/loot/fluffy_feather.tres" id="4_k1tp1"]
 [ext_resource type="Resource" uid="uid://cfq7gu1jwyuug" path="res://resources/items/loot/enchanted_pebble.tres" id="5_hf88h"]
 

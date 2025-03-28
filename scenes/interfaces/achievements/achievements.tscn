@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhix3y2kgctle"]
 
 [ext_resource type="PackedScene" uid="uid://bd7y8koo1w71" path="res://scenes/interfaces/interface_base.tscn" id="1_4627r"]
-[ext_resource type="Script" path="res://scenes/interfaces/achievements/achievement_log.gd" id="2_evcf3"]
-[ext_resource type="Script" path="res://scenes/interfaces/achievements/achievements.gd" id="2_gxpl6"]
+[ext_resource type="Script" uid="uid://bxsrkertab2fa" path="res://scenes/interfaces/achievements/achievement_log.gd" id="2_evcf3"]
+[ext_resource type="Script" uid="uid://b42habllusv3h" path="res://scenes/interfaces/achievements/achievements.gd" id="2_gxpl6"]
 
 [node name="Achievements" instance=ExtResource("1_4627r")]
 script = ExtResource("2_gxpl6")
